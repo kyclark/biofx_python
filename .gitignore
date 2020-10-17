@@ -130,3 +130,5 @@ dmypy.json
 
 *.swp
 .vscode
+
+.DS_Store
