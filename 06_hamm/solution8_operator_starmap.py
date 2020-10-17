@@ -2,8 +2,9 @@
 """ Hamming distance """
 
 import argparse
-from itertools import zip_longest, starmap
 import operator
+import sys
+from itertools import zip_longest, starmap
 from typing import NamedTuple, TextIO
 
 
@@ -14,7 +15,7 @@ class Args(NamedTuple):
 
 # --------------------------------------------------
 def get_args():
-    """Get command-line arguments"""
+    """ Get command-line arguments """
 
     parser = argparse.ArgumentParser(
         description='Hamming distance',
@@ -32,14 +33,33 @@ def get_args():
 
 # --------------------------------------------------
 def main():
-    """Make a jazz noise here"""
+    """ Make a jazz noise here """
 
     args = get_args()
-    line1, line2 = args.file.read().splitlines()[:2]
+    lines = args.file.read().splitlines()
+
+    if len(lines) != 2:
+        sys.exit(f'Input file "{args.file.name}" must have two lines.')
+
+    seq1, seq2 = lines
+    print(hamming(seq1, seq2))
+
+
+# --------------------------------------------------
+def hamming(seq1: str, seq2: str) -> int:
+    """ Calculate Hamming distance """
 
     # Method 9: operator.ne and starmap
-    distance = starmap(operator.ne, zip_longest(line1, line2))
-    print(sum((distance)))
+    return sum(starmap(operator.ne, zip_longest(seq1, seq2)))
+
+
+# --------------------------------------------------
+def test_hamming() -> None:
+    """ Test hamming """
+
+    assert hamming('', '') == 0
+    assert hamming('AC', 'ACGT') == 2
+    assert hamming('GAGCCTACTAACGGGAT', 'CATCGTAATGACGGCCT') == 7
 
 
 # --------------------------------------------------

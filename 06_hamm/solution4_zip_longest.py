@@ -2,6 +2,8 @@
 """ Hamming distance """
 
 import argparse
+import sys
+from itertools import zip_longest
 from typing import NamedTuple, TextIO
 
 
@@ -12,7 +14,7 @@ class Args(NamedTuple):
 
 # --------------------------------------------------
 def get_args():
-    """Get command-line arguments"""
+    """ Get command-line arguments """
 
     parser = argparse.ArgumentParser(
         description='Hamming distance',
@@ -30,21 +32,38 @@ def get_args():
 
 # --------------------------------------------------
 def main():
-    """Make a jazz noise here"""
+    """ Make a jazz noise here """
 
     args = get_args()
+    lines = args.file.read().splitlines()
 
-    line1, line2 = args.file.read().splitlines()[:2]
+    if len(lines) != 2:
+        sys.exit(f'Input file "{args.file.name}" must have two lines.')
 
-    # Method 2: The base distance is the difference in their lengths
-    distance = abs(len(line1) - len(line2))
+    seq1, seq2 = lines
+    print(hamming(seq1, seq2))
 
-    # Use zip to pair up the letters
-    for char1, char2 in zip(line1, line2):
+
+# --------------------------------------------------
+def hamming(seq1: str, seq2: str) -> int:
+    """ Calculate Hamming distance """
+
+    # Method 3: zip_longest
+    distance = 0
+    for char1, char2 in zip_longest(seq1, seq2):
         if char1 != char2:
             distance += 1
 
-    print(distance)
+    return distance
+
+
+# --------------------------------------------------
+def test_hamming() -> None:
+    """ Test hamming """
+
+    assert hamming('', '') == 0
+    assert hamming('AC', 'ACGT') == 2
+    assert hamming('GAGCCTACTAACGGGAT', 'CATCGTAATGACGGCCT') == 7
 
 
 # --------------------------------------------------

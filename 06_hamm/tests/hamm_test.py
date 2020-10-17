@@ -8,20 +8,21 @@ import string
 from subprocess import getstatusoutput
 
 PRG = './hamm.py'
+EMPTY = './tests/inputs/empty.txt'
 INPUT1 = './tests/inputs/1.txt'
 INPUT2 = './tests/inputs/2.txt'
 
 
 # --------------------------------------------------
 def test_exists():
-    """exists"""
+    """ Program exists """
 
     assert os.path.isfile(PRG)
 
 
 # --------------------------------------------------
 def test_usage():
-    """usage"""
+    """ Usage """
 
     for flag in ['-h', '--help']:
         rv, out = getstatusoutput(f'{PRG} {flag}')
@@ -31,7 +32,7 @@ def test_usage():
 
 # --------------------------------------------------
 def test_bad_file():
-    """Bad file"""
+    """ Dies on bad file """
 
     bad = random_string()
     rv, out = getstatusoutput(f'{PRG} {bad}')
@@ -60,6 +61,15 @@ def test_input2():
     """ Test with input2 """
 
     run(INPUT2, '503')
+
+
+# --------------------------------------------------
+def test_empty_file():
+    """ Empty file """
+
+    rv, out = getstatusoutput(f'{PRG} {EMPTY}')
+    assert rv != 0
+    assert re.search(f'Input file "{EMPTY}" must have two lines.', out)
 
 
 # --------------------------------------------------

@@ -40,6 +40,12 @@ def main():
         sys.exit(f'Input file "{args.file.name}" must have two lines.')
 
     seq1, seq2 = lines
+    print(hamming(seq1, seq2))
+
+
+# --------------------------------------------------
+def hamming(seq1: str, seq2: str) -> int:
+    """ Calculate Hamming distance """
 
     # Method 1: The base distance is the difference in their lengths
     l1, l2 = len(seq1), len(seq2)
@@ -51,7 +57,16 @@ def main():
         if seq1[i] != seq2[i]:
             distance += 1
 
-    print(distance)
+    return distance
+
+
+# --------------------------------------------------
+def test_hamming() -> None:
+    """ Test hamming """
+
+    assert hamming('', '') == 0
+    assert hamming('AC', 'ACGT') == 2
+    assert hamming('GAGCCTACTAACGGGAT', 'CATCGTAATGACGGCCT') == 7
 
 
 # --------------------------------------------------
