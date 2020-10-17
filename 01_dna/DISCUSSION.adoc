@@ -1,0 +1,175 @@
+= Counting tetranucleotide frequency
+
+Counting the bases in DNA.
+The input is assumed to be a single positional argument on the command line, but we'll alter our program to additionally read an input file.
+
+== Iterating the characters in a string
+
+The first solution uses a `for` loop to iterate through each character in the input string.
+We'll establish counter variables to hold the number of As, Cs, Gs, and Ts.
+Each time we identify one of these bases, we'll add 1 to the counter.
+Then we'll print them out in the correct order with a single space in between:
+
+[source,python,linenums]
+----
+#!/usr/bin/env python3
+""" 
+Author : Ken Youens-Clark <kyclark@gmail.com>
+Purpose: Tetranucleotide frequency
+"""
+
+import argparse
+import os
+
+
+# --------------------------------------------------
+def get_args():
+    """Get command-line arguments"""
+
+    parser = argparse.ArgumentParser(
+        description='Tetranucleotide frequency',
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+
+    parser.add_argument('dna', metavar='str', help='Input DNA sequence') <1>
+
+    args = parser.parse_args() <2>
+
+    if os.path.isfile(args.dna): <3>
+        args.dna = open(args.dna).read() <4>
+
+    return args
+
+
+# --------------------------------------------------
+def main():
+    """Make a jazz noise here"""
+
+    args = get_args() <5>
+    count_a, count_c, count_g, count_t = 0, 0, 0, 0 <6>
+
+    for base in args.dna.lower(): <7>
+        if base == 'a':  <8>
+            count_a += 1
+        elif base == 'c':
+            count_c += 1
+        elif base == 'g':
+            count_g += 1
+        elif base == 't':
+            count_t += 1
+
+    print(f'{count_a} {count_c} {count_g} {count_t}') <9>
+
+
+# --------------------------------------------------
+if __name__ == '__main__':
+    main()
+----
+
+<1> The DNA is defined as a positional string parameter.
+<2> Intercept the arguments.
+<3> Test if the "dna" value is the name of a file.
+<4> Open and read the file to use the contents as the "dna" value.
+<5> Get the command-line arguments.
+<6> Initialize four variables to hold the counts for A, C, G, and T.
+<7> Iterate through each base in the lowercased sequence so that we don't have to check both upper- and lowercase bases.
+<8> Check for each wanted character, and increment the correct variable accordingly.
+<9> Print the values using an f-string.
+
+== Using str.count()
+
+The `str` class has a method called `str.count()` that will safely count the number of times one string is found inside another string:
+
+[source,python,linenums]
+----
+def main():
+    args = get_args()
+    dna = args.dna.lower() <1>
+    print('{} {} {} {}'.format(dna.count('a'), dna.count('c'), dna.count('g'),
+                               dna.count('t'))) <2>
+----
+
+<1> Since we need to use "dna" several times, copy it to a "dna" variable. Lowercase the value so that we only need to search lowercase bases.
+<2> Use `dna.count()` to find the number of times each of A, C, G, and T are found.
+
+== Using a dictionary to count all the characters
+
+[source,python,linenums]
+----
+def main():
+    args = get_args()
+    count = {} <1>
+
+    for base in args.dna.lower(): <2>
+        if not base in count:     <3>
+            count[base] = 0       <4>
+        count[base] += 1          <5>
+
+    print('{} {} {} {}'.format(count.get('a', 0), count.get('c', 0),  <6>
+                               count.get('g', 0), count.get('t', 0)))
+----
+
+<1> Initialize an empty dictionary to hold the counts.
+<2> Use a "for" loop to iterate through the lowercased bases.
+<3> Check if the base does not yet exist in the dictionary.
+<4> Initialize the value for this base to 0.
+<5> Increment the count for this base by 1.
+<6> Use the `dict.get()` method to get each base's count or the default of 0. Usr a format string to create the output to print.
+
+== Only count the desired bases
+
+The previous solution will count every character.
+This solution will only count those found in the dictionary which we initialize with values of 0.
+
+[source,python,linenums]
+----
+def main():
+    args = get_args()
+    count = {'a': 0, 'c': 0, 'g': 0, 't': 0} <1>
+    for base in args.dna.lower(): <2>
+        if base in count:         <3>
+            count[base] += 1      <4>
+
+    print(' '.join([str(count.get(base, 0)) for base in 'acgt'])) <5>
+----
+
+<1> Initialize the count dictionary with the four bases each with a count of 0.
+<2> Iterate through each lowercased base.
+<3> Check if the base is found as a key in the `count`.
+<4> Increment the count for this base by 1.
+<5> Use a list comprehension to iterate through each of the bases A, C, G, and T and create a new list with the values from the `count`. Join this list on spaces to print.
+
+== Using a defaultdict()
+
+The `defaultdict()` is great.
+
+[source,python,linenums]
+----
+def main():
+    args = get_args()
+    count = defaultdict(int) <1>
+
+    for base in args.dna.lower(): <2>
+        count[base] += 1          <3>
+
+    print(' '.join(map(lambda base: str(count.get(base, 0)), 'acgt'))) <4>
+----
+
+<1> Initialize the count as a dictionary integer values which default to 0.
+<2> Iterate through each lowercased base.
+<3> Increment the count for this base by 1.
+<4> Use a `map()` to express the same code as the list comprehension.
+
+== Use a Counter()
+
+The `Counter()` does all this work for you!
+Our solution is now down to three lines of code:
+
+[source,python,linenums]
+----
+def main():
+    args = get_args()
+    count = Counter(args.dna.lower()) <1>
+    print(' '.join(map(lambda base: str(count.get(base, 0)), 'acgt')))
+----
+
+<1> Count the frequency of all the characters in the lowercased input.

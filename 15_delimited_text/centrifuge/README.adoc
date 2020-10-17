@@ -1,0 +1,9 @@
+= Summarize Centrifuge Hits by Tax Name
+
+Parsing the output from Centrifuge.
+
+== Solution
+
+```
+include::centrifuge-counts-by-tax/counts_by_tax.py[]
+```

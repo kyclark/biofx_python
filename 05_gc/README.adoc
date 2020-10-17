@@ -1,0 +1,77 @@
+= Finding GC Content in Sequences
+
+Write a Python program called `gc.py` that takes a single positional argument which should be a readable text file.
+The program should print a "usage" if run with no arguments:
+
+----
+$ ./gc.py
+usage: gc.py [-h] FILE
+gc.py: error: the following arguments are required: FILE
+----
+
+And should respond to `-h` and `--help` flags:
+
+----
+$ ./gc.py -h
+usage: gc.py [-h] FILE
+
+Calculate GC content
+
+positional arguments:
+  FILE        Input sequence file
+
+optional arguments:
+  -h, --help  show this help message and exit
+----
+
+The input will be a file with sequences on each line.
+The sequences may be in upper- and lowercase, and some lines may be blank:
+
+----
+$ cat inputs/sample3.txt
+TTTGTAAAGTCTGGATTAACTGCTATAAAATCGGAAACCATAACACCTTTTAGAGTTAAA
+GAATCTCCTGTTCAAATGGAATGTATTGTTAATGATGTTATTGAACTTGGAGACCAAGGT
+GGAGCAGGAAATTTAGTAGTATGTGAAATAAAAATGATTCACATTAATGAAGATATTCTT
+
+gatgatgaaggaattattgatccaaataaaattaaattagtcggacgcatgggtggaaac
+TGGTATTGTAAAACTACCAACGAATCTATCTTTGAAGTTGTTAAACCTATCCGTAATTTA
+ggtattggtgttgatcagattcctaaacgaattaaaaatagctatattcttagtggaaat
+
+GATTTaggtatgcTAGGAAATATAGAAGCCTTacctaccatCGAAGAggttgAAGAATAC
+AAAAAAGAAAACTAACactataaaatgaaaTAATTAAATTTTAagtagtgaagatgaaga
+CAATGCTGAATTTGAATAATTTCCATGTGAATTGGTGGAATATTGTTCTAACAGTGCACG
+----
+
+For each line in the file, the percentage of the characters on that line that are a "G" or "C" (case-insensitive), a colon, a space, and then the sequence:
+
+----
+$ ./gc.py inputs/sample3.txt
+ 30%: TTTGTAAAGTCTGGATTAACTGCTATAAAATCGGAAACCATAACACCTTTTAGAGTTAAA
+ 35%: GAATCTCCTGTTCAAATGGAATGTATTGTTAATGATGTTATTGAACTTGGAGACCAAGGT
+ 26%: GGAGCAGGAAATTTAGTAGTATGTGAAATAAAAATGATTCACATTAATGAAGATATTCTT
+ 35%: gatgatgaaggaattattgatccaaataaaattaaattagtcggacgcatgggtggaaac
+ 30%: TGGTATTGTAAAACTACCAACGAATCTATCTTTGAAGTTGTTAAACCTATCCGTAATTTA
+ 30%: ggtattggtgttgatcagattcctaaacgaattaaaaatagctatattcttagtggaaat
+ 38%: GATTTaggtatgcTAGGAAATATAGAAGCCTTacctaccatCGAAGAggttgAAGAATAC
+ 18%: AAAAAAGAAAACTAACactataaaatgaaaTAATTAAATTTTAagtagtgaagatgaaga
+ 35%: CAATGCTGAATTTGAATAATTTCCATGTGAATTGGTGGAATATTGTTCTAACAGTGCACG
+----
+
+A test suite has been included to help you write the solution.
+You can use `make test` if you have `make` installed or run `pytest -xv test.py`:
+
+----
+$ make test
+pytest -xv test.py
+============================= test session starts ==============================
+...
+
+test.py::test_exists PASSED                                              [ 16%]
+test.py::test_usage PASSED                                               [ 33%]
+test.py::test_bad_input PASSED                                           [ 50%]
+test.py::test_good_input1 PASSED                                         [ 66%]
+test.py::test_good_input2 PASSED                                         [ 83%]
+test.py::test_good_input3 PASSED                                         [100%]
+
+============================== 6 passed in 0.29s ===============================
+----

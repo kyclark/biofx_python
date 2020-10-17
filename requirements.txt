@@ -1,0 +1,9 @@
+pytest
+pylint
+flake8
+mypy
+pytest-pylint
+pytest-flake8
+pytest-mypy
+biopython
+requests
