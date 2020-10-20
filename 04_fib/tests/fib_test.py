@@ -34,7 +34,7 @@ def test_bad_n():
     rv, out = getstatusoutput(f'{PRG} {n} {k}')
     assert rv != 0
     assert out.lower().startswith('usage:')
-    assert re.search(f'n "{n}" must be between 1 and 40', out)
+    assert re.search(f'generations "{n}" must be between 1 and 40', out)
 
 
 # --------------------------------------------------
@@ -46,7 +46,7 @@ def test_bad_k():
     rv, out = getstatusoutput(f'{PRG} {n} {k}')
     assert rv != 0
     assert out.lower().startswith('usage:')
-    assert re.search(f'k "{k}" must be between 1 and 5', out)
+    assert re.search(f'litter "{k}" must be between 1 and 5', out)
 
 
 # --------------------------------------------------

@@ -32,10 +32,10 @@ def get_args() -> Args:
     args = parser.parse_args()
 
     if not 1 <= args.n <= 40:
-        parser.error(f'n "{args.n}" must be between 1 and 40')
+        parser.error(f'generations "{args.n}" must be between 1 and 40')
 
     if not 1 <= args.k <= 5:
-        parser.error(f'k "{args.k}" must be between 1 and 5')
+        parser.error(f'litter "{args.k}" must be between 1 and 5')
 
     return Args(generations=args.n, litter=args.k)
 
