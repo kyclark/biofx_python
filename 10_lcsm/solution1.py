@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Longest Common Substring"""
+""" Longest Common Substring """
 
 import argparse
 import sys
@@ -14,7 +14,7 @@ class Args(NamedTuple):
 
 # --------------------------------------------------
 def get_args() -> Args:
-    """Get command-line arguments"""
+    """ Get command-line arguments """
 
     parser = argparse.ArgumentParser(
         description='Longest Common Substring',
@@ -23,8 +23,7 @@ def get_args() -> Args:
     parser.add_argument('fasta',
                         help='Input FASTA',
                         metavar='FILE',
-                        type=argparse.FileType('rt'),
-                        default=None)
+                        type=argparse.FileType('rt'))
 
     args = parser.parse_args()
 
@@ -33,7 +32,7 @@ def get_args() -> Args:
 
 # --------------------------------------------------
 def main() -> None:
-    """Make a jazz noise here"""
+    """ Make a jazz noise here """
 
     args = get_args()
 
@@ -69,14 +68,14 @@ def main() -> None:
 
 # --------------------------------------------------
 def kmers(k: int, seq: str) -> List[str]:
-    """Find all substrings of a given length k"""
+    """ Find all substrings of a given length k """
 
     return [seq[i:i + k] for i in range(len(seq) - k + 1)]
 
 
 # --------------------------------------------------
 def test_kmers() -> None:
-    """Test kmers"""
+    """ Test kmers """
 
     assert kmers(0, '') == ['']
     assert kmers(1, 'A') == ['A']

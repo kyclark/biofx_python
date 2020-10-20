@@ -12,7 +12,7 @@ class Args(NamedTuple):
 
 # --------------------------------------------------
 def get_args() -> Args:
-    """Get command-line arguments"""
+    """ Get command-line arguments """
 
     parser = argparse.ArgumentParser(
         description='Translate RNA to proteins',
@@ -27,7 +27,7 @@ def get_args() -> Args:
 
 # --------------------------------------------------
 def main() -> None:
-    """Make a jazz noise here"""
+    """ Make a jazz noise here """
 
     args = get_args()
     rna = args.rna.upper()

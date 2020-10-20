@@ -13,14 +13,14 @@ INPUT2 = './tests/inputs/2.txt'
 
 # --------------------------------------------------
 def test_exists():
-    """exists"""
+    """ Program exists """
 
     assert os.path.isfile(PRG)
 
 
 # --------------------------------------------------
 def test_usage():
-    """usage"""
+    """ Usage """
 
     rv, out = getstatusoutput(PRG)
     assert rv != 0
@@ -29,7 +29,7 @@ def test_usage():
 
 # --------------------------------------------------
 def test_bad_file():
-    """usage"""
+    """ Dies on bad file """
 
     bad = random_string()
     rv, out = getstatusoutput(f'{PRG} {bad}')
@@ -40,15 +40,15 @@ def test_bad_file():
 
 # --------------------------------------------------
 def run(file, expected):
-    """runs"""
+    """ Run test """
 
     rv, out = getstatusoutput(f'{PRG} {file}')
     assert out.rstrip() == expected
 
 
 # --------------------------------------------------
-def test_01():
-    """runs"""
+def test_1():
+    """ Input 1 """
 
     expected = '\n'.join([
         'B5ZC00',
@@ -62,8 +62,8 @@ def test_01():
 
 
 # --------------------------------------------------
-def test_02():
-    """runs"""
+def test_2():
+    """ Input 2 """
 
     expected = """
 P13473_LMP2_HUMAN

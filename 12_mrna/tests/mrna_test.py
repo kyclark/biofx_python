@@ -26,7 +26,7 @@ def test_usage():
 
 # --------------------------------------------------
 def test_ok1():
-    """ok"""
+    """ OK """
 
     rv, out = getstatusoutput(f'{PRG} MA')
     assert rv == 0
@@ -35,7 +35,7 @@ def test_ok1():
 
 # --------------------------------------------------
 def test_ok2():
-    """ok"""
+    """ OK """
 
     rv, out = getstatusoutput(f'{PRG} {INPUT1}')
     assert rv == 0
@@ -44,7 +44,7 @@ def test_ok2():
 
 # --------------------------------------------------
 def test_ok3():
-    """ok"""
+    """ OK """
 
     rv, out = getstatusoutput(f'{PRG} {INPUT2}')
     assert rv == 0

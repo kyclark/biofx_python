@@ -1,77 +1,71 @@
-= Finding GC Content in Sequences
+# Finding GC Content in Sequences
 
-Write a Python program called `gc.py` that takes a single positional argument which should be a readable text file.
-The program should print a "usage" if run with no arguments:
+http://rosalind.info/problems/gc/
 
-----
-$ ./gc.py
-usage: gc.py [-h] FILE
-gc.py: error: the following arguments are required: FILE
-----
+Write a Python program called "cgc.py" that takes a single positional argument which should be a readable text file.
 
-And should respond to `-h` and `--help` flags:
+The program should print a "usage" statement for "-h" or "--help" flags:
 
-----
-$ ./gc.py -h
-usage: gc.py [-h] FILE
+```
+$ ./cgc.py -h
+usage: cgc.py [-h] FILE
 
-Calculate GC content
+Compute GC content
 
 positional arguments:
   FILE        Input sequence file
 
 optional arguments:
   -h, --help  show this help message and exit
-----
+```
 
-The input will be a file with sequences on each line.
-The sequences may be in upper- and lowercase, and some lines may be blank:
+The input file will be in FASTA format:
 
-----
-$ cat inputs/sample3.txt
-TTTGTAAAGTCTGGATTAACTGCTATAAAATCGGAAACCATAACACCTTTTAGAGTTAAA
-GAATCTCCTGTTCAAATGGAATGTATTGTTAATGATGTTATTGAACTTGGAGACCAAGGT
-GGAGCAGGAAATTTAGTAGTATGTGAAATAAAAATGATTCACATTAATGAAGATATTCTT
+```
+$ cat tests/inputs/1.fa
+>Rosalind_6404
+CCTGCGGAAGATCGGCACTAGAATAGCCAGAACCGTTTCTCTGAGGCTTCCGGCCTTCCC
+TCCCACTAATAATTCTGAGG
+>Rosalind_5959
+CCATCGGTAGCGCATCCTTAGTCCAATTAAGTCCCTATCCAGGCGCTCCGCCGAAGGTCT
+ATATCCATTTGTCAGCAGACACGC
+>Rosalind_0808
+CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGAC
+TGGGAACCTGCGGGCAGTAGGTGGAAT
+```
 
-gatgatgaaggaattattgatccaaataaaattaaattagtcggacgcatgggtggaaac
-TGGTATTGTAAAACTACCAACGAATCTATCTTTGAAGTTGTTAAACCTATCCGTAATTTA
-ggtattggtgttgatcagattcctaaacgaattaaaaatagctatattcttagtggaaat
+The output should be the sequence ID with the highest GC content along with that GC content as a floating-point value to 6 significant digits:
 
-GATTTaggtatgcTAGGAAATATAGAAGCCTTacctaccatCGAAGAggttgAAGAATAC
-AAAAAAGAAAACTAACactataaaatgaaaTAATTAAATTTTAagtagtgaagatgaaga
-CAATGCTGAATTTGAATAATTTCCATGTGAATTGGTGGAATATTGTTCTAACAGTGCACG
-----
+```
+$ ./cgc.py tests/inputs/1.fa
+Rosalind_0808 60.919540
+```
 
-For each line in the file, the percentage of the characters on that line that are a "G" or "C" (case-insensitive), a colon, a space, and then the sequence:
+A fully passing test suite looks like the following:
 
-----
-$ ./gc.py inputs/sample3.txt
- 30%: TTTGTAAAGTCTGGATTAACTGCTATAAAATCGGAAACCATAACACCTTTTAGAGTTAAA
- 35%: GAATCTCCTGTTCAAATGGAATGTATTGTTAATGATGTTATTGAACTTGGAGACCAAGGT
- 26%: GGAGCAGGAAATTTAGTAGTATGTGAAATAAAAATGATTCACATTAATGAAGATATTCTT
- 35%: gatgatgaaggaattattgatccaaataaaattaaattagtcggacgcatgggtggaaac
- 30%: TGGTATTGTAAAACTACCAACGAATCTATCTTTGAAGTTGTTAAACCTATCCGTAATTTA
- 30%: ggtattggtgttgatcagattcctaaacgaattaaaaatagctatattcttagtggaaat
- 38%: GATTTaggtatgcTAGGAAATATAGAAGCCTTacctaccatCGAAGAggttgAAGAATAC
- 18%: AAAAAAGAAAACTAACactataaaatgaaaTAATTAAATTTTAagtagtgaagatgaaga
- 35%: CAATGCTGAATTTGAATAATTTCCATGTGAATTGGTGGAATATTGTTCTAACAGTGCACG
-----
-
-A test suite has been included to help you write the solution.
-You can use `make test` if you have `make` installed or run `pytest -xv test.py`:
-
-----
+```
 $ make test
-pytest -xv test.py
-============================= test session starts ==============================
+python3 -m pytest -xv --disable-pytest-warnings --flake8 --pylint --mypy cgc.py tests/cgc_test.py
+============================ test session starts ============================
 ...
 
-test.py::test_exists PASSED                                              [ 16%]
-test.py::test_usage PASSED                                               [ 33%]
-test.py::test_bad_input PASSED                                           [ 50%]
-test.py::test_good_input1 PASSED                                         [ 66%]
-test.py::test_good_input2 PASSED                                         [ 83%]
-test.py::test_good_input3 PASSED                                         [100%]
+cgc.py::FLAKE8 SKIPPED                                                [  9%]
+cgc.py::mypy PASSED                                                   [ 18%]
+cgc.py::test_gc PASSED                                                [ 27%]
+tests/cgc_test.py::FLAKE8 SKIPPED                                     [ 36%]
+tests/cgc_test.py::mypy PASSED                                        [ 45%]
+tests/cgc_test.py::test_exists PASSED                                 [ 54%]
+tests/cgc_test.py::test_usage PASSED                                  [ 63%]
+tests/cgc_test.py::test_bad_input PASSED                              [ 72%]
+tests/cgc_test.py::test_good_input1 PASSED                            [ 81%]
+tests/cgc_test.py::test_good_input2 PASSED                            [ 90%]
+::mypy PASSED                                                         [100%]
+=================================== mypy ====================================
 
-============================== 6 passed in 0.29s ===============================
-----
+Success: no issues found in 2 source files
+======================= 9 passed, 2 skipped in 1.39s ========================
+```
+
+## Author
+
+Ken Youens-Clark <kyclark@gmail.com>
