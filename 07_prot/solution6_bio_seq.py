@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Translate DNA/RNA to proteins """
+""" Translate RNA to proteins """
 
 import argparse
 from Bio.Seq import Seq
