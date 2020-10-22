@@ -2,7 +2,7 @@
 """ Translate RNA to proteins """
 
 import argparse
-from typing import NamedTuple
+from typing import NamedTuple, List
 
 
 class Args(NamedTuple):
@@ -30,7 +30,13 @@ def main() -> None:
     """ Make a jazz noise here """
 
     args = get_args()
-    rna = args.rna.upper()
+    print(translate(args.rna.upper()))
+
+
+# --------------------------------------------------
+def translate(rna: str) -> str:
+    """ Translate codon sequence """
+
     codon_to_aa = {
         'AAA': 'K', 'AAC': 'N', 'AAG': 'K', 'AAU': 'N', 'ACA': 'T',
         'ACC': 'T', 'ACG': 'T', 'ACU': 'T', 'AGA': 'R', 'AGC': 'S',
@@ -47,14 +53,42 @@ def main() -> None:
         'UUU': 'F', 'UAA': 'Stop', 'UAG': 'Stop', 'UGA': 'Stop',
     }
 
-    k = 3
-
-    # 2: list comprehension, slice to remove Stop
-    codons = [rna[i:i + k] for i in range(0, len(rna), k)]
-    aa = [codon_to_aa.get(codon, '-') for codon in codons]
+    aa = [codon_to_aa.get(codon, '-') for codon in codons(rna, 3)]
     if 'Stop' in aa:
         aa = aa[:aa.index('Stop')]
-    print(''.join(aa))
+
+    return ''.join(aa)
+
+
+# --------------------------------------------------
+def test_translate() -> None:
+    """ Test translate """
+
+    assert translate('') == ''
+    assert translate('AUG') == 'M'
+    assert translate('AUGCCGUAAUCU') == 'MP'
+    assert translate('AUGGCCAUGGCGCCCAGAACUGAGAU'
+                     'CAAUAGUACCCGUAUUAACGGGUGA') == 'MAMAPRTEINSTRING'
+
+
+# --------------------------------------------------
+def codons(seq: str, k: int) -> List[str]:
+    """ Extract k-sized codons from a sequence """
+
+    return [] if k < 1 else [seq[i:i + k] for i in range(0, len(seq), k)]
+
+
+# --------------------------------------------------
+def test_codons() -> None:
+    """ Test codons """
+
+    assert codons('', 0) == []
+    assert codons('', 1) == []
+    assert codons('A', 1) == ['A']
+    assert codons('A', 2) == ['A']
+    assert codons('ABC', 3) == ['ABC']
+    assert codons('ABCDE', 3) == ['ABC', 'DE']
+    assert codons('ABCDEF', 3) == ['ABC', 'DEF']
 
 
 # --------------------------------------------------

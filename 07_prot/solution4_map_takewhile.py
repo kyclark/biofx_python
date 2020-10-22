@@ -2,8 +2,10 @@
 """ Translate RNA to proteins """
 
 import argparse
+import operator
 from itertools import takewhile
-from typing import NamedTuple
+from typing import NamedTuple, List
+from functools import partial
 
 
 class Args(NamedTuple):
@@ -31,7 +33,13 @@ def main() -> None:
     """ Make a jazz noise here """
 
     args = get_args()
-    rna = args.rna.upper()
+    print(translate(args.rna.upper()))
+
+
+# --------------------------------------------------
+def translate(rna: str) -> str:
+    """ Translate codon sequence """
+
     codon_to_aa = {
         'AAA': 'K', 'AAC': 'N', 'AAG': 'K', 'AAU': 'N', 'ACA': 'T',
         'ACC': 'T', 'ACG': 'T', 'ACU': 'T', 'AGA': 'R', 'AGC': 'S',
@@ -48,12 +56,35 @@ def main() -> None:
         'UUU': 'F', 'UAA': 'Stop', 'UAG': 'Stop', 'UGA': 'Stop',
     }
 
-    k = 3
-
     # Method 3: L.C. -> map(), slice -> takewhile
-    codons = map(lambda i: rna[i:i + k], range(0, len(rna), k))
-    aa = map(lambda codon: codon_to_aa.get(codon, '-'), codons)
-    print(''.join(takewhile(lambda c: c != 'Stop', aa)))
+    # aa = [codon_to_aa.get(codon, '-') for codon in codons(rna, 3)]
+    aa = map(lambda codon: codon_to_aa.get(codon, '-'), codons(rna, 3))
+
+    # print(''.join(takewhile(lambda c: c != 'Stop', aa)))
+    # not_stop = partial(operator.ne, 'Stop')
+    # return ''.join(takewhile(not_stop, aa))
+
+    return ''.join(takewhile(partial(operator.ne, 'Stop'), aa))
+
+
+# --------------------------------------------------
+def codons(seq: str, k: int) -> List[str]:
+    """ Extract k-sized codons from a sequence """
+
+    return [] if k < 1 else [seq[i:i + k] for i in range(0, len(seq), k)]
+
+
+# --------------------------------------------------
+def test_codons() -> None:
+    """ Test codons """
+
+    assert codons('', 0) == []
+    assert codons('', 1) == []
+    assert codons('A', 1) == ['A']
+    assert codons('A', 2) == ['A']
+    assert codons('ABC', 3) == ['ABC']
+    assert codons('ABCDE', 3) == ['ABC', 'DE']
+    assert codons('ABCDEF', 3) == ['ABC', 'DEF']
 
 
 # --------------------------------------------------
