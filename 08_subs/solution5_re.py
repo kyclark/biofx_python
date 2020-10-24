@@ -2,6 +2,7 @@
 """ Find subsequences """
 
 import argparse
+import re
 from typing import NamedTuple
 
 
@@ -34,13 +35,7 @@ def main() -> None:
 
     args = get_args()
     seq, subseq = args.seq, args.subseq
-
-    # Method 7: kmers/FP
-    k = len(subseq)
-    found = filter(
-        lambda t: t[1] == subseq,
-        map(lambda i: (i + 1, seq[i:i + k]), range(len(seq) - k + 1)))
-    print(' '.join(map(lambda t: str(t[0]), found)))
+    print(*[m.start() + 1 for m in re.finditer(f'(?=({subseq}))', seq)])
 
 
 # --------------------------------------------------

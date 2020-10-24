@@ -50,12 +50,12 @@ def translate(rna: str) -> str:
         'GUC': 'V', 'GUG': 'V', 'GUU': 'V', 'UAC': 'Y', 'UAU': 'Y',
         'UCA': 'S', 'UCC': 'S', 'UCG': 'S', 'UCU': 'S', 'UGC': 'C',
         'UGG': 'W', 'UGU': 'C', 'UUA': 'L', 'UUC': 'F', 'UUG': 'L',
-        'UUU': 'F', 'UAA': 'Stop', 'UAG': 'Stop', 'UGA': 'Stop',
+        'UUU': 'F', 'UAA': '*', 'UAG': '*', 'UGA': '*',
     }
 
     aa = [codon_to_aa.get(codon, '-') for codon in codons(rna, 3)]
-    if 'Stop' in aa:
-        aa = aa[:aa.index('Stop')]
+    if '*' in aa:
+        aa = aa[:aa.index('*')]
 
     return ''.join(aa)
 

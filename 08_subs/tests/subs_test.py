@@ -10,14 +10,14 @@ TEST1 = ('./tests/inputs/input1.txt', './tests/inputs/input1.txt.out')
 
 # --------------------------------------------------
 def test_exists():
-    """usage"""
+    """ Program exists """
 
     assert os.path.isfile(PRG)
 
 
 # --------------------------------------------------
 def test_usage():
-    """usage"""
+    """ Usage """
 
     for arg in ['-h', '--help']:
         rv, out = getstatusoutput(f'{PRG} {arg}')
@@ -26,12 +26,26 @@ def test_usage():
 
 
 # --------------------------------------------------
+def run(inputs, expected):
+    """ Runs on command-line input """
+
+    rv, out = getstatusoutput(f'{PRG} {inputs}')
+    assert rv == 0
+    assert out == expected
+
+
+# --------------------------------------------------
 def test_input1():
     """ Runs on command-line input """
 
-    rv, out = getstatusoutput(f'{PRG} GATATATGCATATACTT ATAT')
-    assert rv == 0
-    assert out == '2 4 10'
+    run('GATATATGCATATACTT ATAT', '2 4 10')
+
+
+# --------------------------------------------------
+def cat(file):
+    """ Return contents of file """
+
+    return open(file).read().rstrip()
 
 
 # --------------------------------------------------
@@ -39,7 +53,4 @@ def test_input2():
     """ Runs on file input """
 
     file, expected = TEST1
-    seq, sub = open(file).read().split()
-    rv, out = getstatusoutput(f'{PRG} {seq} {sub}')
-    assert rv == 0
-    assert out.rstrip() == open(expected).read().rstrip()
+    run(cat(file), cat(expected))

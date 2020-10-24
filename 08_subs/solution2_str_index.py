@@ -40,9 +40,9 @@ def main() -> None:
     last = 0
     while subseq in seq[last:]:
         last = seq.index(subseq, last) + 1
-        found.append(str(last))
+        found.append(last)
 
-    print(' '.join(found))
+    print(' '.join(map(str, found)))
 
 
 # --------------------------------------------------

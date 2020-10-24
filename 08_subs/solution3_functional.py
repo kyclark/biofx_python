@@ -2,6 +2,8 @@
 """ Find subsequences """
 
 import argparse
+import operator
+from functools import partial
 from typing import NamedTuple
 
 
@@ -34,15 +36,11 @@ def main() -> None:
 
     args = get_args()
     seq, subseq = args.seq, args.subseq
-
-    # Method 6: kmers
-    found = []
-    k = len(subseq)
-    for i, sub in [(i, seq[i:i + k]) for i in range(len(seq) - k + 1)]:
-        if sub == subseq:
-            found.append(str(i + 1))
-
-    print(' '.join(found))
+    r = list(range(len(seq) - len(subseq)))
+    le = partial(operator.le, 0)
+    find = partial(seq.find, subseq)
+    add1 = partial(operator.add, 1)
+    print(*sorted(map(add1, set(filter(le, map(find, r))))))
 
 
 # --------------------------------------------------

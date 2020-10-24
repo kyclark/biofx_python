@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Translate RNA to proteins """
+""" Translate DNA/RNA to proteins """
 
 import argparse
 from typing import NamedTuple
@@ -12,7 +12,7 @@ class Args(NamedTuple):
 
 # --------------------------------------------------
 def get_args() -> Args:
-    """ Get command-line arguments """
+    """Get command-line arguments"""
 
     parser = argparse.ArgumentParser(
         description='Translate RNA to proteins',
@@ -27,7 +27,7 @@ def get_args() -> Args:
 
 # --------------------------------------------------
 def main() -> None:
-    """ Make a jazz noise here """
+    """Make a jazz noise here"""
 
     args = get_args()
     rna = args.rna.upper()
@@ -44,7 +44,7 @@ def main() -> None:
         'GUC': 'V', 'GUG': 'V', 'GUU': 'V', 'UAC': 'Y', 'UAU': 'Y',
         'UCA': 'S', 'UCC': 'S', 'UCG': 'S', 'UCU': 'S', 'UGC': 'C',
         'UGG': 'W', 'UGU': 'C', 'UUA': 'L', 'UUC': 'F', 'UUG': 'L',
-        'UUU': 'F', 'UAA': 'Stop', 'UAG': 'Stop', 'UGA': 'Stop',
+        'UUU': 'F', 'UAA': '*', 'UAG': '*', 'UGA': '*',
     }
 
     # Method 1: for loop
@@ -52,7 +52,7 @@ def main() -> None:
     protein = ''
     for codon in [rna[i:i + k] for i in range(0, len(rna), k)]:
         aa = codon_to_aa.get(codon, '-')
-        if aa == 'Stop':
+        if aa == '*':
             break
         protein += aa
 

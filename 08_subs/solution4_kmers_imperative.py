@@ -34,10 +34,14 @@ def main() -> None:
 
     args = get_args()
     seq, subseq = args.seq, args.subseq
+    k = len(subseq)
+    kmers = [seq[i:i + k] for i in range(len(seq) - k + 1)]
+    found = []
 
-    # Method 4: Same as 3 but shorter, using set(), sorted(), map()/str()
-    pos = [seq.find(subseq, pos) for pos in range(len(seq) - len(subseq))]
-    print(' '.join(map(str, sorted(set([i + 1 for i in pos if i >= 0])))))
+    for i, kmer in enumerate(kmers):
+        if kmer == subseq:
+            found.append(i + 1)
+    print(*found)
 
 
 # --------------------------------------------------

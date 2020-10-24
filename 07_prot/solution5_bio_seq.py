@@ -2,7 +2,7 @@
 """ Translate RNA to proteins """
 
 import argparse
-from Bio.Seq import Seq
+from Bio import Seq
 from typing import NamedTuple
 
 
@@ -31,7 +31,7 @@ def main() -> None:
     """ Make a jazz noise here """
 
     args = get_args()
-    print(str(Seq(args.rna).translate()).replace('*', ''))
+    print(Seq.translate(args.rna, to_stop=True))
 
 
 # --------------------------------------------------

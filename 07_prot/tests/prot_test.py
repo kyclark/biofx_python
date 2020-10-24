@@ -24,13 +24,27 @@ def test_usage():
 
 
 # --------------------------------------------------
+def run(rna, expected):
+    """ Runs test """
+
+    rv, out = getstatusoutput(f'{PRG} {rna}')
+    assert rv == 0
+    assert out == expected
+
+
+# --------------------------------------------------
 def test_input1():
     """ Runs on command-line input """
 
-    rna = 'AUGGCCAUGGCGCCCAGAACUGAGAUCAAUAGUACCCGUAUUAACGGGUGA'
-    rv, out = getstatusoutput(f'{PRG} {rna}')
-    assert rv == 0
-    assert out == 'MAMAPRTEINSTRING'
+    run('AUGGCCAUGGCGCCCAGAACUGAGAUCAAUAGUACCCGUAUUAACGGGUGA',
+        'MAMAPRTEINSTRING')
+
+
+# --------------------------------------------------
+def test_stop_codon():
+    """ Stops at the stop codon """
+
+    run('AUGCCGUAAUCU', 'MP')
 
 
 # --------------------------------------------------
@@ -38,7 +52,8 @@ def test_input2():
     """ Runs on file input """
 
     file, expected = TEST1
-    rna = open(file).read().rstrip()
-    rv, out = getstatusoutput(f'{PRG} {rna}')
-    assert rv == 0
-    assert out.rstrip() == open(expected).read().rstrip()
+
+    def cat(filename):
+        return open(filename).read().rstrip()
+
+    run(cat(file), cat(expected))
