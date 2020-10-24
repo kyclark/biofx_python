@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Graph"""
+""" Overlap Graphs """
 
 import argparse
 import logging
@@ -24,7 +24,7 @@ def get_args() -> Args:
     """ Get command-line arguments """
 
     parser = argparse.ArgumentParser(
-        description='Graph through sequences',
+        description='Overlap Graphs',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     parser.add_argument('file',

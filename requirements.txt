@@ -7,3 +7,4 @@ pytest-flake8
 pytest-mypy
 biopython
 requests
+iteration_utilities

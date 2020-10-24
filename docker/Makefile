@@ -1,6 +1,7 @@
 TAG = kyclark/biofx_python:0.1.0
 
 img:
+	# docker build --no-cache --tag=$(TAG) .
 	docker build --tag=$(TAG) .
 
 shell:
