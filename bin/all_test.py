@@ -6,6 +6,7 @@ import os
 import re
 import shutil
 import sys
+import subprocess
 from subprocess import getstatusoutput
 from functools import partial
 from typing import NamedTuple
@@ -46,6 +47,7 @@ def main() -> None:
     for solution in sorted(solutions):
         print(f'==> {solution} <==')
         shutil.copyfile(solution, os.path.join(cwd, args.program))
+        subprocess.run(['chmod', '+x', args.program], check=True)
         rv, out = getstatusoutput('make test')
         if rv != 0:
             sys.exit(out)
