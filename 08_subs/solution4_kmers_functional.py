@@ -38,7 +38,8 @@ def main() -> None:
     k = len(subseq)
     kmers = enumerate(seq[i:i + k] for i in range(len(seq) - k + 1))
     found: Iterator[int] = filter(
-        None, starmap(lambda i, kmer: i + 1 if kmer == subseq else None, kmers))
+        None, starmap(lambda i, kmer: i + 1
+                      if kmer == subseq else None, kmers))
     print(*found)
 
 
