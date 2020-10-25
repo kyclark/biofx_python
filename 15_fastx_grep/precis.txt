@@ -1,0 +1,1 @@
+Select sequences by text in the records.

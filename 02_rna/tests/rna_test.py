@@ -129,6 +129,8 @@ def test_good_multiple_inputs():
 
 # --------------------------------------------------
 def output3():
+    """ Output for 3rd input """
+
     return '\n'.join([('CUUAGGUCAGUGGUCUCUAAACUUUCGGUUCUGUCGUCUUCAUAGGCAAA'
                        'UUUUUGAACCGGCAGACAAGCUAAUCCCUGUGCGGUUAGCUCAAGCAACA'
                        'GAAUGUCCGAUCUUUGAACUUCCUAACGAACCGAACCUACUAUAAUUACA'
@@ -172,6 +174,6 @@ def output3():
 
 # --------------------------------------------------
 def random_filename():
-    """generate a random filename"""
+    """ Generate a random filename """
 
     return ''.join(random.choices(string.ascii_uppercase + string.digits, k=5))
