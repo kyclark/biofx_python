@@ -71,6 +71,7 @@ def main() -> None:
     args = get_args()
     motif_len = args.motif_len
     motif = ''.join([random.choice('ACGT') for _ in range(motif_len)])
+    print(f'Common motif is "{motif}".')
 
     for i in range(args.num_seqs):
         seq_len = int(np.random.normal(args.seq_len, args.sigma))

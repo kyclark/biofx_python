@@ -3,14 +3,13 @@
 
 import argparse
 import sys
-from typing import NamedTuple, TextIO
-
+from typing import List, NamedTuple
 
 
 class Args(NamedTuple):
     """ Command-line arguments """
     num: int
-    max: int
+    maximum: int
 
 
 # --------------------------------------------------
@@ -45,8 +44,9 @@ def main() -> None:
     """ Make a jazz noise here """
 
     args = get_args()
-    answer = binary_search(args.num, range(args.max + 1), 0, args.max)
-    print('Found' if answer > 0 else 'Not present')
+    nums = list(range(args.maximum + 1))
+    pos = binary_search(args.num, nums, 0, args.maximum)
+    print(f'Found {args.num}!' if pos > 0 else f'{args.num} not present.')
 
 
 # --------------------------------------------------

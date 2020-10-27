@@ -9,6 +9,7 @@ from subprocess import getstatusoutput
 PRG = './lcsm.py'
 INPUT1 = './tests/inputs/1.fa'
 INPUT2 = './tests/inputs/2.fa'
+NO_SHARED = './tests/inputs/none.fa'
 
 
 # --------------------------------------------------
@@ -56,6 +57,15 @@ def test_long():
     expected = ('GCCTTTTGATTTTAACGTTTATCGGGTGTAGTAAGATTGCGCGC'
                 'TAATTCCAATAAACGTATGGAGGACATTCCCCGT')
     assert out == expected
+
+
+# --------------------------------------------------
+def test_no_shared():
+    """ Correctly reports when no sequences are shared """
+
+    rv, out = getstatusoutput(f'{PRG} {NO_SHARED}')
+    assert rv == 0
+    assert out == 'No common subsequence.'
 
 
 # --------------------------------------------------
