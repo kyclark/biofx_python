@@ -7,7 +7,6 @@ import string
 from subprocess import getstatusoutput
 
 PRG = './lcsm.py'
-EMPTY = './tests/inputs/empty.fa'
 INPUT1 = './tests/inputs/1.fa'
 INPUT2 = './tests/inputs/2.fa'
 
@@ -40,15 +39,6 @@ def test_bad_file():
 
 
 # --------------------------------------------------
-def test_empty():
-    """ Dies on empty file """
-
-    rv, out = getstatusoutput(f'{PRG} {EMPTY}')
-    assert rv != 0
-    assert out == f'"{EMPTY}" contains no sequences.'
-
-
-# --------------------------------------------------
 def test_short():
     """ Runs OK """
 
@@ -63,8 +53,9 @@ def test_long():
 
     rv, out = getstatusoutput(f'{PRG} {INPUT2}')
     assert rv == 0
-    assert out == ('GCCTTTTGATTTTAACGTTTATCGGGTGTAGTAAGATTGCG'
-                   'CGCTAATTCCAATAAACGTATGGAGGACATTCCCCGT')
+    expected = ('GCCTTTTGATTTTAACGTTTATCGGGTGTAGTAAGATTGCGCGC'
+                'TAATTCCAATAAACGTATGGAGGACATTCCCCGT')
+    assert out == expected
 
 
 # --------------------------------------------------
