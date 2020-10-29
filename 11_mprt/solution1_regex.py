@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
-"""Find location of N-glycosylation motif"""
+""" Find location of N-glycosylation motif """
 
 import argparse
-import logging
 import os
 import re
 import requests
@@ -18,7 +17,7 @@ class Args(NamedTuple):
 
 # --------------------------------------------------
 def get_args() -> Args:
-    """Get command-line arguments"""
+    """ Get command-line arguments """
 
     parser = argparse.ArgumentParser(
         description='Find location of N-glycosylation motif',
@@ -43,46 +42,35 @@ def get_args() -> Args:
 
 # --------------------------------------------------
 def main():
-    """Make a jazz noise here"""
+    """ Make a jazz noise here """
 
     args = get_args()
-
-    logging.basicConfig(filename='.log', filemode='w', level=logging.DEBUG)
     files = fetch_fasta(args.file, args.download_dir)
     regex = re.compile('(?=(N[^P][ST][^P]))')
 
     for file in files:
-        seqs = list(SeqIO.parse(file, 'fasta'))
-        if not seqs:
-            print(f'"{file}" contains no sequences.', file=sys.stderr)
-            continue
-
-        seq = seqs[0]
-        if hits := list(regex.finditer(str(seq.seq))):
-            pos = map(lambda m: m.start() + 1, hits)
-            name = os.path.basename(file).replace('.fa', '')
-            print('\n'.join([name, ' '.join(map(str, pos))]))
+        prot_id, _ = os.path.splitext(os.path.basename(file))
+        if recs := list(SeqIO.parse(file, 'fasta')):
+            if matches := list(regex.finditer(str(recs[0].seq))):
+                print(prot_id)
+                print(*[match.start() + 1 for match in matches])
 
 
 # --------------------------------------------------
 def fetch_fasta(fh: TextIO, fasta_dir: str) -> List[str]:
-    """Fetch the FASTA files into the download directory"""
+    """ Fetch the FASTA files into the download directory """
 
     if not os.path.isdir(fasta_dir):
         os.makedirs(fasta_dir)
 
     files = []
     for prot_id in map(str.rstrip, fh):
-        fasta = os.path.join(fasta_dir, prot_id + '.fa')
+        fasta = os.path.join(fasta_dir, prot_id + '.fasta')
         if not os.path.isfile(fasta):
-            # TODO: Make this logging
-            logging.debug(f'Fetching "{prot_id}" -> {fasta}')
             url = f'http://www.uniprot.org/uniprot/{prot_id}.fasta'
             response = requests.get(url)
             if response.status_code == 200:
-                fh = open(fasta, 'wt')
-                fh.write(response.text)
-                fh.close()
+                print(response.text, file=open(fasta, 'wt'))
             else:
                 print(f'Error fetching "{url}": "{response.status_code}"',
                       file=sys.stderr)

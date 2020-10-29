@@ -2,11 +2,11 @@
 """Find location of N-glycosylation motif"""
 
 import argparse
-import logging
 import os
 import requests
 import sys
-from typing import NamedTuple, List, TextIO
+from iteration_utilities import starfilter
+from typing import Any, NamedTuple, List, TextIO, Tuple
 from Bio import SeqIO
 
 
@@ -41,40 +41,31 @@ def get_args() -> Args:
 
 
 # --------------------------------------------------
-def main():
+def main() -> None:
     """Make a jazz noise here"""
 
     args = get_args()
-
-    logging.basicConfig(filename='.log', filemode='w', level=logging.DEBUG)
     files = fetch_fasta(args.file, args.download_dir)
 
     for file in files:
-        seqs = list(SeqIO.parse(file, 'fasta'))
-        if not seqs:
-            print(f'"{file}" contains no sequences.', file=sys.stderr)
-            continue
-
-        seq = seqs[0]
-        if hits := find_motif(str(seq.seq)):
-            pos = map(lambda p: p + 1, hits)
-            name = os.path.basename(file).replace('.fa', '')
-            print('\n'.join([name, ' '.join(map(str, pos))]))
+        prot_id, _ = os.path.splitext(os.path.basename(file))
+        if recs := list(SeqIO.parse(file, 'fasta')):
+            if matches := find_motif(str(recs[0].seq)):
+                pos = map(lambda p: p + 1, matches)
+                print('\n'.join([prot_id, ' '.join(map(str, pos))]))
 
 
 # --------------------------------------------------
 def fetch_fasta(fh: TextIO, fasta_dir: str) -> List[str]:
-    """Fetch the FASTA files into the download directory"""
+    """ Fetch the FASTA files into the download directory """
 
     if not os.path.isdir(fasta_dir):
         os.makedirs(fasta_dir)
 
     files = []
     for prot_id in map(str.rstrip, fh):
-        fasta = os.path.join(fasta_dir, prot_id + '.fa')
+        fasta = os.path.join(fasta_dir, prot_id + '.fasta')
         if not os.path.isfile(fasta):
-            # TODO: Make this logging
-            logging.debug(f'Fetching "{prot_id}" -> {fasta}')
             url = f'http://www.uniprot.org/uniprot/{prot_id}.fasta'
             response = requests.get(url)
             if response.status_code == 200:
@@ -92,61 +83,45 @@ def fetch_fasta(fh: TextIO, fasta_dir: str) -> List[str]:
 
 
 # --------------------------------------------------
-def find_motif(text: str):
-    """Find a pattern in some text"""
+def find_motif(text: str) -> List[int]:
+    """ Find a pattern in some text """
+    def is_match(s: str) -> bool:
+        return s[0] == 'N' and s[1] != 'P' and s[2] in 'ST' and s[3] != 'P'
 
-    # pos = []
-    # for i, kmer in enumerate(find_kmers(text, 4)):
-    #     if kmer[0] == 'N' and kmer[1] != 'P' and kmer[
-    #             2] in 'ST' and kmer[3] != 'P':
-    #         pos.append(i)
+    def fst(t: Tuple[Any, Any]) -> Any:
+        return t[0]
 
-    # return pos
-
-    return [
-        i for i, kmer in enumerate(find_kmers(text, 4)) if kmer[0] == 'N'
-        and kmer[1] != 'P' and kmer[2] in 'ST' and kmer[3] != 'P'
-    ]
-
-    # def is_match(pos, kmer):
-    #     return (kmer[0] == 'N' and kmer[1] != 'P' and kmer[2] in 'ST'
-    #             and kmer[3] != 'P', pos)
-
-    # def filter_map(f, i):
-    #     return list(
-    #         map(lambda tup: tup[1], filter(lambda tup: tup[0],
-    #                                        starmap(f, i))))
-
-    # return filter_map(is_match, enumerate(find_kmers(text, 4)))
+    kmers = enumerate(find_kmers(text, 4))
+    return list(map(fst, starfilter(lambda i, s: is_match(s), kmers)))
 
 
 # --------------------------------------------------
-def test_find_motif():
-    """Test find_pattern"""
+def test_find_motif() -> None:
+    """ Test find_pattern """
 
     assert find_motif('') == []
     assert find_motif('NPTX') == []
     assert find_motif('NXTP') == []
     assert find_motif('NXSX') == [0]
-    assert find_motif('NXTX') == [0]
-    assert find_motif('XNXSX') == [1]
-    assert find_motif('XNXTX') == [1]
+    assert find_motif('ANXTX') == [1]
+    assert find_motif('NNTSYS') == [0, 1]
+    assert find_motif('XNNTSYS') == [1, 2]
 
 
 # --------------------------------------------------
-def find_kmers(seq, k):
-    """Find k-mers in string"""
+def find_kmers(seq: str, k: int) -> List[str]:
+    """ Find k-mers in string """
 
-    seq = str(seq)
     n = len(seq) - k + 1
-    return list(map(lambda i: seq[i:i + k], range(n)))
+    return [] if n < 1 else [seq[i:i + k] for i in range(n)]
 
 
 # --------------------------------------------------
-def test_find_kmers():
-    """Test find_kmers"""
+def test_find_kmers() -> None:
+    """ Test find_kmers """
 
     assert find_kmers('', 1) == []
+    assert find_kmers('ACTG', 1) == ['A', 'C', 'T', 'G']
     assert find_kmers('ACTG', 2) == ['AC', 'CT', 'TG']
     assert find_kmers('ACTG', 3) == ['ACT', 'CTG']
     assert find_kmers('ACTG', 4) == ['ACTG']
