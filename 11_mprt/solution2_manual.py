@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
-"""Find location of N-glycosylation motif"""
+""" Find locations of N-glycosylation motif """
 
 import argparse
 import os
 import requests
 import sys
-from iteration_utilities import starfilter
-from typing import Any, NamedTuple, List, TextIO, Tuple
+from typing import NamedTuple, List, TextIO
 from Bio import SeqIO
 
 
@@ -17,10 +16,10 @@ class Args(NamedTuple):
 
 # --------------------------------------------------
 def get_args() -> Args:
-    """Get command-line arguments"""
+    """ Get command-line arguments """
 
     parser = argparse.ArgumentParser(
-        description='Find location of N-glycosylation motif',
+        description='Find locations of N-glycosylation motif',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     parser.add_argument('file',
@@ -42,7 +41,7 @@ def get_args() -> Args:
 
 # --------------------------------------------------
 def main() -> None:
-    """Make a jazz noise here"""
+    """ Make a jazz noise here """
 
     args = get_args()
     files = fetch_fasta(args.file, args.download_dir)
@@ -88,11 +87,8 @@ def find_motif(text: str) -> List[int]:
     def is_match(s: str) -> bool:
         return s[0] == 'N' and s[1] != 'P' and s[2] in 'ST' and s[3] != 'P'
 
-    def fst(t: Tuple[Any, Any]) -> Any:
-        return t[0]
-
-    kmers = enumerate(find_kmers(text, 4))
-    return list(map(fst, starfilter(lambda i, s: is_match(s), kmers)))
+    kmers = list(enumerate(find_kmers(text, 4)))
+    return [i for i, kmer in kmers if is_match(kmer)]
 
 
 # --------------------------------------------------

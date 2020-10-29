@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Find location of N-glycosylation motif """
+""" Find locations of N-glycosylation motif """
 
 import argparse
 import os
@@ -20,7 +20,7 @@ def get_args() -> Args:
     """ Get command-line arguments """
 
     parser = argparse.ArgumentParser(
-        description='Find location of N-glycosylation motif',
+        description='Find locations of N-glycosylation motif',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     parser.add_argument('file',
