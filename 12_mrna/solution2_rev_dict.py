@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Inferring mRNA from Protein """
+""" Infer mRNA from Protein """
 
 import argparse
 import os
@@ -18,10 +18,13 @@ def get_args() -> Args:
     """ Get command-line arguments """
 
     parser = argparse.ArgumentParser(
-        description='Inferring mRNA from Protein',
+        description='Infer mRNA from Protein',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    parser.add_argument('protein', metavar='str', help='Input protein or file')
+    parser.add_argument('protein',
+                        metavar='protein',
+                        type=str,
+                        help='Input protein or file')
 
     parser.add_argument('-m',
                         '--modulo',
@@ -40,43 +43,51 @@ def get_args() -> Args:
 
 # --------------------------------------------------
 def main():
-    """Make a jazz noise here"""
+    """ Make a jazz noise here """
 
     args = get_args()
     aa_to_codon = {
+        'A': ['GCA', 'GCC', 'GCG', 'GCU'],
+        'C': ['UGC', 'UGU'],
+        'D': ['GAC', 'GAU'],
+        'E': ['GAA', 'GAG'],
+        'F': ['UUC', 'UUU'],
+        'G': ['GGA', 'GGC', 'GGG', 'GGU'],
+        'H': ['CAC', 'CAU'],
+        'I': ['AUA', 'AUC', 'AUU'],
         'K': ['AAA', 'AAG'],
+        'L': ['CUA', 'CUC', 'CUG', 'CUU', 'UUA', 'UUG'],
+        'M': ['AUG'],
         'N': ['AAC', 'AAU'],
-        'T': ['ACA', 'ACC', 'ACG', 'ACU'],
+        'P': ['CCA', 'CCC', 'CCG', 'CCU'],
+        'Q': ['CAA', 'CAG'],
         'R': ['AGA', 'AGG', 'CGA', 'CGC', 'CGG', 'CGU'],
         'S': ['AGC', 'AGU', 'UCA', 'UCC', 'UCG', 'UCU'],
-        'I': ['AUA', 'AUC', 'AUU'],
-        'M': ['AUG'],
-        'Q': ['CAA', 'CAG'],
-        'H': ['CAC', 'CAU'],
-        'P': ['CCA', 'CCC', 'CCG', 'CCU'],
-        'L': ['CUA', 'CUC', 'CUG', 'CUU', 'UUA', 'UUG'],
-        'E': ['GAA', 'GAG'],
-        'D': ['GAC', 'GAU'],
-        'A': ['GCA', 'GCC', 'GCG', 'GCU'],
-        'G': ['GGA', 'GGC', 'GGG', 'GGU'],
+        'T': ['ACA', 'ACC', 'ACG', 'ACU'],
         'V': ['GUA', 'GUC', 'GUG', 'GUU'],
-        'Stop': ['UAA', 'UAG', 'UGA'],
-        'Y': ['UAC', 'UAU'],
-        'C': ['UGC', 'UGU'],
         'W': ['UGG'],
-        'F': ['UUC', 'UUU']
+        'Y': ['UAC', 'UAU'],
+        '*': ['UAA', 'UAG', 'UGA'],
     }
 
-    protein = list(args.protein) + ['Stop']
-    possible = [len(aa_to_codon[aa]) for aa in protein]
+    possible = [len(aa_to_codon[aa]) for aa in args.protein + '*']
     print(product(possible) % args.modulo)
 
 
 # --------------------------------------------------
 def product(xs: List[int]) -> int:
-    """Return the product"""
+    """ Return the product """
 
-    return reduce(lambda x, y: x * y, xs)
+    return reduce(lambda x, y: x * y, xs, 1)
+
+
+# --------------------------------------------------
+def test_product() -> None:
+    """ Test product """
+
+    assert product([]) == 1
+    assert product([4]) == 4
+    assert product([1, 2, 3, 4]) == 24
 
 
 # --------------------------------------------------

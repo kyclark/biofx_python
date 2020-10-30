@@ -7,7 +7,7 @@ import random
 from functools import partial
 from itertools import starmap
 from Bio import SeqIO
-from typing import Any, Callable, Counter, List, NamedTuple, Optional, TextIO
+from typing import Callable, Counter, List, NamedTuple, TextIO
 
 
 class Args(NamedTuple):

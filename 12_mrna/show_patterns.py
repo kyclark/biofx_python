@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
-"""
-Author : Ken Youens-Clark <kyclark@gmail.com>
-Date   : 2020-06-20
-Purpose: Rock the Casbah
-"""
+""" Generate the mRNA sequences for a protein """
 
 import argparse
 import os
@@ -13,13 +9,16 @@ from itertools import product
 
 # --------------------------------------------------
 def get_args():
-    """Get command-line arguments"""
+    """ Get command-line arguments """
 
     parser = argparse.ArgumentParser(
-        description='Rock the Casbah',
+        description='Generate the mRNA sequences for a protein',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    parser.add_argument('protein', metavar='str', help='Input protein or file')
+    parser.add_argument('protein',
+                        metavar='protein',
+                        type=str,
+                        help='Input protein or file')
 
     parser.add_argument('-m',
                         '--modulo',
@@ -38,38 +37,36 @@ def get_args():
 
 # --------------------------------------------------
 def main():
-    """Make a jazz noise here"""
+    """ Make a jazz noise here """
 
     args = get_args()
     aa_to_codon = {
+        'A': ['GCA', 'GCC', 'GCG', 'GCU'],
+        'C': ['UGC', 'UGU'],
+        'D': ['GAC', 'GAU'],
+        'E': ['GAA', 'GAG'],
+        'F': ['UUC', 'UUU'],
+        'G': ['GGA', 'GGC', 'GGG', 'GGU'],
+        'H': ['CAC', 'CAU'],
+        'I': ['AUA', 'AUC', 'AUU'],
         'K': ['AAA', 'AAG'],
+        'L': ['CUA', 'CUC', 'CUG', 'CUU', 'UUA', 'UUG'],
+        'M': ['AUG'],
         'N': ['AAC', 'AAU'],
-        'T': ['ACA', 'ACC', 'ACG', 'ACU'],
+        'P': ['CCA', 'CCC', 'CCG', 'CCU'],
+        'Q': ['CAA', 'CAG'],
         'R': ['AGA', 'AGG', 'CGA', 'CGC', 'CGG', 'CGU'],
         'S': ['AGC', 'AGU', 'UCA', 'UCC', 'UCG', 'UCU'],
-        'I': ['AUA', 'AUC', 'AUU'],
-        'M': ['AUG'],
-        'Q': ['CAA', 'CAG'],
-        'H': ['CAC', 'CAU'],
-        'P': ['CCA', 'CCC', 'CCG', 'CCU'],
-        'L': ['CUA', 'CUC', 'CUG', 'CUU', 'UUA', 'UUG'],
-        'E': ['GAA', 'GAG'],
-        'D': ['GAC', 'GAU'],
-        'A': ['GCA', 'GCC', 'GCG', 'GCU'],
-        'G': ['GGA', 'GGC', 'GGG', 'GGU'],
+        'T': ['ACA', 'ACC', 'ACG', 'ACU'],
         'V': ['GUA', 'GUC', 'GUG', 'GUU'],
-        'Stop': ['UAA', 'UAG', 'UGA'],
-        'Y': ['UAC', 'UAU'],
-        'C': ['UGC', 'UGU'],
         'W': ['UGG'],
-        'F': ['UUC', 'UUU']
+        'Y': ['UAC', 'UAU'],
+        '*': ['UAA', 'UAG', 'UGA'],
     }
 
-    protein = list(args.protein) + ['Stop']
-    pool = [aa_to_codon[aa] for aa in protein]
+    pool = map(aa_to_codon.get, args.protein + '*')
     for i, codons in enumerate(product(*pool), start=1):
         print(f"{i:5}: {''.join(codons)}")
-
 
 
 # --------------------------------------------------

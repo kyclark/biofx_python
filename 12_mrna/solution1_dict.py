@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Inferring mRNA from Protein """
+""" Infer mRNA from Protein """
 
 import argparse
 import os
@@ -18,10 +18,13 @@ def get_args() -> Args:
     """ Get command-line arguments """
 
     parser = argparse.ArgumentParser(
-        description='Inferring mRNA from Protein',
+        description='Infer mRNA from Protein',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    parser.add_argument('protein', metavar='str', help='Input protein or file')
+    parser.add_argument('protein',
+                        metavar='protein',
+                        type=str,
+                        help='Input protein or file')
 
     parser.add_argument('-m',
                         '--modulo',
@@ -56,14 +59,13 @@ def main() -> None:
         'GUC': 'V', 'GUG': 'V', 'GUU': 'V', 'UAC': 'Y', 'UAU': 'Y',
         'UCA': 'S', 'UCC': 'S', 'UCG': 'S', 'UCU': 'S', 'UGC': 'C',
         'UGG': 'W', 'UGU': 'C', 'UUA': 'L', 'UUC': 'F', 'UUG': 'L',
-        'UUU': 'F', 'UAA': 'Stop', 'UAG': 'Stop', 'UGA': 'Stop',
+        'UUU': 'F', 'UAA': '*', 'UAG': '*', 'UGA': '*',
     }
 
-    possible = []
-    for aa in list(args.protein) + ['Stop']:
-        codons = [c for c, trans in codon_to_aa.items() if trans == aa]
-        possible.append(len(codons))
-
+    possible = [
+        len([c for c, res in codon_to_aa.items() if res == aa])
+        for aa in args.protein + '*'
+    ]
     print(product(possible) % args.modulo)
 
 
@@ -71,7 +73,16 @@ def main() -> None:
 def product(xs: List[int]) -> int:
     """ Return the product """
 
-    return reduce(lambda x, y: x * y, xs)
+    return reduce(lambda x, y: x * y, xs, 1)
+
+
+# --------------------------------------------------
+def test_product() -> None:
+    """ Test product """
+
+    assert product([]) == 1
+    assert product([4]) == 4
+    assert product([1, 2, 3, 4]) == 24
 
 
 # --------------------------------------------------

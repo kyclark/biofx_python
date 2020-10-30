@@ -1,8 +1,9 @@
-FROM python:3.9.0-buster
+FROM python:3.8.6-buster
 RUN apt-get -y update
 RUN apt-get install -y git vim emacs
 
 WORKDIR /app
+ARG FOO=bar
 RUN git clone https://github.com/kyclark/biofx_python && python3 -m pip install -r /app/biofx_python/requirements.txt
 
 RUN cp /app/biofx_python/mypy.ini ~/.mypy.ini
