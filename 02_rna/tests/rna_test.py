@@ -14,14 +14,14 @@ INPUT3 = './tests/inputs/input3.txt'
 
 
 # --------------------------------------------------
-def test_exists():
+def test_exists() -> None:
     """ Program exists """
 
     assert os.path.isfile(PRG)
 
 
 # --------------------------------------------------
-def test_usage():
+def test_usage() -> None:
     """ Usage """
 
     for flag in ['-h', '--help']:
@@ -31,7 +31,7 @@ def test_usage():
 
 
 # --------------------------------------------------
-def test_no_args():
+def test_no_args() -> None:
     """ Dies on no args """
 
     retval, out = getstatusoutput(PRG)
@@ -40,7 +40,7 @@ def test_no_args():
 
 
 # --------------------------------------------------
-def test_bad_file():
+def test_bad_file() -> None:
     """ Die on missing input """
 
     bad = random_filename()
@@ -51,7 +51,7 @@ def test_bad_file():
 
 
 # --------------------------------------------------
-def test_good_input1():
+def test_good_input1() -> None:
     """ Runs on good input """
 
     out_dir = 'out'
@@ -73,7 +73,7 @@ def test_good_input1():
 
 
 # --------------------------------------------------
-def test_good_input2():
+def test_good_input2() -> None:
     """ Runs on good input """
 
     out_dir = random_filename()
@@ -128,7 +128,7 @@ def test_good_multiple_inputs():
 
 
 # --------------------------------------------------
-def output3():
+def output3() -> str:
     """ Output for 3rd input """
 
     return '\n'.join([('CUUAGGUCAGUGGUCUCUAAACUUUCGGUUCUGUCGUCUUCAUAGGCAAA'
@@ -173,7 +173,7 @@ def output3():
 
 
 # --------------------------------------------------
-def random_filename():
+def random_filename() -> str:
     """ Generate a random filename """
 
     return ''.join(random.choices(string.ascii_uppercase + string.digits, k=5))

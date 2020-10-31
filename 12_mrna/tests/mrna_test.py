@@ -9,14 +9,14 @@ INPUT2 = './tests/inputs/2.txt'
 
 
 # --------------------------------------------------
-def test_exists():
+def test_exists() -> None:
     """ Program exists """
 
     assert os.path.isfile(PRG)
 
 
 # --------------------------------------------------
-def test_usage():
+def test_usage() -> None:
     """ Usage """
 
     rv, out = getstatusoutput(PRG)
@@ -25,7 +25,7 @@ def test_usage():
 
 
 # --------------------------------------------------
-def test_ok1():
+def test_ok1() -> None:
     """ OK """
 
     rv, out = getstatusoutput(f'{PRG} MA')
@@ -34,7 +34,7 @@ def test_ok1():
 
 
 # --------------------------------------------------
-def test_ok2():
+def test_ok2() -> None:
     """ OK """
 
     rv, out = getstatusoutput(f'{PRG} {INPUT1}')
@@ -43,7 +43,7 @@ def test_ok2():
 
 
 # --------------------------------------------------
-def test_ok3():
+def test_ok3() -> None:
     """ OK """
 
     rv, out = getstatusoutput(f'{PRG} {INPUT2}')

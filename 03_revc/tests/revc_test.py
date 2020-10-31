@@ -11,14 +11,14 @@ TEST2 = ('./tests/inputs/input2.txt', './tests/inputs/output2.txt')
 
 
 # --------------------------------------------------
-def test_exists():
+def test_exists() -> None:
     """ Program exists """
 
     assert os.path.isfile(PRG)
 
 
 # --------------------------------------------------
-def test_usage():
+def test_usage() -> None:
     """ Prints usage """
 
     for arg in ['-h', '--help']:
@@ -28,7 +28,7 @@ def test_usage():
 
 
 # --------------------------------------------------
-def test_no_args():
+def test_no_args() -> None:
     """ Dies on no args """
 
     rv, out = getstatusoutput(PRG)
@@ -37,7 +37,7 @@ def test_no_args():
 
 
 # --------------------------------------------------
-def test_uppercase():
+def test_uppercase() -> None:
     """ Runs on uppercase input """
 
     rv, out = getstatusoutput(f'{PRG} AAAACCCGGT')
@@ -46,7 +46,7 @@ def test_uppercase():
 
 
 # --------------------------------------------------
-def test_lowercase():
+def test_lowercase() -> None:
     """ Runs on lowercase input """
 
     rv, out = getstatusoutput(f'{PRG} aaaaCCCGGT')
@@ -55,7 +55,7 @@ def test_lowercase():
 
 
 # --------------------------------------------------
-def test_input1():
+def test_input1() -> None:
     """ Runs on file input """
 
     file, expected = TEST1
@@ -65,7 +65,7 @@ def test_input1():
 
 
 # --------------------------------------------------
-def test_input2():
+def test_input2() -> None:
     """ Runs on file input """
 
     file, expected = TEST2

@@ -7,14 +7,14 @@ PRG = './counts_by_tax.py'
 
 
 # --------------------------------------------------
-def test_exists():
+def test_exists() -> None:
     """ Program exists """
 
     assert os.path.isfile(PRG)
 
 
 # --------------------------------------------------
-def test_usage():
+def test_usage() -> None:
     """ Usage """
 
     for flag in ['-h', '--help']:

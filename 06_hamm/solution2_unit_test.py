@@ -12,7 +12,7 @@ class Args(NamedTuple):
 
 
 # --------------------------------------------------
-def get_args():
+def get_args() -> Args:
     """ Get command-line arguments """
 
     parser = argparse.ArgumentParser(
@@ -30,7 +30,7 @@ def get_args():
 
 
 # --------------------------------------------------
-def main():
+def main() -> None:
     """ Make a jazz noise here """
 
     args = get_args()

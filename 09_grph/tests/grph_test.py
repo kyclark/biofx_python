@@ -13,14 +13,14 @@ SAMPLE3 = './tests/inputs/3.fa'
 
 
 # --------------------------------------------------
-def test_exists():
+def test_exists() -> None:
     """ Program exists """
 
     assert os.path.isfile(PRG)
 
 
 # --------------------------------------------------
-def test_usage():
+def test_usage() -> None:
     """ Usage """
 
     rv, out = getstatusoutput(PRG)
@@ -29,7 +29,7 @@ def test_usage():
 
 
 # --------------------------------------------------
-def test_bad_k():
+def test_bad_k() -> None:
     """ Dies on bad k """
 
     k = random.choice(range(-10, 1))
@@ -40,7 +40,7 @@ def test_bad_k():
 
 
 # --------------------------------------------------
-def test_bad_file():
+def test_bad_file() -> None:
     """ Dies on bad file """
 
     bad = random_string()
@@ -51,7 +51,7 @@ def test_bad_file():
 
 
 # --------------------------------------------------
-def run_it(in_file, k):
+def run(in_file: str, k : int) -> None:
     """ Run with args """
 
     out_file = '.'.join([in_file, str(k), 'out'])
@@ -68,60 +68,67 @@ def run_it(in_file, k):
 def test_01():
     """ Runs OK """
 
-    run_it(SAMPLE1, 3)
+    run(SAMPLE1, 3)
 
 
 # --------------------------------------------------
-def test_02():
+def test_02() -> None:
     """ Runs OK """
 
-    run_it(SAMPLE1, 4)
+    run(SAMPLE1, 4)
 
 
 # --------------------------------------------------
-def test_03():
+def test_03() -> None:
     """ Runs OK """
-    run_it(SAMPLE1, 5)
+
+    run(SAMPLE1, 5)
 
 
 # --------------------------------------------------
-def test_04():
+def test_04() -> None:
     """ Runs OK """
-    run_it(SAMPLE2, 3)
+
+    run(SAMPLE2, 3)
 
 
 # --------------------------------------------------
-def test_05():
+def test_05() -> None:
     """ Runs OK """
-    run_it(SAMPLE2, 4)
+
+    run(SAMPLE2, 4)
 
 
 # --------------------------------------------------
-def test_06():
+def test_06() -> None:
     """ Runs OK """
-    run_it(SAMPLE2, 5)
+
+    run(SAMPLE2, 5)
 
 
 # --------------------------------------------------
-def test_07():
+def test_07() -> None:
     """ Runs OK """
-    run_it(SAMPLE3, 3)
+
+    run(SAMPLE3, 3)
 
 
 # --------------------------------------------------
-def test_08():
+def test_08() -> None:
     """ Runs OK """
-    run_it(SAMPLE3, 4)
+
+    run(SAMPLE3, 4)
 
 
 # --------------------------------------------------
-def test_09():
+def test_09() -> None:
     """ Runs OK """
-    run_it(SAMPLE3, 5)
+
+    run(SAMPLE3, 5)
 
 
 # --------------------------------------------------
-def random_string():
+def random_string() -> str:
     """Generate a random string"""
 
     return ''.join(

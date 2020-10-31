@@ -1,6 +1,9 @@
 """ Tests for revp.py """
 
 import os
+import random
+import re
+import string
 from subprocess import getstatusoutput
 
 PRG = './revp.py'
@@ -9,14 +12,14 @@ INPUT2 = './tests/inputs/2.fa'
 
 
 # --------------------------------------------------
-def test_exists():
+def test_exists() -> None:
     """ Program exists """
 
     assert os.path.isfile(PRG)
 
 
 # --------------------------------------------------
-def test_usage():
+def test_usage() -> None:
     """ Usage """
 
     rv, out = getstatusoutput(PRG)
@@ -25,25 +28,47 @@ def test_usage():
 
 
 # --------------------------------------------------
-def test_ok1():
-    """ Runs ok """
+def test_bad_file() -> None:
+    """ Dies on bad file """
 
-    rv, out = getstatusoutput(f'{PRG} {INPUT1}')
-    assert rv == 0
-    expected = set(
-        ['4 6', '5 4', '6 6', '7 4', '17 4', '18 4', '20 6', '21 4'])
-    assert set(out.splitlines()) == expected
+    bad = random_string()
+    rv, out = getstatusoutput(f'{PRG} {bad}')
+    assert rv != 0
+    assert out.lower().startswith('usage:')
+    assert re.search(f"No such file or directory: '{bad}'", out)
 
 
 # --------------------------------------------------
-def test_ok2():
-    """ Runs ok """
+def run(file: str) -> None:
+    """ Run the test """
 
-    expected_file = INPUT2 + '.out'
+    expected_file = file + '.out'
     assert os.path.isfile(expected_file)
 
-    rv, out = getstatusoutput(f'{PRG} {INPUT2}')
+    rv, out = getstatusoutput(f'{PRG} {file}')
     assert rv == 0
 
     expected = set(open(expected_file).read().splitlines())
     assert set(out.splitlines()) == expected
+
+
+# --------------------------------------------------
+def test_ok1() -> None:
+    """ Runs ok """
+
+    run(INPUT1)
+
+
+# --------------------------------------------------
+def test_ok2() -> None:
+    """ Runs ok """
+
+    run(INPUT2)
+
+
+# --------------------------------------------------
+def random_string() -> str:
+    """ Generate a random string """
+
+    k = random.randint(5, 10)
+    return ''.join(random.choices(string.ascii_letters + string.digits, k=k))

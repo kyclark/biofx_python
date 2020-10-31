@@ -65,7 +65,7 @@ def gc(seq: str) -> float:
 
 
 # --------------------------------------------------
-def test_gc():
+def test_gc() -> None:
     """ Test gc """
 
     assert gc('') == 0.

@@ -14,14 +14,14 @@ CENTROIDS = './tests/inputs/centroids.csv'
 
 
 # --------------------------------------------------
-def test_exists():
+def test_exists() -> None:
     """ Program exists """
 
     assert os.path.isfile(PRG)
 
 
 # --------------------------------------------------
-def test_usage():
+def test_usage() -> None:
     """ Usage """
 
     for flag in ['', '-h', '--help']:
@@ -30,7 +30,7 @@ def test_usage():
 
 
 # --------------------------------------------------
-def test_bad_input():
+def test_bad_input() -> None:
     """ Dies on bad input """
 
     bad = random_filename()
@@ -44,7 +44,7 @@ def test_bad_input():
 
 
 # --------------------------------------------------
-def test_good_input1():
+def test_good_input1() -> None:
     """ Works on good input """
 
     err = random_filename()
@@ -66,7 +66,7 @@ def test_good_input1():
 
 
 # --------------------------------------------------
-def test_good_input2():
+def test_good_input2() -> None:
     """ Works on good input """
 
     out_file = random_filename()
@@ -104,7 +104,7 @@ def test_good_input2():
 
 
 # --------------------------------------------------
-def random_filename():
+def random_filename() -> str:
     """generate a random filename"""
 
     return ''.join(random.choices(string.ascii_uppercase + string.digits, k=5))

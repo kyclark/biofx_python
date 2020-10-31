@@ -10,14 +10,14 @@ TEST3 = ('./tests/inputs/input3.txt', '196 231 237 246')
 
 
 # --------------------------------------------------
-def test_exists():
+def test_exists() -> None:
     """ Program exists """
 
     assert os.path.exists(PRG)
 
 
 # --------------------------------------------------
-def test_usage():
+def test_usage() -> None:
     """ Prints usage with no args or for help """
 
     for arg in ['', '-h', '--help']:
@@ -26,7 +26,7 @@ def test_usage():
 
 
 # --------------------------------------------------
-def test_arg():
+def test_arg() -> None:
     """ Uses command-line arg """
 
     for file, expected in [TEST1, TEST2, TEST3]:
@@ -37,7 +37,7 @@ def test_arg():
 
 
 # --------------------------------------------------
-def test_file():
+def test_file() -> None:
     """ Uses file arg """
 
     for file, expected in [TEST1, TEST2, TEST3]:

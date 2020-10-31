@@ -12,14 +12,14 @@ INPUT2 = './tests/inputs/2.txt'
 
 
 # --------------------------------------------------
-def test_exists():
+def test_exists() -> None:
     """ Program exists """
 
     assert os.path.isfile(PRG)
 
 
 # --------------------------------------------------
-def test_usage():
+def test_usage() -> None:
     """ Usage """
 
     rv, out = getstatusoutput(PRG)
@@ -28,7 +28,7 @@ def test_usage():
 
 
 # --------------------------------------------------
-def test_bad_file():
+def test_bad_file() -> None:
     """ Dies on bad file """
 
     bad = random_string()
@@ -39,7 +39,7 @@ def test_bad_file():
 
 
 # --------------------------------------------------
-def run(file, expected):
+def run(file: str, expected: str) -> None:
     """ Run test """
 
     rv, out = getstatusoutput(f'{PRG} {file}')
@@ -47,7 +47,7 @@ def run(file, expected):
 
 
 # --------------------------------------------------
-def test_1():
+def test_1() -> None:
     """ Input 1 """
 
     expected = '\n'.join([
@@ -62,7 +62,7 @@ def test_1():
 
 
 # --------------------------------------------------
-def test_2():
+def test_2() -> None:
     """ Input 2 """
 
     expected = """
@@ -93,7 +93,7 @@ Q9QSP4
 
 
 # --------------------------------------------------
-def random_string():
+def random_string() -> str:
     """ Generate a random string """
 
     k = random.randint(5, 10)

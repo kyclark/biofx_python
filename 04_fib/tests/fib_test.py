@@ -9,14 +9,14 @@ PRG = './fib.py'
 
 
 # --------------------------------------------------
-def test_exists():
+def test_exists() -> None:
     """ Program exists """
 
     assert os.path.isfile(PRG)
 
 
 # --------------------------------------------------
-def test_usage():
+def test_usage() -> None:
     """ Usage """
 
     for arg in ['-h', '--help']:
@@ -26,7 +26,7 @@ def test_usage():
 
 
 # --------------------------------------------------
-def test_bad_n():
+def test_bad_n() -> None:
     """ Dies when n is bad """
 
     n = random.choice(list(range(-10, 0)) + list(range(41, 50)))
@@ -38,7 +38,7 @@ def test_bad_n():
 
 
 # --------------------------------------------------
-def test_bad_k():
+def test_bad_k() -> None:
     """ Dies when k is bad """
 
     n = random.randint(1, 40)
@@ -50,7 +50,7 @@ def test_bad_k():
 
 
 # --------------------------------------------------
-def test_1():
+def test_1() -> None:
     """runs on good input"""
 
     rv, out = getstatusoutput(f'{PRG} 5 3')
@@ -59,7 +59,7 @@ def test_1():
 
 
 # --------------------------------------------------
-def test_2():
+def test_2() -> None:
     """runs on good input"""
 
     rv, out = getstatusoutput(f'{PRG} 30 4')
@@ -68,7 +68,7 @@ def test_2():
 
 
 # --------------------------------------------------
-def test_3():
+def test_3() -> None:
     """runs on good input"""
 
     rv, out = getstatusoutput(f'{PRG} 29 2')

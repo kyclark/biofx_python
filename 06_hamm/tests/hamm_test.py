@@ -14,14 +14,14 @@ INPUT2 = './tests/inputs/2.txt'
 
 
 # --------------------------------------------------
-def test_exists():
+def test_exists() -> None:
     """ Program exists """
 
     assert os.path.isfile(PRG)
 
 
 # --------------------------------------------------
-def test_usage():
+def test_usage() -> None:
     """ Usage """
 
     for flag in ['-h', '--help']:
@@ -31,7 +31,7 @@ def test_usage():
 
 
 # --------------------------------------------------
-def test_bad_file():
+def test_bad_file() -> None:
     """ Dies on bad file """
 
     bad = random_string()
@@ -41,7 +41,7 @@ def test_bad_file():
 
 
 # --------------------------------------------------
-def run(file, expected):
+def run(file: str, expected: str) -> None:
     """ Run with input """
 
     rv, out = getstatusoutput(f'{PRG} {file}')
@@ -50,21 +50,21 @@ def run(file, expected):
 
 
 # --------------------------------------------------
-def test_input1():
+def test_input1() -> None:
     """ Test with input1 """
 
     run(INPUT1, '7')
 
 
 # --------------------------------------------------
-def test_input2():
+def test_input2() -> None:
     """ Test with input2 """
 
     run(INPUT2, '503')
 
 
 # --------------------------------------------------
-def test_empty_file():
+def test_empty_file() -> None:
     """ Empty file """
 
     rv, out = getstatusoutput(f'{PRG} {EMPTY}')
@@ -73,7 +73,7 @@ def test_empty_file():
 
 
 # --------------------------------------------------
-def random_string():
+def random_string() -> str:
     """ Generate a random string """
 
     k = random.randint(5, 10)

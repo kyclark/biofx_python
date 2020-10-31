@@ -13,14 +13,14 @@ NO_SHARED = './tests/inputs/none.fa'
 
 
 # --------------------------------------------------
-def test_exists():
+def test_exists() -> None:
     """ Program exists """
 
     assert os.path.isfile(PRG)
 
 
 # --------------------------------------------------
-def test_usage():
+def test_usage() -> None:
     """ Prints usage """
 
     rv, out = getstatusoutput(PRG)
@@ -29,7 +29,7 @@ def test_usage():
 
 
 # --------------------------------------------------
-def test_bad_file():
+def test_bad_file() -> None:
     """ Dies on bad file """
 
     bad = random_string()
@@ -40,7 +40,7 @@ def test_bad_file():
 
 
 # --------------------------------------------------
-def test_short():
+def test_short() -> None:
     """ Runs OK """
 
     rv, out = getstatusoutput(f'{PRG} {INPUT1}')
@@ -49,7 +49,7 @@ def test_short():
 
 
 # --------------------------------------------------
-def test_long():
+def test_long() -> None:
     """ Runs OK """
 
     rv, out = getstatusoutput(f'{PRG} {INPUT2}')
@@ -60,7 +60,7 @@ def test_long():
 
 
 # --------------------------------------------------
-def test_no_shared():
+def test_no_shared() -> None:
     """ Correctly reports when no sequences are shared """
 
     rv, out = getstatusoutput(f'{PRG} {NO_SHARED}')
@@ -69,7 +69,7 @@ def test_no_shared():
 
 
 # --------------------------------------------------
-def random_string():
+def random_string() -> str:
     """ Generate a random string """
 
     k = random.randint(5, 10)

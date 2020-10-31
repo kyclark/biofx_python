@@ -12,14 +12,14 @@ SAMPLE2 = './tests/inputs/2.fa'
 
 
 # --------------------------------------------------
-def test_exists():
+def test_exists() -> None:
     """ Program exists """
 
     assert os.path.isfile(PRG)
 
 
 # --------------------------------------------------
-def test_usage():
+def test_usage() -> None:
     """ Usage """
 
     for flag in ['-h', '--help']:
@@ -29,7 +29,7 @@ def test_usage():
 
 
 # --------------------------------------------------
-def test_bad_input():
+def test_bad_input() -> None:
     """ Fails on bad input """
 
     bad = random_string()
@@ -40,7 +40,7 @@ def test_bad_input():
 
 
 # --------------------------------------------------
-def test_good_input1():
+def test_good_input1() -> None:
     """ Works on good input """
 
     rv, out = getstatusoutput(f'{PRG} {SAMPLE1}')
@@ -49,7 +49,7 @@ def test_good_input1():
 
 
 # --------------------------------------------------
-def test_good_input2():
+def test_good_input2() -> None:
     """ Works on good input """
 
     rv, out = getstatusoutput(f'{PRG} {SAMPLE2}')
@@ -58,7 +58,7 @@ def test_good_input2():
 
 
 # --------------------------------------------------
-def random_string():
+def random_string() -> str:
     """ Generate a random string """
 
     k = random.randint(5, 10)
