@@ -1,6 +1,9 @@
 """ Tests for orf.py """
 
+import random
+import re
 import os
+import string
 from subprocess import getstatusoutput
 
 PRG = './orf.py'
@@ -26,61 +29,52 @@ def test_usage() -> None:
 
 
 # --------------------------------------------------
-def run(file: str, expected: str) -> None:
+def test_bad_file() -> None:
+    """ Dies on bad file """
+
+    bad = random_string()
+    rv, out = getstatusoutput(f'{PRG} {bad}')
+    assert rv != 0
+    assert out.lower().startswith('usage:')
+    assert re.search(f"No such file or directory: '{bad}'", out)
+
+
+# --------------------------------------------------
+def run(file: str) -> None:
     """ Run with inputs """
 
+    expected_file = file + '.out'
+    assert os.path.isfile(expected_file)
+    expected = set(open(expected_file).read().splitlines())
     rv, out = getstatusoutput(f'{PRG} {file}')
     assert rv == 0
-    assert set(out.splitlines()) == set(expected)
+    assert set(out.splitlines()) == expected
 
 
 # --------------------------------------------------
 def test_ok1() -> None:
     """ OK """
 
-    expected = [
-        'M', 'MGMTPRLGLESLLE', 'MLLGSFRLIPKETLIQVAGSSPCNLS', 'MTPRLGLESLLE'
-    ]
-
-    run(INPUT1, expected)
+    run(INPUT1)
 
 
 # --------------------------------------------------
 def test_ok2() -> None:
     """ OK """
 
-    expected = [
-        'M', 'MAEGGYRTSNHGSSL', 'MAYPRQYVRCLPKW', 'MDARISTTFELPYLTICQAFTF',
-        'MDKHKKWTPVFLLPLSCPISLSVRHLHSDG', 'MGLQ', 'MIDL', 'MLEAQTDG',
-        'MLWTNTRNGRPYFYYL', 'MPARRPRFLLTQQERRRPAFARLLVVCQTVSLSSGETVECDSG',
-        'MPCYGQTQEMDARISTTFELPYLTICQAFTF', 'MPDGFFVQWGNG', 'MPDR', 'MPFC',
-        'MPNPEGWVDLVFHAFLLRQAVLGTRLSRRGGYNRKVPIRSSAAPCTSR',
-        'MRLSRIALNRFPTGQRNRLAYDK', 'MSEETD', 'MTRMLEAQTDG',
-        'MTTQKAGIQWAYNKLLTTAFGVTKLD', 'MVFWYTRR'
-    ]
-
-    run(INPUT2, expected)
+    run(INPUT2)
 
 
 # --------------------------------------------------
 def test_ok3() -> None:
     """ OK """
 
-    expected = [
-        'M', 'MACLAPRVPVS', 'MAIGVVWV', 'MANGVVATGLGRSLLA', 'MDRRAMAIGVVWV',
-        'MKHAFRISFQANNCVWVN', 'MLAGHVGWP', 'MLFSAV', 'MLGGLNYG',
-        'MLGYRLHRMRTIPRPRHESL',
-        'MLHAHGGWNLRPLDYSQKASWIQILGSLLPVIKATQHVPRASIVLVGLR', 'MLRAY',
-        'MNRCRFYIPPEMPTAEGYPHGEGPSTL',
-        'MNVLALCYFLRFRTNRRPGGASEVAIDTYYYLHATACRWLLA',
-        'MPSVSVFRQTIVCGSTKLLVITMNVLALCYFLRFRTNRRPGGASEVAIDTYYYLHATACRWLLA',
-        'MPTAEGYPHGEGPSTL', 'MRMKHAFRISFQANNCVWVN', 'MRMVAGIYDRWIILRRLLGSKS',
-        'MRTIPRPRHESL', 'MRVAFCCWHFGGYVKSTTIHVWALV', 'MSGPWYSPHPM',
-        'MSIRVNGQRRGSDRIGPLPSCLIL', 'MSREHLLSW', 'MSSTSTLKGCYM',
-        'MSWRYAIFCGLERIAAQEERRKLQSILIIICTQPPVDGYWRSLGIAIPRLRQ', 'MTSPEYRTSARA',
-        'MVAGIYDRWIILRRLLGSKS',
-        'MVITSSLVDPHTIVCLKTDTEGMLHAHGGWNLRPLDYSQKASWIQILGSLLPVIK' +
-        'ATQHVPRASIVLVGLR', 'MVKALPPYEYTSKWPTAW'
-    ]
+    run(INPUT3)
 
-    run(INPUT3, expected)
+
+# --------------------------------------------------
+def random_string() -> str:
+    """ Generate a random string """
+
+    k = random.randint(5, 10)
+    return ''.join(random.choices(string.ascii_letters + string.digits, k=k))
