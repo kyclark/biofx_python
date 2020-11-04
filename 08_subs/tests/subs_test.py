@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """ Tests for subs.py """
 
-from subprocess import getstatusoutput
 import os
+import platform
+from subprocess import getstatusoutput
 
 PRG = './subs.py'
+RUN = f'python {PRG}' if platform.system() == 'Windows' else PRG
 TEST1 = ('./tests/inputs/input1.txt', './tests/inputs/input1.txt.out')
 
 
@@ -20,7 +22,7 @@ def test_usage() -> None:
     """ Usage """
 
     for arg in ['-h', '--help']:
-        rv, out = getstatusoutput(f'{PRG} {arg}')
+        rv, out = getstatusoutput(f'{RUN} {arg}')
         assert rv == 0
         assert out.lower().startswith('usage:')
 
@@ -29,7 +31,7 @@ def test_usage() -> None:
 def run(inputs: str, expected: str) -> None:
     """ Runs on command-line input """
 
-    rv, out = getstatusoutput(f'{PRG} {inputs}')
+    rv, out = getstatusoutput(f'{RUN} {inputs}')
     assert rv == 0
     assert out == expected
 

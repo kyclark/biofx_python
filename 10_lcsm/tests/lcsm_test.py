@@ -1,12 +1,14 @@
 """ Tests for lcsm.py """
 
 import os
+import platform
 import random
 import re
 import string
 from subprocess import getstatusoutput
 
 PRG = './lcsm.py'
+RUN = f'python {PRG}' if platform.system() == 'Windows' else PRG
 INPUT1 = './tests/inputs/1.fa'
 INPUT2 = './tests/inputs/2.fa'
 NO_SHARED = './tests/inputs/none.fa'
@@ -23,7 +25,7 @@ def test_exists() -> None:
 def test_usage() -> None:
     """ Prints usage """
 
-    rv, out = getstatusoutput(PRG)
+    rv, out = getstatusoutput(RUN)
     assert rv != 0
     assert out.lower().startswith('usage:')
 
@@ -33,7 +35,7 @@ def test_bad_file() -> None:
     """ Dies on bad file """
 
     bad = random_string()
-    rv, out = getstatusoutput(f'{PRG} {bad}')
+    rv, out = getstatusoutput(f'{RUN} {bad}')
     assert rv != 0
     assert out.lower().startswith('usage:')
     assert re.search(f"No such file or directory: '{bad}'", out)
@@ -43,7 +45,7 @@ def test_bad_file() -> None:
 def test_short() -> None:
     """ Runs OK """
 
-    rv, out = getstatusoutput(f'{PRG} {INPUT1}')
+    rv, out = getstatusoutput(f'{RUN} {INPUT1}')
     assert rv == 0
     assert out in ['AC', 'CA', 'TA']
 
@@ -52,7 +54,7 @@ def test_short() -> None:
 def test_long() -> None:
     """ Runs OK """
 
-    rv, out = getstatusoutput(f'{PRG} {INPUT2}')
+    rv, out = getstatusoutput(f'{RUN} {INPUT2}')
     assert rv == 0
     expected = ('GCCTTTTGATTTTAACGTTTATCGGGTGTAGTAAGATTGCGCGC'
                 'TAATTCCAATAAACGTATGGAGGACATTCCCCGT')
@@ -63,7 +65,7 @@ def test_long() -> None:
 def test_no_shared() -> None:
     """ Correctly reports when no sequences are shared """
 
-    rv, out = getstatusoutput(f'{PRG} {NO_SHARED}')
+    rv, out = getstatusoutput(f'{RUN} {NO_SHARED}')
     assert rv == 0
     assert out == 'No common subsequence.'
 

@@ -1,6 +1,7 @@
 """ Tests for rna.py """
 
 from subprocess import getstatusoutput
+import platform
 import os.path
 import re
 import string
@@ -8,6 +9,7 @@ import random
 import shutil
 
 PRG = './rna.py'
+RUN = f'python {PRG}' if platform.system() == 'Windows' else PRG
 INPUT1 = './tests/inputs/input1.txt'
 INPUT2 = './tests/inputs/input2.txt'
 INPUT3 = './tests/inputs/input3.txt'
@@ -25,7 +27,7 @@ def test_usage() -> None:
     """ Usage """
 
     for flag in ['-h', '--help']:
-        retval, out = getstatusoutput('{} {}'.format(PRG, flag))
+        retval, out = getstatusoutput(f'{RUN} {flag}')
         assert retval == 0
         assert re.match("usage", out, re.IGNORECASE)
 
@@ -34,7 +36,7 @@ def test_usage() -> None:
 def test_no_args() -> None:
     """ Dies on no args """
 
-    retval, out = getstatusoutput(PRG)
+    retval, out = getstatusoutput(RUN)
     assert retval != 0
     assert out.lower().startswith('usage:')
 
@@ -44,7 +46,7 @@ def test_bad_file() -> None:
     """ Die on missing input """
 
     bad = random_filename()
-    retval, out = getstatusoutput(f'{PRG} {bad}')
+    retval, out = getstatusoutput(f'{RUN} {bad}')
     assert retval != 0
     assert re.match('usage:', out, re.IGNORECASE)
     assert re.search(f"No such file or directory: '{bad}'", out)
@@ -59,7 +61,7 @@ def test_good_input1() -> None:
         if os.path.isdir(out_dir):
             shutil.rmtree(out_dir)
 
-        retval, out = getstatusoutput(f'{PRG} {INPUT1}')
+        retval, out = getstatusoutput(f'{RUN} {INPUT1}')
         assert retval == 0
         assert out == 'Done, wrote 1 sequence in 1 file to directory "out".'
         assert os.path.isdir(out_dir)
@@ -81,7 +83,7 @@ def test_good_input2() -> None:
         if os.path.isdir(out_dir):
             shutil.rmtree(out_dir)
 
-        retval, out = getstatusoutput(f'{PRG} -o {out_dir} {INPUT2}')
+        retval, out = getstatusoutput(f'{RUN} -o {out_dir} {INPUT2}')
         assert retval == 0
         assert out == (f'Done, wrote 2 sequences in 1 file to '
                        f'directory "{out_dir}".')
@@ -106,7 +108,7 @@ def test_good_multiple_inputs():
             shutil.rmtree(out_dir)
 
         retval, out = getstatusoutput(
-            f'{PRG} --out_dir {out_dir} {INPUT1} {INPUT2} {INPUT3}')
+            f'{RUN} --out_dir {out_dir} {INPUT1} {INPUT2} {INPUT3}')
         assert retval == 0
         assert out == (f'Done, wrote 5 sequences in 3 files to '
                        f'directory "{out_dir}".')

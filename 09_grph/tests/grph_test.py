@@ -1,12 +1,14 @@
 """ Tests for grph.py """
 
-from subprocess import getstatusoutput
 import os
+import platform
 import random
 import re
 import string
+from subprocess import getstatusoutput
 
 PRG = './grph.py'
+RUN = f'python {PRG}' if platform.system() == 'Windows' else PRG
 SAMPLE1 = './tests/inputs/1.fa'
 SAMPLE2 = './tests/inputs/2.fa'
 SAMPLE3 = './tests/inputs/3.fa'
@@ -23,7 +25,7 @@ def test_exists() -> None:
 def test_usage() -> None:
     """ Usage """
 
-    rv, out = getstatusoutput(PRG)
+    rv, out = getstatusoutput(RUN)
     assert rv > 0
     assert out.lower().startswith('usage:')
 
@@ -33,7 +35,7 @@ def test_bad_k() -> None:
     """ Dies on bad k """
 
     k = random.choice(range(-10, 1))
-    rv, out = getstatusoutput(f'{PRG} -k {k} {SAMPLE1}')
+    rv, out = getstatusoutput(f'{RUN} -k {k} {SAMPLE1}')
     assert rv != 0
     assert out.lower().startswith('usage:')
     assert re.search(f'-k "{k}" must be > 0', out)
@@ -44,7 +46,7 @@ def test_bad_file() -> None:
     """ Dies on bad file """
 
     bad = random_string()
-    rv, out = getstatusoutput('{} {}'.format(PRG, bad))
+    rv, out = getstatusoutput('{} {}'.format(RUN, bad))
     assert rv != 0
     assert out.lower().startswith('usage:')
     assert re.search(f"No such file or directory: '{bad}'", out)
@@ -58,7 +60,7 @@ def run(in_file: str, k: int) -> None:
     assert os.path.isfile(out_file)
 
     expected = open(out_file).read().rstrip()
-    cmd = '{} -k {} {} | sort'.format(PRG, k, in_file)
+    cmd = '{} -k {} {} | sort'.format(RUN, k, in_file)
     rv, out = getstatusoutput(cmd)
     assert rv == 0
     assert out.rstrip() == expected

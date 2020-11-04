@@ -1,9 +1,11 @@
 """ Tests for prot.py """
 
-from subprocess import getstatusoutput, getoutput
 import os
+import platform
+from subprocess import getstatusoutput, getoutput
 
 PRG = './prot.py'
+RUN = f'python {PRG}' if platform.system() == 'Windows' else PRG
 TEST1 = ('./tests/inputs/input1.txt', './tests/inputs/input1.txt.out')
 
 
@@ -19,7 +21,7 @@ def test_usage() -> None:
     """ Usage """
 
     for arg in ['', '-h', '--help']:
-        out = getoutput(f'{PRG} {arg}')
+        out = getoutput(f'{RUN} {arg}')
         assert out.lower().startswith('usage:')
 
 
@@ -27,7 +29,7 @@ def test_usage() -> None:
 def run(rna: str, expected: str) -> None:
     """ Runs test """
 
-    rv, out = getstatusoutput(f'{PRG} {rna}')
+    rv, out = getstatusoutput(f'{RUN} {rna}')
     assert rv == 0
     assert out == expected
 

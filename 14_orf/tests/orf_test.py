@@ -1,12 +1,14 @@
 """ Tests for orf.py """
 
+import os
+import platform
 import random
 import re
-import os
 import string
 from subprocess import getstatusoutput
 
 PRG = './orf.py'
+RUN = f'python {PRG}' if platform.system() == 'Windows' else PRG
 INPUT1 = './tests/inputs/1.fa'
 INPUT2 = './tests/inputs/2.fa'
 INPUT3 = './tests/inputs/3.fa'
@@ -23,7 +25,7 @@ def test_exists() -> None:
 def test_usage() -> None:
     """ Usage """
 
-    rv, out = getstatusoutput(PRG)
+    rv, out = getstatusoutput(RUN)
     assert rv != 0
     assert out.lower().startswith('usage:')
 
@@ -33,7 +35,7 @@ def test_bad_file() -> None:
     """ Dies on bad file """
 
     bad = random_string()
-    rv, out = getstatusoutput(f'{PRG} {bad}')
+    rv, out = getstatusoutput(f'{RUN} {bad}')
     assert rv != 0
     assert out.lower().startswith('usage:')
     assert re.search(f"No such file or directory: '{bad}'", out)
@@ -46,7 +48,7 @@ def run(file: str) -> None:
     expected_file = file + '.out'
     assert os.path.isfile(expected_file)
     expected = set(open(expected_file).read().splitlines())
-    rv, out = getstatusoutput(f'{PRG} {file}')
+    rv, out = getstatusoutput(f'{RUN} {file}')
     assert rv == 0
     assert set(out.splitlines()) == expected
 

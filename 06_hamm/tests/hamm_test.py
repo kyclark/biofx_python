@@ -2,12 +2,14 @@
 """ Tests for hamm.py """
 
 import os
+import platform
 import random
 import re
 import string
 from subprocess import getstatusoutput
 
 PRG = './hamm.py'
+RUN = f'python {PRG}' if platform.system() == 'Windows' else PRG
 EMPTY = './tests/inputs/empty.txt'
 INPUT1 = './tests/inputs/1.txt'
 INPUT2 = './tests/inputs/2.txt'
@@ -25,7 +27,7 @@ def test_usage() -> None:
     """ Usage """
 
     for flag in ['-h', '--help']:
-        rv, out = getstatusoutput(f'{PRG} {flag}')
+        rv, out = getstatusoutput(f'{RUN} {flag}')
         assert rv == 0
         assert out.lower().startswith('usage')
 
@@ -35,7 +37,7 @@ def test_bad_file() -> None:
     """ Dies on bad file """
 
     bad = random_string()
-    rv, out = getstatusoutput(f'{PRG} {bad}')
+    rv, out = getstatusoutput(f'{RUN} {bad}')
     assert rv != 0
     assert re.search(f"No such file or directory: '{bad}'", out)
 
@@ -44,7 +46,7 @@ def test_bad_file() -> None:
 def run(file: str, expected: str) -> None:
     """ Run with input """
 
-    rv, out = getstatusoutput(f'{PRG} {file}')
+    rv, out = getstatusoutput(f'{RUN} {file}')
     assert rv == 0
     assert out.rstrip() == expected
 
@@ -67,7 +69,7 @@ def test_input2() -> None:
 def test_empty_file() -> None:
     """ Empty file """
 
-    rv, out = getstatusoutput(f'{PRG} {EMPTY}')
+    rv, out = getstatusoutput(f'{RUN} {EMPTY}')
     assert rv != 0
     assert re.search(f'Input file "{EMPTY}" must have two lines.', out)
 
