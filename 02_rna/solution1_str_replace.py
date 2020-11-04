@@ -27,7 +27,7 @@ def get_args() -> Args:
                         nargs='+')
 
     parser.add_argument('-o',
-                        '--outdir',
+                        '--out_dir',
                         help='Output directory',
                         metavar='DIR',
                         type=str,
@@ -35,7 +35,7 @@ def get_args() -> Args:
 
     args = parser.parse_args()
 
-    return Args(args.file, args.outdir)
+    return Args(args.file, args.out_dir)
 
 
 # --------------------------------------------------

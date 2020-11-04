@@ -106,7 +106,7 @@ def test_good_multiple_inputs():
             shutil.rmtree(out_dir)
 
         retval, out = getstatusoutput(
-            f'{PRG} --outdir {out_dir} {INPUT1} {INPUT2} {INPUT3}')
+            f'{PRG} --out_dir {out_dir} {INPUT1} {INPUT2} {INPUT3}')
         assert retval == 0
         assert out == (f'Done, wrote 5 sequences in 3 files to '
                        f'directory "{out_dir}".')

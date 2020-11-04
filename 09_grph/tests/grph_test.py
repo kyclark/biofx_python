@@ -51,7 +51,7 @@ def test_bad_file() -> None:
 
 
 # --------------------------------------------------
-def run(in_file: str, k : int) -> None:
+def run(in_file: str, k: int) -> None:
     """ Run with args """
 
     out_file = '.'.join([in_file, str(k), 'out'])
