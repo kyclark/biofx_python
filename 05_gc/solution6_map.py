@@ -43,7 +43,7 @@ def main() -> None:
     high = MySeq(0., '')
 
     for rec in SeqIO.parse(args.file, 'fasta'):
-        pct = gc(rec.seq)
+        pct = find_gc(rec.seq)
         if pct > high.gc:
             high = MySeq(pct, rec.id)
 
@@ -51,7 +51,7 @@ def main() -> None:
 
 
 # --------------------------------------------------
-def gc(seq: str) -> float:
+def find_gc(seq: str) -> float:
     """ Calculate GC content """
 
     if not seq:
@@ -62,15 +62,15 @@ def gc(seq: str) -> float:
 
 
 # --------------------------------------------------
-def test_gc():
-    """ Test gc """
+def test_find_gc():
+    """ Test find_gc """
 
-    assert gc('') == 0.
-    assert gc('C') == 100.
-    assert gc('G') == 100.
-    assert gc('CGCCG') == 100.
-    assert gc('ATTAA') == 0.
-    assert gc('ACGT') == 50.
+    assert find_gc('') == 0.
+    assert find_gc('C') == 100.
+    assert find_gc('G') == 100.
+    assert find_gc('CGCCG') == 100.
+    assert find_gc('ATTAA') == 0.
+    assert find_gc('ACGT') == 50.
 
 
 # --------------------------------------------------

@@ -34,8 +34,8 @@ def main() -> None:
     """ Make a jazz noise here """
 
     args = get_args()
-
     revc = ''
+
     for base in reversed(args.dna):
         if base == 'A':
             revc += 'T'

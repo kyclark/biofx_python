@@ -2,8 +2,8 @@
 """ Compute GC content """
 
 import argparse
-from Bio import SeqIO
 from typing import NamedTuple, TextIO, List
+from Bio import SeqIO
 
 
 class Args(NamedTuple):
@@ -43,14 +43,14 @@ def main() -> None:
     seqs: List[MySeq] = []
 
     for rec in SeqIO.parse(args.file, 'fasta'):
-        seqs.append(MySeq(gc(rec.seq), rec.id))
+        seqs.append(MySeq(find_gc(rec.seq), rec.id))
 
     high = sorted(seqs)[-1]
     print(f'{high.name} {high.gc:0.6f}')
 
 
 # --------------------------------------------------
-def gc(seq: str) -> float:
+def find_gc(seq: str) -> float:
     """ Calculate GC content """
 
     if not seq:
@@ -65,15 +65,15 @@ def gc(seq: str) -> float:
 
 
 # --------------------------------------------------
-def test_gc() -> None:
-    """ Test gc """
+def test_find_gc() -> None:
+    """ Test find_gc """
 
-    assert gc('') == 0.
-    assert gc('C') == 100.
-    assert gc('G') == 100.
-    assert gc('CGCCG') == 100.
-    assert gc('ATTAA') == 0.
-    assert gc('ACGT') == 50.
+    assert find_gc('') == 0.
+    assert find_gc('C') == 100.
+    assert find_gc('G') == 100.
+    assert find_gc('CGCCG') == 100.
+    assert find_gc('ATTAA') == 0.
+    assert find_gc('ACGT') == 50.
 
 
 # --------------------------------------------------

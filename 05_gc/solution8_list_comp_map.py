@@ -44,7 +44,7 @@ def main() -> None:
 
     args = get_args()
     high = MySeq(0., '')
-    for seq in map(gc, SeqIO.parse(args.file, 'fasta')):
+    for seq in map(find_gc, SeqIO.parse(args.file, 'fasta')):
         if seq.gc > high.gc:
             high = seq
 
@@ -52,7 +52,7 @@ def main() -> None:
 
 
 # --------------------------------------------------
-def gc(rec: SeqRecord) -> MySeq:
+def find_gc(rec: SeqRecord) -> MySeq:
     """ Return the GC content, record ID for a sequence """
 
     pct = 0.
@@ -64,14 +64,14 @@ def gc(rec: SeqRecord) -> MySeq:
 
 
 # --------------------------------------------------
-def test_gc() -> None:
-    """ Test gc """
+def test_find_gc() -> None:
+    """ Test find_gc """
 
-    assert gc(SeqRecord(Seq(''), id='123')) == (0.0, '123')
-    assert gc(SeqRecord(Seq('C'), id='ABC')) == (100.0, 'ABC')
-    assert gc(SeqRecord(Seq('G'), id='XYZ')) == (100.0, 'XYZ')
-    assert gc(SeqRecord(Seq('ACTG'), id='ABC')) == (50.0, 'ABC')
-    assert gc(SeqRecord(Seq('GGCC'), id='XYZ')) == (100.0, 'XYZ')
+    assert find_gc(SeqRecord(Seq(''), id='123')) == (0.0, '123')
+    assert find_gc(SeqRecord(Seq('C'), id='ABC')) == (100.0, 'ABC')
+    assert find_gc(SeqRecord(Seq('G'), id='XYZ')) == (100.0, 'XYZ')
+    assert find_gc(SeqRecord(Seq('ACTG'), id='ABC')) == (50.0, 'ABC')
+    assert find_gc(SeqRecord(Seq('GGCC'), id='XYZ')) == (100.0, 'XYZ')
 
 
 # --------------------------------------------------

@@ -34,7 +34,6 @@ def main() -> None:
     """ Make a jazz noise here """
 
     args = get_args()
-
     trans = {
         'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A',
         'a': 't', 'c': 'g', 'g': 'c', 't': 'a'
