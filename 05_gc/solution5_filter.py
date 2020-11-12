@@ -2,8 +2,8 @@
 """ Compute GC content """
 
 import argparse
-from Bio import SeqIO
 from typing import NamedTuple, TextIO
+from Bio import SeqIO
 
 
 class Args(NamedTuple):
