@@ -58,7 +58,7 @@ def find_gc(seq: str) -> float:
 
     gc = 0
     for base in seq.upper():
-        if base == 'C' or base == 'G':
+        if base in ('C', 'G'):
             gc += 1
 
     return (gc * 100) / len(seq)
