@@ -4,9 +4,9 @@
 import argparse
 import os
 import re
-import requests
 import sys
 from typing import NamedTuple, List, TextIO
+import requests
 from Bio import SeqIO
 
 
