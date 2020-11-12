@@ -1,17 +1,21 @@
 TAG = kyclark/biofx_python:0.1.0
-TAG36 = kyclark/biofx_python_3.6:0.1.0
+TAG38 = kyclark/biofx_python_3.6:0.1.0
+DOCKER = sudo docker
 
 img:
-	docker build --tag=$(TAG) .
+	$(DOCKER) build --tag=$(TAG) .
 
-3.6:
-	docker build --tag=$(TAG36) -f ./Dockerfile.3.6 -
+3.8:
+	$(DOCKER) build --tag=$(TAG38) -f ./Dockerfile.3.8 .
 
 3.10:
-	docker build --tag=$(TAG) -f Dockerfile.3.10
+	$(DOCKER) build --tag=$(TAG) -f Dockerfile.3.10
 
 shell:
-	docker run -it $(TAG) bash
+	$(DOCKER) run -it $(TAG) bash
+
+shell38:
+	$(DOCKER) run -it $(TAG38) bash
 
 push: 
-	docker push $(TAG)
+	$(DOCKER) push $(TAG)
