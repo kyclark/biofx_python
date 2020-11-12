@@ -73,12 +73,14 @@ def binary_search(f: Callable, low: int, high: int) -> int:
 
     if hi and lo:
         return high
-    elif not hi and lo:
+
+    if not hi and lo:
         return binary_search(f, low, mid)
-    elif hi and not lo:
+
+    if hi and not lo:
         return binary_search(f, mid, high)
-    else:
-        return -1
+
+    return -1
 
 
 # --------------------------------------------------
