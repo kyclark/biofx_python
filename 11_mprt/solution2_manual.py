@@ -10,6 +10,7 @@ from Bio import SeqIO
 
 
 class Args(NamedTuple):
+    """ Command-line arguments """
     file: TextIO
     download_dir: str
 
