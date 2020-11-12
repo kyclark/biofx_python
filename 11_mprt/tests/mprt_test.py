@@ -45,6 +45,7 @@ def run(file: str, expected: str) -> None:
     """ Run test """
 
     rv, out = getstatusoutput(f'{RUN} {file}')
+    assert rv == 0
     assert out.rstrip() == expected
 
 
