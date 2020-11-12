@@ -49,8 +49,7 @@ def main() -> None:
 
     @lru_cache
     def fib(n: int) -> int:
-        return 1 if n == 1 or n == 2 \
-            else fib(n - 2) * args.litter + fib(n - 1)
+        return 1 if n in (1, 2) else fib(n - 2) * args.litter + fib(n - 1)
 
     print(fib(args.generations))
 
