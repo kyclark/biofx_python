@@ -5,7 +5,7 @@ img:
 	docker build --tag=$(TAG) .
 
 3.6:
-	docker build --tag=$(TAG36) -f ./Dockerfile.3.6
+	docker build --tag=$(TAG36) -f ./Dockerfile.3.6 -
 
 3.10:
 	docker build --tag=$(TAG) -f Dockerfile.3.10
