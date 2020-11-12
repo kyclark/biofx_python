@@ -3,13 +3,14 @@
 
 import argparse
 import os
+from typing import NamedTuple, List, TextIO
 import requests
 import sys
-from typing import NamedTuple, List, TextIO
 from Bio import SeqIO
 
 
 class Args(NamedTuple):
+    """ Command-line arguments """
     file: TextIO
     download_dir: str
 

@@ -3,10 +3,10 @@
 
 import argparse
 import re
+from typing import NamedTuple, TextIO
 from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
-from typing import NamedTuple, TextIO
 
 
 class Args(NamedTuple):

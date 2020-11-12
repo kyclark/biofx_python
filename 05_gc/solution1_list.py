@@ -2,8 +2,8 @@
 """ Compute GC content """
 
 import argparse
-from Bio import SeqIO
 from typing import NamedTuple, TextIO, List, Tuple
+from Bio import SeqIO
 
 
 class Args(NamedTuple):
@@ -40,7 +40,7 @@ def main() -> None:
         # Iterate each base and compare to G or C, add 1 to counter
         gc = 0
         for base in rec.seq.upper():
-            if base == 'C' or base == 'G':
+            if base in ('C', 'G'):
                 gc += 1
         pct = (gc * 100) / len(rec.seq)
         seqs.append((pct, rec.id))

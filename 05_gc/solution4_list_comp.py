@@ -2,8 +2,8 @@
 """ Compute GC content """
 
 import argparse
-from Bio import SeqIO
 from typing import NamedTuple, TextIO
+from Bio import SeqIO
 
 
 class Args(NamedTuple):
@@ -57,7 +57,7 @@ def find_gc(seq: str) -> float:
     if not seq:
         return 0
 
-    gc = len([base for base in seq.upper() if base == 'C' or base == 'G'])
+    gc = len([base for base in seq.upper() if base in 'CG'])
     return (gc * 100) / len(seq)
 
 

@@ -6,11 +6,12 @@ import random
 import sys
 from itertools import chain
 from collections import Counter
-from Bio import SeqIO
 from typing import List, NamedTuple, TextIO
+from Bio import SeqIO
 
 
 class Args(NamedTuple):
+    """ Command-line arguments """
     file: TextIO
 
 

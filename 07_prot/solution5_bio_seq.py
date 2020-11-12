@@ -2,8 +2,8 @@
 """ Translate RNA to proteins """
 
 import argparse
-from Bio import Seq
 from typing import NamedTuple
+from Bio import Seq
 
 
 class Args(NamedTuple):

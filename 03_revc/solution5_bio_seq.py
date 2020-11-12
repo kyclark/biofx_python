@@ -3,8 +3,8 @@
 
 import argparse
 import os
-from Bio import Seq
 from typing import NamedTuple
+from Bio import Seq
 
 
 class Args(NamedTuple):

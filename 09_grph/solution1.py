@@ -4,12 +4,12 @@
 import argparse
 import logging
 import operator as op
-from iteration_utilities import starfilter
 from collections import defaultdict
 from itertools import product
-from Bio import SeqIO
 from pprint import pformat
 from typing import List, NamedTuple, TextIO
+from Bio import SeqIO
+from iteration_utilities import starfilter
 
 
 class Args(NamedTuple):
@@ -66,8 +66,8 @@ def main() -> None:
             start[kmers[0]].append(rec.id)
             end[kmers[-1]].append(rec.id)
 
-    logging.debug('STARTS\n{}'.format(pformat(start)))
-    logging.debug('ENDS\n{}'.format(pformat(end)))
+    logging.debug('STARTS\n%s', pformat(start))
+    logging.debug('ENDS\n%s', pformat(end))
 
     for kmer in set(start).intersection(set(end)):
         for pair in starfilter(op.ne, product(end[kmer], start[kmer])):
