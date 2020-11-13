@@ -5,8 +5,8 @@ import argparse
 import operator
 import sys
 from typing import NamedTuple, TextIO
-from common import find_kmers
 from Bio import SeqIO, Seq
+from common import find_kmers
 
 
 class Args(NamedTuple):
