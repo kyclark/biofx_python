@@ -3,12 +3,13 @@
 
 import argparse
 import sys
-from common import find_kmers, fst, snd
-from Bio import SeqIO, Seq
 from typing import NamedTuple, TextIO
+from Bio import SeqIO, Seq
+from common import find_kmers, fst, snd
 
 
 class Args(NamedTuple):
+    """ Command-line arguments """
     file: TextIO
 
 
