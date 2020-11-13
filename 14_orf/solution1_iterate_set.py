@@ -3,11 +3,12 @@
 
 import argparse
 import sys
-from Bio import SeqIO, Seq
 from typing import NamedTuple, TextIO, List
+from Bio import SeqIO, Seq
 
 
 class Args(NamedTuple):
+    """ Command-line arguments """
     file: TextIO
 
 
