@@ -1,5 +1,5 @@
 TAG = kyclark/biofx_python:0.1.0
-TAG38 = kyclark/biofx_python_3.6:0.1.0
+TAG38 = kyclark/biofx_python_3.8:0.1.0
 DOCKER = sudo docker
 
 img:
