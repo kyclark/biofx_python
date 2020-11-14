@@ -36,11 +36,7 @@ def main() -> None:
     seq, subseq = args.seq, args.subseq
     k = len(subseq)
     kmers = [seq[i:i + k] for i in range(len(seq) - k + 1)]
-    found = []
-
-    for i, kmer in enumerate(kmers):
-        if kmer == subseq:
-            found.append(i + 1)
+    found = [i + 1 for i, kmer in enumerate(kmers) if kmer == subseq]
     print(*found)
 
 

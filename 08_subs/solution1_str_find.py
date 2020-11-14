@@ -41,10 +41,10 @@ def main() -> None:
         pos = args.seq.find(args.subseq, last)
         if pos == -1:
             break
-        found.append(str(pos + 1))
+        found.append(pos + 1)
         last = pos + 1
 
-    print(' '.join(found))
+    print(*found)
 
 
 # --------------------------------------------------

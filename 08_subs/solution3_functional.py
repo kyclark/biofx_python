@@ -37,10 +37,10 @@ def main() -> None:
     args = get_args()
     seq, subseq = args.seq, args.subseq
     r = list(range(len(seq) - len(subseq)))
-    le = partial(operator.le, 0)
+    ok = partial(operator.le, 0)
     find = partial(seq.find, subseq)
     add1 = partial(operator.add, 1)
-    print(*sorted(map(add1, set(filter(le, map(find, r))))))
+    print(*sorted(map(add1, set(filter(ok, map(find, r))))))
 
 
 # --------------------------------------------------
