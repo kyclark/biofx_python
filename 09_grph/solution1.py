@@ -66,8 +66,8 @@ def main() -> None:
             start[kmers[0]].append(rec.id)
             end[kmers[-1]].append(rec.id)
 
-    logging.debug('STARTS\n%s', pformat(start))
-    logging.debug('ENDS\n%s', pformat(end))
+    logging.debug(f'STARTS\n{pformat(start)}')
+    logging.debug(f'ENDS\n{pformat(end)}')
 
     for kmer in set(start).intersection(set(end)):
         for pair in starfilter(op.ne, product(end[kmer], start[kmer])):
