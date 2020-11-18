@@ -10,3 +10,4 @@ pytest-mypy
 biopython
 requests
 iteration_utilities
+graphviz
