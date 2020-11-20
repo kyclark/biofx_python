@@ -46,14 +46,14 @@ def main() -> None:
     shortest = min(map(len, seqs))
 
     # Find a starting point
-    f = partial(common_kmers, seqs)
-    start = binary_search(f, 1, shortest)
+    common = partial(common_kmers, seqs)
+    start = binary_search(common, 1, shortest)
 
     if start >= 0:
         # Hill climb to find max
         candidates = []
         for k in range(start, shortest + 1):
-            if kmers := f(k):
+            if kmers := common(k):
                 candidates.append(random.choice(kmers))
             else:
                 break
