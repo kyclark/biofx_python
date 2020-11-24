@@ -1,4 +1,5 @@
 .log
 grph.py
+graph.txt*
 out
 err

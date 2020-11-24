@@ -11,3 +11,5 @@ biopython
 requests
 iteration_utilities
 graphviz
+tabulate
+rich

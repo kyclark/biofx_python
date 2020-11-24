@@ -55,7 +55,20 @@ def main() -> None:
 def find_orfs(aa: str) -> List[str]:
     """ Find ORFs in AA sequence """
 
-    return [c.group(1) for c in re.finditer('(?=(M[^*]*)[*])', aa)]
+    # All on one line
+    # return re.findall('(?=(M[^*]*)[*])', aa)
+
+    # Use implicit string concatenation
+    pattern = (
+        '(?='    # start positive look-ahead to handle overlaps
+        '('      # start a capture group
+        'M'      # a literal M
+        '[^*]*'  # zero or more of anything not the asterisk
+        ')'      # end the capture group
+        '[*]'    # a literal asterisk
+        ')')     # end the look-ahead group
+
+    return re.findall(pattern, aa)
 
 
 # --------------------------------------------------
@@ -65,8 +78,10 @@ def test_find_orfs() -> None:
     assert find_orfs('') == []
     assert find_orfs('M') == []
     assert find_orfs('*') == []
+    assert find_orfs('M*') == ['M']
     assert find_orfs('MAMAPR*') == ['MAMAPR', 'MAPR']
     assert find_orfs('MAMAPR*M') == ['MAMAPR', 'MAPR']
+    assert find_orfs('MAMAPR*MP*') == ['MAMAPR', 'MAPR', 'MP']
 
 
 # --------------------------------------------------

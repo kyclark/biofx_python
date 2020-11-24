@@ -2,7 +2,6 @@
 """ Mimic seqmagick, print stats on FASTA sequences """
 
 import argparse
-import os
 import numpy as np
 from tabulate import tabulate
 from typing import NamedTuple, TextIO, List
@@ -20,7 +19,7 @@ class FastaInfo(NamedTuple):
     filename: str
     min_len: int
     max_len: int
-    avg_len: int
+    avg_len: float
     num_seqs: int
 
 
@@ -36,7 +35,7 @@ def get_args() -> Args:
                         metavar='FILE',
                         type=argparse.FileType('rt'),
                         nargs='+',
-                        help='Input file(s)')
+                        help='Input FASTA file(s)')
 
     parser.add_argument('-t',
                         '--tablefmt',
@@ -69,13 +68,13 @@ def process(fh: TextIO) -> FastaInfo:
     """ Process a file """
 
     if lengths := [len(rec.seq) for rec in SeqIO.parse(fh, 'fasta')]:
-        return FastaInfo(filename=os.path.basename(fh.name),
+        return FastaInfo(filename=fh.name,
                          min_len=min(lengths),
                          max_len=max(lengths),
-                         avg_len=round(np.mean(lengths)),
+                         avg_len=round(np.mean(lengths), 2),
                          num_seqs=len(lengths))
     else:
-        return FastaInfo(filename=os.path.basename(fh.name),
+        return FastaInfo(filename=fh.name,
                          min_len=0,
                          max_len=0,
                          avg_len=0,

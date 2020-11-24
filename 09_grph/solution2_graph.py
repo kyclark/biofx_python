@@ -95,7 +95,7 @@ def main() -> None:
             dot.node(s2)
             dot.edge(s1, s2)
 
-    args.outfile.close()
+    # args.outfile.close()
     dot.render(args.outfile.name, view=args.view)
 
     print(f'Done, see outfile "{args.outfile.name}".')

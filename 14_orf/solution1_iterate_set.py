@@ -51,7 +51,7 @@ def main() -> None:
 
 
 # --------------------------------------------------
-def truncate(seq, k):
+def truncate(seq: str, k: int) -> str:
     """ Truncate a sequence to even division by k """
 
     length = len(seq)
@@ -60,7 +60,7 @@ def truncate(seq, k):
 
 
 # --------------------------------------------------
-def test_truncate():
+def test_truncate() -> None:
     """ Test truncate """
 
     seq = '0123456789'
@@ -94,8 +94,10 @@ def test_find_orfs() -> None:
     assert find_orfs('') == []
     assert find_orfs('M') == []
     assert find_orfs('*') == []
+    assert find_orfs('M*') == ['M']
     assert find_orfs('MAMAPR*') == ['MAMAPR', 'MAPR']
     assert find_orfs('MAMAPR*M') == ['MAMAPR', 'MAPR']
+    assert find_orfs('MAMAPR*MP*') == ['MAMAPR', 'MAPR', 'MP']
 
 
 # --------------------------------------------------

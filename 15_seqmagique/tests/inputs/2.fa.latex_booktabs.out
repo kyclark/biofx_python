@@ -1,7 +1,7 @@
 \begin{tabular}{lrrrr}
 \toprule
- name   &   min\_len &   max\_len &   avg\_len &   num\_seqs \\
+ name                &   min\_len &   max\_len &   avg\_len &   num\_seqs \\
 \midrule
- 2.fa   &       968 &       968 &       968 &          1 \\
+ ./tests/inputs/2.fa &       968 &       968 &       968 &          1 \\
 \bottomrule
 \end{tabular}

@@ -41,9 +41,12 @@ def test_bad_file() -> None:
 
 
 # --------------------------------------------------
-def run(file: str, expected: str) -> None:
+def run(file: str) -> None:
     """ Run test """
 
+    expected_file = file + '.out'
+    assert os.path.isfile(expected_file)
+    expected = open(expected_file).read().rstrip()
     rv, out = getstatusoutput(f'{RUN} {file}')
     assert rv == 0
     assert out.rstrip() == expected
@@ -53,46 +56,14 @@ def run(file: str, expected: str) -> None:
 def test_1() -> None:
     """ Input 1 """
 
-    expected = '\n'.join([
-        'B5ZC00',
-        '85 118 142 306 395',
-        'P07204_TRBM_HUMAN',
-        '47 115 116 382 409',
-        'P20840_SAG1_YEAST',
-        '79 109 135 248 306 348 364 402 485 501 614',
-    ])
-    run(INPUT1, expected)
+    run(INPUT1)
 
 
 # --------------------------------------------------
 def test_2() -> None:
     """ Input 2 """
 
-    expected = """
-P13473_LMP2_HUMAN
-32 38 49 58 75 101 123 179 229 242 257 275 300 307 317 356
-P42098_ZP3_PIG
-124 146 179 271
-P80069_A45K_MYCBO
-7 161
-Q13VE3
-95
-P20840_SAG1_YEAST
-79 109 135 248 306 348 364 402 485 501 614
-P01042_KNH_HUMAN
-48 169 205 294
-P07204_TRBM_HUMAN
-47 115 116 382 409
-Q7S432
-173
-A3DF24
-178
-P07585_PGS2_HUMAN
-211 262 303
-Q9QSP4
-196 250 326 443
-    """.strip()
-    run(INPUT2, expected)
+    run(INPUT2)
 
 
 # --------------------------------------------------
