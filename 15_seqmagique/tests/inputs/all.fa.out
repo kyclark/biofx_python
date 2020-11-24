@@ -1,0 +1,4 @@
+name        min_len    max_len    avg_len    num_seqs
+1.fa             96         96         96           1
+2.fa            968        968        968           1
+empty.fa          0          0          0           0
