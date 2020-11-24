@@ -59,8 +59,8 @@ def main() -> None:
 
     args = get_args()
     info = [process(fh) for fh in args.file]
-    headers = ['name', 'min_len', 'max_len', 'avg_len', 'num_seqs']
-    print(tabulate(info, tablefmt=args.tablefmt, headers=headers))
+    hdr = ['name', 'min_len', 'max_len', 'avg_len', 'num_seqs']
+    print(tabulate(info, tablefmt=args.tablefmt, headers=hdr, floatfmt='.2f'))
 
 
 # --------------------------------------------------
