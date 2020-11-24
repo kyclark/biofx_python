@@ -2,9 +2,9 @@
 """ Mimic seqmagick, print stats on FASTA sequences """
 
 import argparse
+from typing import NamedTuple, TextIO, List
 import numpy as np
 from tabulate import tabulate
-from typing import NamedTuple, TextIO, List
 from Bio import SeqIO
 
 
@@ -73,12 +73,12 @@ def process(fh: TextIO) -> FastaInfo:
                          max_len=max(lengths),
                          avg_len=round(np.mean(lengths), 2),
                          num_seqs=len(lengths))
-    else:
-        return FastaInfo(filename=fh.name,
-                         min_len=0,
-                         max_len=0,
-                         avg_len=0,
-                         num_seqs=0)
+
+    return FastaInfo(filename=fh.name,
+                     min_len=0,
+                     max_len=0,
+                     avg_len=0,
+                     num_seqs=0)
 
 
 # --------------------------------------------------
