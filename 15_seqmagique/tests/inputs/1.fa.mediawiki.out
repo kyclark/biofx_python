@@ -1,7 +1,1 @@
-{| class="wikitable" style="text-align: left;"
-|+ <!-- caption -->
-|-
-! name                !! align="right"|   min_len !! align="right"|   max_len !! align="right"|   avg_len !! align="right"|   num_seqs
-|-
-| ./tests/inputs/1.fa || align="right"|        96 || align="right"|        96 || align="right"|        96 || align="right"|          1
-|}
+./tests/inputs/1.fa

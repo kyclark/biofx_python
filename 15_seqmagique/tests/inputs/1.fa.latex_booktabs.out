@@ -1,7 +1,1 @@
-\begin{tabular}{lrrrr}
-\toprule
- name                &   min\_len &   max\_len &   avg\_len &   num\_seqs \\
-\midrule
- ./tests/inputs/1.fa &        96 &        96 &        96 &          1 \\
-\bottomrule
-\end{tabular}
+./tests/inputs/1.fa

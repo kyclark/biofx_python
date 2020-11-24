@@ -1,4 +1,3 @@
-name                       min_len    max_len    avg_len    num_seqs
-./tests/inputs/1.fa             96         96         96           1
-./tests/inputs/2.fa            968        968        968           1
-./tests/inputs/empty.fa          0          0          0           0
+./tests/inputs/1.fa
+./tests/inputs/2.fa
+./tests/inputs/empty.fa

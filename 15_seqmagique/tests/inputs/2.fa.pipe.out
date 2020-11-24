@@ -1,3 +1,1 @@
-| name                |   min_len |   max_len |   avg_len |   num_seqs |
-|:--------------------|----------:|----------:|----------:|-----------:|
-| ./tests/inputs/2.fa |       968 |       968 |       968 |          1 |
+./tests/inputs/2.fa
