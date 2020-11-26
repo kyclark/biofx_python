@@ -2,7 +2,7 @@
 """ Mimic seqmagick, print stats on FASTA sequences """
 
 import argparse
-from typing import NamedTuple, TextIO, List
+from typing import List, NamedTuple, TextIO
 import numpy as np
 from tabulate import tabulate
 from Bio import SeqIO
@@ -58,9 +58,9 @@ def main() -> None:
     """ Make a jazz noise here """
 
     args = get_args()
-    info = [process(fh) for fh in args.file]
+    data = [process(fh) for fh in args.file]
     hdr = ['name', 'min_len', 'max_len', 'avg_len', 'num_seqs']
-    print(tabulate(info, tablefmt=args.tablefmt, headers=hdr, floatfmt='.2f'))
+    print(tabulate(data, tablefmt=args.tablefmt, headers=hdr, floatfmt='.2f'))
 
 
 # --------------------------------------------------

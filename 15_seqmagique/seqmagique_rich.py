@@ -5,7 +5,8 @@ import argparse
 import os
 import sys
 import numpy as np
-from typing import NamedTuple, TextIO, List, Optional
+from typing import List, NamedTuple, TextIO
+from rich import box
 from rich.console import Console
 from rich.table import Table, Column
 from Bio import SeqIO
@@ -49,34 +50,35 @@ def main() -> None:
     """ Make a jazz noise here """
 
     args = get_args()
+    table = Table('Name', Column(header='Min. Len', justify='right'),
+                  Column(header='Max. Len', justify='right'),
+                  Column(header='Avg. Len', justify='right'),
+                  Column(header='Num. Seqs', justify='right'),
+                  header_style="bold black")
 
-    if info := list(filter(None, [process(fh) for fh in args.file])):
-        table = Table('Name', Column(header='Min. Len', justify='right'),
-                      Column(header='Max. Len', justify='right'),
-                      Column(header='Avg. Len', justify='right'),
-                      Column(header='Num. Seqs', justify='right'))
+    for row in [process(fh) for fh in args.file]:
+        table.add_row(row.filename, str(row.min_len), str(row.max_len),
+                      str(row.avg_len), str(row.num_seqs))
 
-        for row in info:
-            table.add_row(row.filename, str(row.min_len), str(row.max_len),
-                          str(row.avg_len), str(row.num_seqs))
-
-        Console().print(table)
-    else:
-        sys.exit('Error processing input.')
+    Console().print(table)
 
 
 # --------------------------------------------------
-def process(fh: TextIO) -> Optional[FastaInfo]:
+def process(fh: TextIO) -> FastaInfo:
     """ Process a file """
 
     if lengths := [len(rec.seq) for rec in SeqIO.parse(fh, 'fasta')]:
-        return FastaInfo(filename=os.path.basename(fh.name),
+        return FastaInfo(filename=fh.name,
                          min_len=min(lengths),
                          max_len=max(lengths),
-                         avg_len=round(np.mean(lengths)),
+                         avg_len=round(np.mean(lengths), 2),
                          num_seqs=len(lengths))
-    else:
-        return None
+
+    return FastaInfo(filename=fh.name,
+                     min_len=0,
+                     max_len=0,
+                     avg_len=0,
+                     num_seqs=0)
 
 
 # --------------------------------------------------

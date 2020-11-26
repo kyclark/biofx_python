@@ -1,0 +1,58 @@
+ID   110KD_PLAKN             Reviewed;         296 AA.
+AC   P13813;
+DT   01-JAN-1990, integrated into UniProtKB/Swiss-Prot.
+DT   01-JAN-1990, sequence version 1.
+DT   20-JAN-2016, entry version 42.
+DE   RecName: Full=110 kDa antigen;
+DE   AltName: Full=PK110;
+DE   Flags: Fragment;
+OS   Plasmodium knowlesi.
+OC   Eukaryota; Alveolata; Apicomplexa; Aconoidasida; Haemosporida;
+OC   Plasmodiidae; Plasmodium; Plasmodium (Plasmodium).
+OX   NCBI_TaxID=5850;
+RN   [1]
+RP   NUCLEOTIDE SEQUENCE [MRNA].
+RX   PubMed=2444886; DOI=10.1016/0166-6851(87)90007-7;
+RA   Perler F.B., Moon A.M., Qiang B.Q., Meda M., Dalton M., Card C.,
+RA   Schmidt-Ullrich R., Wallach D., Lynch J., Donelson J.E.;
+RT   "Cloning and characterization of an abundant Plasmodium knowlesi
+RT   antigen which cross reacts with Gambian sera.";
+RL   Mol. Biochem. Parasitol. 25:185-193(1987).
+CC   -----------------------------------------------------------------------
+CC   Copyrighted by the UniProt Consortium, see https://www.uniprot.org/terms
+CC   Distributed under the Creative Commons Attribution (CC BY 4.0) License
+CC   -----------------------------------------------------------------------
+DR   EMBL; M19152; AAA29471.1; -; mRNA.
+DR   PIR; A54527; A54527.
+DR   ProteinModelPortal; P13813; -.
+DR   GeneDB; PKNH_1448000.1:pep; -.
+DR   eggNOG; ENOG410JB7W; Eukaryota.
+DR   eggNOG; ENOG41118GC; LUCA.
+PE   2: Evidence at transcript level;
+KW   Malaria; Repeat.
+FT   CHAIN        <1    296       110 kDa antigen.
+FT                                /FTId=PRO_0000217176.
+FT   REPEAT      132    143       1; approximate.
+FT   REPEAT      144    155       2; approximate.
+FT   REPEAT      156    167       3.
+FT   REPEAT      168    179       4; approximate.
+FT   REPEAT      180    191       5.
+FT   REPEAT      192    203       6; approximate.
+FT   REPEAT      204    215       7.
+FT   REPEAT      216    227       8.
+FT   REPEAT      228    239       9.
+FT   REPEAT      240    251       10.
+FT   REPEAT      252    263       11.
+FT   REPEAT      264    275       12.
+FT   REPEAT      276    287       13; approximate.
+FT   REPEAT      288    293       14; truncated.
+FT   REGION      132    296       13.5 X 12 AA approximate tandem repeats
+FT                                of E-E-T-Q-K-T-V-E-P-E-Q-T.
+FT   NON_TER       1      1
+SQ   SEQUENCE   296 AA;  34077 MW;  B0D7CD175C7A3625 CRC64;
+     FNSNMLRGSV CEEDVSLMTS IDNMIEEIDF YEKEIYKGSH SGGVIKGMDY DLEDDENDED
+     EMTEQMVEEV ADHITQDMID EVAHHVLDNI THDMAHMEEI VHGLSGDVTQ IKEIVQKVNV
+     AVEKVKHIVE TEETQKTVEP EQIEETQNTV EPEQTEETQK TVEPEQTEET QNTVEPEQIE
+     ETQKTVEPEQ TEEAQKTVEP EQTEETQKTV EPEQTEETQK TVEPEQTEET QKTVEPEQTE
+     ETQKTVEPEQ TEETQKTVEP EQTEETQKTV EPEQTEETQN TVEPEPTQET QNTVEP
+//

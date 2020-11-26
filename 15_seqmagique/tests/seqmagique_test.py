@@ -13,10 +13,6 @@ EMPTY = ('./tests/inputs/empty.fa', './tests/inputs/empty.fa.out')
 TEST1 = ('./tests/inputs/1.fa', './tests/inputs/1.fa.out')
 TEST2 = ('./tests/inputs/2.fa', './tests/inputs/2.fa.out')
 ALL = ('./tests/inputs/*.fa', './tests/inputs/all.fa.out')
-STYLES = [
-    'plain', 'simple', 'grid', 'pipe', 'orgtbl', 'rst', 'mediawiki', 'latex',
-    'latex_raw', 'latex_booktabs'
-]
 
 
 # --------------------------------------------------
@@ -88,13 +84,17 @@ def test_input_all() -> None:
 def test_styles() -> None:
     """ Test table styles """
 
+    styles = [
+        'plain', 'simple', 'grid', 'pipe', 'orgtbl', 'rst', 'mediawiki',
+        'latex', 'latex_raw', 'latex_booktabs'
+    ]
+
     for file in [TEST1[0], TEST2[0]]:
-        for style in STYLES:
+        for style in styles:
             expected_file = file + '.' + style + '.out'
             assert os.path.isfile(expected_file)
             expected = open(expected_file).read().rstrip()
             flag = '--tablefmt' if random.choice([0, 1]) else '-t'
-            print(f'{RUN} {flag} {style} {file}')
             rv, out = getstatusoutput(f'{RUN} {flag} {style} {file}')
             assert rv == 0
             assert out == expected

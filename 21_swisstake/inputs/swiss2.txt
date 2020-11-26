@@ -1,0 +1,2152 @@
+ID   110KD_PLAKN             Reviewed;         296 AA.
+AC   P13813;
+DT   01-JAN-1990, integrated into UniProtKB/Swiss-Prot.
+DT   01-JAN-1990, sequence version 1.
+DT   20-JAN-2016, entry version 42.
+DE   RecName: Full=110 kDa antigen;
+DE   AltName: Full=PK110;
+DE   Flags: Fragment;
+OS   Plasmodium knowlesi.
+OC   Eukaryota; Alveolata; Apicomplexa; Aconoidasida; Haemosporida;
+OC   Plasmodiidae; Plasmodium; Plasmodium (Plasmodium).
+OX   NCBI_TaxID=5850;
+RN   [1]
+RP   NUCLEOTIDE SEQUENCE [MRNA].
+RX   PubMed=2444886; DOI=10.1016/0166-6851(87)90007-7;
+RA   Perler F.B., Moon A.M., Qiang B.Q., Meda M., Dalton M., Card C.,
+RA   Schmidt-Ullrich R., Wallach D., Lynch J., Donelson J.E.;
+RT   "Cloning and characterization of an abundant Plasmodium knowlesi
+RT   antigen which cross reacts with Gambian sera.";
+RL   Mol. Biochem. Parasitol. 25:185-193(1987).
+CC   -----------------------------------------------------------------------
+CC   Copyrighted by the UniProt Consortium, see https://www.uniprot.org/terms
+CC   Distributed under the Creative Commons Attribution (CC BY 4.0) License
+CC   -----------------------------------------------------------------------
+DR   EMBL; M19152; AAA29471.1; -; mRNA.
+DR   PIR; A54527; A54527.
+DR   ProteinModelPortal; P13813; -.
+DR   GeneDB; PKNH_1448000.1:pep; -.
+DR   eggNOG; ENOG410JB7W; Eukaryota.
+DR   eggNOG; ENOG41118GC; LUCA.
+PE   2: Evidence at transcript level;
+KW   Malaria; Repeat.
+FT   CHAIN        <1    296       110 kDa antigen.
+FT                                /FTId=PRO_0000217176.
+FT   REPEAT      132    143       1; approximate.
+FT   REPEAT      144    155       2; approximate.
+FT   REPEAT      156    167       3.
+FT   REPEAT      168    179       4; approximate.
+FT   REPEAT      180    191       5.
+FT   REPEAT      192    203       6; approximate.
+FT   REPEAT      204    215       7.
+FT   REPEAT      216    227       8.
+FT   REPEAT      228    239       9.
+FT   REPEAT      240    251       10.
+FT   REPEAT      252    263       11.
+FT   REPEAT      264    275       12.
+FT   REPEAT      276    287       13; approximate.
+FT   REPEAT      288    293       14; truncated.
+FT   REGION      132    296       13.5 X 12 AA approximate tandem repeats
+FT                                of E-E-T-Q-K-T-V-E-P-E-Q-T.
+FT   NON_TER       1      1
+SQ   SEQUENCE   296 AA;  34077 MW;  B0D7CD175C7A3625 CRC64;
+     FNSNMLRGSV CEEDVSLMTS IDNMIEEIDF YEKEIYKGSH SGGVIKGMDY DLEDDENDED
+     EMTEQMVEEV ADHITQDMID EVAHHVLDNI THDMAHMEEI VHGLSGDVTQ IKEIVQKVNV
+     AVEKVKHIVE TEETQKTVEP EQIEETQNTV EPEQTEETQK TVEPEQTEET QNTVEPEQIE
+     ETQKTVEPEQ TEEAQKTVEP EQTEETQKTV EPEQTEETQK TVEPEQTEET QKTVEPEQTE
+     ETQKTVEPEQ TEETQKTVEP EQTEETQKTV EPEQTEETQN TVEPEPTQET QNTVEP
+//
+ID   CFB_TACTR               Reviewed;         400 AA.
+AC   Q27081;
+DT   18-MAY-2010, integrated into UniProtKB/Swiss-Prot.
+DT   01-NOV-1996, sequence version 1.
+DT   05-DEC-2018, entry version 79.
+DE   RecName: Full=Clotting factor B {ECO:0000303|PubMed:3519594};
+DE            EC=3.4.21.85;
+DE   AltName: Full=Coagulation factor B {ECO:0000303|PubMed:8407978, ECO:0000312|EMBL:BAA03528.1};
+DE   Contains:
+DE     RecName: Full=Clotting factor B light chain {ECO:0000303|PubMed:3519594, ECO:0000303|PubMed:8407978};
+DE   Contains:
+DE     RecName: Full=Clotting factor B heavy chain {ECO:0000303|PubMed:3519594, ECO:0000303|PubMed:8407978};
+DE   Flags: Precursor;
+OS   Tachypleus tridentatus (Japanese horseshoe crab).
+OC   Eukaryota; Metazoa; Ecdysozoa; Arthropoda; Chelicerata; Merostomata;
+OC   Xiphosura; Limulidae; Tachypleus.
+OX   NCBI_TaxID=6853;
+RN   [1] {ECO:0000305, ECO:0000312|EMBL:BAA03528.1}
+RP   NUCLEOTIDE SEQUENCE [MRNA], PROTEIN SEQUENCE OF 24-44; 49-53; 55-61;
+RP   63-68; 127-136; 148-150; 152-158; 162-185; 187-247; 274-280; 307-313;
+RP   322-337; 368-373; 376-378; 380-385 AND 391-400, AND PROTEOLYTIC
+RP   PROCESSING.
+RC   TISSUE=Hemocyte {ECO:0000269|PubMed:8407978};
+RX   PubMed=8407978;
+RA   Muta T., Oda T., Iwanaga S.;
+RT   "Horseshoe crab coagulation factor B. A unique serine protease zymogen
+RT   activated by cleavage of an Ile-Ile bond.";
+RL   J. Biol. Chem. 268:21384-21388(1993).
+RN   [2] {ECO:0000305}
+RP   FUNCTION, ACTIVITY REGULATION, BIOPHYSICOCHEMICAL PROPERTIES, AND
+RP   SUBUNIT.
+RX   PubMed=3519594; DOI=10.1093/oxfordjournals.jbchem.a135545;
+RA   Nakamura T., Horiuchi T., Morita T., Iwanaga S.;
+RT   "Purification and properties of intracellular clotting factor, factor
+RT   B, from horseshoe crab (Tachypleus tridentatus) hemocytes.";
+RL   J. Biochem. 99:847-857(1986).
+RN   [3] {ECO:0000305}
+RP   FUNCTION, AND CATALYTIC ACTIVITY.
+RX   PubMed=2266134;
+RA   Muta T., Hashimoto R., Miyata T., Nishimura H., Toh Y., Iwanaga S.;
+RT   "Proclotting enzyme from horseshoe crab hemocytes. cDNA cloning,
+RT   disulfide locations, and subcellular localization.";
+RL   J. Biol. Chem. 265:22426-22433(1990).
+CC   -!- FUNCTION: This enzyme is closely associated with an endotoxin-
+CC       sensitive hemolymph coagulation system which may play important
+CC       roles in both hemostasis and host defense mechanisms. Its active
+CC       form catalyzes the activation of proclotting enzyme. Does not
+CC       activate the mammalian coagulation factors factor IX, factor X,
+CC       prothrombin, plasminogen, protein C or prekallikrein. Does not
+CC       hydrolyze fibrinogen. Does not catalyze the activation of factor C
+CC       or coagulogen. {ECO:0000269|PubMed:2266134,
+CC       ECO:0000269|PubMed:3519594}.
+CC   -!- CATALYTIC ACTIVITY:
+CC       Reaction=Selective cleavage of 98-Arg-|-Ile-99 bond in Limulus
+CC         proclotting enzyme to form active clotting enzyme.;
+CC         EC=3.4.21.85; Evidence={ECO:0000269|PubMed:2266134};
+CC   -!- ACTIVITY REGULATION: Strongly inhibited by alpha2-plasmin
+CC       inhibitor and DFP. Partially inhibited by benzamidine, leupeptin
+CC       and PCMB. {ECO:0000269|PubMed:3519594}.
+CC   -!- BIOPHYSICOCHEMICAL PROPERTIES:
+CC       Kinetic parameters:
+CC         Vmax=0.9 umol/min/mg enzyme toward Boc-Val-Pro-Arg-MCA
+CC         {ECO:0000269|PubMed:3519594};
+CC         Vmax=0.1 umol/min/mg enzyme toward Boc-Ile-Glu-Gly-Arg-MCA
+CC         {ECO:0000269|PubMed:3519594};
+CC         Vmax=0.2 umol/min/mg enzyme toward Boc-Leu-Ser-Thr-Arg-MCA
+CC         {ECO:0000269|PubMed:3519594};
+CC         Vmax=0.1 umol/min/mg enzyme toward Boc-Leu-Gly-Arg-MCA
+CC         {ECO:0000269|PubMed:3519594};
+CC         Vmax=1.1 umol/min/mg enzyme toward Bz-Thr-Ser-Arg-MCA
+CC         {ECO:0000269|PubMed:3519594};
+CC         Vmax=0.7 umol/min/mg enzyme toward Bz-Ser-Ser-Arg-MCA
+CC         {ECO:0000269|PubMed:3519594};
+CC         Vmax=1.3 umol/min/mg enzyme toward Bz-Ser-Thr-Arg-MCA
+CC         {ECO:0000269|PubMed:3519594};
+CC         Vmax=1.9 umol/min/mg enzyme toward Bz-Thr-Thr-Arg-MCA
+CC         {ECO:0000269|PubMed:3519594};
+CC         Vmax=1.1 umol/min/mg enzyme toward Boc-Leu-Thr-Arg-MCA
+CC         {ECO:0000269|PubMed:3519594};
+CC         Vmax=2.1 umol/min/mg enzyme toward Boc-Met-Thr-Arg-MCA
+CC         {ECO:0000269|PubMed:3519594};
+CC         Vmax=1.2 umol/min/mg enzyme toward Boc-Gln-Arg-Arg-MCA
+CC         {ECO:0000269|PubMed:3519594};
+CC         Vmax=0.6 umol/min/mg enzyme toward Boc-Asp-Pro-Arg-MCA
+CC         {ECO:0000269|PubMed:3519594};
+CC   -!- SUBUNIT: Upon activation by factor C, it is converted to a two-
+CC       chain active form composed of a light and a heavy chain linked by
+CC       a disulfide bond. {ECO:0000269|PubMed:3519594}.
+CC   -!- SUBCELLULAR LOCATION: Secreted {ECO:0000305}. Note=Secreted in
+CC       hemolymph. {ECO:0000305}.
+CC   -!- DOMAIN: The CLIP domain consists of 37-55 residues which are
+CC       "knitted" together usually by 3 conserved disulfide bonds forming
+CC       a clip-like compact structure. {ECO:0000305}.
+CC   -!- SIMILARITY: Belongs to the peptidase S1 family. CLIP subfamily.
+CC       {ECO:0000305}.
+CC   -----------------------------------------------------------------------
+CC   Copyrighted by the UniProt Consortium, see https://www.uniprot.org/terms
+CC   Distributed under the Creative Commons Attribution (CC BY 4.0) License
+CC   -----------------------------------------------------------------------
+DR   EMBL; D14701; BAA03528.1; -; mRNA.
+DR   PIR; A48050; A48050.
+DR   ProteinModelPortal; Q27081; -.
+DR   SMR; Q27081; -.
+DR   MEROPS; S01.220; -.
+DR   PRIDE; Q27081; -.
+DR   KEGG; ag:BAA03528; -.
+DR   KO; K22080; -.
+DR   GO; GO:0005576; C:extracellular region; IEA:UniProtKB-SubCell.
+DR   GO; GO:0004175; F:endopeptidase activity; IDA:UniProtKB.
+DR   GO; GO:0004252; F:serine-type endopeptidase activity; IEA:InterPro.
+DR   GO; GO:0042381; P:hemolymph coagulation; IEA:UniProtKB-KW.
+DR   GO; GO:0016485; P:protein processing; IDA:UniProtKB.
+DR   CDD; cd00190; Tryp_SPc; 1.
+DR   InterPro; IPR022700; CLIP.
+DR   InterPro; IPR009003; Peptidase_S1_PA.
+DR   InterPro; IPR001314; Peptidase_S1A.
+DR   InterPro; IPR001254; Trypsin_dom.
+DR   InterPro; IPR033116; TRYPSIN_SER.
+DR   Pfam; PF00089; Trypsin; 1.
+DR   PRINTS; PR00722; CHYMOTRYPSIN.
+DR   SMART; SM00680; CLIP; 1.
+DR   SMART; SM00020; Tryp_SPc; 1.
+DR   SUPFAM; SSF50494; SSF50494; 1.
+DR   PROSITE; PS50240; TRYPSIN_DOM; 1.
+DR   PROSITE; PS00135; TRYPSIN_SER; 1.
+PE   1: Evidence at protein level;
+KW   Direct protein sequencing; Disulfide bond; Glycoprotein;
+KW   Hemolymph clotting; Hydrolase; Protease; Secreted; Serine protease;
+KW   Signal; Zymogen.
+FT   SIGNAL        1     23       {ECO:0000269|PubMed:8407978}.
+FT   CHAIN        24    103       Clotting factor B light chain.
+FT                                {ECO:0000269|PubMed:8407978}.
+FT                                /FTId=PRO_0000394311.
+FT   PROPEP      104    124       Activation peptide.
+FT                                {ECO:0000269|PubMed:8407978}.
+FT                                /FTId=PRO_0000394312.
+FT   CHAIN       125    400       Clotting factor B heavy chain.
+FT                                {ECO:0000269|PubMed:8407978}.
+FT                                /FTId=PRO_0000394313.
+FT   DOMAIN       37     81       CLIP. {ECO:0000255}.
+FT   DOMAIN      148    392       Peptidase S1. {ECO:0000255|PROSITE-
+FT                                ProRule:PRU00274}.
+FT   ACT_SITE    192    192       Charge relay system.
+FT                                {ECO:0000250|UniProtKB:P26262}.
+FT   ACT_SITE    240    240       Charge relay system.
+FT                                {ECO:0000250|UniProtKB:P26262}.
+FT   ACT_SITE    344    344       Charge relay system.
+FT                                {ECO:0000250|UniProtKB:P26262}.
+FT   CARBOHYD    140    140       N-linked (GlcNAc...) asparagine.
+FT                                {ECO:0000255}.
+FT   CARBOHYD    251    251       N-linked (GlcNAc...) asparagine.
+FT                                {ECO:0000255}.
+FT   CARBOHYD    352    352       N-linked (GlcNAc...) asparagine.
+FT                                {ECO:0000255}.
+FT   DISULFID     37     79       {ECO:0000250|UniProtKB:P21902}.
+FT   DISULFID     47     68       {ECO:0000250|UniProtKB:P21902}.
+FT   DISULFID     53     80       {ECO:0000250|UniProtKB:P21902}.
+FT   DISULFID    307    329       {ECO:0000255|PROSITE-ProRule:PRU00274}.
+FT   DISULFID    340    368       {ECO:0000255|PROSITE-ProRule:PRU00274}.
+SQ   SEQUENCE   400 AA;  43049 MW;  E71D4D808543C85B CRC64;
+     MTWICVITLF ALASATLGNK VSRVGVLFPK TRNDNECTAR GGLKGSCKSL IDCPSVLATL
+     KDSFPVVCSW NGRFQPIVCC PDAIAPPPVT TTAVTVISTK EPKLPRLHIS GCGKRKVKID
+     ITTVGRSGSP ILPPISTPQN STGGRGIIAG GVEAKIGAWP WMAAVFVKNF GIGRFHCAGS
+     IISNKYILSA AHAFLIGGRK LTPTRLAVRV GGHYIKRGQE YPVKDVIIHP HYVEKENYND
+     IAIIELKEEL NFTDLVNPIC LPDPETVTDP LKDRIVTAAG WGDLDFSGPR SQVLREVSIP
+     VVPVDKCDQA YEKLNTPSLK NGITNNFLCA GLEEGGKDAC QGDSGGPLML VNNTRWIVVG
+     VVSFGHKCAE EGYPGVYSRV ASYLDWIAKV TNSLDHAVTN
+//
+ID   CG057_MOUSE             Reviewed;         291 AA.
+AC   Q5SS90;
+DT   13-NOV-2007, integrated into UniProtKB/Swiss-Prot.
+DT   21-DEC-2004, sequence version 1.
+DT   05-DEC-2018, entry version 84.
+DE   RecName: Full=Uncharacterized protein C7orf57 homolog;
+GN   Name=Gm11992;
+OS   Mus musculus (Mouse).
+OC   Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+OC   Mammalia; Eutheria; Euarchontoglires; Glires; Rodentia; Myomorpha;
+OC   Muroidea; Muridae; Murinae; Mus; Mus.
+OX   NCBI_TaxID=10090;
+RN   [1]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA].
+RC   STRAIN=NOD;
+RX   PubMed=16141072; DOI=10.1126/science.1112014;
+RA   Carninci P., Kasukawa T., Katayama S., Gough J., Frith M.C., Maeda N.,
+RA   Oyama R., Ravasi T., Lenhard B., Wells C., Kodzius R., Shimokawa K.,
+RA   Bajic V.B., Brenner S.E., Batalov S., Forrest A.R., Zavolan M.,
+RA   Davis M.J., Wilming L.G., Aidinis V., Allen J.E.,
+RA   Ambesi-Impiombato A., Apweiler R., Aturaliya R.N., Bailey T.L.,
+RA   Bansal M., Baxter L., Beisel K.W., Bersano T., Bono H., Chalk A.M.,
+RA   Chiu K.P., Choudhary V., Christoffels A., Clutterbuck D.R.,
+RA   Crowe M.L., Dalla E., Dalrymple B.P., de Bono B., Della Gatta G.,
+RA   di Bernardo D., Down T., Engstrom P., Fagiolini M., Faulkner G.,
+RA   Fletcher C.F., Fukushima T., Furuno M., Futaki S., Gariboldi M.,
+RA   Georgii-Hemming P., Gingeras T.R., Gojobori T., Green R.E.,
+RA   Gustincich S., Harbers M., Hayashi Y., Hensch T.K., Hirokawa N.,
+RA   Hill D., Huminiecki L., Iacono M., Ikeo K., Iwama A., Ishikawa T.,
+RA   Jakt M., Kanapin A., Katoh M., Kawasawa Y., Kelso J., Kitamura H.,
+RA   Kitano H., Kollias G., Krishnan S.P., Kruger A., Kummerfeld S.K.,
+RA   Kurochkin I.V., Lareau L.F., Lazarevic D., Lipovich L., Liu J.,
+RA   Liuni S., McWilliam S., Madan Babu M., Madera M., Marchionni L.,
+RA   Matsuda H., Matsuzawa S., Miki H., Mignone F., Miyake S., Morris K.,
+RA   Mottagui-Tabar S., Mulder N., Nakano N., Nakauchi H., Ng P.,
+RA   Nilsson R., Nishiguchi S., Nishikawa S., Nori F., Ohara O.,
+RA   Okazaki Y., Orlando V., Pang K.C., Pavan W.J., Pavesi G., Pesole G.,
+RA   Petrovsky N., Piazza S., Reed J., Reid J.F., Ring B.Z., Ringwald M.,
+RA   Rost B., Ruan Y., Salzberg S.L., Sandelin A., Schneider C.,
+RA   Schoenbach C., Sekiguchi K., Semple C.A., Seno S., Sessa L., Sheng Y.,
+RA   Shibata Y., Shimada H., Shimada K., Silva D., Sinclair B.,
+RA   Sperling S., Stupka E., Sugiura K., Sultana R., Takenaka Y., Taki K.,
+RA   Tammoja K., Tan S.L., Tang S., Taylor M.S., Tegner J., Teichmann S.A.,
+RA   Ueda H.R., van Nimwegen E., Verardo R., Wei C.L., Yagi K.,
+RA   Yamanishi H., Zabarovsky E., Zhu S., Zimmer A., Hide W., Bult C.,
+RA   Grimmond S.M., Teasdale R.D., Liu E.T., Brusic V., Quackenbush J.,
+RA   Wahlestedt C., Mattick J.S., Hume D.A., Kai C., Sasaki D., Tomaru Y.,
+RA   Fukuda S., Kanamori-Katayama M., Suzuki M., Aoki J., Arakawa T.,
+RA   Iida J., Imamura K., Itoh M., Kato T., Kawaji H., Kawagashira N.,
+RA   Kawashima T., Kojima M., Kondo S., Konno H., Nakano K., Ninomiya N.,
+RA   Nishio T., Okada M., Plessy C., Shibata K., Shiraki T., Suzuki S.,
+RA   Tagami M., Waki K., Watahiki A., Okamura-Oho Y., Suzuki H., Kawai J.,
+RA   Hayashizaki Y.;
+RT   "The transcriptional landscape of the mammalian genome.";
+RL   Science 309:1559-1563(2005).
+RN   [2]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RC   STRAIN=C57BL/6J;
+RX   PubMed=19468303; DOI=10.1371/journal.pbio.1000112;
+RA   Church D.M., Goodstadt L., Hillier L.W., Zody M.C., Goldstein S.,
+RA   She X., Bult C.J., Agarwala R., Cherry J.L., DiCuccio M., Hlavina W.,
+RA   Kapustin Y., Meric P., Maglott D., Birtle Z., Marques A.C., Graves T.,
+RA   Zhou S., Teague B., Potamousis K., Churas C., Place M., Herschleb J.,
+RA   Runnheim R., Forrest D., Amos-Landgraf J., Schwartz D.C., Cheng Z.,
+RA   Lindblad-Toh K., Eichler E.E., Ponting C.P.;
+RT   "Lineage-specific biology revealed by a finished genome assembly of
+RT   the mouse.";
+RL   PLoS Biol. 7:E1000112-E1000112(2009).
+RN   [3]
+RP   PHOSPHORYLATION [LARGE SCALE ANALYSIS] AT SER-50, AND IDENTIFICATION
+RP   BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS].
+RC   TISSUE=Kidney, and Testis;
+RX   PubMed=21183079; DOI=10.1016/j.cell.2010.12.001;
+RA   Huttlin E.L., Jedrychowski M.P., Elias J.E., Goswami T., Rad R.,
+RA   Beausoleil S.A., Villen J., Haas W., Sowa M.E., Gygi S.P.;
+RT   "A tissue-specific atlas of mouse protein phosphorylation and
+RT   expression.";
+RL   Cell 143:1174-1189(2010).
+CC   -----------------------------------------------------------------------
+CC   Copyrighted by the UniProt Consortium, see https://www.uniprot.org/terms
+CC   Distributed under the Creative Commons Attribution (CC BY 4.0) License
+CC   -----------------------------------------------------------------------
+DR   EMBL; AK154909; BAE32919.1; -; mRNA.
+DR   EMBL; AL669837; -; NOT_ANNOTATED_CDS; Genomic_DNA.
+DR   CCDS; CCDS24431.1; -.
+DR   RefSeq; NP_001033017.1; NM_001037928.3.
+DR   UniGene; Mm.369429; -.
+DR   ProteinModelPortal; Q5SS90; -.
+DR   STRING; 10090.ENSMUSP00000039806; -.
+DR   iPTMnet; Q5SS90; -.
+DR   PhosphoSitePlus; Q5SS90; -.
+DR   MaxQB; Q5SS90; -.
+DR   PaxDb; Q5SS90; -.
+DR   PRIDE; Q5SS90; -.
+DR   Ensembl; ENSMUST00000043285; ENSMUSP00000039806; ENSMUSG00000040978.
+DR   GeneID; 626870; -.
+DR   KEGG; mmu:626870; -.
+DR   UCSC; uc007hzv.1; mouse.
+DR   MGI; MGI:3651127; Gm11992.
+DR   eggNOG; ENOG410IFTT; Eukaryota.
+DR   eggNOG; ENOG41125M4; LUCA.
+DR   GeneTree; ENSGT00390000014376; -.
+DR   HOGENOM; HOG000060255; -.
+DR   HOVERGEN; HBG057961; -.
+DR   InParanoid; Q5SS90; -.
+DR   OMA; PMPGQKT; -.
+DR   OrthoDB; EOG091G0YJJ; -.
+DR   PhylomeDB; Q5SS90; -.
+DR   TreeFam; TF330795; -.
+DR   PRO; PR:Q5SS90; -.
+DR   Proteomes; UP000000589; Chromosome 11.
+DR   Bgee; ENSMUSG00000040978; Expressed in 95 organ(s), highest expression level in olfactory epithelium.
+DR   CleanEx; MM_OTTMUSG00000005148; -.
+DR   ExpressionAtlas; Q5SS90; baseline and differential.
+DR   Genevisible; Q5SS90; MM.
+DR   InterPro; IPR040247; DUF5524.
+DR   Pfam; PF17662; DUF5524; 1.
+PE   1: Evidence at protein level;
+KW   Complete proteome; Phosphoprotein; Reference proteome.
+FT   CHAIN         1    291       Uncharacterized protein C7orf57 homolog.
+FT                                /FTId=PRO_0000310992.
+FT   MOD_RES      50     50       Phosphoserine.
+FT                                {ECO:0000244|PubMed:21183079}.
+SQ   SEQUENCE   291 AA;  32895 MW;  995CD32698B610CE CRC64;
+     MRNTSKEVQS TSYRYAPCDW YYHLPVKRSE KPVGAPPASQ IPGLSDLRDS PNVNLPRARR
+     YWIKETDSEY VKLAKQGGRP DLLKHFAPGT RQGSPVAYSL PDWYIHHSKP PTSHQREVPV
+     VSIPDYMVYE EFNPDQANGS YESRQGPFDF DRKTIWQREA EELENVKRKV KLPAINSKNP
+     SKTGTPVSHK EPERSRLSLP PMPGQKNSSP TNFSKLISNG YKDEWLQQQK AEADRRTPKT
+     SRASVSSKST EDSKSNQDTE TPENPETPEG SEKTPDAEVS SPSESTPAEL K
+//
+ID   CG061_BOVIN             Reviewed;         204 AA.
+AC   Q2T9X5;
+DT   18-MAR-2008, integrated into UniProtKB/Swiss-Prot.
+DT   24-JAN-2006, sequence version 1.
+DT   20-DEC-2017, entry version 44.
+DE   RecName: Full=Uncharacterized protein C7orf61 homolog;
+OS   Bos taurus (Bovine).
+OC   Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+OC   Mammalia; Eutheria; Laurasiatheria; Cetartiodactyla; Ruminantia;
+OC   Pecora; Bovidae; Bovinae; Bos.
+OX   NCBI_TaxID=9913;
+RN   [1]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA].
+RC   STRAIN=Crossbred X Angus; TISSUE=Liver;
+RG   NIH - Mammalian Gene Collection (MGC) project;
+RL   Submitted (DEC-2005) to the EMBL/GenBank/DDBJ databases.
+CC   -----------------------------------------------------------------------
+CC   Copyrighted by the UniProt Consortium, see https://www.uniprot.org/terms
+CC   Distributed under the Creative Commons Attribution (CC BY 4.0) License
+CC   -----------------------------------------------------------------------
+DR   EMBL; BC111222; AAI11223.1; -; mRNA.
+DR   RefSeq; NP_001069954.1; NM_001076486.2.
+DR   UniGene; Bt.56205; -.
+DR   SMR; Q2T9X5; -.
+DR   PaxDb; Q2T9X5; -.
+DR   PRIDE; Q2T9X5; -.
+DR   GeneID; 617958; -.
+DR   KEGG; bta:617958; -.
+DR   CTD; 617958; -.
+DR   eggNOG; ENOG410JCYW; Eukaryota.
+DR   eggNOG; ENOG41117TT; LUCA.
+DR   HOGENOM; HOG000111600; -.
+DR   HOVERGEN; HBG076845; -.
+DR   Proteomes; UP000009136; Unplaced.
+DR   InterPro; IPR031534; DUF4703.
+DR   PANTHER; PTHR39221; PTHR39221; 1.
+DR   Pfam; PF15775; DUF4703; 1.
+PE   2: Evidence at transcript level;
+KW   Complete proteome; Phosphoprotein; Reference proteome.
+FT   CHAIN         1    204       Uncharacterized protein C7orf61 homolog.
+FT                                /FTId=PRO_0000325781.
+FT   COMPBIAS     93     96       Poly-Arg.
+FT   COMPBIAS    176    179       Poly-Arg.
+FT   MOD_RES      65     65       Phosphoserine.
+FT                                {ECO:0000250|UniProtKB:Q6AY52}.
+SQ   SEQUENCE   204 AA;  23438 MW;  46E94A879B6317CD CRC64;
+     MAVVIKFFRW IWQKISRWVF FWKHKAKSVI MDHTDSKKNE LKAEKAFKVS ETFKLVEPPK
+     EAKVSKMDVS PKVVDPCLLA KTTMDGAAVE AGRRRRSLLK LPQAAVKSVS MLMASALQSG
+     WQMCSWKSSV SSTSVASQMK TRSPLESREA AMLREVYLVL WAIRKQLRQV ARRQERRRRH
+     HLRAHMGPQP DPAQGLKQDA RSPL
+//
+ID   CGL_HUMAN               Reviewed;         405 AA.
+AC   P32929; B4E1R2; E9PDV0; Q53FB3; Q53Y79; Q9H4W7; Q9H4W8;
+DT   01-OCT-1993, integrated into UniProtKB/Swiss-Prot.
+DT   10-JAN-2003, sequence version 3.
+DT   05-DEC-2018, entry version 187.
+DE   RecName: Full=Cystathionine gamma-lyase;
+DE            EC=4.4.1.1;
+DE   AltName: Full=Cysteine-protein sulfhydrase;
+DE   AltName: Full=Gamma-cystathionase;
+GN   Name=CTH;
+OS   Homo sapiens (Human).
+OC   Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+OC   Mammalia; Eutheria; Euarchontoglires; Primates; Haplorrhini;
+OC   Catarrhini; Hominidae; Homo.
+OX   NCBI_TaxID=9606;
+RN   [1]
+RP   NUCLEOTIDE SEQUENCE [MRNA] (ISOFORMS 1 AND 2), AND VARIANT ILE-403.
+RC   TISSUE=Liver;
+RX   PubMed=1339280; DOI=10.1016/0006-291X(92)92265-Y;
+RA   Lu Y., O'Dowd B.F., Orrego H., Israel Y.;
+RT   "Cloning and nucleotide sequence of human liver cDNA encoding for
+RT   cystathionine gamma-lyase.";
+RL   Biochem. Biophys. Res. Commun. 189:749-758(1992).
+RN   [2]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM 1).
+RA   Kalnine N., Chen X., Rolfs A., Halleck A., Hines L., Eisenstein S.,
+RA   Koundinya M., Raphael J., Moreira D., Kelley T., LaBaer J., Lin Y.,
+RA   Phelan M., Farmer A.;
+RT   "Cloning of human full-length CDSs in BD Creator(TM) system donor
+RT   vector.";
+RL   Submitted (MAY-2003) to the EMBL/GenBank/DDBJ databases.
+RN   [3]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM 3), AND VARIANT
+RP   ILE-403.
+RC   TISSUE=Trachea;
+RX   PubMed=14702039; DOI=10.1038/ng1285;
+RA   Ota T., Suzuki Y., Nishikawa T., Otsuki T., Sugiyama T., Irie R.,
+RA   Wakamatsu A., Hayashi K., Sato H., Nagai K., Kimura K., Makita H.,
+RA   Sekine M., Obayashi M., Nishi T., Shibahara T., Tanaka T., Ishii S.,
+RA   Yamamoto J., Saito K., Kawai Y., Isono Y., Nakamura Y., Nagahari K.,
+RA   Murakami K., Yasuda T., Iwayanagi T., Wagatsuma M., Shiratori A.,
+RA   Sudo H., Hosoiri T., Kaku Y., Kodaira H., Kondo H., Sugawara M.,
+RA   Takahashi M., Kanda K., Yokoi T., Furuya T., Kikkawa E., Omura Y.,
+RA   Abe K., Kamihara K., Katsuta N., Sato K., Tanikawa M., Yamazaki M.,
+RA   Ninomiya K., Ishibashi T., Yamashita H., Murakawa K., Fujimori K.,
+RA   Tanai H., Kimata M., Watanabe M., Hiraoka S., Chiba Y., Ishida S.,
+RA   Ono Y., Takiguchi S., Watanabe S., Yosida M., Hotuta T., Kusano J.,
+RA   Kanehori K., Takahashi-Fujii A., Hara H., Tanase T.-O., Nomura Y.,
+RA   Togiya S., Komai F., Hara R., Takeuchi K., Arita M., Imose N.,
+RA   Musashino K., Yuuki H., Oshima A., Sasaki N., Aotsuka S.,
+RA   Yoshikawa Y., Matsunawa H., Ichihara T., Shiohata N., Sano S.,
+RA   Moriya S., Momiyama H., Satoh N., Takami S., Terashima Y., Suzuki O.,
+RA   Nakagawa S., Senoh A., Mizoguchi H., Goto Y., Shimizu F., Wakebe H.,
+RA   Hishigaki H., Watanabe T., Sugiyama A., Takemoto M., Kawakami B.,
+RA   Yamazaki M., Watanabe K., Kumagai A., Itakura S., Fukuzumi Y.,
+RA   Fujimori Y., Komiyama M., Tashiro H., Tanigami A., Fujiwara T.,
+RA   Ono T., Yamada K., Fujii Y., Ozaki K., Hirao M., Ohmori Y.,
+RA   Kawabata A., Hikiji T., Kobatake N., Inagaki H., Ikema Y., Okamoto S.,
+RA   Okitani R., Kawakami T., Noguchi S., Itoh T., Shigeta K., Senba T.,
+RA   Matsumura K., Nakajima Y., Mizuno T., Morinaga M., Sasaki M.,
+RA   Togashi T., Oyama M., Hata H., Watanabe M., Komatsu T.,
+RA   Mizushima-Sugano J., Satoh T., Shirai Y., Takahashi Y., Nakagawa K.,
+RA   Okumura K., Nagase T., Nomura N., Kikuchi H., Masuho Y., Yamashita R.,
+RA   Nakai K., Yada T., Nakamura Y., Ohara O., Isogai T., Sugano S.;
+RT   "Complete sequencing and characterization of 21,243 full-length human
+RT   cDNAs.";
+RL   Nat. Genet. 36:40-45(2004).
+RN   [4]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM 1), AND VARIANT
+RP   ILE-403.
+RC   TISSUE=Kidney;
+RA   Totoki Y., Toyoda A., Takeda T., Sakaki Y., Tanaka A., Yokoyama S.;
+RL   Submitted (APR-2005) to the EMBL/GenBank/DDBJ databases.
+RN   [5]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RX   PubMed=16710414; DOI=10.1038/nature04727;
+RA   Gregory S.G., Barlow K.F., McLay K.E., Kaul R., Swarbreck D.,
+RA   Dunham A., Scott C.E., Howe K.L., Woodfine K., Spencer C.C.A.,
+RA   Jones M.C., Gillson C., Searle S., Zhou Y., Kokocinski F.,
+RA   McDonald L., Evans R., Phillips K., Atkinson A., Cooper R., Jones C.,
+RA   Hall R.E., Andrews T.D., Lloyd C., Ainscough R., Almeida J.P.,
+RA   Ambrose K.D., Anderson F., Andrew R.W., Ashwell R.I.S., Aubin K.,
+RA   Babbage A.K., Bagguley C.L., Bailey J., Beasley H., Bethel G.,
+RA   Bird C.P., Bray-Allen S., Brown J.Y., Brown A.J., Buckley D.,
+RA   Burton J., Bye J., Carder C., Chapman J.C., Clark S.Y., Clarke G.,
+RA   Clee C., Cobley V., Collier R.E., Corby N., Coville G.J., Davies J.,
+RA   Deadman R., Dunn M., Earthrowl M., Ellington A.G., Errington H.,
+RA   Frankish A., Frankland J., French L., Garner P., Garnett J., Gay L.,
+RA   Ghori M.R.J., Gibson R., Gilby L.M., Gillett W., Glithero R.J.,
+RA   Grafham D.V., Griffiths C., Griffiths-Jones S., Grocock R.,
+RA   Hammond S., Harrison E.S.I., Hart E., Haugen E., Heath P.D.,
+RA   Holmes S., Holt K., Howden P.J., Hunt A.R., Hunt S.E., Hunter G.,
+RA   Isherwood J., James R., Johnson C., Johnson D., Joy A., Kay M.,
+RA   Kershaw J.K., Kibukawa M., Kimberley A.M., King A., Knights A.J.,
+RA   Lad H., Laird G., Lawlor S., Leongamornlert D.A., Lloyd D.M.,
+RA   Loveland J., Lovell J., Lush M.J., Lyne R., Martin S.,
+RA   Mashreghi-Mohammadi M., Matthews L., Matthews N.S.W., McLaren S.,
+RA   Milne S., Mistry S., Moore M.J.F., Nickerson T., O'Dell C.N.,
+RA   Oliver K., Palmeiri A., Palmer S.A., Parker A., Patel D., Pearce A.V.,
+RA   Peck A.I., Pelan S., Phelps K., Phillimore B.J., Plumb R., Rajan J.,
+RA   Raymond C., Rouse G., Saenphimmachak C., Sehra H.K., Sheridan E.,
+RA   Shownkeen R., Sims S., Skuce C.D., Smith M., Steward C.,
+RA   Subramanian S., Sycamore N., Tracey A., Tromans A., Van Helmond Z.,
+RA   Wall M., Wallis J.M., White S., Whitehead S.L., Wilkinson J.E.,
+RA   Willey D.L., Williams H., Wilming L., Wray P.W., Wu Z., Coulson A.,
+RA   Vaudin M., Sulston J.E., Durbin R.M., Hubbard T., Wooster R.,
+RA   Dunham I., Carter N.P., McVean G., Ross M.T., Harrow J., Olson M.V.,
+RA   Beck S., Rogers J., Bentley D.R.;
+RT   "The DNA sequence and biological annotation of human chromosome 1.";
+RL   Nature 441:315-321(2006).
+RN   [6]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RA   Mural R.J., Istrail S., Sutton G.G., Florea L., Halpern A.L.,
+RA   Mobarry C.M., Lippert R., Walenz B., Shatkay H., Dew I., Miller J.R.,
+RA   Flanigan M.J., Edwards N.J., Bolanos R., Fasulo D., Halldorsson B.V.,
+RA   Hannenhalli S., Turner R., Yooseph S., Lu F., Nusskern D.R.,
+RA   Shue B.C., Zheng X.H., Zhong F., Delcher A.L., Huson D.H.,
+RA   Kravitz S.A., Mouchard L., Reinert K., Remington K.A., Clark A.G.,
+RA   Waterman M.S., Eichler E.E., Adams M.D., Hunkapiller M.W., Myers E.W.,
+RA   Venter J.C.;
+RL   Submitted (SEP-2005) to the EMBL/GenBank/DDBJ databases.
+RN   [7]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM 1).
+RC   TISSUE=Skin;
+RX   PubMed=15489334; DOI=10.1101/gr.2596504;
+RG   The MGC Project Team;
+RT   "The status, quality, and expansion of the NIH full-length cDNA
+RT   project: the Mammalian Gene Collection (MGC).";
+RL   Genome Res. 14:2121-2127(2004).
+RN   [8]
+RP   CATALYTIC ACTIVITY, SUBUNIT, COFACTOR, ACTIVITY REGULATION, AND
+RP   BIOPHYSICOCHEMICAL PROPERTIES.
+RX   PubMed=10212249; DOI=10.1074/jbc.274.18.12675;
+RA   Steegborn C., Clausen T., Sondermann P., Jacob U., Worbs M.,
+RA   Marinkovic S., Huber R., Wahl M.C.;
+RT   "Kinetics and inhibition of recombinant human cystathionine gamma-
+RT   lyase. Toward the rational control of transsulfuration.";
+RL   J. Biol. Chem. 274:12675-12684(1999).
+RN   [9]
+RP   FUNCTION.
+RX   PubMed=19261609; DOI=10.1074/jbc.M808026200;
+RA   Chiku T., Padovani D., Zhu W., Singh S., Vitvitsky V., Banerjee R.;
+RT   "H2S biogenesis by human cystathionine gamma-lyase leads to the novel
+RT   sulfur metabolites lanthionine and homolanthionine and is responsive
+RT   to the grade of hyperhomocysteinemia.";
+RL   J. Biol. Chem. 284:11601-11612(2009).
+RN   [10]
+RP   IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS].
+RX   PubMed=21269460; DOI=10.1186/1752-0509-5-17;
+RA   Burkard T.R., Planyavsky M., Kaupe I., Breitwieser F.P.,
+RA   Buerckstuemmer T., Bennett K.L., Superti-Furga G., Colinge J.;
+RT   "Initial characterization of the human central proteome.";
+RL   BMC Syst. Biol. 5:17-17(2011).
+RN   [11]
+RP   FUNCTION AS CYSTEINE-PROTEIN SULFHYDRASE.
+RX   PubMed=22169477; DOI=10.1126/scisignal.2002329;
+RA   Krishnan N., Fu C., Pappin D.J., Tonks N.K.;
+RT   "H2s-induced sulfhydration of the phosphatase PTP1B and its role in
+RT   the endoplasmic reticulum stress response.";
+RL   Sci. Signal. 4:RA86-RA86(2011).
+RN   [12]
+RP   IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS].
+RC   TISSUE=Liver;
+RX   PubMed=24275569; DOI=10.1016/j.jprot.2013.11.014;
+RA   Bian Y., Song C., Cheng K., Dong M., Wang F., Huang J., Sun D.,
+RA   Wang L., Ye M., Zou H.;
+RT   "An enzyme assisted RP-RPLC approach for in-depth analysis of human
+RT   liver phosphoproteome.";
+RL   J. Proteomics 96:253-262(2014).
+RN   [13]
+RP   X-RAY CRYSTALLOGRAPHY (2.0 ANGSTROMS) OF 1-402 IN COMPLEXES WITH
+RP   PYRODOXAL PHOSPHATE; NITRATE AND PROPARGYLGLYCINE, FUNCTION, SUBUNIT,
+RP   ACTIVITY REGULATION, CATALYTIC ACTIVITY, AND COFACTOR.
+RX   PubMed=19019829; DOI=10.1074/jbc.M805459200;
+RA   Sun Q., Collins R., Huang S., Holmberg-Schiavone L., Anand G.S.,
+RA   Tan C.-H., van-den-Berg S., Deng L.-W., Moore P.K., Karlberg T.,
+RA   Sivaraman J.;
+RT   "Structural basis for the inhibition mechanism of human cystathionine
+RT   gamma-lyase, an enzyme responsible for the production of H(2)S.";
+RL   J. Biol. Chem. 284:3076-3085(2009).
+RN   [14]
+RP   VARIANTS CSTNU ILE-67 AND GLU-240, AND VARIANT ILE-403.
+RX   PubMed=12574942; DOI=10.1007/s00439-003-0906-8;
+RA   Wang J., Hegele R.A.;
+RT   "Genomic basis of cystathioninuria (MIM 219500) revealed by multiple
+RT   mutations in cystathionine gamma-lyase (CTH).";
+RL   Hum. Genet. 112:404-408(2003).
+RN   [15]
+RP   CHARACTERIZATION OF VARIANTS CSTNU ILE-67 AND GLU-240, COFACTOR,
+RP   BIOPHYSICOCHEMICAL PROPERTIES, AND SUBUNIT.
+RX   PubMed=18476726; DOI=10.1021/bi800351a;
+RA   Zhu W., Lin A., Banerjee R.;
+RT   "Kinetic properties of polymorphic variants and pathogenic mutants in
+RT   human cystathionine gamma-lyase.";
+RL   Biochemistry 47:6226-6232(2008).
+CC   -!- FUNCTION: Catalyzes the last step in the trans-sulfuration pathway
+CC       from methionine to cysteine. Has broad substrate specificity.
+CC       Converts cystathionine to cysteine, ammonia and 2-oxobutanoate.
+CC       Converts two cysteine molecules to lanthionine and hydrogen
+CC       sulfide. Can also accept homocysteine as substrate. Specificity
+CC       depends on the levels of the endogenous substrates. Generates the
+CC       endogenous signaling molecule hydrogen sulfide (H2S), and so
+CC       contributes to the regulation of blood pressure. Acts as a
+CC       cysteine-protein sulfhydrase by mediating sulfhydration of target
+CC       proteins: sulfhydration consists of converting -SH groups into
+CC       -SSH on specific cysteine residues of target proteins such as
+CC       GAPDH, PTPN1 and NF-kappa-B subunit RELA, thereby regulating their
+CC       function. {ECO:0000269|PubMed:19019829,
+CC       ECO:0000269|PubMed:19261609, ECO:0000269|PubMed:22169477}.
+CC   -!- CATALYTIC ACTIVITY:
+CC       Reaction=H2O + L,L-cystathionine = 2-oxobutanoate + L-cysteine +
+CC         NH4(+); Xref=Rhea:RHEA:14005, ChEBI:CHEBI:15377,
+CC         ChEBI:CHEBI:16763, ChEBI:CHEBI:28938, ChEBI:CHEBI:35235,
+CC         ChEBI:CHEBI:58161; EC=4.4.1.1;
+CC         Evidence={ECO:0000269|PubMed:10212249,
+CC         ECO:0000269|PubMed:19019829};
+CC   -!- COFACTOR:
+CC       Name=pyridoxal 5'-phosphate; Xref=ChEBI:CHEBI:597326;
+CC         Evidence={ECO:0000269|PubMed:10212249,
+CC         ECO:0000269|PubMed:18476726, ECO:0000269|PubMed:19019829};
+CC   -!- ACTIVITY REGULATION: Inhibited by propargylglycine,
+CC       trifluoroalanine and aminoethoxyvinylglycine.
+CC       {ECO:0000269|PubMed:10212249, ECO:0000269|PubMed:19019829}.
+CC   -!- BIOPHYSICOCHEMICAL PROPERTIES:
+CC       Kinetic parameters:
+CC         KM=0.5 mM for L-cystathionine {ECO:0000269|PubMed:10212249,
+CC         ECO:0000269|PubMed:18476726};
+CC         KM=5.4 mM for homocysteine {ECO:0000269|PubMed:10212249,
+CC         ECO:0000269|PubMed:18476726};
+CC         KM=3.5 mM for cysteine {ECO:0000269|PubMed:10212249,
+CC         ECO:0000269|PubMed:18476726};
+CC       pH dependence:
+CC         Optimum pH is 8.2. {ECO:0000269|PubMed:10212249,
+CC         ECO:0000269|PubMed:18476726};
+CC   -!- PATHWAY: Amino-acid biosynthesis; L-cysteine biosynthesis; L-
+CC       cysteine from L-homocysteine and L-serine: step 2/2.
+CC   -!- SUBUNIT: Homotetramer. Interacts with CALM in a calcium-dependent
+CC       manner (By similarity). {ECO:0000250}.
+CC   -!- INTERACTION:
+CC       Self; NbExp=4; IntAct=EBI-749763, EBI-749763;
+CC       Q96NT3:GUCD1; NbExp=3; IntAct=EBI-749763, EBI-8293751;
+CC       Q6P9E2:RECK; NbExp=5; IntAct=EBI-749763, EBI-10253121;
+CC       Q96HA8:WDYHV1; NbExp=3; IntAct=EBI-749763, EBI-741158;
+CC   -!- SUBCELLULAR LOCATION: Cytoplasm.
+CC   -!- ALTERNATIVE PRODUCTS:
+CC       Event=Alternative splicing; Named isoforms=3;
+CC       Name=1;
+CC         IsoId=P32929-1; Sequence=Displayed;
+CC       Name=2;
+CC         IsoId=P32929-2; Sequence=VSP_006306;
+CC       Name=3;
+CC         IsoId=P32929-3; Sequence=VSP_047274;
+CC   -!- DISEASE: Cystathioninuria (CSTNU) [MIM:219500]: Autosomal
+CC       recessive phenotype characterized by abnormal accumulation of
+CC       plasma cystathionine, leading to increased urinary excretion.
+CC       {ECO:0000269|PubMed:12574942, ECO:0000269|PubMed:18476726}.
+CC       Note=The disease is caused by mutations affecting the gene
+CC       represented in this entry.
+CC   -!- SIMILARITY: Belongs to the trans-sulfuration enzymes family.
+CC       {ECO:0000305}.
+CC   -----------------------------------------------------------------------
+CC   Copyrighted by the UniProt Consortium, see https://www.uniprot.org/terms
+CC   Distributed under the Creative Commons Attribution (CC BY 4.0) License
+CC   -----------------------------------------------------------------------
+DR   EMBL; S52784; AAB24700.1; -; mRNA.
+DR   EMBL; S52028; AAB24699.1; -; mRNA.
+DR   EMBL; BT006882; AAP35528.1; -; mRNA.
+DR   EMBL; AK303946; BAG64874.1; -; mRNA.
+DR   EMBL; AK223376; BAD97096.1; -; mRNA.
+DR   EMBL; AL354872; -; NOT_ANNOTATED_CDS; Genomic_DNA.
+DR   EMBL; CH471059; EAX06450.1; -; Genomic_DNA.
+DR   EMBL; BC015807; AAH15807.1; -; mRNA.
+DR   CCDS; CCDS53333.1; -. [P32929-3]
+DR   CCDS; CCDS650.1; -. [P32929-1]
+DR   CCDS; CCDS651.1; -. [P32929-2]
+DR   PIR; JC1362; JC1362.
+DR   RefSeq; NP_001177392.1; NM_001190463.1. [P32929-3]
+DR   RefSeq; NP_001893.2; NM_001902.5. [P32929-1]
+DR   RefSeq; NP_714964.2; NM_153742.4. [P32929-2]
+DR   UniGene; Hs.19904; -.
+DR   PDB; 2NMP; X-ray; 2.60 A; A/B/C/D=1-402.
+DR   PDB; 3COG; X-ray; 2.00 A; A/B/C/D=1-402.
+DR   PDB; 3ELP; X-ray; 2.40 A; A/B/C/D=1-405.
+DR   PDB; 5EIG; X-ray; 2.70 A; A/B/C/D/E/F/G/H=1-405.
+DR   PDB; 5TSU; X-ray; 2.20 A; A/B/C/D/E/F/G/H=2-405.
+DR   PDB; 5TT2; X-ray; 2.95 A; C/D=2-405.
+DR   PDBsum; 2NMP; -.
+DR   PDBsum; 3COG; -.
+DR   PDBsum; 3ELP; -.
+DR   PDBsum; 5EIG; -.
+DR   PDBsum; 5TSU; -.
+DR   PDBsum; 5TT2; -.
+DR   ProteinModelPortal; P32929; -.
+DR   SMR; P32929; -.
+DR   BioGrid; 107873; 51.
+DR   IntAct; P32929; 6.
+DR   MINT; P32929; -.
+DR   STRING; 9606.ENSP00000359976; -.
+DR   BindingDB; P32929; -.
+DR   DrugBank; DB02328; 2-[(3-Hydroxy-2-Methyl-5-Phosphonooxymethyl-Pyridin-4-Ylmethyl)-Imino]-5-Phosphono-Pent-3-Enoic Acid.
+DR   DrugBank; DB04217; L-2-amino-3-butynoic acid.
+DR   DrugBank; DB00151; L-Cysteine.
+DR   DrugBank; DB00114; Pyridoxal Phosphate.
+DR   GuidetoPHARMACOLOGY; 1444; -.
+DR   iPTMnet; P32929; -.
+DR   PhosphoSitePlus; P32929; -.
+DR   BioMuta; CTH; -.
+DR   DMDM; 27735163; -.
+DR   EPD; P32929; -.
+DR   MaxQB; P32929; -.
+DR   PaxDb; P32929; -.
+DR   PeptideAtlas; P32929; -.
+DR   PRIDE; P32929; -.
+DR   ProteomicsDB; 54890; -.
+DR   ProteomicsDB; 54891; -. [P32929-2]
+DR   DNASU; 1491; -.
+DR   Ensembl; ENST00000346806; ENSP00000311554; ENSG00000116761. [P32929-2]
+DR   Ensembl; ENST00000370938; ENSP00000359976; ENSG00000116761. [P32929-1]
+DR   Ensembl; ENST00000411986; ENSP00000413407; ENSG00000116761. [P32929-3]
+DR   GeneID; 1491; -.
+DR   KEGG; hsa:1491; -.
+DR   UCSC; uc001dfd.4; human. [P32929-1]
+DR   CTD; 1491; -.
+DR   DisGeNET; 1491; -.
+DR   EuPathDB; HostDB:ENSG00000116761.11; -.
+DR   GeneCards; CTH; -.
+DR   HGNC; HGNC:2501; CTH.
+DR   HPA; HPA021591; -.
+DR   HPA; HPA023300; -.
+DR   MalaCards; CTH; -.
+DR   MIM; 219500; phenotype.
+DR   MIM; 607657; gene.
+DR   neXtProt; NX_P32929; -.
+DR   OpenTargets; ENSG00000116761; -.
+DR   Orphanet; 212; Cystathioninuria.
+DR   PharmGKB; PA27004; -.
+DR   eggNOG; KOG0053; Eukaryota.
+DR   eggNOG; COG0626; LUCA.
+DR   GeneTree; ENSGT00390000000312; -.
+DR   HOGENOM; HOG000246415; -.
+DR   HOVERGEN; HBG005322; -.
+DR   InParanoid; P32929; -.
+DR   KO; K01758; -.
+DR   OMA; HPGRMTH; -.
+DR   OrthoDB; EOG091G0C7Z; -.
+DR   PhylomeDB; P32929; -.
+DR   TreeFam; TF300720; -.
+DR   BioCyc; MetaCyc:HS04050-MONOMER; -.
+DR   BRENDA; 4.4.1.1; 2681.
+DR   Reactome; R-HSA-1614558; Degradation of cysteine and homocysteine.
+DR   Reactome; R-HSA-1614603; Cysteine formation from homocysteine.
+DR   Reactome; R-HSA-2408508; Metabolism of ingested SeMet, Sec, MeSec into H2Se.
+DR   SABIO-RK; P32929; -.
+DR   UniPathway; UPA00136; UER00202.
+DR   ChiTaRS; CTH; human.
+DR   EvolutionaryTrace; P32929; -.
+DR   GenomeRNAi; 1491; -.
+DR   PRO; PR:P32929; -.
+DR   Proteomes; UP000005640; Chromosome 1.
+DR   Bgee; ENSG00000116761; Expressed in 187 organ(s), highest expression level in liver.
+DR   CleanEx; HS_CTH; -.
+DR   Genevisible; P32929; HS.
+DR   GO; GO:0005737; C:cytoplasm; IBA:GO_Central.
+DR   GO; GO:0005829; C:cytosol; TAS:Reactome.
+DR   GO; GO:0070062; C:extracellular exosome; HDA:UniProtKB.
+DR   GO; GO:0005516; F:calmodulin binding; IEA:UniProtKB-KW.
+DR   GO; GO:0016846; F:carbon-sulfur lyase activity; TAS:Reactome.
+DR   GO; GO:0004123; F:cystathionine gamma-lyase activity; IDA:UniProtKB.
+DR   GO; GO:0003962; F:cystathionine gamma-synthase activity; IBA:GO_Central.
+DR   GO; GO:0047982; F:homocysteine desulfhydrase activity; TAS:Reactome.
+DR   GO; GO:0042802; F:identical protein binding; IPI:IntAct.
+DR   GO; GO:0080146; F:L-cysteine desulfhydrase activity; TAS:Reactome.
+DR   GO; GO:0044540; F:L-cystine L-cysteine-lyase (deaminating); IMP:UniProtKB.
+DR   GO; GO:0030170; F:pyridoxal phosphate binding; IDA:UniProtKB.
+DR   GO; GO:0071266; P:'de novo' L-methionine biosynthetic process; IBA:GO_Central.
+DR   GO; GO:1990830; P:cellular response to leukemia inhibitory factor; IEA:Ensembl.
+DR   GO; GO:0019344; P:cysteine biosynthetic process; IDA:UniProtKB.
+DR   GO; GO:0019343; P:cysteine biosynthetic process via cystathionine; IDA:BHF-UCL.
+DR   GO; GO:0006534; P:cysteine metabolic process; TAS:ProtInc.
+DR   GO; GO:0030968; P:endoplasmic reticulum unfolded protein response; TAS:UniProtKB.
+DR   GO; GO:0070814; P:hydrogen sulfide biosynthetic process; IDA:UniProtKB.
+DR   GO; GO:2001234; P:negative regulation of apoptotic signaling pathway; IEA:Ensembl.
+DR   GO; GO:1904831; P:positive regulation of aortic smooth muscle cell differentiation; IMP:BHF-UCL.
+DR   GO; GO:0043123; P:positive regulation of I-kappaB kinase/NF-kappaB signaling; IEA:Ensembl.
+DR   GO; GO:0051092; P:positive regulation of NF-kappaB transcription factor activity; IEA:Ensembl.
+DR   GO; GO:0051289; P:protein homotetramerization; IPI:UniProtKB.
+DR   GO; GO:0044524; P:protein sulfhydration; IMP:UniProtKB.
+DR   GO; GO:0018272; P:protein-pyridoxal-5-phosphate linkage via peptidyl-N6-pyridoxal phosphate-L-lysine; IDA:UniProtKB.
+DR   GO; GO:0000098; P:sulfur amino acid catabolic process; TAS:Reactome.
+DR   GO; GO:0019346; P:transsulfuration; IDA:BHF-UCL.
+DR   CDD; cd00614; CGS_like; 1.
+DR   Gene3D; 3.40.640.10; -; 1.
+DR   Gene3D; 3.90.1150.10; -; 1.
+DR   InterPro; IPR000277; Cys/Met-Metab_PyrdxlP-dep_enz.
+DR   InterPro; IPR015424; PyrdxlP-dep_Trfase.
+DR   InterPro; IPR015422; PyrdxlP-dep_Trfase_dom1.
+DR   InterPro; IPR015421; PyrdxlP-dep_Trfase_major.
+DR   PANTHER; PTHR11808; PTHR11808; 1.
+DR   Pfam; PF01053; Cys_Met_Meta_PP; 1.
+DR   PIRSF; PIRSF001434; CGS; 1.
+DR   SUPFAM; SSF53383; SSF53383; 1.
+DR   PROSITE; PS00868; CYS_MET_METAB_PP; 1.
+PE   1: Evidence at protein level;
+KW   3D-structure; Alternative splicing; Amino-acid biosynthesis;
+KW   Calmodulin-binding; Complete proteome; Cysteine biosynthesis;
+KW   Cytoplasm; Disease mutation; Lyase; Polymorphism; Pyridoxal phosphate;
+KW   Reference proteome.
+FT   CHAIN         1    405       Cystathionine gamma-lyase.
+FT                                /FTId=PRO_0000114749.
+FT   BINDING      62     62       Substrate.
+FT   BINDING     114    114       Substrate.
+FT   BINDING     119    119       Substrate.
+FT   BINDING     339    339       Substrate.
+FT   MOD_RES     212    212       N6-(pyridoxal phosphate)lysine.
+FT                                {ECO:0000250}.
+FT   VAR_SEQ      85    116       Missing (in isoform 3).
+FT                                {ECO:0000303|PubMed:14702039}.
+FT                                /FTId=VSP_047274.
+FT   VAR_SEQ     153    196       Missing (in isoform 2).
+FT                                {ECO:0000303|PubMed:1339280}.
+FT                                /FTId=VSP_006306.
+FT   VARIANT      67     67       T -> I (in CSTNU; reduces catalytic
+FT                                activity and affinity for pyridoxal
+FT                                phosphate; dbSNP:rs28941785).
+FT                                {ECO:0000269|PubMed:12574942,
+FT                                ECO:0000269|PubMed:18476726}.
+FT                                /FTId=VAR_015450.
+FT   VARIANT     240    240       Q -> E (in CSTNU; strongly reduces
+FT                                catalytic activity and affinity for
+FT                                pyridoxal phosphate; dbSNP:rs28941786).
+FT                                {ECO:0000269|PubMed:12574942,
+FT                                ECO:0000269|PubMed:18476726}.
+FT                                /FTId=VAR_015451.
+FT   VARIANT     403    403       S -> I (in dbSNP:rs1021737).
+FT                                {ECO:0000269|PubMed:12574942,
+FT                                ECO:0000269|PubMed:1339280,
+FT                                ECO:0000269|PubMed:14702039,
+FT                                ECO:0000269|Ref.4}.
+FT                                /FTId=VAR_015452.
+FT   HELIX        18     24       {ECO:0000244|PDB:3COG}.
+FT   HELIX        29     31       {ECO:0000244|PDB:3COG}.
+FT   STRAND       36     38       {ECO:0000244|PDB:3COG}.
+FT   STRAND       45     47       {ECO:0000244|PDB:5TSU}.
+FT   TURN         61     63       {ECO:0000244|PDB:3COG}.
+FT   HELIX        66     79       {ECO:0000244|PDB:3COG}.
+FT   STRAND       82     88       {ECO:0000244|PDB:3COG}.
+FT   HELIX        90     98       {ECO:0000244|PDB:3COG}.
+FT   STRAND      106    112       {ECO:0000244|PDB:3COG}.
+FT   HELIX       115    123       {ECO:0000244|PDB:3COG}.
+FT   HELIX       125    128       {ECO:0000244|PDB:3COG}.
+FT   STRAND      131    135       {ECO:0000244|PDB:3COG}.
+FT   HELIX       140    146       {ECO:0000244|PDB:3COG}.
+FT   STRAND      151    159       {ECO:0000244|PDB:3COG}.
+FT   TURN        161    163       {ECO:0000244|PDB:3COG}.
+FT   HELIX       169    176       {ECO:0000244|PDB:3COG}.
+FT   STRAND      178    180       {ECO:0000244|PDB:3COG}.
+FT   STRAND      183    187       {ECO:0000244|PDB:3COG}.
+FT   TURN        189    191       {ECO:0000244|PDB:3COG}.
+FT   TURN        193    195       {ECO:0000244|PDB:3COG}.
+FT   TURN        198    202       {ECO:0000244|PDB:3COG}.
+FT   STRAND      204    209       {ECO:0000244|PDB:3COG}.
+FT   TURN        210    215       {ECO:0000244|PDB:3COG}.
+FT   STRAND      223    227       {ECO:0000244|PDB:3COG}.
+FT   HELIX       230    243       {ECO:0000244|PDB:3COG}.
+FT   HELIX       249    259       {ECO:0000244|PDB:3COG}.
+FT   HELIX       262    281       {ECO:0000244|PDB:3COG}.
+FT   STRAND      286    290       {ECO:0000244|PDB:3COG}.
+FT   HELIX       300    306       {ECO:0000244|PDB:3COG}.
+FT   STRAND      312    320       {ECO:0000244|PDB:3COG}.
+FT   HELIX       322    331       {ECO:0000244|PDB:3COG}.
+FT   STRAND      333    337       {ECO:0000244|PDB:3COG}.
+FT   STRAND      342    345       {ECO:0000244|PDB:3COG}.
+FT   STRAND      347    349       {ECO:0000244|PDB:3COG}.
+FT   TURN        351    358       {ECO:0000244|PDB:3COG}.
+FT   HELIX       361    367       {ECO:0000244|PDB:3COG}.
+FT   STRAND      373    377       {ECO:0000244|PDB:3COG}.
+FT   HELIX       383    397       {ECO:0000244|PDB:3COG}.
+SQ   SEQUENCE   405 AA;  44508 MW;  003246D7C1D16723 CRC64;
+     MQEKDASSQG FLPHFQHFAT QAIHVGQDPE QWTSRAVVPP ISLSTTFKQG APGQHSGFEY
+     SRSGNPTRNC LEKAVAALDG AKYCLAFASG LAATVTITHL LKAGDQIICM DDVYGGTNRY
+     FRQVASEFGL KISFVDCSKI KLLEAAITPE TKLVWIETPT NPTQKVIDIE GCAHIVHKHG
+     DIILVVDNTF MSPYFQRPLA LGADISMYSA TKYMNGHSDV VMGLVSVNCE SLHNRLRFLQ
+     NSLGAVPSPI DCYLCNRGLK TLHVRMEKHF KNGMAVAQFL ESNPWVEKVI YPGLPSHPQH
+     ELVKRQCTGC TGMVTFYIKG TLQHAEIFLK NLKLFTLAES LGGFESLAEL PAIMTHASVL
+     KNDRDVLGIS DTLIRLSVGL EDEEDLLEDL DQALKAAHPP SGSHS
+//
+ID   CG22_SCHPO              Reviewed;         411 AA.
+AC   P36630;
+DT   01-JUN-1994, integrated into UniProtKB/Swiss-Prot.
+DT   01-FEB-1995, sequence version 2.
+DT   05-DEC-2018, entry version 148.
+DE   RecName: Full=G2/mitotic-specific cyclin cig2;
+GN   Name=cig2; Synonyms=cyc17; ORFNames=SPAPB2B4.03;
+OS   Schizosaccharomyces pombe (strain 972 / ATCC 24843) (Fission yeast).
+OC   Eukaryota; Fungi; Dikarya; Ascomycota; Taphrinomycotina;
+OC   Schizosaccharomycetes; Schizosaccharomycetales;
+OC   Schizosaccharomycetaceae; Schizosaccharomyces.
+OX   NCBI_TaxID=284812;
+RN   [1]
+RP   NUCLEOTIDE SEQUENCE [MRNA], FUNCTION, AND INTERACTION WITH CDC2.
+RC   STRAIN=972 / ATCC 24843;
+RX   PubMed=8455610; DOI=10.1128/MCB.13.4.2286;
+RA   Bueno A., Russell P.;
+RT   "Two fission yeast B-type cyclins, cig2 and Cdc13, have different
+RT   functions in mitosis.";
+RL   Mol. Cell. Biol. 13:2286-2297(1993).
+RN   [2]
+RP   ERRATUM.
+RA   Bueno A., Russell P.;
+RL   Mol. Cell. Biol. 14:869-869(1994).
+RN   [3]
+RP   NUCLEOTIDE SEQUENCE [MRNA], FUNCTION, AND INDUCTION.
+RX   PubMed=7909513;
+RA   Obara-Ishihara T., Okayama H.;
+RT   "A B-type cyclin negatively regulates conjugation via interacting with
+RT   cell cycle 'start' genes in fission yeast.";
+RL   EMBO J. 13:1863-1872(1994).
+RN   [4]
+RP   NUCLEOTIDE SEQUENCE [MRNA], AND FUNCTION.
+RX   PubMed=8264644; DOI=10.1128/MCB.14.1.768;
+RA   Connolly T., Beach D.;
+RT   "Interaction between the Cig1 and Cig2 B-type cyclins in the fission
+RT   yeast cell cycle.";
+RL   Mol. Cell. Biol. 14:768-776(1994).
+RN   [5]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RC   STRAIN=972 / ATCC 24843;
+RX   PubMed=11859360; DOI=10.1038/nature724;
+RA   Wood V., Gwilliam R., Rajandream M.A., Lyne M.H., Lyne R., Stewart A.,
+RA   Sgouros J.G., Peat N., Hayles J., Baker S.G., Basham D., Bowman S.,
+RA   Brooks K., Brown D., Brown S., Chillingworth T., Churcher C.M.,
+RA   Collins M., Connor R., Cronin A., Davis P., Feltwell T., Fraser A.,
+RA   Gentles S., Goble A., Hamlin N., Harris D.E., Hidalgo J., Hodgson G.,
+RA   Holroyd S., Hornsby T., Howarth S., Huckle E.J., Hunt S., Jagels K.,
+RA   James K.D., Jones L., Jones M., Leather S., McDonald S., McLean J.,
+RA   Mooney P., Moule S., Mungall K.L., Murphy L.D., Niblett D., Odell C.,
+RA   Oliver K., O'Neil S., Pearson D., Quail M.A., Rabbinowitsch E.,
+RA   Rutherford K.M., Rutter S., Saunders D., Seeger K., Sharp S.,
+RA   Skelton J., Simmonds M.N., Squares R., Squares S., Stevens K.,
+RA   Taylor K., Taylor R.G., Tivey A., Walsh S.V., Warren T., Whitehead S.,
+RA   Woodward J.R., Volckaert G., Aert R., Robben J., Grymonprez B.,
+RA   Weltjens I., Vanstreels E., Rieger M., Schaefer M., Mueller-Auer S.,
+RA   Gabel C., Fuchs M., Duesterhoeft A., Fritzc C., Holzer E., Moestl D.,
+RA   Hilbert H., Borzym K., Langer I., Beck A., Lehrach H., Reinhardt R.,
+RA   Pohl T.M., Eger P., Zimmermann W., Wedler H., Wambutt R., Purnelle B.,
+RA   Goffeau A., Cadieu E., Dreano S., Gloux S., Lelaure V., Mottier S.,
+RA   Galibert F., Aves S.J., Xiang Z., Hunt C., Moore K., Hurst S.M.,
+RA   Lucas M., Rochet M., Gaillardin C., Tallada V.A., Garzon A., Thode G.,
+RA   Daga R.R., Cruzado L., Jimenez J., Sanchez M., del Rey F., Benito J.,
+RA   Dominguez A., Revuelta J.L., Moreno S., Armstrong J., Forsburg S.L.,
+RA   Cerutti L., Lowe T., McCombie W.R., Paulsen I., Potashkin J.,
+RA   Shpakovski G.V., Ussery D., Barrell B.G., Nurse P.;
+RT   "The genome sequence of Schizosaccharomyces pombe.";
+RL   Nature 415:871-880(2002).
+RN   [6]
+RP   FUNCTION.
+RX   PubMed=8657126; DOI=10.1128/MCB.16.4.1527;
+RA   Mondesert O., McGowan C.H., Russell P.;
+RT   "Cig2, a B-type cyclin, promotes the onset of S in Schizosaccharomyces
+RT   pombe.";
+RL   Mol. Cell. Biol. 16:1527-1533(1996).
+RN   [7]
+RP   REVIEW ON ASSOCIATION WITH CDC2.
+RX   PubMed=8855663; DOI=10.1016/S0168-9525(96)80016-3;
+RA   Stern B., Nurse P.;
+RT   "A quantitative model for the cdc2 control of S phase and mitosis in
+RT   fission yeast.";
+RL   Trends Genet. 12:345-350(1996).
+RN   [8]
+RP   INTERACTION WITH RUM1.
+RX   PubMed=9614176; DOI=10.1091/mbc.9.6.1309;
+RA   Stern B., Nurse P.;
+RT   "Cyclin B proteolysis and the cyclin-dependent kinase inhibitor rum1p
+RT   are required for pheromone-induced G1 arrest in fission yeast.";
+RL   Mol. Biol. Cell 9:1309-1321(1998).
+RN   [9]
+RP   FUNCTION, INTERACTION WITH CDC2, SUBCELLULAR LOCATION,
+RP   PHOSPHORYLATION, DESTRUCTION BOX MOTIF, AND MUTAGENESIS OF ARG-51;
+RP   LEU-54; ARG-169; GLU-170; ILE-171; SER-268 AND THR-329.
+RX   PubMed=11163211; DOI=10.1016/S1097-2765(00)00135-0;
+RA   Yamano H., Kitamura K., Kominami K., Lehmann A., Hunt T., Toda T.;
+RT   "The spike of S phase cyclin Cig2 expression at the G1-S border in
+RT   fission yeast requires both APC and SCF ubiquitin ligases.";
+RL   Mol. Cell 6:1377-1387(2000).
+RN   [10]
+RP   FUNCTION, AND INTERACTION WITH RES2.
+RX   PubMed=11781565; DOI=10.1038/ncb1201-1043;
+RA   Ayte J., Schweitzer C., Zarzov P., Nurse P., DeCaprio J.A.;
+RT   "Feedback regulation of the MBF transcription factor by cyclin Cig2.";
+RL   Nat. Cell Biol. 3:1043-1050(2001).
+RN   [11]
+RP   FUNCTION, AND INTERACTION WITH POP1.
+RX   PubMed=14970237; DOI=10.1074/jbc.M311060200;
+RA   Yamano H., Kominami K., Harrison C., Kitamura K., Katayama S.,
+RA   Dhut S., Hunt T., Toda T.;
+RT   "Requirement of the SCFPop1/Pop2 ubiquitin ligase for degradation of
+RT   the fission yeast S phase cyclin Cig2.";
+RL   J. Biol. Chem. 279:18974-18980(2004).
+RN   [12]
+RP   SUBCELLULAR LOCATION [LARGE SCALE ANALYSIS].
+RX   PubMed=16823372; DOI=10.1038/nbt1222;
+RA   Matsuyama A., Arai R., Yashiroda Y., Shirai A., Kamata A., Sekido S.,
+RA   Kobayashi Y., Hashimoto A., Hamamoto M., Hiraoka Y., Horinouchi S.,
+RA   Yoshida M.;
+RT   "ORFeome cloning and global analysis of protein localization in the
+RT   fission yeast Schizosaccharomyces pombe.";
+RL   Nat. Biotechnol. 24:841-847(2006).
+CC   -!- FUNCTION: Essential for the control of the cell cycle at the G2/M
+CC       and G1/S (mitosis) transition. Interacts with the cdc2 protein
+CC       kinase to form MPF. Interaction with res2 promotes the
+CC       phosphorylation of res1 and inhibits MBF-dependent gene
+CC       transcription. Forms an autoregulating feedback-inhibition loop
+CC       with MBF which is important for normal regulation of the cell
+CC       cycle. G2/M cyclins accumulate steadily during G2 and are abruptly
+CC       destroyed at mitosis. Negatively regulates conjugation via
+CC       interacting with cell cycle 'start' genes. Degraded by skp1, pop1
+CC       and pop2 in the G2 and M phases of the cell cycle.
+CC       {ECO:0000269|PubMed:11163211, ECO:0000269|PubMed:11781565,
+CC       ECO:0000269|PubMed:14970237, ECO:0000269|PubMed:7909513,
+CC       ECO:0000269|PubMed:8264644, ECO:0000269|PubMed:8455610,
+CC       ECO:0000269|PubMed:8657126}.
+CC   -!- SUBUNIT: Associates with cdc2, res2 and rum1. Interacts with pop1
+CC       only when phosphorylated. {ECO:0000269|PubMed:11163211,
+CC       ECO:0000269|PubMed:11781565, ECO:0000269|PubMed:14970237,
+CC       ECO:0000269|PubMed:8455610, ECO:0000269|PubMed:9614176}.
+CC   -!- INTERACTION:
+CC       P87060:pop1; NbExp=4; IntAct=EBI-1149212, EBI-1185389;
+CC       P33520:res1; NbExp=3; IntAct=EBI-1149212, EBI-1149288;
+CC       P41412:res2; NbExp=3; IntAct=EBI-1149212, EBI-1149177;
+CC       P40380:rum1; NbExp=2; IntAct=EBI-1149212, EBI-1187892;
+CC   -!- SUBCELLULAR LOCATION: Nucleus. Cytoplasm, cytoskeleton,
+CC       microtubule organizing center, spindle pole body.
+CC   -!- INDUCTION: Highly induced upon nitrogen starvation and during
+CC       conjugation. {ECO:0000269|PubMed:7909513}.
+CC   -!- PTM: Phosphorylated. {ECO:0000269|PubMed:11163211}.
+CC   -!- SIMILARITY: Belongs to the cyclin family. Cyclin AB subfamily.
+CC       {ECO:0000305}.
+CC   -----------------------------------------------------------------------
+CC   Copyrighted by the UniProt Consortium, see https://www.uniprot.org/terms
+CC   Distributed under the Creative Commons Attribution (CC BY 4.0) License
+CC   -----------------------------------------------------------------------
+DR   EMBL; X70046; CAA49640.1; -; mRNA.
+DR   EMBL; D28751; BAA05943.1; -; mRNA.
+DR   EMBL; S67490; AAB29297.2; ALT_SEQ; mRNA.
+DR   EMBL; CU329670; CAC21469.1; -; Genomic_DNA.
+DR   PIR; A48100; A48100.
+DR   PIR; S44344; S44344.
+DR   PIR; T52009; T52009.
+DR   RefSeq; NP_593889.1; NM_001019319.2.
+DR   ProteinModelPortal; P36630; -.
+DR   SMR; P36630; -.
+DR   BioGrid; 279901; 38.
+DR   IntAct; P36630; 5.
+DR   STRING; 4896.SPAPB2B4.03.1; -.
+DR   iPTMnet; P36630; -.
+DR   MaxQB; P36630; -.
+DR   PaxDb; P36630; -.
+DR   PRIDE; P36630; -.
+DR   EnsemblFungi; SPAPB2B4.03.1; SPAPB2B4.03.1:pep; SPAPB2B4.03.
+DR   GeneID; 2543481; -.
+DR   KEGG; spo:SPAPB2B4.03; -.
+DR   EuPathDB; FungiDB:SPAPB2B4.03; -.
+DR   PomBase; SPAPB2B4.03; cig2.
+DR   HOGENOM; HOG000167672; -.
+DR   InParanoid; P36630; -.
+DR   KO; K02220; -.
+DR   OMA; IQNFVYM; -.
+DR   OrthoDB; EOG092C2S0G; -.
+DR   PhylomeDB; P36630; -.
+DR   Reactome; R-SPO-176408; Regulation of APC/C activators between G1/S and early anaphase.
+DR   Reactome; R-SPO-2500257; Resolution of Sister Chromatid Cohesion.
+DR   Reactome; R-SPO-4419969; Depolymerisation of the Nuclear Lamina.
+DR   Reactome; R-SPO-69273; Cyclin A/B1/B2 associated events during G2/M transition.
+DR   Reactome; R-SPO-69478; G2/M DNA replication checkpoint.
+DR   PRO; PR:P36630; -.
+DR   Proteomes; UP000002485; Chromosome I.
+DR   GO; GO:0005813; C:centrosome; IBA:GO_Central.
+DR   GO; GO:0000307; C:cyclin-dependent protein kinase holoenzyme complex; EXP:PomBase.
+DR   GO; GO:0005737; C:cytoplasm; IBA:GO_Central.
+DR   GO; GO:0044732; C:mitotic spindle pole body; HDA:PomBase.
+DR   GO; GO:0000790; C:nuclear chromatin; IDA:PomBase.
+DR   GO; GO:0005634; C:nucleus; HDA:PomBase.
+DR   GO; GO:0061575; F:cyclin-dependent protein serine/threonine kinase activator activity; IDA:PomBase.
+DR   GO; GO:0016538; F:cyclin-dependent protein serine/threonine kinase regulator activity; IBA:GO_Central.
+DR   GO; GO:0019901; F:protein kinase binding; IBA:GO_Central.
+DR   GO; GO:0051301; P:cell division; IEA:UniProtKB-KW.
+DR   GO; GO:0000746; P:conjugation; IEA:UniProtKB-KW.
+DR   GO; GO:0000082; P:G1/S transition of mitotic cell cycle; IMP:PomBase.
+DR   GO; GO:0000086; P:G2/M transition of mitotic cell cycle; IBA:GO_Central.
+DR   GO; GO:0000278; P:mitotic cell cycle; IBA:GO_Central.
+DR   GO; GO:0031138; P:negative regulation of conjugation with cellular fusion; IMP:PomBase.
+DR   GO; GO:0070322; P:negative regulation of translation in response to nitrogen starvation; IDA:PomBase.
+DR   GO; GO:0045787; P:positive regulation of cell cycle; IBA:GO_Central.
+DR   GO; GO:0008284; P:positive regulation of cell proliferation; IBA:GO_Central.
+DR   GO; GO:1900087; P:positive regulation of G1/S transition of mitotic cell cycle; IMP:PomBase.
+DR   GO; GO:0006468; P:protein phosphorylation; IEA:GOC.
+DR   GO; GO:0000079; P:regulation of cyclin-dependent protein serine/threonine kinase activity; IBA:GO_Central.
+DR   GO; GO:0051445; P:regulation of meiotic cell cycle; IMP:PomBase.
+DR   GO; GO:0007088; P:regulation of mitotic nuclear division; IBA:GO_Central.
+DR   GO; GO:0072450; P:signal transduction involved in G1 cell size control checkpoint; IGI:PomBase.
+DR   GO; GO:0007089; P:traversing start control point of mitotic cell cycle; IGI:PomBase.
+DR   CDD; cd00043; CYCLIN; 2.
+DR   InterPro; IPR039361; Cyclin.
+DR   InterPro; IPR013763; Cyclin-like.
+DR   InterPro; IPR036915; Cyclin-like_sf.
+DR   InterPro; IPR004367; Cyclin_C-dom.
+DR   InterPro; IPR006671; Cyclin_N.
+DR   PANTHER; PTHR10177; PTHR10177; 1.
+DR   Pfam; PF02984; Cyclin_C; 1.
+DR   Pfam; PF00134; Cyclin_N; 1.
+DR   PIRSF; PIRSF001771; Cyclin_A_B_D_E; 1.
+DR   SMART; SM00385; CYCLIN; 2.
+DR   SMART; SM01332; Cyclin_C; 1.
+DR   SUPFAM; SSF47954; SSF47954; 2.
+DR   PROSITE; PS00292; CYCLINS; 1.
+PE   1: Evidence at protein level;
+KW   Cell cycle; Cell division; Complete proteome; Conjugation; Cyclin;
+KW   Cytoplasm; Cytoskeleton; Mitosis; Nucleus; Phosphoprotein;
+KW   Reference proteome.
+FT   CHAIN         1    411       G2/mitotic-specific cyclin cig2.
+FT                                /FTId=PRO_0000080401.
+FT   DOMAIN      139    265       Cyclin N-terminal.
+FT   REGION      181    273       Interaction with pop1.
+FT   MOTIF        51     60       Destruction box.
+FT   COMPBIAS    394    397       Poly-Asp.
+FT   MUTAGEN      51     51       R->A: Improves protein stability; when
+FT                                associated with A-54.
+FT                                {ECO:0000269|PubMed:11163211}.
+FT   MUTAGEN      54     54       L->A: Improves protein stability; when
+FT                                associated with A-51.
+FT                                {ECO:0000269|PubMed:11163211}.
+FT   MUTAGEN     169    169       R->A: Prevents binding to cdc2 and
+FT                                improves protein stability; when
+FT                                associated with A-170 and A-171.
+FT                                {ECO:0000269|PubMed:11163211}.
+FT   MUTAGEN     170    170       E->A: Prevents binding to cdc2 and
+FT                                improves protein stability; when
+FT                                associated with A-169 and A-171.
+FT                                {ECO:0000269|PubMed:11163211}.
+FT   MUTAGEN     171    171       I->A: Prevents binding to cdc2 and
+FT                                improves protein stability; when
+FT                                associated with A-169 and A-170.
+FT                                {ECO:0000269|PubMed:11163211}.
+FT   MUTAGEN     268    268       S->N: No effect on protein stability;
+FT                                when associated with A-329.
+FT                                {ECO:0000269|PubMed:11163211}.
+FT   MUTAGEN     329    329       T->A: No effect on protein stability;
+FT                                when associated with N-268.
+FT                                {ECO:0000269|PubMed:11163211}.
+FT   CONFLICT      1     49       MALYSISKPVGSKINKHSYQDENTLVGKQALSKGTEKTKLS
+FT                                TNFEINLP -> MKTHLLANKLYQKGLRRQNYLQICKLICH
+FT                                A (in Ref. 1; CAA49640). {ECO:0000305}.
+FT   CONFLICT    119    124       VSNVDD -> ALMLMN (in Ref. 1; CAA49640).
+FT                                {ECO:0000305}.
+FT   CONFLICT    315    315       Missing (in Ref. 1; CAA49640).
+FT                                {ECO:0000305}.
+FT   CONFLICT    330    330       P -> A (in Ref. 1; CAA49640).
+FT                                {ECO:0000305}.
+FT   CONFLICT    411    411       H -> QRTLL (in Ref. 1; CAA49640).
+FT                                {ECO:0000305}.
+SQ   SEQUENCE   411 AA;  47477 MW;  6F255D2E26C6F8B3 CRC64;
+     MALYSISKPV GSKINKHSYQ DENTLVGKQA LSKGTEKTKL STNFEINLPR RTVLSDVSNV
+     GKNNADEKDT KKAKRSFDES NLSTNEEADK PVESKFVKKL KVYSKNADPS VETLQKDRVS
+     NVDDHLSSNP LMAEEYAPEI FEYIRKLDLK CLPNPKYMDQ QKELTWKMRE ILNEWLVEIH
+     SNFCLMPETL YLAVNIIDRF LSRRSCSLSK FQLTGITALL IASKYEEVMC PSIQNFVYMT
+     DGAFTVEDVC VAERYMLNVL NFDLSYPSPL NFLRKISQAE GYDAQTRTLG KYLTEIYLFD
+     HDLLRYPMSK IAAAAMYLSR RLLRRGPWTP KLVESSGGYE EHELKEIAYI MLHYHNKPLE
+     HKAFFQKYSS KRFLKASIFV HQLVRQRYSV NRTDDDDLQS EPSSSLTNDG H
+//
+ID   CFR1_SCHPO              Reviewed;         620 AA.
+AC   Q92357;
+DT   01-NOV-1997, integrated into UniProtKB/Swiss-Prot.
+DT   01-FEB-1997, sequence version 1.
+DT   07-NOV-2018, entry version 122.
+DE   RecName: Full=Cell fusion protein cfr1;
+DE   AltName: Full=CHS5-related protein 1;
+GN   Name=cfr1; ORFNames=SPAC6G9.12;
+OS   Schizosaccharomyces pombe (strain 972 / ATCC 24843) (Fission yeast).
+OC   Eukaryota; Fungi; Dikarya; Ascomycota; Taphrinomycotina;
+OC   Schizosaccharomycetes; Schizosaccharomycetales;
+OC   Schizosaccharomycetaceae; Schizosaccharomyces.
+OX   NCBI_TaxID=284812;
+RN   [1]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RC   STRAIN=972 / ATCC 24843;
+RX   PubMed=11859360; DOI=10.1038/nature724;
+RA   Wood V., Gwilliam R., Rajandream M.A., Lyne M.H., Lyne R., Stewart A.,
+RA   Sgouros J.G., Peat N., Hayles J., Baker S.G., Basham D., Bowman S.,
+RA   Brooks K., Brown D., Brown S., Chillingworth T., Churcher C.M.,
+RA   Collins M., Connor R., Cronin A., Davis P., Feltwell T., Fraser A.,
+RA   Gentles S., Goble A., Hamlin N., Harris D.E., Hidalgo J., Hodgson G.,
+RA   Holroyd S., Hornsby T., Howarth S., Huckle E.J., Hunt S., Jagels K.,
+RA   James K.D., Jones L., Jones M., Leather S., McDonald S., McLean J.,
+RA   Mooney P., Moule S., Mungall K.L., Murphy L.D., Niblett D., Odell C.,
+RA   Oliver K., O'Neil S., Pearson D., Quail M.A., Rabbinowitsch E.,
+RA   Rutherford K.M., Rutter S., Saunders D., Seeger K., Sharp S.,
+RA   Skelton J., Simmonds M.N., Squares R., Squares S., Stevens K.,
+RA   Taylor K., Taylor R.G., Tivey A., Walsh S.V., Warren T., Whitehead S.,
+RA   Woodward J.R., Volckaert G., Aert R., Robben J., Grymonprez B.,
+RA   Weltjens I., Vanstreels E., Rieger M., Schaefer M., Mueller-Auer S.,
+RA   Gabel C., Fuchs M., Duesterhoeft A., Fritzc C., Holzer E., Moestl D.,
+RA   Hilbert H., Borzym K., Langer I., Beck A., Lehrach H., Reinhardt R.,
+RA   Pohl T.M., Eger P., Zimmermann W., Wedler H., Wambutt R., Purnelle B.,
+RA   Goffeau A., Cadieu E., Dreano S., Gloux S., Lelaure V., Mottier S.,
+RA   Galibert F., Aves S.J., Xiang Z., Hunt C., Moore K., Hurst S.M.,
+RA   Lucas M., Rochet M., Gaillardin C., Tallada V.A., Garzon A., Thode G.,
+RA   Daga R.R., Cruzado L., Jimenez J., Sanchez M., del Rey F., Benito J.,
+RA   Dominguez A., Revuelta J.L., Moreno S., Armstrong J., Forsburg S.L.,
+RA   Cerutti L., Lowe T., McCombie W.R., Paulsen I., Potashkin J.,
+RA   Shpakovski G.V., Ussery D., Barrell B.G., Nurse P.;
+RT   "The genome sequence of Schizosaccharomyces pombe.";
+RL   Nature 415:871-880(2002).
+RN   [2]
+RP   FUNCTION, AND SUBCELLULAR LOCATION.
+RX   PubMed=16598689; DOI=10.1002/yea.1361;
+RA   Cartagena-Lirola H., Duran A., Valdivieso M.-H.;
+RT   "The Schizosaccharomyces pombe cfr1(+) gene participates in mating
+RT   through a new pathway that is independent of fus1(+).";
+RL   Yeast 23:375-388(2006).
+CC   -!- FUNCTION: Required for cell fusion, independently of fus1. Appears
+CC       to have a role in transporting proteins that are involved in
+CC       mating. May act as a scaffold to retain cell fusion proteins in
+CC       the cisternae of the Golgi. Degraded at the onset of mating and
+CC       this leads to release of cell fusion proteins.
+CC       {ECO:0000269|PubMed:16598689}.
+CC   -!- SUBCELLULAR LOCATION: Golgi apparatus
+CC       {ECO:0000269|PubMed:16598689}.
+CC   -!- SIMILARITY: Belongs to the CHS5 family. {ECO:0000305}.
+CC   -----------------------------------------------------------------------
+CC   Copyrighted by the UniProt Consortium, see https://www.uniprot.org/terms
+CC   Distributed under the Creative Commons Attribution (CC BY 4.0) License
+CC   -----------------------------------------------------------------------
+DR   EMBL; CU329670; CAB03614.1; -; Genomic_DNA.
+DR   PIR; T39074; T39074.
+DR   RefSeq; NP_594121.1; NM_001019545.2.
+DR   ProteinModelPortal; Q92357; -.
+DR   SMR; Q92357; -.
+DR   BioGrid; 278463; 7.
+DR   STRING; 4896.SPAC6G9.12.1; -.
+DR   iPTMnet; Q92357; -.
+DR   MaxQB; Q92357; -.
+DR   PaxDb; Q92357; -.
+DR   PRIDE; Q92357; -.
+DR   EnsemblFungi; SPAC6G9.12.1; SPAC6G9.12.1:pep; SPAC6G9.12.
+DR   GeneID; 2541978; -.
+DR   KEGG; spo:SPAC6G9.12; -.
+DR   EuPathDB; FungiDB:SPAC6G9.12; -.
+DR   PomBase; SPAC6G9.12; cfr1.
+DR   InParanoid; Q92357; -.
+DR   KO; K19877; -.
+DR   OMA; LRTHKMT; -.
+DR   OrthoDB; EOG092C3V5H; -.
+DR   PhylomeDB; Q92357; -.
+DR   PRO; PR:Q92357; -.
+DR   Proteomes; UP000002485; Chromosome I.
+DR   GO; GO:0005829; C:cytosol; HDA:PomBase.
+DR   GO; GO:0005769; C:early endosome; IDA:PomBase.
+DR   GO; GO:0034044; C:exomer complex; IDA:PomBase.
+DR   GO; GO:0005794; C:Golgi apparatus; IDA:PomBase.
+DR   GO; GO:0005802; C:trans-Golgi network; IDA:PomBase.
+DR   GO; GO:0046983; F:protein dimerization activity; IEA:InterPro.
+DR   GO; GO:0000747; P:conjugation with cellular fusion; IBA:GO_Central.
+DR   GO; GO:0006895; P:Golgi to endosome transport; IMP:PomBase.
+DR   GO; GO:0006893; P:Golgi to plasma membrane transport; ISO:PomBase.
+DR   GO; GO:0006896; P:Golgi to vacuole transport; IPI:PomBase.
+DR   CDD; cd00027; BRCT; 1.
+DR   CDD; cd13945; Chs5_N; 1.
+DR   CDD; cd00063; FN3; 1.
+DR   Gene3D; 2.60.40.10; -; 1.
+DR   Gene3D; 3.40.50.10190; -; 1.
+DR   InterPro; IPR001357; BRCT_dom.
+DR   InterPro; IPR036420; BRCT_dom_sf.
+DR   InterPro; IPR031673; Chs5_N.
+DR   InterPro; IPR031669; Fn3_2.
+DR   InterPro; IPR003961; FN3_dom.
+DR   InterPro; IPR036116; FN3_sf.
+DR   InterPro; IPR013783; Ig-like_fold.
+DR   Pfam; PF16892; CHS5_N; 1.
+DR   Pfam; PF16893; fn3_2; 1.
+DR   Pfam; PF12738; PTCB-BRCT; 1.
+DR   SMART; SM00292; BRCT; 1.
+DR   SMART; SM00060; FN3; 1.
+DR   SUPFAM; SSF49265; SSF49265; 1.
+DR   SUPFAM; SSF52113; SSF52113; 1.
+DR   PROSITE; PS50172; BRCT; 1.
+DR   PROSITE; PS50853; FN3; 1.
+PE   3: Inferred from homology;
+KW   Complete proteome; Golgi apparatus; Reference proteome.
+FT   CHAIN         1    620       Cell fusion protein cfr1.
+FT                                /FTId=PRO_0000089660.
+FT   DOMAIN       79    169       Fibronectin type-III.
+FT                                {ECO:0000255|PROSITE-ProRule:PRU00316}.
+FT   DOMAIN      167    256       BRCT. {ECO:0000255|PROSITE-
+FT                                ProRule:PRU00033}.
+SQ   SEQUENCE   620 AA;  67230 MW;  7782DD773F5577DA CRC64;
+     MDDTNQFMVS VAKIDAGMAI LLTPSFHIIE FPSVLLPNDA TAGSIIDISV HHNKEEEIAR
+     ETAFDDVQKE IFETYGQKLP SPPVLKLKNA TQTSIVLEWD PLQLSTARLK SLCLYRNNVR
+     VLNISNPMTT HNAKLSGLSL DTEYDFSLVL DTTAGTFPSK HITIKTLRMI DLTGIQVCVG
+     NMVPNEMEAL QKCIERIHAR PIQTSVRIDT THFICSSTGG PEYEKAKAAN IPILGLDYLL
+     KCESEGRLVN VSGFYIENRA SYNANASINS VEAAQNAAPN LNATTEQPKN TAEVAQGAAS
+     AKAPQQTTQQ GTQNSANAEP SSSASVPAEA PETEAEQSID VSSDIGLRSD SSKPNEAPTS
+     SENIKADQPE NSTKQENPEE DMQIKDAEEH SNLESTPAAQ QTSEVEANNH QEKPSSLPAV
+     EQINVNEENN TPETEGLEDE KEENNTAAES LINQEETTSG EAVTKSTVES SANEEEAEPN
+     EIIEENAVKS LLNQEGPATN EEVEKNNANS ENANGLTDEK IIEAPLDTKE NSDDDKPSPA
+     AAEDIGTNGA IEEIPQVSEV LEPEKAHTTN LQLNALDKEE DLNITTVKQS SEPTADDNLI
+     PNKEAEIIQS SDEFESVNID
+//
+ID   CFT1_ASPNC              Reviewed;        1383 AA.
+AC   A2R919;
+DT   12-JUN-2007, integrated into UniProtKB/Swiss-Prot.
+DT   06-MAR-2007, sequence version 1.
+DT   23-MAY-2018, entry version 52.
+DE   RecName: Full=Protein cft1;
+DE   AltName: Full=Cleavage factor two protein 1;
+GN   Name=cft1; ORFNames=An16g09140;
+OS   Aspergillus niger (strain CBS 513.88 / FGSC A1513).
+OC   Eukaryota; Fungi; Dikarya; Ascomycota; Pezizomycotina; Eurotiomycetes;
+OC   Eurotiomycetidae; Eurotiales; Aspergillaceae; Aspergillus.
+OX   NCBI_TaxID=425011;
+RN   [1]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RC   STRAIN=CBS 513.88 / FGSC A1513;
+RX   PubMed=17259976; DOI=10.1038/nbt1282;
+RA   Pel H.J., de Winde J.H., Archer D.B., Dyer P.S., Hofmann G.,
+RA   Schaap P.J., Turner G., de Vries R.P., Albang R., Albermann K.,
+RA   Andersen M.R., Bendtsen J.D., Benen J.A.E., van den Berg M.,
+RA   Breestraat S., Caddick M.X., Contreras R., Cornell M., Coutinho P.M.,
+RA   Danchin E.G.J., Debets A.J.M., Dekker P., van Dijck P.W.M.,
+RA   van Dijk A., Dijkhuizen L., Driessen A.J.M., d'Enfert C., Geysens S.,
+RA   Goosen C., Groot G.S.P., de Groot P.W.J., Guillemette T.,
+RA   Henrissat B., Herweijer M., van den Hombergh J.P.T.W.,
+RA   van den Hondel C.A.M.J.J., van der Heijden R.T.J.M.,
+RA   van der Kaaij R.M., Klis F.M., Kools H.J., Kubicek C.P.,
+RA   van Kuyk P.A., Lauber J., Lu X., van der Maarel M.J.E.C.,
+RA   Meulenberg R., Menke H., Mortimer M.A., Nielsen J., Oliver S.G.,
+RA   Olsthoorn M., Pal K., van Peij N.N.M.E., Ram A.F.J., Rinas U.,
+RA   Roubos J.A., Sagt C.M.J., Schmoll M., Sun J., Ussery D., Varga J.,
+RA   Vervecken W., van de Vondervoort P.J.J., Wedler H., Woesten H.A.B.,
+RA   Zeng A.-P., van Ooyen A.J.J., Visser J., Stam H.;
+RT   "Genome sequencing and analysis of the versatile cell factory
+RT   Aspergillus niger CBS 513.88.";
+RL   Nat. Biotechnol. 25:221-231(2007).
+CC   -!- FUNCTION: RNA-binding component of the cleavage and
+CC       polyadenylation factor (CPF) complex, which plays a key role in
+CC       polyadenylation-dependent pre-mRNA 3'-end formation and cooperates
+CC       with cleavage factors including the CFIA complex and NAB4/CFIB.
+CC       Involved in poly(A) site recognition. May be involved in coupling
+CC       transcription termination and mRNA 3'-end formation (By
+CC       similarity). {ECO:0000250}.
+CC   -!- SUBCELLULAR LOCATION: Nucleus {ECO:0000250}.
+CC   -!- SIMILARITY: Belongs to the CFT1 family. {ECO:0000305}.
+CC   -----------------------------------------------------------------------
+CC   Copyrighted by the UniProt Consortium, see https://www.uniprot.org/terms
+CC   Distributed under the Creative Commons Attribution (CC BY 4.0) License
+CC   -----------------------------------------------------------------------
+DR   EMBL; AM270382; CAK47110.1; -; Genomic_DNA.
+DR   STRING; 5061.CADANGAP00013129; -.
+DR   PaxDb; A2R919; -.
+DR   PRIDE; A2R919; -.
+DR   EnsemblFungi; CAK47110; CAK47110; An16g09140.
+DR   HOGENOM; HOG000048586; -.
+DR   OrthoDB; EOG092C0CZK; -.
+DR   Proteomes; UP000006706; Chromosome 5R.
+DR   GO; GO:0005634; C:nucleus; IEA:UniProtKB-SubCell.
+DR   GO; GO:0003723; F:RNA binding; IEA:UniProtKB-KW.
+DR   GO; GO:0006397; P:mRNA processing; IEA:UniProtKB-KW.
+DR   Gene3D; 2.130.10.10; -; 2.
+DR   InterPro; IPR004871; Cleavage/polyA-sp_fac_asu_C.
+DR   InterPro; IPR015943; WD40/YVTN_repeat-like_dom_sf.
+DR   Pfam; PF03178; CPSF_A; 1.
+PE   3: Inferred from homology;
+KW   Complete proteome; mRNA processing; Nucleus; Reference proteome;
+KW   RNA-binding.
+FT   CHAIN         1   1383       Protein cft1.
+FT                                /FTId=PRO_0000290623.
+FT   COMPBIAS    429    434       Poly-Ser.
+SQ   SEQUENCE   1383 AA;  151748 MW;  8BD2612713474721 CRC64;
+     MQCYTEILPP TGVTHALAVP FLAATSDDLI VVRTSLLQIY SLHKVASHAE GADAQQESTK
+     LLLEKEYSLS GTVTGLCRVK VLNSKSGGEA VLVAFRNAKL SLIEWDPERR GISTISIHYY
+     ERDDLTRSPW VPDLNNCGSI LSVDPSSRCA IFNFGIRNLA IIPFHQPGDD LVMDDYGSDL
+     GEGISTDHDL GGGTVADKAK EGIVYQTPYA PSFVLPLTTL DPSILHPISL AFLYEYREPT
+     FGILYSQVAT SSALLPERKD VVFYTVFTLD LEQQASTVLL SVSRLPSDLF RVVALPPPVG
+     GALLIGSNEL VHIDQAGKTN AVGVNEFSRQ VSSFSMTDQS DLALRLENCI VECLGDSSGD
+     MLLVLTTGEM AIVKFKLDGR SVSGISVHLL PAHAGLTSIY SAAAASTFIG DGKIFLGSED
+     GDSVLLGYSY SSSSTKKHRL QAKQVIDDSA DMSEEDQSDD DVYEDDLYST SPDTTLTGRR
+     PSGESSAFGL YDFRIHDKLI NIGPLRDITM GKRLSTNLEK TGDRTNSTSP ELQIVASQGS
+     HKSGGLVVMA REIDPHVVAS ISLESVDCIW TASLTREEEA VSGTSEKMGQ QSQRCYVIAT
+     EVKGSDREES LIFVVDGHDL KPFRAPDFNP NEDVTISVGT QESRKRVVQV LKNEVRSYDF
+     DLSLTQIYPI WDDDTNDERM AVSASLADSC LAILRDDSTL LFLQADDSGD LDEVVFGEDV
+     ASGKWISCCL YSDKTGMFSS IDRTLSEPVK NDMFLFLLSH DCKLFVYRVR DQKLLSIIEG
+     TDGLSPLLSS EPPKRSGTRE NLIEAIVADL GETWSASPYL ILRSETDDLI IYKPFVVSTG
+     PVEGIHSLKF SKETNSVLPR IPPGVSSTQP SGSDYRARPL RILPDISGLS AVFMPGASAG
+     FIIRTSASAP HFLRLRGENS RSSTVRFCKL PPMTRFDYQW TLKRVHLGEQ VDHLAYSTSS
+     GMYVLGTCHA TDFKLPEDDE LHPEWRNEAI SFFPSARGSF IKLVWDHHLQ RQDSVILIFH
+     LHSFSLGADE YVMAIKNISL EVSENTHERK DMIVVGTAFA RGEDIPSRGC IYVFEVVQVV
+     PDPDHPETDR KLKLIGKEPV KGAVTALSEI GGQGFVLVAQ GQKCMVRGLK EDGSLLPVAF
+     MDMQCYVSVV KELKGTGMCI LGDAVKGVWF AGYSEEPYKM SLFAKDLDYL EVCAAEFLPD
+     GKRLFIVVAD SDCNIHVLQY DPEDPKSSNG DRLLSRSKFH MGNFASTLTL LPRTMVSSEK
+     MVSSSDGMDI DNQSPLHQVL MTTQNGSLGL ITCIPEESYR RLSALQSQLT NTLEHPCGLN
+     PRAFRAVESD GTAGRGMLDG NLLFKWIDMS KQRKTEIAGR VGAREWEIKA DLEAISGDGL
+     GYL
+//
+ID   CFT1_KLULA              Reviewed;        1300 AA.
+AC   Q6CTT2;
+DT   12-JUN-2007, integrated into UniProtKB/Swiss-Prot.
+DT   16-AUG-2004, sequence version 1.
+DT   07-NOV-2018, entry version 74.
+DE   RecName: Full=Protein CFT1;
+DE   AltName: Full=Cleavage factor two protein 1;
+GN   Name=CFT1; OrderedLocusNames=KLLA0C10274g;
+OS   Kluyveromyces lactis (strain ATCC 8585 / CBS 2359 / DSM 70799 / NBRC
+OS   1267 / NRRL Y-1140 / WM37) (Yeast) (Candida sphaerica).
+OC   Eukaryota; Fungi; Dikarya; Ascomycota; Saccharomycotina;
+OC   Saccharomycetes; Saccharomycetales; Saccharomycetaceae; Kluyveromyces.
+OX   NCBI_TaxID=284590;
+RN   [1]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RC   STRAIN=ATCC 8585 / CBS 2359 / DSM 70799 / NBRC 1267 / NRRL Y-1140 /
+RC   WM37;
+RX   PubMed=15229592; DOI=10.1038/nature02579;
+RA   Dujon B., Sherman D., Fischer G., Durrens P., Casaregola S.,
+RA   Lafontaine I., de Montigny J., Marck C., Neuveglise C., Talla E.,
+RA   Goffard N., Frangeul L., Aigle M., Anthouard V., Babour A., Barbe V.,
+RA   Barnay S., Blanchin S., Beckerich J.-M., Beyne E., Bleykasten C.,
+RA   Boisrame A., Boyer J., Cattolico L., Confanioleri F., de Daruvar A.,
+RA   Despons L., Fabre E., Fairhead C., Ferry-Dumazet H., Groppi A.,
+RA   Hantraye F., Hennequin C., Jauniaux N., Joyet P., Kachouri R.,
+RA   Kerrest A., Koszul R., Lemaire M., Lesur I., Ma L., Muller H.,
+RA   Nicaud J.-M., Nikolski M., Oztas S., Ozier-Kalogeropoulos O.,
+RA   Pellenz S., Potier S., Richard G.-F., Straub M.-L., Suleau A.,
+RA   Swennen D., Tekaia F., Wesolowski-Louvel M., Westhof E., Wirth B.,
+RA   Zeniou-Meyer M., Zivanovic Y., Bolotin-Fukuhara M., Thierry A.,
+RA   Bouchier C., Caudron B., Scarpelli C., Gaillardin C., Weissenbach J.,
+RA   Wincker P., Souciet J.-L.;
+RT   "Genome evolution in yeasts.";
+RL   Nature 430:35-44(2004).
+CC   -!- FUNCTION: RNA-binding component of the cleavage and
+CC       polyadenylation factor (CPF) complex, which plays a key role in
+CC       polyadenylation-dependent pre-mRNA 3'-end formation and cooperates
+CC       with cleavage factors including the CFIA complex and NAB4/CFIB.
+CC       Involved in poly(A) site recognition. May be involved in coupling
+CC       transcription termination and mRNA 3'-end formation (By
+CC       similarity). {ECO:0000250}.
+CC   -!- SUBCELLULAR LOCATION: Nucleus {ECO:0000250}.
+CC   -!- SIMILARITY: Belongs to the CFT1 family. {ECO:0000305}.
+CC   -----------------------------------------------------------------------
+CC   Copyrighted by the UniProt Consortium, see https://www.uniprot.org/terms
+CC   Distributed under the Creative Commons Attribution (CC BY 4.0) License
+CC   -----------------------------------------------------------------------
+DR   EMBL; CR382123; CAH01508.1; -; Genomic_DNA.
+DR   RefSeq; XP_452657.1; XM_452657.1.
+DR   STRING; 284590.XP_452657.1; -.
+DR   PRIDE; Q6CTT2; -.
+DR   EnsemblFungi; CAH01508; CAH01508; KLLA0_C10274g.
+DR   GeneID; 2892237; -.
+DR   KEGG; kla:KLLA0_C10274g; -.
+DR   eggNOG; KOG1896; Eukaryota.
+DR   eggNOG; COG5161; LUCA.
+DR   HOGENOM; HOG000246682; -.
+DR   InParanoid; Q6CTT2; -.
+DR   KO; K14401; -.
+DR   OMA; PVAFMDM; -.
+DR   OrthoDB; EOG092C0CZK; -.
+DR   Proteomes; UP000000598; Chromosome C.
+DR   GO; GO:0005847; C:mRNA cleavage and polyadenylation specificity factor complex; IEA:EnsemblFungi.
+DR   GO; GO:0003723; F:RNA binding; IEA:UniProtKB-KW.
+DR   GO; GO:0006378; P:mRNA polyadenylation; IEA:EnsemblFungi.
+DR   GO; GO:0098789; P:pre-mRNA cleavage required for polyadenylation; IEA:EnsemblFungi.
+DR   GO; GO:0006369; P:termination of RNA polymerase II transcription; IEA:EnsemblFungi.
+DR   Gene3D; 2.130.10.10; -; 2.
+DR   InterPro; IPR004871; Cleavage/polyA-sp_fac_asu_C.
+DR   InterPro; IPR015943; WD40/YVTN_repeat-like_dom_sf.
+DR   Pfam; PF03178; CPSF_A; 1.
+PE   3: Inferred from homology;
+KW   Complete proteome; mRNA processing; Nucleus; Reference proteome;
+KW   RNA-binding.
+FT   CHAIN         1   1300       Protein CFT1.
+FT                                /FTId=PRO_0000290631.
+FT   COMPBIAS    416    420       Poly-Asp.
+SQ   SEQUENCE   1300 AA;  147932 MW;  5F3E251B7B3B5C8D CRC64;
+     MNVFDEILQP TVVNKCLHGN FTSAEREEYV VARTNVLSVF RVSRAQKLVL AYEWKLAGKI
+     IDMQLLPQIG SPLKMLAILS SKSKVSLVRF DPVAESLETL SLHYYHDKFV NLSTSSLKTE
+     SIMAVDPLFR CLLVFNEDVL AILPLKLNTE DMEIDEDENG IKEPMAKRLK RNQGITSDSI
+     IMPISSLHKS LKHVYDIKWL NNFSKPTVGI LYQPVLAWCG NEKVLGNTMR YMVLSLDVED
+     EKTTVIAELA DLPNDLHTLV PLKRGYVLIG VNELLYISAS GALQSCIRLN TFATSSINTR
+     ITDNSDMNIF LSKSSIYFYK ALKRHDLLIL IDENCRMYNI ITESEGNLLT KFDCVQVPIV
+     NEIFKNSRLP LSVCGDLNLE TGRVLIGFLS GDAMFLQLKN LKVAFAAKRQ LVETVDDDDD
+     EYSALYGESQ NNTHTRIVET QEPFDISLLD SIFNIGPLTS LTIGKVASVE PTIQRLPNPN
+     KDEFSIVATS GVGRGSHLTA LHSTVQPHIE QALKFTSATR IWNLKIKGKD KYLVTTDADK
+     EKSDVYQIDR NFEPFRAQDF RKDSRTIGME TMDDDKRILQ VTSGGLYLFD VDFKRLARLT
+     IDIEIVHACI IDPYILFTDA RGNIKIYQLD SKNKKKFIKF KLPEALNEII ITSGSIFKSN
+     ICNKFLHGLE NSSQEQLLFT FVTGDNQVIF FTEKHNDRIF QLNGVDQLED MLFISTYQIP
+     EEMNPDPSIK QIMLNRLGHH KKEEFLTILT FGGEIYQYKK STKHSGKLLK CKSHPLITGA
+     PNNAYPQGVN KIERVAHYFP NYNGYSVVFI TGQVPYIIIK EDNSVCRIFR MTNIPIVTMA
+     RWGKNSVMCV DNIKNARVMK LDPECYYGNT QILRKIIIED VVEEFETLGN IAYHERTGMY
+     IISYTKFIEY QALSEDGEPL VGYDPSKPNS TGYKSGLLLI NPLTWNIIDR LDLSENSMVN
+     DIKTMLIQLN SKTRRKRELV IIGSSFVKEE DQPSTGCLLV LDITEVVAEP GKPDSNFKFK
+     QLFEEEIRGS VNAVCEISGR FMIGQSSKAL VRDMQEDNSA VPVAFLDMPV FITDAKSFSN
+     LMIIGDSMQG FTFVGFDAEP YRMIVLGKST SKFQVMNLEF LVNNGNINFI VTDRQNHLHV
+     LRYAPDEANS LSGQRLVHCN SFNMFTTNNY MKLVRKHVEF GSKTSNYIAL GCQTDGSIFR
+     MIPLNEASYR RFYLVQQQLL DHEIPLAGFN TKMERLDNEY YHKGHSLRPT LDSQVLKKYI
+     HLPITKRTTI ENRVGRHAST ELWHDLIDIE FSLRSLTNSN
+//
+ID   CHLL_CHLVU              Reviewed;         300 AA.
+AC   P56291;
+DT   15-JUL-1998, integrated into UniProtKB/Swiss-Prot.
+DT   15-JUL-1998, sequence version 1.
+DT   05-DEC-2018, entry version 107.
+DE   RecName: Full=Light-independent protochlorophyllide reductase iron-sulfur ATP-binding protein {ECO:0000255|HAMAP-Rule:MF_00355};
+DE            Short=DPOR subunit L {ECO:0000255|HAMAP-Rule:MF_00355};
+DE            Short=LI-POR subunit L {ECO:0000255|HAMAP-Rule:MF_00355};
+DE            EC=1.3.7.7 {ECO:0000255|HAMAP-Rule:MF_00355};
+GN   Name=chlL {ECO:0000255|HAMAP-Rule:MF_00355}; Synonyms=frxC;
+OS   Chlorella vulgaris (Green alga).
+OG   Plastid; Chloroplast.
+OC   Eukaryota; Viridiplantae; Chlorophyta; Trebouxiophyceae; Chlorellales;
+OC   Chlorellaceae; Chlorella.
+OX   NCBI_TaxID=3077;
+RN   [1]
+RP   NUCLEOTIDE SEQUENCE [GENOMIC DNA].
+RC   STRAIN=IAM C-27 / Tamiya;
+RX   PubMed=8628225; DOI=10.1007/s004380050118;
+RA   Kapoor M., Wakasugi T., Yoshinaga K., Sugiura M.;
+RT   "The chloroplast chlL gene of the green alga Chlorella vulgaris C-27
+RT   contains a self-splicing group I intron.";
+RL   Mol. Gen. Genet. 250:655-664(1996).
+RN   [2]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RC   STRAIN=IAM C-27 / Tamiya;
+RX   PubMed=9159184; DOI=10.1073/pnas.94.11.5967;
+RA   Wakasugi T., Nagai T., Kapoor M., Sugita M., Ito M., Ito S.,
+RA   Tsudzuki J., Nakashima K., Tsudzuki T., Suzuki Y., Hamada A., Ohta T.,
+RA   Inamura A., Yoshinaga K., Sugiura M.;
+RT   "Complete nucleotide sequence of the chloroplast genome from the green
+RT   alga Chlorella vulgaris: the existence of genes possibly involved in
+RT   chloroplast division.";
+RL   Proc. Natl. Acad. Sci. U.S.A. 94:5967-5972(1997).
+CC   -!- FUNCTION: Component of the dark-operative protochlorophyllide
+CC       reductase (DPOR) that uses Mg-ATP and reduced ferredoxin to reduce
+CC       ring D of protochlorophyllide (Pchlide) to form chlorophyllide a
+CC       (Chlide). This reaction is light-independent. The L component
+CC       serves as a unique electron donor to the NB-component of the
+CC       complex, and binds Mg-ATP. {ECO:0000255|HAMAP-Rule:MF_00355}.
+CC   -!- CATALYTIC ACTIVITY:
+CC       Reaction=2 ADP + chlorophyllide a + oxidized 2[4Fe-4S]-
+CC         [ferredoxin] + 2 phosphate = 2 ATP + 2 H2O + protochlorophyllide
+CC         a + reduced 2[4Fe-4S]-[ferredoxin]; Xref=Rhea:RHEA:28202,
+CC         Rhea:RHEA-COMP:10002, Rhea:RHEA-COMP:10004, ChEBI:CHEBI:15377,
+CC         ChEBI:CHEBI:30616, ChEBI:CHEBI:33722, ChEBI:CHEBI:33723,
+CC         ChEBI:CHEBI:43474, ChEBI:CHEBI:83348, ChEBI:CHEBI:83350,
+CC         ChEBI:CHEBI:456216; EC=1.3.7.7; Evidence={ECO:0000255|HAMAP-
+CC         Rule:MF_00355};
+CC   -!- COFACTOR:
+CC       Name=[4Fe-4S] cluster; Xref=ChEBI:CHEBI:49883;
+CC         Evidence={ECO:0000255|HAMAP-Rule:MF_00355};
+CC       Note=Binds 1 [4Fe-4S] cluster per dimer. {ECO:0000255|HAMAP-
+CC       Rule:MF_00355};
+CC   -!- PATHWAY: Porphyrin-containing compound metabolism; chlorophyll
+CC       biosynthesis (light-independent). {ECO:0000255|HAMAP-
+CC       Rule:MF_00355}.
+CC   -!- SUBUNIT: Homodimer. Protochlorophyllide reductase is composed of
+CC       three subunits; ChlL, ChlN and ChlB. {ECO:0000255|HAMAP-
+CC       Rule:MF_00355}.
+CC   -!- SUBCELLULAR LOCATION: Plastid, chloroplast.
+CC   -!- SIMILARITY: Belongs to the NifH/BchL/ChlL family.
+CC       {ECO:0000255|HAMAP-Rule:MF_00355}.
+CC   -----------------------------------------------------------------------
+CC   Copyrighted by the UniProt Consortium, see https://www.uniprot.org/terms
+CC   Distributed under the Creative Commons Attribution (CC BY 4.0) License
+CC   -----------------------------------------------------------------------
+DR   EMBL; AB001684; BAA57960.1; -; Genomic_DNA.
+DR   PIR; S65554; S65554.
+DR   RefSeq; NP_045884.1; NC_001865.1.
+DR   ProteinModelPortal; P56291; -.
+DR   SMR; P56291; -.
+DR   GeneID; 809127; -.
+DR   UniPathway; UPA00670; -.
+DR   GO; GO:0009507; C:chloroplast; IEA:UniProtKB-SubCell.
+DR   GO; GO:0051539; F:4 iron, 4 sulfur cluster binding; IEA:UniProtKB-UniRule.
+DR   GO; GO:0005524; F:ATP binding; IEA:UniProtKB-UniRule.
+DR   GO; GO:0046872; F:metal ion binding; IEA:UniProtKB-KW.
+DR   GO; GO:0016730; F:oxidoreductase activity, acting on iron-sulfur proteins as donors; IEA:InterPro.
+DR   GO; GO:0016636; F:oxidoreductase activity, acting on the CH-CH group of donors, iron-sulfur protein as acceptor; IEA:UniProtKB-UniRule.
+DR   GO; GO:0036068; P:light-independent chlorophyll biosynthetic process; IEA:UniProtKB-UniPathway.
+DR   GO; GO:0019685; P:photosynthesis, dark reaction; IEA:InterPro.
+DR   CDD; cd02032; Bchl_like; 1.
+DR   HAMAP; MF_00355; ChlL_BchL; 1.
+DR   InterPro; IPR030655; NifH/chlL_CS.
+DR   InterPro; IPR000392; NifH/frxC.
+DR   InterPro; IPR027417; P-loop_NTPase.
+DR   InterPro; IPR005971; Protochlorophyllide_ATP-bd.
+DR   PANTHER; PTHR42864; PTHR42864; 1.
+DR   PANTHER; PTHR42864:SF1; PTHR42864:SF1; 1.
+DR   Pfam; PF00142; Fer4_NifH; 1.
+DR   PIRSF; PIRSF000363; Nitrogenase_iron; 1.
+DR   SUPFAM; SSF52540; SSF52540; 1.
+DR   TIGRFAMs; TIGR01281; DPOR_bchL; 1.
+DR   PROSITE; PS00746; NIFH_FRXC_1; 1.
+DR   PROSITE; PS00692; NIFH_FRXC_2; 1.
+DR   PROSITE; PS51026; NIFH_FRXC_3; 1.
+PE   3: Inferred from homology;
+KW   4Fe-4S; ATP-binding; Chlorophyll biosynthesis; Chloroplast; Iron;
+KW   Iron-sulfur; Magnesium; Metal-binding; Nucleotide-binding;
+KW   Oxidoreductase; Photosynthesis; Plastid.
+FT   CHAIN         1    300       Light-independent protochlorophyllide
+FT                                reductase iron-sulfur ATP-binding
+FT                                protein.
+FT                                /FTId=PRO_0000139555.
+FT   NP_BIND      10     15       ATP. {ECO:0000255|HAMAP-Rule:MF_00355}.
+FT   NP_BIND     180    181       ATP. {ECO:0000255|HAMAP-Rule:MF_00355}.
+FT   METAL        14     14       Magnesium. {ECO:0000255|HAMAP-
+FT                                Rule:MF_00355}.
+FT   METAL        95     95       Iron-sulfur (4Fe-4S); shared with dimeric
+FT                                partner. {ECO:0000255|HAMAP-
+FT                                Rule:MF_00355}.
+FT   METAL       129    129       Iron-sulfur (4Fe-4S); shared with dimeric
+FT                                partner. {ECO:0000255|HAMAP-
+FT                                Rule:MF_00355}.
+FT   BINDING      39     39       ATP. {ECO:0000255|HAMAP-Rule:MF_00355}.
+SQ   SEQUENCE   300 AA;  32843 MW;  8E3442084BDC8DE6 CRC64;
+     MKLAVYGKGG IGKSTTSCNI SIALARRGKK VLQIGCDPKH DSTFTLTGFL IPTIIDTLQA
+     KDYHYEDVWP EDVIYQGYGE VDSVEAGGPP AGAGCGGYVV GETVKLLKEL NAFYEYDVIL
+     FDVLGDVVCG GFAAPLNYAD YCLIVTDNGF DALFAANRIV ASVREKSKTH PLRLAGLIGN
+     RTSKRDLIDK YVEVCPMPVI EVLPLIEDIR VSRVKGKTVF EMAETDQKLN YICDFYLNIA
+     DQLLASPEGV IPLELEDREL FTLLSTFYLT VTPQNQGETQ STISTPLTSN SASELDFILV
+//
+ID   CHLL_NEPOL              Reviewed;         287 AA.
+AC   Q9T399;
+DT   27-APR-2001, integrated into UniProtKB/Swiss-Prot.
+DT   01-MAY-2000, sequence version 1.
+DT   05-DEC-2018, entry version 101.
+DE   RecName: Full=Light-independent protochlorophyllide reductase iron-sulfur ATP-binding protein {ECO:0000255|HAMAP-Rule:MF_00355};
+DE            Short=DPOR subunit L {ECO:0000255|HAMAP-Rule:MF_00355};
+DE            Short=LI-POR subunit L {ECO:0000255|HAMAP-Rule:MF_00355};
+DE            EC=1.3.7.7 {ECO:0000255|HAMAP-Rule:MF_00355};
+GN   Name=chlL-A {ECO:0000255|HAMAP-Rule:MF_00355};
+GN   and
+GN   Name=chlL-B {ECO:0000255|HAMAP-Rule:MF_00355};
+OS   Nephroselmis olivacea (Green alga).
+OG   Plastid; Chloroplast.
+OC   Eukaryota; Viridiplantae; Chlorophyta; prasinophytes;
+OC   Nephroselmidophyceae; Nephroselmis.
+OX   NCBI_TaxID=31312;
+RN   [1]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RC   STRAIN=NIES-484;
+RX   PubMed=10468594; DOI=10.1073/pnas.96.18.10248;
+RA   Turmel M., Otis C., Lemieux C.;
+RT   "The complete chloroplast DNA sequence of the green alga Nephroselmis
+RT   olivacea: insights into the architecture of ancestral chloroplast
+RT   genomes.";
+RL   Proc. Natl. Acad. Sci. U.S.A. 96:10248-10253(1999).
+CC   -!- FUNCTION: Component of the dark-operative protochlorophyllide
+CC       reductase (DPOR) that uses Mg-ATP and reduced ferredoxin to reduce
+CC       ring D of protochlorophyllide (Pchlide) to form chlorophyllide a
+CC       (Chlide). This reaction is light-independent. The L component
+CC       serves as a unique electron donor to the NB-component of the
+CC       complex, and binds Mg-ATP. {ECO:0000255|HAMAP-Rule:MF_00355}.
+CC   -!- CATALYTIC ACTIVITY:
+CC       Reaction=2 ADP + chlorophyllide a + oxidized 2[4Fe-4S]-
+CC         [ferredoxin] + 2 phosphate = 2 ATP + 2 H2O + protochlorophyllide
+CC         a + reduced 2[4Fe-4S]-[ferredoxin]; Xref=Rhea:RHEA:28202,
+CC         Rhea:RHEA-COMP:10002, Rhea:RHEA-COMP:10004, ChEBI:CHEBI:15377,
+CC         ChEBI:CHEBI:30616, ChEBI:CHEBI:33722, ChEBI:CHEBI:33723,
+CC         ChEBI:CHEBI:43474, ChEBI:CHEBI:83348, ChEBI:CHEBI:83350,
+CC         ChEBI:CHEBI:456216; EC=1.3.7.7; Evidence={ECO:0000255|HAMAP-
+CC         Rule:MF_00355};
+CC   -!- COFACTOR:
+CC       Name=[4Fe-4S] cluster; Xref=ChEBI:CHEBI:49883;
+CC         Evidence={ECO:0000255|HAMAP-Rule:MF_00355};
+CC       Note=Binds 1 [4Fe-4S] cluster per dimer. {ECO:0000255|HAMAP-
+CC       Rule:MF_00355};
+CC   -!- PATHWAY: Porphyrin-containing compound metabolism; chlorophyll
+CC       biosynthesis (light-independent). {ECO:0000255|HAMAP-
+CC       Rule:MF_00355}.
+CC   -!- SUBUNIT: Homodimer. Protochlorophyllide reductase is composed of
+CC       three subunits; ChlL, ChlN and ChlB. {ECO:0000255|HAMAP-
+CC       Rule:MF_00355}.
+CC   -!- SUBCELLULAR LOCATION: Plastid, chloroplast.
+CC   -!- SIMILARITY: Belongs to the NifH/BchL/ChlL family.
+CC       {ECO:0000255|HAMAP-Rule:MF_00355}.
+CC   -----------------------------------------------------------------------
+CC   Copyrighted by the UniProt Consortium, see https://www.uniprot.org/terms
+CC   Distributed under the Creative Commons Attribution (CC BY 4.0) License
+CC   -----------------------------------------------------------------------
+DR   EMBL; AF137379; AAD54883.1; -; Genomic_DNA.
+DR   EMBL; AF137379; AAD54906.1; -; Genomic_DNA.
+DR   RefSeq; NP_050912.1; NC_000927.1.
+DR   RefSeq; NP_050935.1; NC_000927.1.
+DR   ProteinModelPortal; Q9T399; -.
+DR   SMR; Q9T399; -.
+DR   GeneID; 802000; -.
+DR   GeneID; 802022; -.
+DR   UniPathway; UPA00670; -.
+DR   GO; GO:0009507; C:chloroplast; IEA:UniProtKB-SubCell.
+DR   GO; GO:0051539; F:4 iron, 4 sulfur cluster binding; IEA:UniProtKB-UniRule.
+DR   GO; GO:0005524; F:ATP binding; IEA:UniProtKB-UniRule.
+DR   GO; GO:0046872; F:metal ion binding; IEA:UniProtKB-KW.
+DR   GO; GO:0016730; F:oxidoreductase activity, acting on iron-sulfur proteins as donors; IEA:InterPro.
+DR   GO; GO:0016636; F:oxidoreductase activity, acting on the CH-CH group of donors, iron-sulfur protein as acceptor; IEA:UniProtKB-UniRule.
+DR   GO; GO:0036068; P:light-independent chlorophyll biosynthetic process; IEA:UniProtKB-UniPathway.
+DR   GO; GO:0019685; P:photosynthesis, dark reaction; IEA:InterPro.
+DR   CDD; cd02032; Bchl_like; 1.
+DR   HAMAP; MF_00355; ChlL_BchL; 1.
+DR   InterPro; IPR030655; NifH/chlL_CS.
+DR   InterPro; IPR000392; NifH/frxC.
+DR   InterPro; IPR027417; P-loop_NTPase.
+DR   InterPro; IPR005971; Protochlorophyllide_ATP-bd.
+DR   PANTHER; PTHR42864; PTHR42864; 1.
+DR   PANTHER; PTHR42864:SF1; PTHR42864:SF1; 1.
+DR   Pfam; PF00142; Fer4_NifH; 1.
+DR   PIRSF; PIRSF000363; Nitrogenase_iron; 1.
+DR   SUPFAM; SSF52540; SSF52540; 1.
+DR   TIGRFAMs; TIGR01281; DPOR_bchL; 1.
+DR   PROSITE; PS00746; NIFH_FRXC_1; 1.
+DR   PROSITE; PS00692; NIFH_FRXC_2; 1.
+DR   PROSITE; PS51026; NIFH_FRXC_3; 1.
+PE   3: Inferred from homology;
+KW   4Fe-4S; ATP-binding; Chlorophyll biosynthesis; Chloroplast; Iron;
+KW   Iron-sulfur; Magnesium; Metal-binding; Nucleotide-binding;
+KW   Oxidoreductase; Photosynthesis; Plastid.
+FT   CHAIN         1    287       Light-independent protochlorophyllide
+FT                                reductase iron-sulfur ATP-binding
+FT                                protein.
+FT                                /FTId=PRO_0000139561.
+FT   NP_BIND      10     15       ATP. {ECO:0000255|HAMAP-Rule:MF_00355}.
+FT   NP_BIND     180    181       ATP. {ECO:0000255|HAMAP-Rule:MF_00355}.
+FT   METAL        14     14       Magnesium. {ECO:0000255|HAMAP-
+FT                                Rule:MF_00355}.
+FT   METAL        95     95       Iron-sulfur (4Fe-4S); shared with dimeric
+FT                                partner. {ECO:0000255|HAMAP-
+FT                                Rule:MF_00355}.
+FT   METAL       129    129       Iron-sulfur (4Fe-4S); shared with dimeric
+FT                                partner. {ECO:0000255|HAMAP-
+FT                                Rule:MF_00355}.
+FT   BINDING      39     39       ATP. {ECO:0000255|HAMAP-Rule:MF_00355}.
+SQ   SEQUENCE   287 AA;  31418 MW;  C6AF27C37A4555F4 CRC64;
+     MKLAVYGKGG IGKSTSSCNI SIALATRGKK VLQIGADPKH DSTFALTGFL IPTIMDTLQS
+     KDYHYEEIWP EDIIYQGYGG VDCVEAGGPP AGAGCGGFVV GETTKLLKEL NSFYEYDVIL
+     FDVLGDVVCG GFPAPLNYAD YCLIVTDNGF DALFAANRIA ASVREKARTH PLRLAGLVGN
+     RTSKRDLIDK YVESCPMPVL EVLPLIEEIR VSRVKGKTLF EMTETDSSLN YVCQYYLNIA
+     DQLLAEPEGV VPKEVADREL FSLLSDFYHR EASFTPQEGV VDSFLLV
+//
+ID   EFTU_NEPOL              Reviewed;         410 AA.
+AC   Q9TKZ5;
+DT   05-DEC-2001, integrated into UniProtKB/Swiss-Prot.
+DT   01-MAY-2000, sequence version 1.
+DT   10-OCT-2018, entry version 85.
+DE   RecName: Full=Elongation factor Tu, chloroplastic;
+DE            Short=EF-Tu;
+GN   Name=tufA;
+OS   Nephroselmis olivacea (Green alga).
+OG   Plastid; Chloroplast.
+OC   Eukaryota; Viridiplantae; Chlorophyta; prasinophytes;
+OC   Nephroselmidophyceae; Nephroselmis.
+OX   NCBI_TaxID=31312;
+RN   [1]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RC   STRAIN=NIES-484;
+RX   PubMed=10468594; DOI=10.1073/pnas.96.18.10248;
+RA   Turmel M., Otis C., Lemieux C.;
+RT   "The complete chloroplast DNA sequence of the green alga Nephroselmis
+RT   olivacea: insights into the architecture of ancestral chloroplast
+RT   genomes.";
+RL   Proc. Natl. Acad. Sci. U.S.A. 96:10248-10253(1999).
+CC   -!- FUNCTION: This protein promotes the GTP-dependent binding of
+CC       aminoacyl-tRNA to the A-site of ribosomes during protein
+CC       biosynthesis. {ECO:0000250}.
+CC   -!- SUBCELLULAR LOCATION: Plastid, chloroplast.
+CC   -!- SIMILARITY: Belongs to the TRAFAC class translation factor GTPase
+CC       superfamily. Classic translation factor GTPase family. EF-Tu/EF-1A
+CC       subfamily. {ECO:0000305}.
+CC   -----------------------------------------------------------------------
+CC   Copyrighted by the UniProt Consortium, see https://www.uniprot.org/terms
+CC   Distributed under the Creative Commons Attribution (CC BY 4.0) License
+CC   -----------------------------------------------------------------------
+DR   EMBL; AF137379; AAD54821.1; -; Genomic_DNA.
+DR   RefSeq; NP_050850.1; NC_000927.1.
+DR   ProteinModelPortal; Q9TKZ5; -.
+DR   SMR; Q9TKZ5; -.
+DR   PRIDE; Q9TKZ5; -.
+DR   GeneID; 802019; -.
+DR   GO; GO:0009507; C:chloroplast; IEA:UniProtKB-SubCell.
+DR   GO; GO:0005525; F:GTP binding; IEA:UniProtKB-UniRule.
+DR   GO; GO:0003924; F:GTPase activity; IEA:InterPro.
+DR   GO; GO:0003746; F:translation elongation factor activity; IEA:UniProtKB-UniRule.
+DR   CDD; cd03697; EFTU_II; 1.
+DR   HAMAP; MF_00118_B; EF_Tu_B; 1.
+DR   InterPro; IPR004161; EFTu-like_2.
+DR   InterPro; IPR033720; EFTU_2.
+DR   InterPro; IPR031157; G_TR_CS.
+DR   InterPro; IPR027417; P-loop_NTPase.
+DR   InterPro; IPR005225; Small_GTP-bd_dom.
+DR   InterPro; IPR000795; TF_GTP-bd_dom.
+DR   InterPro; IPR009000; Transl_B-barrel_sf.
+DR   InterPro; IPR009001; Transl_elong_EF1A/Init_IF2_C.
+DR   InterPro; IPR004541; Transl_elong_EFTu/EF1A_bac/org.
+DR   InterPro; IPR004160; Transl_elong_EFTu/EF1A_C.
+DR   Pfam; PF00009; GTP_EFTU; 1.
+DR   Pfam; PF03144; GTP_EFTU_D2; 1.
+DR   Pfam; PF03143; GTP_EFTU_D3; 1.
+DR   PRINTS; PR00315; ELONGATNFCT.
+DR   SUPFAM; SSF50447; SSF50447; 1.
+DR   SUPFAM; SSF50465; SSF50465; 1.
+DR   SUPFAM; SSF52540; SSF52540; 1.
+DR   TIGRFAMs; TIGR00485; EF-Tu; 1.
+DR   TIGRFAMs; TIGR00231; small_GTP; 1.
+DR   PROSITE; PS00301; G_TR_1; 1.
+DR   PROSITE; PS51722; G_TR_2; 1.
+PE   3: Inferred from homology;
+KW   Chloroplast; Elongation factor; GTP-binding; Nucleotide-binding;
+KW   Plastid; Protein biosynthesis.
+FT   CHAIN         1    410       Elongation factor Tu, chloroplastic.
+FT                                /FTId=PRO_0000091466.
+FT   DOMAIN       10    215       tr-type G.
+FT   NP_BIND      19     26       GTP. {ECO:0000250}.
+FT   NP_BIND      82     86       GTP. {ECO:0000250}.
+FT   NP_BIND     137    140       GTP. {ECO:0000250}.
+FT   REGION       19     26       G1. {ECO:0000250}.
+FT   REGION       61     65       G2. {ECO:0000250}.
+FT   REGION       82     85       G3. {ECO:0000250}.
+FT   REGION      137    140       G4. {ECO:0000250}.
+FT   REGION      175    177       G5. {ECO:0000250}.
+SQ   SEQUENCE   410 AA;  44810 MW;  A7A9B0A6E99C1B23 CRC64;
+     MAREKFERTK PHVNIGTIGH VDHGKTTLTA AITMVMACNT AGSKGKKYED IDSAPEEKAR
+     GITINTAHVE YETATRHYAH VDCPGHADYV KNMITGAAQM DGAILVVSGA DGPMPQTKEH
+     ILLAKQVGVP NIVVFLNKQD QVDDEELLEL VELEVRETLS NYEFPGDEVP VVPGSALLAL
+     EAMTENPSLK RGENEWVDKI FALMDAVDQY IPTPKRDTDK SFLMAVEDVF SITGRGTVAT
+     GRVERGSVKL GDTIEIVGLK PTRETTVTGL EMFQKTLDQS VAGDNVGILL RGIQKEDIQR
+     GMVLAAPRTI TPHTKFESQV YVLTKEEGGR HTPFFPGYRP QFYVRTTDVT GKIDSFRADD
+     GGEATMVMPG DRVKMVVELI QPIAIEKGMR FAIREGGRTV GAGVVSNIIA
+//
+ID   CYB6_CHLRE              Reviewed;         215 AA.
+AC   Q00471; B7U1F1;
+DT   01-DEC-1992, integrated into UniProtKB/Swiss-Prot.
+DT   01-DEC-1992, sequence version 1.
+DT   10-OCT-2018, entry version 129.
+DE   RecName: Full=Cytochrome b6 {ECO:0000255|HAMAP-Rule:MF_00633};
+GN   Name=petB {ECO:0000255|HAMAP-Rule:MF_00633};
+OS   Chlamydomonas reinhardtii (Chlamydomonas smithii).
+OG   Plastid; Chloroplast.
+OC   Eukaryota; Viridiplantae; Chlorophyta; Chlorophyceae;
+OC   Chlamydomonadales; Chlamydomonadaceae; Chlamydomonas.
+OX   NCBI_TaxID=3055;
+RN   [1]
+RP   NUCLEOTIDE SEQUENCE [GENOMIC DNA].
+RC   STRAIN=137c / CC-125;
+RX   PubMed=2060646; DOI=10.1016/0014-5793(91)80698-3;
+RA   Bueschlen S., Choquet Y., Kuras R., Wollman F.A.;
+RT   "Nucleotide sequences of the continuous and separated petA, petB and
+RT   petD chloroplast genes in Chlamydomonas reinhardtii.";
+RL   FEBS Lett. 284:257-262(1991).
+RN   [2]
+RP   NUCLEOTIDE SEQUENCE [GENOMIC DNA].
+RX   PubMed=1581576; DOI=10.1007/BF00019214;
+RA   Huang C., Liu X.-Q.;
+RT   "Nucleotide sequence of the frxC, petB and trnL genes in the
+RT   chloroplast genome of Chlamydomonas reinhardtii.";
+RL   Plant Mol. Biol. 18:985-988(1992).
+RN   [3]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RC   STRAIN=CC-503;
+RX   PubMed=19473533; DOI=10.1186/1471-2148-9-120;
+RA   Smith D.R., Lee R.W.;
+RT   "Nucleotide diversity of the Chlamydomonas reinhardtii plastid genome:
+RT   addressing the mutational-hazard hypothesis.";
+RL   BMC Evol. Biol. 9:120-120(2009).
+RN   [4]
+RP   IDENTIFICATION, AND COMPLETE PLASTID GENOME.
+RX   PubMed=12417694; DOI=10.1105/tpc.006155;
+RA   Maul J.E., Lilly J.W., Cui L., dePamphilis C.W., Miller W.,
+RA   Harris E.H., Stern D.B.;
+RT   "The Chlamydomonas reinhardtii plastid chromosome: islands of genes in
+RT   a sea of repeats.";
+RL   Plant Cell 14:2659-2679(2002).
+RN   [5]
+RP   CHARACTERIZATION.
+RC   STRAIN=WT12;
+RX   PubMed=7493968; DOI=10.1074/jbc.270.49.29342;
+RA   Pierre Y., Breyton C., Kramer D., Popot J.-L.;
+RT   "Purification and characterization of the cytochrome b6 f complex from
+RT   Chlamydomonas reinhardtii.";
+RL   J. Biol. Chem. 270:29342-29349(1995).
+RN   [6]
+RP   MUTAGENESIS OF LEU-204.
+RC   STRAIN=137c / CC-125;
+RX   PubMed=9037161; DOI=10.1023/A:1005734809834;
+RA   Zito F., Kuras R., Choquet Y., Koessel H., Wollman F.-A.;
+RT   "Mutations of cytochrome b6 in Chlamydomonas reinhardtii disclose the
+RT   functional significance for a proline to leucine conversion by petB
+RT   editing in maize and tobacco.";
+RL   Plant Mol. Biol. 33:79-86(1997).
+RN   [7]
+RP   HEME-BINDING.
+RX   PubMed=15049703; DOI=10.1021/bi036093p;
+RA   de Vitry C., Desbois A., Redeker V., Zito F., Wollman F.A.;
+RT   "Biochemical and spectroscopic characterization of the covalent
+RT   binding of heme to cytochrome b6.";
+RL   Biochemistry 43:3956-3968(2004).
+RN   [8]
+RP   X-RAY CRYSTALLOGRAPHY (3.1 ANGSTROMS) IN COMPLEX WITH HEME.
+RX   PubMed=14647374; DOI=10.1038/nature02155;
+RA   Stroebel D., Choquet Y., Popot J.-L., Picot D.;
+RT   "An atypical haem in the cytochrome b(6)f complex.";
+RL   Nature 426:413-418(2003).
+CC   -!- FUNCTION: Component of the cytochrome b6-f complex, which mediates
+CC       electron transfer between photosystem II (PSII) and photosystem I
+CC       (PSI), cyclic electron flow around PSI, and state transitions.
+CC   -!- COFACTOR:
+CC       Name=heme; Xref=ChEBI:CHEBI:30413;
+CC         Evidence={ECO:0000269|PubMed:14647374,
+CC         ECO:0000269|PubMed:15049703};
+CC       Note=Binds 2 heme groups. One heme group is bound covalently by a
+CC       single cysteine link, the other one non-covalently.
+CC       {ECO:0000269|PubMed:14647374};
+CC   -!- SUBUNIT: The 4 large subunits of the cytochrome b6-f complex are
+CC       cytochrome b6, subunit IV (17 kDa polypeptide, PetD), cytochrome f
+CC       and the Rieske protein, while the 4 small subunits are PetG, PetL,
+CC       PetM and PetN. The complex functions as a dimer.
+CC   -!- SUBCELLULAR LOCATION: Plastid, chloroplast thylakoid membrane;
+CC       Multi-pass membrane protein.
+CC   -!- PTM: The N-terminus is blocked.
+CC   -!- MISCELLANEOUS: Creation by mutagenesis of a Pro residue at
+CC       position 204 (a codon that is known to be RNA edited to a Leu
+CC       codon in tobacco and maize) leads to assembly defective mutants,
+CC       indicating that the Leu-204 is essential for proper assembly of
+CC       the cytochrome b6-f complex. This is probably due to lack of
+CC       assembly of apocytochrome b6 with one of its heme groups.
+CC       {ECO:0000269|PubMed:9037161}.
+CC   -!- MISCELLANEOUS: Heme 1 (or BH or b566) is high-potential and
+CC       absorbs at about 566 nm, and heme 2 (or BL or b562) is low-
+CC       potential and absorbs at about 562 nm. {ECO:0000255|HAMAP-
+CC       Rule:MF_00633}.
+CC   -!- SIMILARITY: Belongs to the cytochrome b family. PetB subfamily.
+CC       {ECO:0000255|HAMAP-Rule:MF_00633}.
+CC   -----------------------------------------------------------------------
+CC   Copyrighted by the UniProt Consortium, see https://www.uniprot.org/terms
+CC   Distributed under the Creative Commons Attribution (CC BY 4.0) License
+CC   -----------------------------------------------------------------------
+DR   EMBL; X62905; CAA44690.1; -; Genomic_DNA.
+DR   EMBL; X72918; CAA51423.1; -; Genomic_DNA.
+DR   EMBL; FJ423446; ACJ50098.1; -; Genomic_DNA.
+DR   EMBL; BK000554; DAA00911.1; -; Genomic_DNA.
+DR   PIR; S21253; S21253.
+DR   RefSeq; NP_958365.1; NC_005353.1.
+DR   PDB; 1Q90; X-ray; 3.10 A; B=1-215.
+DR   PDBsum; 1Q90; -.
+DR   ProteinModelPortal; Q00471; -.
+DR   SMR; Q00471; -.
+DR   DIP; DIP-58593N; -.
+DR   IntAct; Q00471; 2.
+DR   STRING; 3055.DAA00911; -.
+DR   PaxDb; Q00471; -.
+DR   PRIDE; Q00471; -.
+DR   GeneID; 2717017; -.
+DR   KEGG; cre:ChreCp008; -.
+DR   eggNOG; KOG4663; Eukaryota.
+DR   eggNOG; COG1290; LUCA.
+DR   InParanoid; Q00471; -.
+DR   KO; K02635; -.
+DR   BioCyc; MetaCyc:CHRECP008-MONOMER; -.
+DR   EvolutionaryTrace; Q00471; -.
+DR   Proteomes; UP000006906; Chloroplast.
+DR   GO; GO:0009535; C:chloroplast thylakoid membrane; IEA:UniProtKB-SubCell.
+DR   GO; GO:0016021; C:integral component of membrane; IEA:UniProtKB-KW.
+DR   GO; GO:0045158; F:electron transporter, transferring electrons within cytochrome b6/f complex of photosystem II activity; IEA:UniProtKB-UniRule.
+DR   GO; GO:0020037; F:heme binding; IEA:InterPro.
+DR   GO; GO:0005506; F:iron ion binding; IEA:InterPro.
+DR   GO; GO:0015979; P:photosynthesis; IEA:UniProtKB-UniRule.
+DR   GO; GO:0022904; P:respiratory electron transport chain; IEA:InterPro.
+DR   CDD; cd00284; Cytochrome_b_N; 1.
+DR   Gene3D; 1.20.810.10; -; 1.
+DR   HAMAP; MF_00633; Cytb6_f_cytb6; 1.
+DR   InterPro; IPR005797; Cyt_b/b6_N.
+DR   InterPro; IPR023530; Cyt_B6_PetB.
+DR   InterPro; IPR027387; Cytb/b6-like_sf.
+DR   InterPro; IPR016174; Di-haem_cyt_TM.
+DR   PANTHER; PTHR19271:SF8; PTHR19271:SF8; 1.
+DR   Pfam; PF00033; Cytochrome_B; 1.
+DR   SUPFAM; SSF81342; SSF81342; 1.
+DR   PROSITE; PS51002; CYTB_NTER; 1.
+PE   1: Evidence at protein level;
+KW   3D-structure; Chloroplast; Complete proteome; Electron transport;
+KW   Heme; Iron; Membrane; Metal-binding; Photosynthesis; Plastid;
+KW   Reference proteome; Thylakoid; Transmembrane; Transmembrane helix;
+KW   Transport.
+FT   CHAIN         1    215       Cytochrome b6.
+FT                                /FTId=PRO_0000061787.
+FT   TRANSMEM     32     52       Helical. {ECO:0000255|HAMAP-
+FT                                Rule:MF_00633}.
+FT   TRANSMEM     90    110       Helical. {ECO:0000255|HAMAP-
+FT                                Rule:MF_00633}.
+FT   TRANSMEM    116    136       Helical. {ECO:0000255|HAMAP-
+FT                                Rule:MF_00633}.
+FT   TRANSMEM    186    206       Helical. {ECO:0000255|HAMAP-
+FT                                Rule:MF_00633}.
+FT   METAL        86     86       Iron (heme 2 axial ligand); via tele
+FT                                nitrogen. {ECO:0000269|PubMed:14647374}.
+FT   METAL       100    100       Iron (heme 1 axial ligand); via tele
+FT                                nitrogen. {ECO:0000269|PubMed:14647374}.
+FT   METAL       187    187       Iron (heme 2 axial ligand); via tele
+FT                                nitrogen. {ECO:0000269|PubMed:14647374}.
+FT   METAL       202    202       Iron (heme 1 axial ligand); via tele
+FT                                nitrogen. {ECO:0000269|PubMed:14647374}.
+FT   BINDING      35     35       Heme 1 (covalent; via 1 link).
+FT                                {ECO:0000269|PubMed:14647374}.
+FT   MUTAGEN     204    204       L->P: Leads to defective cytochrome b6-f
+FT                                complex assembly, probably due to lack of
+FT                                heme assembly.
+FT                                {ECO:0000269|PubMed:9037161}.
+FT   HELIX         5     12       {ECO:0000244|PDB:1Q90}.
+FT   HELIX        14     23       {ECO:0000244|PDB:1Q90}.
+FT   HELIX        33     35       {ECO:0000244|PDB:1Q90}.
+FT   HELIX        36     54       {ECO:0000244|PDB:1Q90}.
+FT   TURN         55     57       {ECO:0000244|PDB:1Q90}.
+FT   TURN         62     64       {ECO:0000244|PDB:1Q90}.
+FT   HELIX        65     74       {ECO:0000244|PDB:1Q90}.
+FT   HELIX        79    105       {ECO:0000244|PDB:1Q90}.
+FT   TURN        106    110       {ECO:0000244|PDB:1Q90}.
+FT   STRAND      111    113       {ECO:0000244|PDB:1Q90}.
+FT   HELIX       115    137       {ECO:0000244|PDB:1Q90}.
+FT   HELIX       142    153       {ECO:0000244|PDB:1Q90}.
+FT   HELIX       154    157       {ECO:0000244|PDB:1Q90}.
+FT   HELIX       161    170       {ECO:0000244|PDB:1Q90}.
+FT   STRAND      172    176       {ECO:0000244|PDB:1Q90}.
+FT   HELIX       177    188       {ECO:0000244|PDB:1Q90}.
+FT   HELIX       190    209       {ECO:0000244|PDB:1Q90}.
+SQ   SEQUENCE   215 AA;  24165 MW;  E025FB9ED2ED78B4 CRC64;
+     MSKVYDWFEE RLEIQAIADD ITSKYVPPHV NIFYCIGGIT FTCFLVQVAT GFAMTFYYRP
+     TVAEAFASVQ YIMTDVNFGW LIRSIHRWSA SMMVLMMVLH VFRVYLTGGF KRPRELTWVT
+     GVIMAVCTVS FGVTGYSLPW DQVGYWAVKI VTGVPDAIPG VGGFIVELLR GGVGVGQATL
+     TRFYSLHTFV LPLLTAVFML MHFLMIRKQG ISGPL
+//
+ID   104K_THEAN              Reviewed;         893 AA.
+AC   Q4U9M9;
+DT   18-APR-2006, integrated into UniProtKB/Swiss-Prot.
+DT   05-JUL-2005, sequence version 1.
+DT   23-MAY-2018, entry version 43.
+DE   RecName: Full=104 kDa microneme/rhoptry antigen;
+DE   AltName: Full=p104;
+DE   Flags: Precursor;
+GN   ORFNames=TA08425;
+OS   Theileria annulata.
+OC   Eukaryota; Alveolata; Apicomplexa; Aconoidasida; Piroplasmida;
+OC   Theileriidae; Theileria.
+OX   NCBI_TaxID=5874;
+RN   [1]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RC   STRAIN=Ankara;
+RX   PubMed=15994557; DOI=10.1126/science.1110418;
+RA   Pain A., Renauld H., Berriman M., Murphy L., Yeats C.A., Weir W.,
+RA   Kerhornou A., Aslett M., Bishop R., Bouchier C., Cochet M.,
+RA   Coulson R.M.R., Cronin A., de Villiers E.P., Fraser A., Fosker N.,
+RA   Gardner M., Goble A., Griffiths-Jones S., Harris D.E., Katzer F.,
+RA   Larke N., Lord A., Maser P., McKellar S., Mooney P., Morton F.,
+RA   Nene V., O'Neil S., Price C., Quail M.A., Rabbinowitsch E.,
+RA   Rawlings N.D., Rutter S., Saunders D., Seeger K., Shah T., Squares R.,
+RA   Squares S., Tivey A., Walker A.R., Woodward J., Dobbelaere D.A.E.,
+RA   Langsley G., Rajandream M.A., McKeever D., Shiels B., Tait A.,
+RA   Barrell B.G., Hall N.;
+RT   "Genome of the host-cell transforming parasite Theileria annulata
+RT   compared with T. parva.";
+RL   Science 309:131-133(2005).
+CC   -!- SUBCELLULAR LOCATION: Cell membrane {ECO:0000305}; Lipid-anchor,
+CC       GPI-anchor {ECO:0000305}. Note=In microneme/rhoptry complexes.
+CC       {ECO:0000250}.
+CC   -----------------------------------------------------------------------
+CC   Copyrighted by the UniProt Consortium, see https://www.uniprot.org/terms
+CC   Distributed under the Creative Commons Attribution (CC BY 4.0) License
+CC   -----------------------------------------------------------------------
+DR   EMBL; CR940353; CAI76474.1; -; Genomic_DNA.
+DR   RefSeq; XP_953099.1; XM_948006.1.
+DR   ProteinModelPortal; Q4U9M9; -.
+DR   STRING; 353154.XP_953099.1; -.
+DR   PRIDE; Q4U9M9; -.
+DR   EnsemblProtists; CAI76474; CAI76474; TA08425.
+DR   GeneID; 3863060; -.
+DR   KEGG; tan:TA08425; -.
+DR   EuPathDB; PiroplasmaDB:TA08425; -.
+DR   InParanoid; Q4U9M9; -.
+DR   Proteomes; UP000001950; Chromosome 4.
+DR   GO; GO:0031225; C:anchored component of membrane; IEA:UniProtKB-KW.
+DR   GO; GO:0005886; C:plasma membrane; IEA:UniProtKB-SubCell.
+PE   3: Inferred from homology;
+KW   Cell membrane; Complete proteome; Glycoprotein; GPI-anchor;
+KW   Lipoprotein; Membrane; Reference proteome; Repeat; Signal; Sporozoite.
+FT   SIGNAL        1     19       {ECO:0000255}.
+FT   CHAIN        20    873       104 kDa microneme/rhoptry antigen.
+FT                                /FTId=PRO_0000232680.
+FT   PROPEP      874    893       Removed in mature form. {ECO:0000255}.
+FT                                /FTId=PRO_0000232681.
+FT   COMPBIAS    215    220       Poly-Leu.
+FT   COMPBIAS    486    683       Lys-rich.
+FT   COMPBIAS    854    859       Poly-Arg.
+FT   LIPID       873    873       GPI-anchor amidated aspartate.
+FT                                {ECO:0000255}.
+SQ   SEQUENCE   893 AA;  101921 MW;  2F67CEB3B02E7AC1 CRC64;
+     MKFLVLLFNI LCLFPILGAD ELVMSPIPTT DVQPKVTFDI NSEVSSGPLY LNPVEMAGVK
+     YLQLQRQPGV QVHKVVEGDI VIWENEEMPL YTCAIVTQNE VPYMAYVELL EDPDLIFFLK
+     EGDQWAPIPE DQYLARLQQL RQQIHTESFF SLNLSFQHEN YKYEMVSSFQ HSIKMVVFTP
+     KNGHICKMVY DKNIRIFKAL YNEYVTSVIG FFRGLKLLLL NIFVIDDRGM IGNKYFQLLD
+     DKYAPISVQG YVATIPKLKD FAEPYHPIIL DISDIDYVNF YLGDATYHDP GFKIVPKTPQ
+     CITKVVDGNE VIYESSNPSV ECVYKVTYYD KKNESMLRLD LNHSPPSYTS YYAKREGVWV
+     TSTYIDLEEK IEELQDHRST ELDVMFMSDK DLNVVPLTNG NLEYFMVTPK PHRDIIIVFD
+     GSEVLWYYEG LENHLVCTWI YVTEGAPRLV HLRVKDRIPQ NTDIYMVKFG EYWVRISKTQ
+     YTQEIKKLIK KSKKKLPSIE EEDSDKHGGP PKGPEPPTGP GHSSSESKEH EDSKESKEPK
+     EHGSPKETKE GEVTKKPGPA KEHKPSKIPV YTKRPEFPKK SKSPKRPESP KSPKRPVSPQ
+     RPVSPKSPKR PESLDIPKSP KRPESPKSPK RPVSPQRPVS PRRPESPKSP KSPKSPKSPK
+     VPFDPKFKEK LYDSYLDKAA KTKETVTLPP VLPTDESFTH TPIGEPTAEQ PDDIEPIEES
+     VFIKETGILT EEVKTEDIHS ETGEPEEPKR PDSPTKHSPK PTGTHPSMPK KRRRSDGLAL
+     STTDLESEAG RILRDPTGKI VTMKRSKSFD DLTTVREKEH MGAEIRKIVV DDDGTEADDE
+     DTHPSKEKHL STVRRRRPRP KKSSKSSKPR KPDSAFVPSI IFIFLVSLIV GIL
+//
+ID   24KD_PLACH              Reviewed;          37 AA.
+AC   P14592;
+DT   01-JAN-1990, integrated into UniProtKB/Swiss-Prot.
+DT   01-JAN-1990, sequence version 1.
+DT   27-MAY-2015, entry version 25.
+DE   RecName: Full=24 kDa antigen;
+DE   Flags: Fragment;
+OS   Plasmodium chabaudi.
+OC   Eukaryota; Alveolata; Apicomplexa; Aconoidasida; Haemosporida;
+OC   Plasmodiidae; Plasmodium; Plasmodium (Vinckeia).
+OX   NCBI_TaxID=5825;
+RN   [1]
+RP   NUCLEOTIDE SEQUENCE [MRNA].
+RX   PubMed=3550696; DOI=10.1093/nar/15.5.2203;
+RA   Langsley G., Sibilli L., Mattei D., Falanga P., Mercereau-Puijalon O.;
+RT   "Karyotype comparison between P. chabaudi and P. falciparum: analysis
+RT   of a P. chabaudi cDNA containing sequences highly repetitive in P.
+RT   falciparum.";
+RL   Nucleic Acids Res. 15:2203-2211(1987).
+CC   -----------------------------------------------------------------------
+CC   Copyrighted by the UniProt Consortium, see https://www.uniprot.org/terms
+CC   Distributed under the Creative Commons Attribution (CC BY 4.0) License
+CC   -----------------------------------------------------------------------
+DR   EMBL; X04892; CAA28580.1; -; mRNA.
+PE   2: Evidence at transcript level;
+KW   Malaria.
+FT   CHAIN        <1     37       24 kDa antigen.
+FT                                /FTId=PRO_0000217175.
+FT   NON_TER       1      1
+SQ   SEQUENCE   37 AA;  4757 MW;  E6F0EB6A45CFEBD5 CRC64;
+     NYCYYMVDYL TFYNIKNYKI YTYAQRLLEI YFSYLSI
+//
