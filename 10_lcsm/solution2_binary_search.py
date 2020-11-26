@@ -2,11 +2,11 @@
 """ Longest Common Substring """
 
 import argparse
-import collections
 import random
+from collections import Counter
 from functools import partial
-from itertools import starmap
-from typing import Callable, Counter, List, NamedTuple, TextIO
+from itertools import chain
+from typing import Callable, List, NamedTuple, TextIO
 from Bio import SeqIO
 
 
@@ -97,20 +97,13 @@ def test_binary_search() -> None:
 
 
 # --------------------------------------------------
-def common_kmers(xs: List[str], k: int) -> List[str]:
+def common_kmers(seqs: List[str], k: int) -> List[str]:
     """ Find k-mers common to all elements """
 
-    counts: Counter[str] = collections.Counter()
-
-    for kmers in map(lambda x: set(find_kmers(x, k)), xs):
-        counts.update(kmers)
-
-    n = len(xs)
-
-    def f(s, i):
-        return s if i == n else None
-
-    return list(filter(None, starmap(f, counts.items())))
+    kmers = [set(find_kmers(seq, k)) for seq in seqs]
+    counts = Counter(chain.from_iterable(kmers))
+    n = len(seqs)
+    return [seq for seq, freq in counts.items() if freq == n]
 
 
 # --------------------------------------------------

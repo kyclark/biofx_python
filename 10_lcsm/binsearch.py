@@ -60,12 +60,13 @@ def binary_search(x: int, xs: List[int], low: int, high: int) -> int:
 
         if xs[mid] == x:
             return mid
-        elif xs[mid] > x:
+
+        if xs[mid] > x:
             return binary_search(x, xs, low, mid - 1)
-        else:
-            return binary_search(x, xs, mid + 1, high)
-    else:
-        return -1
+
+        return binary_search(x, xs, mid + 1, high)
+
+    return -1
 
 
 # --------------------------------------------------
