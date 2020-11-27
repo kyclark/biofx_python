@@ -53,7 +53,7 @@ def get_args():
         args.format = guess_format(args.file[0].name)
 
     if not args.format:
-        parser.error(f'Cannot guess --format, please specify')
+        parser.error('Cannot guess --format, please specify')
 
     return args
 
@@ -62,8 +62,7 @@ def get_args():
 def guess_format(file):
     """Guess format from extension"""
 
-    _, ext = os.path.splitext(file)
-    ext = ext[1:] if ext.startswith('.') else ext
+    ext = re.sub('^.', '', os.path.splitext(file)[1])
 
     return 'fasta' if re.match(
         'f(ast|n)?a$', ext) else 'fastq' if re.match('f(ast)?q$', ext) else ''
