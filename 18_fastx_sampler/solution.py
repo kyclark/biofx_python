@@ -5,11 +5,21 @@ import argparse
 import os
 import random
 from Bio import SeqIO
+from typing import List, NamedTuple, TextIO
+
+
+class Args(NamedTuple):
+    """ Command-line arguments """
+    files: List[TextIO]
+    percent: float
+    seed: int
+    outdir: str
 
 
 # --------------------------------------------------
-def get_args():
-    """get args"""
+def get_args() -> Args:
+    """ Get command-line arguments """
+
     parser = argparse.ArgumentParser(
         description='Probabalistically subset FASTA files',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
@@ -49,12 +59,15 @@ def get_args():
     if not os.path.isdir(args.outdir):
         os.makedirs(args.outdir)
 
-    return args
+    return Args(files=args.file,
+                percent=args.pct,
+                seed=args.seed,
+                outdir=args.outdir)
 
 
 # --------------------------------------------------
-def main():
-    """Make a jazz noise here"""
+def main() -> None:
+    """ Make a jazz noise here """
 
     args = get_args()
     random.seed(args.seed)

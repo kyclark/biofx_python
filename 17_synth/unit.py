@@ -1,3 +1,5 @@
+""" Unit tests for synth.py """
+
 import io
 import random
 from synth import read_training, find_kmers, gen_seq

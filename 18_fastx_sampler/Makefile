@@ -5,8 +5,11 @@ MOOG = "../08_synthetic_dna/moog.py"
 run: fasta
 	./sampler.py *.fa
 
-test: fasta
-	pytest --disable-pytest-warnings -xv test.py
+test:
+	python3 -m pytest -xv --disable-pytest-warnings --flake8 --pylint --pylint-rcfile=../pylintrc --mypy sampler.py tests/sampler_test.py
+
+all:
+	../bin/all_test.py sample.py
 
 fasta: n1k.fa n10k.fa n100k.fa n1m.fa
 

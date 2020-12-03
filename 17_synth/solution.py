@@ -45,6 +45,7 @@ def get_args() -> Args:
                         help='Input file format',
                         metavar='format',
                         type=str,
+                        choices=['fasta', 'fastq'],
                         default='fasta')
 
     parser.add_argument('-n',
@@ -64,7 +65,7 @@ def get_args() -> Args:
     parser.add_argument('-m',
                         '--min_len',
                         help='Minimum sequence length',
-                        metavar='max',
+                        metavar='min',
                         type=int,
                         default=50)
 

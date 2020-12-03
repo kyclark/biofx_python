@@ -1,0 +1,9 @@
+= Strings: Run-Length Encoding of DNA
+
+Information content, compression, strings.
+
+== Solution
+
+```
+include::run-length-encoding/run.py[]
+```

@@ -6,11 +6,22 @@ import os
 import re
 import sys
 from Bio import SeqIO
+from typing import List, NamedTuple, TextIO
+
+
+class Args(NamedTuple):
+    """ Command-line arguments """
+    pattern: str
+    files: List[TextIO]
+    input_format: str
+    output_format: str
+    outfile: TextIO
+    verbose: bool
 
 
 # --------------------------------------------------
-def get_args():
-    """Get command-line arguments"""
+def get_args() -> Args:
+    """ Get command-line arguments """
 
     parser = argparse.ArgumentParser(
         description='Grep through FASTX files',
@@ -24,7 +35,7 @@ def get_args():
     parser.add_argument('file',
                         metavar='FILE',
                         nargs='+',
-                        type=argparse.FileType('r'),
+                        type=argparse.FileType('rt'),
                         help='Input file(s)')
 
     parser.add_argument('-f',
@@ -35,7 +46,7 @@ def get_args():
                         default='')
 
     parser.add_argument('-O',
-                        '--out_format',
+                        '--outfmt',
                         help='Output file format',
                         metavar='str',
                         choices=['fasta', 'fastq', 'fasta-2line'],
@@ -44,33 +55,69 @@ def get_args():
     parser.add_argument('-o',
                         '--outfile',
                         help='Output file',
+                        type=argparse.FileType('wt'),
                         metavar='FILE',
-                        default=None)
+                        default=sys.stdout)
+
+    parser.add_argument('-v',
+                        '--verbose',
+                        help='Be chatty',
+                        action='store_true')
 
     args = parser.parse_args()
 
-    if not args.format:
-        args.format = guess_format(args.file[0].name)
-
-    if not args.format:
-        parser.error('Cannot guess --format, please specify')
-
-    return args
+    return Args(pattern=args.pattern,
+                files=args.file,
+                input_format=args.format,
+                output_format=args.outfmt,
+                outfile=args.outfile,
+                verbose=args.verbose)
 
 
 # --------------------------------------------------
-def guess_format(file):
-    """Guess format from extension"""
+def main() -> None:
+    """ Make a jazz noise here """
 
-    ext = re.sub('^.', '', os.path.splitext(file)[1])
+    args = get_args()
+
+    def progress(msg):
+        if args.verbose:
+            print(msg, file=sys.stderr)
+
+    regex = re.compile(args.pattern)
+    num_checked, num_took = 0, 0
+    for i, fh in enumerate(args.files, start=1):
+        progress(f'{i:3}: {fh.name}')
+        input_format = args.input_format or guess_format(fh.name)
+
+        if not input_format:
+            sys.exit(f'Please specify file format for "{fh.name}"')
+
+        output_format = args.output_format or input_format
+
+        for rec in SeqIO.parse(fh, input_format):
+            num_checked += 1
+            if any(map(regex.search, [rec.id, rec.description])):
+                num_took += 1
+                SeqIO.write(rec, args.outfile, output_format)
+
+    outfile = 'STDOUT' if args.outfile == sys.stdout else args.outfile.name
+    progress(f'Done, checked {num_checked}, wrote {num_took} to "{outfile}".')
+
+
+# --------------------------------------------------
+def guess_format(filename: str) -> str:
+    """ Guess format from extension """
+
+    ext = re.sub('^.', '', os.path.splitext(filename)[1])
 
     return 'fasta' if re.match(
         'f(ast|n)?a$', ext) else 'fastq' if re.match('f(ast)?q$', ext) else ''
 
 
 # --------------------------------------------------
-def test_guess_format():
-    """Test guess_format"""
+def test_guess_format() -> None:
+    """ Test guess_format """
 
     assert guess_format('/foo/bar.fa') == 'fasta'
     assert guess_format('/foo/bar.fna') == 'fasta'
@@ -78,25 +125,6 @@ def test_guess_format():
     assert guess_format('/foo/bar.fq') == 'fastq'
     assert guess_format('/foo/bar.fastq') == 'fastq'
     assert guess_format('/foo/bar.fx') == ''
-
-
-# --------------------------------------------------
-def main():
-    """Make a jazz noise here"""
-
-    args = get_args()
-    regex = re.compile(args.pattern)
-    out_fh = args.outfile or sys.stdout
-    checked, took = 0, 0
-
-    for fh in args.file:
-        for rec in SeqIO.parse(fh, args.format):
-            checked += 1
-            if any(map(regex.search, [rec.id, rec.description])):
-                took += 1
-                SeqIO.write(rec, out_fh, args.out_format or args.format)
-
-    print(f'Done, checked {checked}, took {took}.', file=sys.stderr)
 
 
 # --------------------------------------------------

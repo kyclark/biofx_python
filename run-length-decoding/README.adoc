@@ -1,0 +1,9 @@
+= Run-length Decoding
+
+The opposite of encoding.
+
+== Solution
+
+```
+include::run-length-decoding/explode.py[]
+```
