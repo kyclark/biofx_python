@@ -1,24 +1,31 @@
-TAG39 = kyclark/biofx_python_3.9:0.1.0
+TAG390 = kyclark/biofx_python_3.9.0:0.1.0
+TAG391 = kyclark/biofx_python_3.9.1:0.1.0
 TAG38 = kyclark/biofx_python_3.8:0.1.0
 TAG310 = kyclark/biofx_python_3.10:0.1.0
 DOCKER = sudo docker
 
-39:
-	$(DOCKER) build --tag=$(TAG39) -f Dockerfile.3.9 .
+391:
+	$(DOCKER) build --tag=$(TAG39) -f Dockerfile391 .
+
+390:
+	$(DOCKER) build --tag=$(TAG39) -f Dockerfile390 .
 
 38:
-	$(DOCKER) build --tag=$(TAG38) -f Dockerfile.3.8 .
+	$(DOCKER) build --tag=$(TAG38) -f Dockerfile38 .
 
 310:
-	$(DOCKER) build --tag=$(TAG310) -f Dockerfile.3.10
+	$(DOCKER) build --tag=$(TAG310) -f Dockerfile310
 
 test: test38 test39 test310
 
 test38:
 	$(DOCKER) run $(TAG38) /app/biofx_python/bin/uber_test.sh
 
-test39:
-	$(DOCKER) run $(TAG39) /app/biofx_python/bin/uber_test.sh
+test390:
+	$(DOCKER) run $(TAG390) /app/biofx_python/bin/uber_test.sh
+
+test391:
+	$(DOCKER) run $(TAG391) /app/biofx_python/bin/uber_test.sh
 
 test310:
 	$(DOCKER) run $(TAG310) /app/biofx_python/bin/uber_test.sh
@@ -26,8 +33,11 @@ test310:
 shell38:
 	$(DOCKER) run -it $(TAG38) bash
 
-shell39:
-	$(DOCKER) run -it $(TAG39) bash
+shell390:
+	$(DOCKER) run -it $(TAG390) bash
+
+shell391:
+	$(DOCKER) run -it $(TAG391) bash
 
 shell310:
 	$(DOCKER) run -it $(TAG310) bash
@@ -35,8 +45,11 @@ shell310:
 push38: 
 	$(DOCKER) push $(TAG38)
 
-push39: 
-	$(DOCKER) push $(TAG39)
+push390: 
+	$(DOCKER) push $(TAG390)
+
+push391: 
+	$(DOCKER) push $(TAG391)
 
 push310: 
 	$(DOCKER) push $(TAG310)
