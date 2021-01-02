@@ -28,8 +28,8 @@ def test_usage() -> None:
 
 
 # --------------------------------------------------
-def test_bad_n() -> None:
-    """ Dies when n is bad """
+def test_bad_generations() -> None:
+    """ Dies when generations is bad """
 
     n = random.choice(list(range(-10, 0)) + list(range(41, 50)))
     k = random.randint(1, 5)
@@ -40,8 +40,8 @@ def test_bad_n() -> None:
 
 
 # --------------------------------------------------
-def test_bad_k() -> None:
-    """ Dies when k is bad """
+def test_bad_litter() -> None:
+    """ Dies when litter size is bad """
 
     n = random.randint(1, 40)
     k = random.choice(list(range(-10, 0)) + list(range(6, 20)))

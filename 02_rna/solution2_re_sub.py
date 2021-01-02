@@ -22,7 +22,7 @@ def get_args() -> Args:
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     parser.add_argument('file',
-                        help='Input DNA file',
+                        help='Input DNA file(s)',
                         metavar='FILE',
                         type=argparse.FileType('rt'),
                         nargs='+')

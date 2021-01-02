@@ -29,7 +29,7 @@ def test_usage() -> None:
     for flag in ['-h', '--help']:
         retval, out = getstatusoutput(f'{RUN} {flag}')
         assert retval == 0
-        assert re.match("usage", out, re.IGNORECASE)
+        assert out.lower().startswith('usage:')
 
 
 # --------------------------------------------------

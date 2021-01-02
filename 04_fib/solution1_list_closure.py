@@ -2,7 +2,7 @@
 """ Calculate Fibonacci """
 
 import argparse
-from typing import NamedTuple, Generator
+from typing import NamedTuple
 
 
 class Args(NamedTuple):
@@ -45,21 +45,14 @@ def main() -> None:
     """ Make a jazz noise here """
 
     args = get_args()
-    gen = fib(args.litter)
-    seq = [next(gen) for _ in range(args.generations + 1)]
-    print(seq[-1])
 
+    def fib(n: int) -> int:
+        nums = [0, 1]
+        for i in range(n - 1):
+            nums.append((nums[-2] * args.litter) + nums[-1])
+        return nums[-1]
 
-# --------------------------------------------------
-def fib(k: int) -> Generator[int, None, None]:
-    """ Generator """
-
-    x, y = 0, 1
-    yield x
-
-    while True:
-        yield y
-        x, y = y * k, x + y
+    print(fib(args.generations))
 
 
 # --------------------------------------------------

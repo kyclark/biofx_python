@@ -45,7 +45,7 @@ def main() -> None:
     for rec in SeqIO.parse(args.file, 'fasta'):
         seqs.append(MySeq(find_gc(rec.seq), rec.id))
 
-    high = sorted(seqs)[-1]
+    high = max(seqs)
     print(f'{high.name} {high.gc:0.6f}')
 
 

@@ -45,7 +45,7 @@ def main() -> None:
         pct = (gc * 100) / len(rec.seq)
         seqs.append((pct, rec.id))
 
-    high = sorted(seqs)[-1]
+    high = max(seqs)
     print(f'{high[1]} {high[0]:0.6f}')
 
 

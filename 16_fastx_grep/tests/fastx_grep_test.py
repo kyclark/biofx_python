@@ -50,7 +50,6 @@ def test_cannot_guess() -> None:
     """ Dies on unguessable extension """
 
     pattern = random_string()
-    bad = random_string()
     rv, out = getstatusoutput(f'{RUN} {pattern} {BAD_EXT}')
     assert rv != 0
     assert out == f'Please specify file format for "{BAD_EXT}"'
