@@ -19,9 +19,9 @@ def test_gen_seq() -> None:
 
     state = random.getstate()
     random.seed(1)
-    assert gen_seq(chains, 3, 5, 10) == 'ACCCCGCGG'
+    assert gen_seq(chains, 3, 5, 10) == 'ACCGGTT'
     random.seed(2)
-    assert gen_seq(chains, 3, 6, 12) == 'AACACC'
+    assert gen_seq(chains, 3, 6, 12) == 'AACCGGT'
     random.setstate(state)
 
 
@@ -30,13 +30,20 @@ def test_read_training() -> None:
     """ Test read_training """
 
     f1 = io.StringIO('>1\nAACCGGTT\n')
-
     assert read_training([f1], 'fasta', 3) == {
         'AAC': ['ACC'],
         'ACC': ['CCG'],
         'CCG': ['CGG'],
         'CGG': ['GGT'],
         'GGT': ['GTT']
+    }
+
+    f2 = io.StringIO('@1\nAACCGGTT\n+\n!!!!!!!!')
+    assert read_training([f2], 'fastq', 4) == {
+        'AACC': ['ACCG'],
+        'ACCG': ['CCGG'],
+        'CCGG': ['CGGT'],
+        'CGGT': ['GGTT']
     }
 
 

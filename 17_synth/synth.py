@@ -5,18 +5,21 @@ import argparse
 import random
 from Bio import SeqIO
 from collections import defaultdict
-from typing import NamedTuple, List, TextIO, Dict
+from typing import NamedTuple, List, TextIO, Dict, Optional
 
 
 class Args(NamedTuple):
-    file: List[TextIO]
+    files: List[TextIO]
     outfile: TextIO
     file_format: str
     num: int
     min_len: int
     max_len: int
     k: int
-    seed: int
+    seed: Optional[int]
+
+
+Chains = Dict[str, List[str]]
 
 
 # --------------------------------------------------
@@ -85,7 +88,7 @@ def get_args() -> Args:
 
     args = parser.parse_args()
 
-    return Args(file=args.file,
+    return Args(files=args.file,
                 outfile=args.outfile,
                 file_format=args.format,
                 num=args.num,
@@ -101,7 +104,7 @@ def main() -> None:
 
     args = get_args()
     random.seed(args.seed)
-    chains = read_training(args.file, args.file_format, args.k)
+    chains = read_training(args.files, args.file_format, args.k)
     seqs = (gen_seq(chains, args.k, args.min_len, args.max_len)
             for _ in range(args.num))
 
@@ -112,27 +115,24 @@ def main() -> None:
 
 
 # --------------------------------------------------
-def gen_seq(chains: Dict[str, List[str]], k: int, min_len: int,
-            max_len: int) -> str:
+def gen_seq(chains: Chains, k: int, min_len: int, max_len: int) -> str:
     """ Generate a sequence """
 
     seq = random.choice(list(chains.keys()))
     seq_len = random.randint(min_len, max_len)
 
-    while len(seq) < seq_len:
+    while len(seq) <= seq_len:
         prev = seq[-1 * k:]
-        choices = chains.get(prev)
-        if not choices:
+        if choices := chains.get(prev):
+            seq += random.choice(choices)[-1]
+        else:
             break
-
-        seq += random.choice(choices)
 
     return seq
 
 
 # --------------------------------------------------
-def read_training(fhs: List[TextIO], file_format: str,
-                  k: int) -> Dict[str, List[str]]:
+def read_training(fhs: List[TextIO], file_format: str, k: int) -> Chains:
     """ Read training files, return dict of chains """
 
     seqs = defaultdict(list)
