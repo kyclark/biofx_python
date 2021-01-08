@@ -9,19 +9,27 @@ from synth import read_training, find_kmers, gen_seq
 def test_gen_seq() -> None:
     """ Test gen_seq """
 
-    chains = {
-        'AAC': ['ACC'],
-        'ACC': ['CCG'],
-        'CCG': ['CGG'],
-        'CGG': ['GGT'],
-        'GGT': ['GTT']
+    chain = {
+        'ACG': {
+            'T': 0.5,
+            'C': 0.5
+        },
+        'CGT': {
+            'A': 1.0
+        },
+        'GTA': {
+            'C': 1.0
+        },
+        'TAC': {
+            'G': 1.0
+        }
     }
 
     state = random.getstate()
     random.seed(1)
-    assert gen_seq(chains, 3, 5, 10) == 'ACCGGTT'
+    assert gen_seq(chain, k=4, min_len=6, max_len=12) == 'CGTACGTACGT'
     random.seed(2)
-    assert gen_seq(chains, 3, 6, 12) == 'AACCGGT'
+    assert gen_seq(chain, k=4, min_len=5, max_len=10) == 'ACGTAC'
     random.setstate(state)
 
 
@@ -29,21 +37,37 @@ def test_gen_seq() -> None:
 def test_read_training() -> None:
     """ Test read_training """
 
-    f1 = io.StringIO('>1\nAACCGGTT\n')
-    assert read_training([f1], 'fasta', 3) == {
-        'AAC': ['ACC'],
-        'ACC': ['CCG'],
-        'CCG': ['CGG'],
-        'CGG': ['GGT'],
-        'GGT': ['GTT']
+    f1 = io.StringIO('>1\nACGTACGC\n')
+    assert read_training([f1], 'fasta', 4) == {
+        'ACG': {
+            'T': 0.5,
+            'C': 0.5
+        },
+        'CGT': {
+            'A': 1.0
+        },
+        'GTA': {
+            'C': 1.0
+        },
+        'TAC': {
+            'G': 1.0
+        }
     }
 
-    f2 = io.StringIO('@1\nAACCGGTT\n+\n!!!!!!!!')
-    assert read_training([f2], 'fastq', 4) == {
-        'AACC': ['ACCG'],
-        'ACCG': ['CCGG'],
-        'CCGG': ['CGGT'],
-        'CGGT': ['GGTT']
+    f2 = io.StringIO('@1\nACGTACGC\n+\n!!!!!!!!')
+    assert read_training([f2], 'fastq', 5) == {
+        'ACGT': {
+            'A': 1.0
+        },
+        'CGTA': {
+            'C': 1.0
+        },
+        'GTAC': {
+            'G': 1.0
+        },
+        'TACG': {
+            'C': 1.0
+        }
     }
 
 

@@ -1,6 +1,6 @@
 .PHONY = fa clean run pdf test
-
-MOOG = "../08_synthetic_dna/moog.py"
+SYNTH = ../17_synth/synth.py
+TRAIN = ../17_synth/tests/inputs/*.fa
 
 run: fasta
 	./sampler.py *.fa
@@ -17,16 +17,10 @@ clean:
 	rm -rf *.fa out __pycache__
 
 n1k.fa:
-	time $(MOOG) -n 1000 -o n1k.fa -t dna -m 75 -x 200
+	time $(SYNTH) -n 1000 -o tests/inputs/n1k.fa -m 75 -x 200 $(TRAIN)
 
 n10k.fa:
-	time $(MOOG) -n 10000 -o n10k.fa -t dna -m 75 -x 200
+	time $(SYNTH) -n 10000 -o tests/inputs/n10k.fa -m 75 -x 200 $(TRAIN)
 
 n100k.fa:
-	time $(MOOG) -n 100000 -o n100k.fa -t dna -m 75 -x 200
-
-n1m.fa:
-	time $(MOOG) -n 1000000 -o n1m.fa -t dna -m 75 -x 200
-
-pdf:
-	asciidoctor-pdf README.adoc
+	time $(SYNTH) -n 100000 -o tests/inputs/n100k.fa -m 75 -x 200 $(TRAIN)

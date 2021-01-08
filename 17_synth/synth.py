@@ -3,8 +3,9 @@
 
 import argparse
 import random
+import sys
 from Bio import SeqIO
-from collections import defaultdict
+from collections import defaultdict, Counter
 from typing import NamedTuple, List, TextIO, Dict, Optional
 
 
@@ -19,7 +20,8 @@ class Args(NamedTuple):
     seed: Optional[int]
 
 
-Chains = Dict[str, List[str]]
+WeightedChoice = Dict[str, float]
+Chain = Dict[str, WeightedChoice]
 
 
 # --------------------------------------------------
@@ -104,45 +106,52 @@ def main() -> None:
 
     args = get_args()
     random.seed(args.seed)
-    chains = read_training(args.files, args.file_format, args.k)
-    seqs = (gen_seq(chains, args.k, args.min_len, args.max_len)
-            for _ in range(args.num))
+    if chain := read_training(args.files, args.file_format, args.k):
+        seqs = (gen_seq(chain, args.k, args.min_len, args.max_len)
+                for _ in range(args.num))
 
-    for i, seq in enumerate(seqs, start=1):
-        print(f'>{i}\n{seq}', file=args.outfile)
+        for i, seq in enumerate(seqs, start=1):
+            print(f'>{i}\n{seq}', file=args.outfile)
 
-    print(f'Done, see output in "{args.outfile.name}".')
+        print(f'Done, see output in "{args.outfile.name}".')
+    else:
+        sys.exit(f'No {args.k}-mers in input sequences.')
 
 
 # --------------------------------------------------
-def gen_seq(chains: Chains, k: int, min_len: int, max_len: int) -> str:
+def read_training(fhs: List[TextIO], file_format: str, k: int) -> Chain:
+    """ Read training files, return dict of chains """
+
+    counts: Dict[str, Dict[str, int]] = defaultdict(Counter)
+    for fh in fhs:
+        for rec in SeqIO.parse(fh, file_format):
+            for kmer in find_kmers(str(rec.seq), k):
+                counts[kmer[:k - 1]][kmer[-1]] += 1
+
+    def weight(freqs: Dict[str, int]) -> Dict[str, float]:
+        total = sum(freqs.values())
+        return {base: freq / total for base, freq in freqs.items()}
+
+    return {kmer: weight(freqs) for kmer, freqs in counts.items()}
+
+
+# --------------------------------------------------
+def gen_seq(chain: Chain, k: int, min_len: int, max_len: int) -> str:
     """ Generate a sequence """
 
-    seq = random.choice(list(chains.keys()))
+    seq = random.choice(list(chain.keys()))
     seq_len = random.randint(min_len, max_len)
 
     while len(seq) <= seq_len:
-        prev = seq[-1 * k:]
-        if choices := chains.get(prev):
-            seq += random.choice(choices)[-1]
+        prev = seq[-1 * (k - 1):]
+        if choices := chain.get(prev):
+            seq += random.choices(population=list(choices.keys()),
+                                  weights=list(choices.values()),
+                                  k=1)[0]
         else:
             break
 
     return seq
-
-
-# --------------------------------------------------
-def read_training(fhs: List[TextIO], file_format: str, k: int) -> Chains:
-    """ Read training files, return dict of chains """
-
-    seqs = defaultdict(list)
-    for fh in fhs:
-        for rec in SeqIO.parse(fh, file_format):
-            kmers = find_kmers(str(rec.seq), k)
-            for i in range(0, len(kmers) - 1):
-                seqs[kmers[i]].append(kmers[i + 1])
-
-    return seqs
 
 
 # --------------------------------------------------

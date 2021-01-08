@@ -7,28 +7,18 @@ import re
 import string
 from subprocess import getstatusoutput
 from Bio import SeqIO
-from Bio.SeqUtils import GC
-from numpy import mean
-from itertools import chain
 from shutil import rmtree
 
 prg = './sampler.py'
-n1k = './n1k.fa'
-n10k = './n10k.fa'
-n100k = './n100k.fa'
-n1m = './n1m.fa'
-
-
-# --------------------------------------------------
-def random_string():
-    """generate a random string"""
-
-    return ''.join(random.choices(string.ascii_uppercase + string.digits, k=5))
+n1k = './tests/inputs/n1k.fa'
+n10k = './tests/inputs/n10k.fa'
+n100k = './tests/inputs/n100k.fa'
+n1m = './tests/inputs/n1m.fa'
 
 
 # --------------------------------------------------
 def test_exists():
-    """usage"""
+    """ All the necessary files exist """
 
     for file in [prg, n1k, n10k, n100k, n1m]:
         assert os.path.isfile(file)
@@ -36,7 +26,7 @@ def test_exists():
 
 # --------------------------------------------------
 def test_usage():
-    """usage"""
+    """ Prints usage """
 
     for flag in ['-h', '--help']:
         rv, out = getstatusoutput('{} {}'.format(prg, flag))
@@ -46,7 +36,7 @@ def test_usage():
 
 # --------------------------------------------------
 def test_bad_file():
-    """die on bad file"""
+    """ Dies on bad file """
 
     bad = random_string()
     rv, out = getstatusoutput(f'{prg} {bad}')
@@ -57,7 +47,7 @@ def test_bad_file():
 
 # --------------------------------------------------
 def test_bad_pct():
-    """die on bad pct"""
+    """ Dies on bad pct """
 
     bad = random.randint(1, 10)
     rv, out = getstatusoutput(f'{prg} -p {bad} {n1k}')
@@ -68,7 +58,7 @@ def test_bad_pct():
 
 # --------------------------------------------------
 def test_defaults():
-    """runs on good input"""
+    """ Runs on good input """
 
     out_dir = 'out'
     try:
@@ -99,7 +89,7 @@ def test_defaults():
 
 # --------------------------------------------------
 def test_options():
-    """runs on good input"""
+    """ Runs on good input """
 
     out_dir = random_string()
     try:
@@ -132,3 +122,10 @@ def test_options():
     finally:
         if os.path.isdir(out_dir):
             rmtree(out_dir)
+
+
+# --------------------------------------------------
+def random_string():
+    """generate a random string"""
+
+    return ''.join(random.choices(string.ascii_uppercase + string.digits, k=5))

@@ -8,6 +8,7 @@ import numpy as np
 from typing import List, NamedTuple, TextIO
 from rich import box
 from rich.console import Console
+from rich.progress import track
 from rich.table import Table, Column
 from Bio import SeqIO
 
@@ -50,15 +51,16 @@ def main() -> None:
     """ Make a jazz noise here """
 
     args = get_args()
-    table = Table('Name', Column(header='Min. Len', justify='right'),
+    table = Table('Name',
+                  Column(header='Min. Len', justify='right'),
                   Column(header='Max. Len', justify='right'),
                   Column(header='Avg. Len', justify='right'),
                   Column(header='Num. Seqs', justify='right'),
                   header_style="bold black")
 
-    for row in [process(fh) for fh in args.file]:
-        table.add_row(row.filename, str(row.min_len), str(row.max_len),
-                      str(row.avg_len), str(row.num_seqs))
+    for file in track([process(fh) for fh in args.file]):
+        table.add_row(file.filename, str(file.min_len), str(file.max_len),
+                      str(file.avg_len), str(file.num_seqs))
 
     Console().print(table)
 
