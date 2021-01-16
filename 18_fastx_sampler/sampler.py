@@ -11,7 +11,9 @@ from typing import List, NamedTuple, TextIO
 class Args(NamedTuple):
     """ Command-line arguments """
     files: List[TextIO]
+    file_format: str
     percent: float
+    max_reads: int
     seed: int
     outdir: str
 
@@ -28,7 +30,15 @@ def get_args() -> Args:
                         metavar='FILE',
                         type=argparse.FileType('r'),
                         nargs='+',
-                        help='Input FASTA file(s)')
+                        help='Input FASTA/Q file(s)')
+
+    parser.add_argument('-f',
+                        '--format',
+                        help='Input file format',
+                        metavar='format',
+                        type=str,
+                        choices=['fasta', 'fastq'],
+                        default='fasta')
 
     parser.add_argument('-p',
                         '--percent',
@@ -36,6 +46,13 @@ def get_args() -> Args:
                         metavar='reads',
                         type=float,
                         default=.1)
+
+    parser.add_argument('-m',
+                        '--max',
+                        help='Maximum number of reads',
+                        metavar='max',
+                        type=int,
+                        default=0)
 
     parser.add_argument('-s',
                         '--seed',
@@ -60,7 +77,9 @@ def get_args() -> Args:
         os.makedirs(args.outdir)
 
     return Args(files=args.file,
+                file_format=args.format,
                 percent=args.percent,
+                max_reads=args.max,
                 seed=args.seed,
                 outdir=args.outdir)
 
@@ -81,10 +100,13 @@ def main() -> None:
         out_fh = open(out_file, 'wt')
         num_taken = 0
 
-        for rec in SeqIO.parse(fh, 'fasta'):
+        for rec in SeqIO.parse(fh, args.file_format):
             if random.random() <= args.percent:
                 num_taken += 1
                 SeqIO.write(rec, out_fh, 'fasta')
+
+            if args.max_reads and num_taken == args.max_reads:
+                break
 
         out_fh.close()
         total_num += num_taken

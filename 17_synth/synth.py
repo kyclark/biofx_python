@@ -4,6 +4,7 @@
 import argparse
 import random
 import sys
+from itertools import count
 from Bio import SeqIO
 from collections import defaultdict, Counter
 from typing import NamedTuple, List, TextIO, Dict, Optional
@@ -108,10 +109,12 @@ def main() -> None:
     random.seed(args.seed)
     if chain := read_training(args.files, args.file_format, args.k):
         seqs = (gen_seq(chain, args.k, args.min_len, args.max_len)
-                for _ in range(args.num))
+                for _ in count())
 
-        for i, seq in enumerate(seqs, start=1):
+        for i, seq in enumerate(filter(None, seqs), start=1):
             print(f'>{i}\n{seq}', file=args.outfile)
+            if i == args.num:
+                break
 
         print(f'Done, see output in "{args.outfile.name}".')
     else:
@@ -136,13 +139,13 @@ def read_training(fhs: List[TextIO], file_format: str, k: int) -> Chain:
 
 
 # --------------------------------------------------
-def gen_seq(chain: Chain, k: int, min_len: int, max_len: int) -> str:
+def gen_seq(chain: Chain, k: int, min_len: int, max_len: int) -> Optional[str]:
     """ Generate a sequence """
 
     seq = random.choice(list(chain.keys()))
     seq_len = random.randint(min_len, max_len)
 
-    while len(seq) <= seq_len:
+    while len(seq) < seq_len:
         prev = seq[-1 * (k - 1):]
         if choices := chain.get(prev):
             seq += random.choices(population=list(choices.keys()),
@@ -151,16 +154,15 @@ def gen_seq(chain: Chain, k: int, min_len: int, max_len: int) -> str:
         else:
             break
 
-    return seq
+    return seq if len(seq) >= min_len else None
 
 
 # --------------------------------------------------
 def find_kmers(seq: str, k: int) -> List[str]:
     """ Find k-mers in string """
 
-    seq = str(seq)
     n = len(seq) - k + 1
-    return list(map(lambda i: seq[i:i + k], range(n)))
+    return [] if n < 1 else [seq[i:i + k] for i in range(n)]
 
 
 # --------------------------------------------------

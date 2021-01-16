@@ -1,7 +1,7 @@
-#!/usr/bin/env python3
-"""tests for sampler.py"""
+""" Tests for sampler.py """
 
 import os
+import platform
 import random
 import re
 import string
@@ -9,18 +9,19 @@ from subprocess import getstatusoutput
 from Bio import SeqIO
 from shutil import rmtree
 
-prg = './sampler.py'
-n1k = './tests/inputs/n1k.fa'
-n10k = './tests/inputs/n10k.fa'
-n100k = './tests/inputs/n100k.fa'
-n1m = './tests/inputs/n1m.fa'
+PRG = './sampler.py'
+RUN = f'python {PRG}' if platform.system() == 'Windows' else PRG
+N1K = './tests/inputs/n1k.fa'
+N10K = './tests/inputs/n10k.fa'
+N100K = './tests/inputs/n100k.fa'
+FASTQ = '../16_fastx_grep/tests/inputs/lsu.fq'
 
 
 # --------------------------------------------------
 def test_exists():
     """ All the necessary files exist """
 
-    for file in [prg, n1k, n10k, n100k, n1m]:
+    for file in [PRG, N1K, N10K, N100K]:
         assert os.path.isfile(file)
 
 
@@ -29,9 +30,9 @@ def test_usage():
     """ Prints usage """
 
     for flag in ['-h', '--help']:
-        rv, out = getstatusoutput('{} {}'.format(prg, flag))
+        rv, out = getstatusoutput(f'{RUN} {flag}')
         assert rv == 0
-        assert re.match("usage", out, re.IGNORECASE)
+        assert re.match('usage:', out, re.IGNORECASE)
 
 
 # --------------------------------------------------
@@ -39,7 +40,7 @@ def test_bad_file():
     """ Dies on bad file """
 
     bad = random_string()
-    rv, out = getstatusoutput(f'{prg} {bad}')
+    rv, out = getstatusoutput(f'{RUN} {bad}')
     assert rv != 0
     assert re.match('usage:', out, re.I)
     assert re.search(f"No such file or directory: '{bad}'", out)
@@ -47,13 +48,26 @@ def test_bad_file():
 
 # --------------------------------------------------
 def test_bad_pct():
-    """ Dies on bad pct """
+    """ Dies on bad percent """
 
     bad = random.randint(1, 10)
-    rv, out = getstatusoutput(f'{prg} -p {bad} {n1k}')
+    rv, out = getstatusoutput(f'{RUN} -p {bad} {N1K}')
     assert rv != 0
     assert re.match('usage:', out, re.I)
-    assert re.search(f'--pct "{float(bad)}" must be between 0 and 1', out)
+    assert re.search(f'--percent "{float(bad)}" must be between 0 and 1', out)
+
+
+# --------------------------------------------------
+def test_bad_format():
+    """ Dies on bad file format """
+
+    bad = random_string()
+    rv, out = getstatusoutput(f'{RUN} -f {bad} {N1K}')
+    assert rv != 0
+    assert re.match('usage:', out, re.I)
+    err = (f"-f/--format: invalid choice: '{bad}' "
+           r"\(choose from 'fasta', 'fastq'\)")
+    assert re.search(err, out)
 
 
 # --------------------------------------------------
@@ -65,7 +79,7 @@ def test_defaults():
         if os.path.isdir(out_dir):
             rmtree(out_dir)
 
-        rv, out = getstatusoutput(f'{prg} -s 10 {n1k}')
+        rv, out = getstatusoutput(f'{RUN} -s 10 {N1K}')
         assert rv == 0
         expected = ('  1: n1k.fa\n'
                     'Wrote 108 sequences from 1 file to directory "out"')
@@ -75,12 +89,76 @@ def test_defaults():
         files = os.listdir(out_dir)
         assert len(files) == 1
 
-        out_file = os.path.join(out_dir, 'n1k.fa')
+        out_file = os.path.join(out_dir, 'N1K.fa')
         assert os.path.isfile(out_file)
 
         # correct number of seqs
         seqs = list(SeqIO.parse(out_file, 'fasta'))
         assert len(seqs) == 108
+
+    finally:
+        if os.path.isdir(out_dir):
+            rmtree(out_dir)
+
+
+# --------------------------------------------------
+def test_fastq_input():
+    """ FASTQ input """
+
+    out_dir = 'out'
+    try:
+        if os.path.isdir(out_dir):
+            rmtree(out_dir)
+
+        rv, out = getstatusoutput(f'{RUN} -s 1 -p .8 -f fastq {FASTQ}')
+        assert rv == 0
+        expected = ('  1: lsu.fq\n'
+                    'Wrote 3 sequences from 1 file to directory "out"')
+        assert out == expected
+        assert os.path.isdir(out_dir)
+
+        files = os.listdir(out_dir)
+        assert len(files) == 1
+
+        out_file = os.path.join(out_dir, 'lsu.fq')
+        assert os.path.isfile(out_file)
+
+        # correct number of seqs
+        seqs = list(SeqIO.parse(out_file, 'fastq'))
+        assert len(seqs) == 3
+
+    finally:
+        if os.path.isdir(out_dir):
+            rmtree(out_dir)
+
+
+# --------------------------------------------------
+def test_max_reads():
+    """ Max reads """
+
+    out_dir = 'out'
+    try:
+        if os.path.isdir(out_dir):
+            rmtree(out_dir)
+
+        max_reads = random.randint(10, 20)
+        rv, out = getstatusoutput(f'{RUN} -s 10 -m {max_reads} {N1K}')
+        assert rv == 0
+        expected = (
+            '  1: n1k.fa\n'
+            f'Wrote {max_reads} sequences from 1 file to directory "out"')
+        assert out == expected
+        assert os.path.isdir(out_dir)
+
+        files = os.listdir(out_dir)
+        assert len(files) == 1
+
+        out_file = os.path.join(out_dir, 'N1K.fa')
+        assert os.path.isfile(out_file)
+
+        # correct number of seqs
+        seqs = list(SeqIO.parse(out_file, 'fasta'))
+        assert len(seqs) == max_reads
 
     finally:
         if os.path.isdir(out_dir):
@@ -96,8 +174,7 @@ def test_options():
         if os.path.isdir(out_dir):
             rmtree(out_dir)
 
-        cmd = f'{prg} -s 4 -o {out_dir} -p .25 {n1k} {n10k} {n100k}'
-        print(cmd)
+        cmd = f'{RUN} -s 4 -o {out_dir} -p .25 {N1K} {N10K} {N100K}'
         rv, out = getstatusoutput(cmd)
         assert rv == 0
 
@@ -126,6 +203,6 @@ def test_options():
 
 # --------------------------------------------------
 def random_string():
-    """generate a random string"""
+    """ Generate a random string """
 
     return ''.join(random.choices(string.ascii_uppercase + string.digits, k=5))

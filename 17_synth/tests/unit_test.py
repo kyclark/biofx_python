@@ -27,9 +27,9 @@ def test_gen_seq() -> None:
 
     state = random.getstate()
     random.seed(1)
-    assert gen_seq(chain, k=4, min_len=6, max_len=12) == 'CGTACGTACGT'
+    assert gen_seq(chain, k=4, min_len=6, max_len=12) == 'CGTACGTACG'
     random.seed(2)
-    assert gen_seq(chain, k=4, min_len=5, max_len=10) == 'ACGTAC'
+    assert gen_seq(chain, k=4, min_len=5, max_len=10) == 'ACGTA'
     random.setstate(state)
 
 
