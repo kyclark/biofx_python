@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-""" Probabalistically subset FASTA files """
+""" Probabilistically subset FASTA files """
 
 import argparse
 import os
 import random
 from Bio import SeqIO
-from typing import List, NamedTuple, TextIO
+from typing import List, NamedTuple, Optional, TextIO
 
 
 class Args(NamedTuple):
@@ -14,7 +14,7 @@ class Args(NamedTuple):
     file_format: str
     percent: float
     max_reads: int
-    seed: int
+    seed: Optional[int]
     outdir: str
 
 
@@ -114,7 +114,7 @@ def main() -> None:
     num_files = len(args.files)
     print(f'Wrote {total_num:,} sequence{"" if total_num == 1 else "s"} '
           f'from {num_files:,} file{"" if num_files == 1 else "s"} '
-          f'to directory "{args.outdir}"')
+          f'to directory "{args.outdir}".')
 
 
 # --------------------------------------------------

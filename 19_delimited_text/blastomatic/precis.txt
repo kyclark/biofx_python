@@ -1,1 +1,0 @@
-Parsing BLAST output format "6" (tab-delimited, no headers), dictionary lookups.

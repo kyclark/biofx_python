@@ -58,6 +58,17 @@ def test_bad_pct():
 
 
 # --------------------------------------------------
+def test_bad_seed():
+    """ Dies on bad seed """
+
+    bad = random_string()
+    rv, out = getstatusoutput(f'{RUN} -s {bad} {N1K}')
+    assert rv != 0
+    assert re.match('usage:', out, re.I)
+    assert re.search(f"-s/--seed: invalid int value: '{bad}'", out)
+
+
+# --------------------------------------------------
 def test_bad_format():
     """ Dies on bad file format """
 
@@ -71,7 +82,7 @@ def test_bad_format():
 
 
 # --------------------------------------------------
-def test_defaults():
+def test_defaults_one_file():
     """ Runs on good input """
 
     out_dir = 'out'
@@ -82,7 +93,7 @@ def test_defaults():
         rv, out = getstatusoutput(f'{RUN} -s 10 {N1K}')
         assert rv == 0
         expected = ('  1: n1k.fa\n'
-                    'Wrote 108 sequences from 1 file to directory "out"')
+                    'Wrote 108 sequences from 1 file to directory "out".')
         assert out == expected
         assert os.path.isdir(out_dir)
 
@@ -113,7 +124,7 @@ def test_fastq_input():
         rv, out = getstatusoutput(f'{RUN} -s 1 -p .8 -f fastq {FASTQ}')
         assert rv == 0
         expected = ('  1: lsu.fq\n'
-                    'Wrote 3 sequences from 1 file to directory "out"')
+                    'Wrote 3 sequences from 1 file to directory "out".')
         assert out == expected
         assert os.path.isdir(out_dir)
 
@@ -123,9 +134,46 @@ def test_fastq_input():
         out_file = os.path.join(out_dir, 'lsu.fq')
         assert os.path.isfile(out_file)
 
-        # correct number of seqs
-        seqs = list(SeqIO.parse(out_file, 'fastq'))
+        # correct number of seqs in FASTA format
+        seqs = list(SeqIO.parse(out_file, 'fasta'))
         assert len(seqs) == 3
+
+    finally:
+        if os.path.isdir(out_dir):
+            rmtree(out_dir)
+
+
+# --------------------------------------------------
+def test_defaults_multiple_file():
+    """ Runs on good input with many files """
+
+    out_dir = random_string()
+    try:
+        if os.path.isdir(out_dir):
+            rmtree(out_dir)
+
+        cmd = f'{RUN} -o {out_dir} -s 1 {N100K} {N10K} {N1K}'
+        rv, out = getstatusoutput(cmd)
+        assert rv == 0
+        status = '\n'.join([
+            '  1: n100k.fa',
+            '  2: n10k.fa',
+            '  3: n1k.fa',
+            f'Wrote 11,075 sequences from 3 files to directory "{out_dir}".',
+        ])
+
+        assert out == status
+        assert os.path.isdir(out_dir)
+
+        files = os.listdir(out_dir)
+        assert len(files) == 3
+
+        expected = [('n1k.fa', 106), ('n10k.fa', 995), ('n100k.fa', 9974)]
+        for file, num in expected:
+            path = os.path.join(out_dir, file)
+            assert os.path.isfile(path)
+            seqs = list(SeqIO.parse(path, 'fasta'))
+            assert len(seqs) == num
 
     finally:
         if os.path.isdir(out_dir):
@@ -146,7 +194,7 @@ def test_max_reads():
         assert rv == 0
         expected = (
             '  1: n1k.fa\n'
-            f'Wrote {max_reads} sequences from 1 file to directory "out"')
+            f'Wrote {max_reads} sequences from 1 file to directory "out".')
         assert out == expected
         assert os.path.isdir(out_dir)
 
@@ -182,7 +230,7 @@ def test_options():
         assert re.search('2: n10k.fa', out)
         assert re.search('3: n100k.fa', out)
         assert re.search(
-            f'Wrote 27,688 sequences from 3 files to directory "{out_dir}"',
+            f'Wrote 27,688 sequences from 3 files to directory "{out_dir}".',
             out)
 
         assert os.path.isdir(out_dir)
