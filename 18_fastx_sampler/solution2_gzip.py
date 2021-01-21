@@ -101,8 +101,8 @@ def main() -> None:
         out_file = os.path.join(args.outdir, basename)
         print(f'{i:3}: {basename}')
 
-        ext = os.path.splitext(basename)
-        fh = gzip.open(file, 'rb') if ext == '.gz' else open(file, 'rt')
+        ext = os.path.splitext(basename)[1]
+        fh = gzip.open(file, 'rt') if ext == '.gz' else open(file, 'rt')
         out_fh = open(out_file, 'wt')
         num_taken = 0
 
