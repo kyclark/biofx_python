@@ -3,9 +3,8 @@
 
 import argparse
 import pandas as pd
-import sys
-import numpy as np
-from typing import Any, NamedTuple, TextIO
+import os
+from typing import NamedTuple, TextIO
 
 
 class Args(NamedTuple):
@@ -14,7 +13,7 @@ class Args(NamedTuple):
     annotations: TextIO
     outfile: TextIO
     delimiter: str
-    quiet: bool
+    pctid: float
 
 
 # --------------------------------------------------
@@ -25,41 +24,48 @@ def get_args():
         description='Annotate BLAST output',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    parser.add_argument('hits',
+    parser.add_argument('-b',
+                        '--blasthits',
                         metavar='FILE',
                         type=argparse.FileType('rt'),
-                        help='BLAST output (-outfmt 6)')
+                        help='BLAST output (-outfmt 6)',
+                        required=True)
 
     parser.add_argument('-a',
                         '--annotations',
                         help='Annotation file',
                         metavar='FILE',
                         type=argparse.FileType('rt'),
-                        default='')
+                        required=True)
 
     parser.add_argument('-o',
                         '--outfile',
                         help='Output file',
                         metavar='FILE',
                         type=argparse.FileType('wt'),
-                        default=sys.stdout)
+                        default='out.csv')
 
     parser.add_argument('-d',
                         '--delimiter',
                         help='Output field delimiter',
                         metavar='DELIM',
                         type=str,
-                        default='\t')
+                        default='')
 
-    parser.add_argument('-q',
-                        '--quiet',
-                        help='Do not print missing centroids',
-                        action='store_true')
+    parser.add_argument('-p',
+                        '--pctid',
+                        help='Minimum percent identity',
+                        metavar='PCTID',
+                        type=float,
+                        default=0.)
 
     args = parser.parse_args()
 
-    return Args(args.hits, args.annotations, args.outfile, args.delimiter,
-                args.quiet)
+    return Args(hits=args.blasthits,
+                annotations=args.annotations,
+                outfile=args.outfile,
+                delimiter=args.delimiter or guess_delimiter(args.outfile.name),
+                pctid=args.pctid)
 
 
 # --------------------------------------------------
@@ -75,50 +81,29 @@ def main():
                            'gapopen', 'qstart', 'qend', 'sstart', 'send',
                            'evalue', 'bitscore'
                        ])
-    # hits = hits.set_index('sseqid').join(annots.set_index('centroid'))
-    joined = pd.merge(hits,
-                      annots,
-                      left_on='sseqid',
-                      right_on='centroid',
-                      how='left')
 
-    def error(msg: str) -> None:
-        if not args.quiet:
-            print(msg, file=sys.stderr)
+    joined = hits[hits['pident'] >= args.pctid].join(
+        annots.set_index('centroid'), on='sseqid', how='inner')
 
-    data = []
-    for _, hit in joined.iterrows():
-        print(hit)
-        if seq_id := hit.get('sseqid'):
-            # genus, species = hit.get('genus'), hit.get('species')
-            genus = '' if isnan(hit['genus']) else hit['genus']
-            species = '' if isnan(hit['species']) else hit['species']
-            # genus = hit['genus'] or ''
-            # species = hit['species'] or ''
-            print('GENUS "{}"'.format(hit['genus']))
-            print('SPECIES "{}"'.format(hit['species']))
+    # joined = pd.merge(hits[hits['pident'] >= args.pctid],
+    #                   annots,
+    #                   left_on='sseqid',
+    #                   right_on='centroid')
 
-            if any([genus, species]):
-                data.append({
-                    'seq_id': seq_id,
-                    'pident': hit.get('pident'),
-                    'genus': genus,
-                    'species': species,
-                })
-            else:
-                error(f'Missing "{seq_id}"')
-        break
+    joined.to_csv(args.outfile,
+                  index=False,
+                  columns=['sseqid', 'pident', 'genus', 'species'],
+                  sep=args.delimiter)
 
-    df = pd.DataFrame.from_records(data=data)
-    df.to_csv(args.outfile, index=False, sep=args.delimiter)
+    print(f'Exported {joined.shape[0]:,} to "{args.outfile.name}".')
 
 
 # --------------------------------------------------
-def isnan(val: Any) -> bool:
-    """ Detect NaN """
+def guess_delimiter(filename: str) -> str:
+    """ Guess the field separator from the file extension """
 
-    print(f'VAL "{val}"')
-    return isinstance(val, float) and np.nan(val)
+    ext = os.path.splitext(filename)[1]
+    return ',' if ext == '.csv' else '\t'
 
 
 # --------------------------------------------------
