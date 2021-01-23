@@ -10,16 +10,17 @@ from subprocess import getstatusoutput
 
 PRG = './blastomatic.py'
 RUN = f'python {PRG}' if platform.system() == 'Windows' else PRG
-HITS1 = './tests/inputs/hits1.tab'
-HITS2 = './tests/inputs/hits2.tab'
-CENTROIDS = './tests/inputs/centroids.csv'
+HITS1 = './tests/inputs/gos_hits1.csv'
+HITS2 = './tests/inputs/gos_hits2.csv'
+META = './tests/inputs/gos_meta.csv'
 
 
 # --------------------------------------------------
 def test_exists() -> None:
     """ Program exists """
 
-    assert os.path.isfile(PRG)
+    for file in [PRG, HITS1, HITS2, META]:
+        assert os.path.isfile(file)
 
 
 # --------------------------------------------------
@@ -47,7 +48,7 @@ def test_bad_input_file() -> None:
     """ Dies on bad input file """
 
     bad = random_string()
-    rv, out = getstatusoutput(f'{RUN} --blasthits {bad} -a {CENTROIDS}')
+    rv, out = getstatusoutput(f'{RUN} --blasthits {bad} -a {META}')
     assert rv != 0
     assert re.search(f"No such file or directory: '{bad}'", out)
 
@@ -61,17 +62,18 @@ def test_good_input() -> None:
         os.remove(outfile)
 
     try:
-        cmd = f'{RUN} -a {CENTROIDS} -b {HITS1}'
+        cmd = f'{RUN} -a {META} -b {HITS1}'
+        print(cmd)
         rv, out = getstatusoutput(cmd)
         assert rv == 0
-        assert out == 'Exported 27 to "out.csv".'
+        assert out == 'Exported 499 to "out.csv".'
         assert os.path.isfile(outfile)
 
         reader = csv.DictReader(open(outfile), delimiter=',')
         records = list(reader)
-        assert len(records) == 27
-        assert records[0]['sseqid'] == 'bfb6f5dfb4d0ef0842be8f5df6c86459'
-        assert records[-1]['sseqid'] == 'a0952bd2b994a100c0a28a35735cec6b'
+        assert len(records) == 499
+        assert records[0]['qseqid'] == 'CAM_READ_0234442157'
+        assert records[-1]['qseqid'] == 'JCVI_READ_1095403503430'
     finally:
         if os.path.isfile(outfile):
             os.remove(outfile)
@@ -87,16 +89,16 @@ def test_delimiter() -> None:
 
     try:
         delim = ',' if random.choice([0, 1]) else '\t'
-        cmd = f'{RUN} -a {CENTROIDS} -b {HITS1} -d "{delim}" -o {outfile}'
+        cmd = f'{RUN} -a {META} -b {HITS1} -d "{delim}" -o {outfile}'
         rv, out = getstatusoutput(cmd)
         assert rv == 0
-        assert out == f'Exported 27 to "{outfile}".'
+        assert out == f'Exported 499 to "{outfile}".'
         assert os.path.isfile(outfile)
 
         reader = csv.DictReader(open(outfile), delimiter=delim)
         records = list(reader)
-        assert len(records) == 27
-        assert records[0]['sseqid'] == 'bfb6f5dfb4d0ef0842be8f5df6c86459'
+        assert len(records) == 499
+        assert records[0]['qseqid'] == 'CAM_READ_0234442157'
     finally:
         if os.path.isfile(outfile):
             os.remove(outfile)
@@ -115,16 +117,16 @@ def test_guess_delimiter() -> None:
         os.remove(outfile)
 
     try:
-        cmd = f'{RUN} -a {CENTROIDS} -b {HITS2} -o {outfile}'
+        cmd = f'{RUN} -a {META} -b {HITS2} -o {outfile}'
         rv, out = getstatusoutput(cmd)
         assert rv == 0
-        assert out == f'Exported 25 to "{outfile}".'
+        assert out == f'Exported 248 to "{outfile}".'
         assert os.path.isfile(outfile)
 
         reader = csv.DictReader(open(outfile), delimiter=delim)
         records = list(reader)
-        assert len(records) == 25
-        assert records[-1]['sseqid'] == '5837cb753f931e6ee8a71937388191fa'
+        assert len(records) == 248
+        assert records[-1]['qseqid'] == 'JCVI_READ_1100018174123'
     finally:
         if os.path.isfile(outfile):
             os.remove(outfile)
@@ -139,16 +141,16 @@ def test_pctid() -> None:
         os.remove(outfile)
 
     try:
-        cmd = f'{RUN} -a {CENTROIDS} -b {HITS2} -p 90 -o {outfile}'
+        cmd = f'{RUN} -a {META} -b {HITS2} -p 90 -o {outfile}'
         rv, out = getstatusoutput(cmd)
         assert rv == 0
-        assert out == f'Exported 13 to "{outfile}".'
+        assert out == f'Exported 97 to "{outfile}".'
         assert os.path.isfile(outfile)
 
         reader = csv.DictReader(open(outfile), delimiter='\t')
         records = list(reader)
-        assert len(records) == 13
-        assert records[-1]['sseqid'] == 'af77fb5cb5645320672c23f6059fe455'
+        assert len(records) == 97
+        assert records[-1]['qseqid'] == 'JCVI_READ_1092343670678'
     finally:
         if os.path.isfile(outfile):
             os.remove(outfile)

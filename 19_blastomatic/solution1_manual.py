@@ -77,15 +77,15 @@ def main():
     annots_reader = csv.DictReader(args.annotations, delimiter=',')
     annots = {}
     for row in annots_reader:
-        if centroid := row.get('centroid'):
-            annots[centroid] = row
+        if acc := row.get('seq_id'):
+            annots[acc] = row
 
-    headers = ['sseqid', 'pident', 'genus', 'species']
+    headers = ['qseqid', 'pident', 'latitude', 'longitude']
     args.outfile.write(args.delimiter.join(headers) + '\n')
     # print(args.delimiter.join(headers), file=args.outfile)
 
     hits = csv.DictReader(args.hits,
-                          delimiter='\t',
+                          delimiter=',',
                           fieldnames=[
                               'qseqid', 'sseqid', 'pident', 'length',
                               'mismatch', 'gapopen', 'qstart', 'qend',
@@ -97,15 +97,15 @@ def main():
         if float(hit.get('pident', -1)) < args.pctid:
             continue
 
-        if seq_id := hit.get('sseqid'):
+        if seq_id := hit.get('qseqid'):
             if info := annots.get(seq_id):
                 num_written += 1
                 args.outfile.write(
                     args.delimiter.join([
                         seq_id,
-                        hit.get('pident', 'NA'),
-                        info.get('genus') or 'NA',
-                        info.get('species') or 'NA',
+                        hit.get('pident'),
+                        info.get('latitude'),
+                        info.get('longitude'),
                     ]) + '\n')
 
                 # print(args.delimiter.join([
