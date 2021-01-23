@@ -28,12 +28,12 @@ def get_args():
                         '--blasthits',
                         metavar='FILE',
                         type=argparse.FileType('rt'),
-                        help='BLAST output (-outfmt 6)',
+                        help='BLAST -outfmt 6',
                         required=True)
 
     parser.add_argument('-a',
                         '--annotations',
-                        help='Annotation file',
+                        help='Annotations file',
                         metavar='FILE',
                         type=argparse.FileType('rt'),
                         required=True)
@@ -75,7 +75,7 @@ def main():
     args = get_args()
     annots = pd.read_csv(args.annotations)
     hits = pd.read_csv(args.hits,
-                       delimiter='\t',
+                       delimiter=',',
                        names=[
                            'qseqid', 'sseqid', 'pident', 'length', 'mismatch',
                            'gapopen', 'qstart', 'qend', 'sstart', 'send',
@@ -83,16 +83,16 @@ def main():
                        ])
 
     joined = hits[hits['pident'] >= args.pctid].join(
-        annots.set_index('centroid'), on='sseqid', how='inner')
+        annots.set_index('seq_id'), on='qseqid', how='inner')
 
     # joined = pd.merge(hits[hits['pident'] >= args.pctid],
     #                   annots,
-    #                   left_on='sseqid',
-    #                   right_on='centroid')
+    #                   left_on='qseqid',
+    #                   right_on='seq_id')
 
     joined.to_csv(args.outfile,
                   index=False,
-                  columns=['sseqid', 'pident', 'genus', 'species'],
+                  columns=['qseqid', 'pident', 'latitude', 'longitude'],
                   sep=args.delimiter)
 
     print(f'Exported {joined.shape[0]:,} to "{args.outfile.name}".')

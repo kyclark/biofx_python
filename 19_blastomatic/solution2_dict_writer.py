@@ -28,12 +28,12 @@ def get_args():
                         '--blasthits',
                         metavar='FILE',
                         type=argparse.FileType('rt'),
-                        help='BLAST output (-outfmt 6)',
+                        help='BLAST -outfmt 6',
                         required=True)
 
     parser.add_argument('-a',
                         '--annotations',
-                        help='Annotation file',
+                        help='Annotations file',
                         metavar='FILE',
                         type=argparse.FileType('rt'),
                         required=True)
@@ -74,16 +74,16 @@ def main():
 
     args = get_args()
     annots_reader = csv.DictReader(args.annotations, delimiter=',')
-    annots = {row['centroid']: row for row in annots_reader}
+    annots = {row['seq_id']: row for row in annots_reader}
 
     writer = csv.DictWriter(
         args.outfile,
-        fieldnames=['sseqid', 'pident', 'genus', 'species'],
+        fieldnames=['qseqid', 'pident', 'genus', 'species'],
         delimiter=args.delimiter)
     writer.writeheader()
 
     hits = csv.DictReader(args.hits,
-                          delimiter='\t',
+                          delimiter=',',
                           fieldnames=[
                               'qseqid', 'sseqid', 'pident', 'length',
                               'mismatch', 'gapopen', 'qstart', 'qend',
@@ -95,11 +95,11 @@ def main():
         if float(hit.get('pident', -1)) < args.pctid:
             continue
 
-        if seq_id := hit.get('sseqid'):
+        if seq_id := hit.get('qseqid'):
             if info := annots.get(seq_id):
                 num_written += 1
                 writer.writerow({
-                    'sseqid': seq_id,
+                    'qseqid': seq_id,
                     'pident': hit.get('pident', 'NA'),
                     'genus': info.get('genus') or 'NA',
                     'species': info.get('species') or 'NA',

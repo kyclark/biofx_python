@@ -66,12 +66,12 @@ def test_good_input() -> None:
         print(cmd)
         rv, out = getstatusoutput(cmd)
         assert rv == 0
-        assert out == 'Exported 499 to "out.csv".'
+        assert out == 'Exported 500 to "out.csv".'
         assert os.path.isfile(outfile)
 
         reader = csv.DictReader(open(outfile), delimiter=',')
         records = list(reader)
-        assert len(records) == 499
+        assert len(records) == 500
         assert records[0]['qseqid'] == 'CAM_READ_0234442157'
         assert records[-1]['qseqid'] == 'JCVI_READ_1095403503430'
     finally:
@@ -92,12 +92,12 @@ def test_delimiter() -> None:
         cmd = f'{RUN} -a {META} -b {HITS1} -d "{delim}" -o {outfile}'
         rv, out = getstatusoutput(cmd)
         assert rv == 0
-        assert out == f'Exported 499 to "{outfile}".'
+        assert out == f'Exported 500 to "{outfile}".'
         assert os.path.isfile(outfile)
 
         reader = csv.DictReader(open(outfile), delimiter=delim)
         records = list(reader)
-        assert len(records) == 499
+        assert len(records) == 500
         assert records[0]['qseqid'] == 'CAM_READ_0234442157'
     finally:
         if os.path.isfile(outfile):
@@ -120,12 +120,12 @@ def test_guess_delimiter() -> None:
         cmd = f'{RUN} -a {META} -b {HITS2} -o {outfile}'
         rv, out = getstatusoutput(cmd)
         assert rv == 0
-        assert out == f'Exported 248 to "{outfile}".'
+        assert out == f'Exported 252 to "{outfile}".'
         assert os.path.isfile(outfile)
 
         reader = csv.DictReader(open(outfile), delimiter=delim)
         records = list(reader)
-        assert len(records) == 248
+        assert len(records) == 252
         assert records[-1]['qseqid'] == 'JCVI_READ_1100018174123'
     finally:
         if os.path.isfile(outfile):
@@ -144,12 +144,12 @@ def test_pctid() -> None:
         cmd = f'{RUN} -a {META} -b {HITS2} -p 90 -o {outfile}'
         rv, out = getstatusoutput(cmd)
         assert rv == 0
-        assert out == f'Exported 97 to "{outfile}".'
+        assert out == f'Exported 101 to "{outfile}".'
         assert os.path.isfile(outfile)
 
         reader = csv.DictReader(open(outfile), delimiter='\t')
         records = list(reader)
-        assert len(records) == 97
+        assert len(records) == 101
         assert records[-1]['qseqid'] == 'JCVI_READ_1092343670678'
     finally:
         if os.path.isfile(outfile):

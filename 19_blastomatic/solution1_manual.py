@@ -28,12 +28,12 @@ def get_args():
                         '--blasthits',
                         metavar='FILE',
                         type=argparse.FileType('rt'),
-                        help='BLAST output (-outfmt 6)',
+                        help='BLAST -outfmt 6',
                         required=True)
 
     parser.add_argument('-a',
                         '--annotations',
-                        help='Annotation file',
+                        help='Annotations file',
                         metavar='FILE',
                         type=argparse.FileType('rt'),
                         required=True)

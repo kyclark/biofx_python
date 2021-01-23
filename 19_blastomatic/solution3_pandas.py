@@ -28,12 +28,12 @@ def get_args():
                         '--blasthits',
                         metavar='FILE',
                         type=argparse.FileType('rt'),
-                        help='BLAST output (-outfmt 6)',
+                        help='BLAST -outfmt 6',
                         required=True)
 
     parser.add_argument('-a',
                         '--annotations',
-                        help='Annotation file',
+                        help='Annotations file',
                         metavar='FILE',
                         type=argparse.FileType('rt'),
                         required=True)
@@ -75,7 +75,7 @@ def main():
     args = get_args()
     annots = pd.read_csv(args.annotations)
     hits = pd.read_csv(args.hits,
-                       delimiter='\t',
+                       delimiter=',',
                        names=[
                            'qseqid', 'sseqid', 'pident', 'length', 'mismatch',
                            'gapopen', 'qstart', 'qend', 'sstart', 'send',
@@ -84,14 +84,14 @@ def main():
 
     data = []
     for _, hit in hits[hits['pident'] >= args.pctid].iterrows():
-        centroids = annots[annots['centroid'] == hit['sseqid']]
-        if not centroids.empty:
-            for _, centroid in centroids.iterrows():
+        meta = annots[annots['seq_id'] == hit['qseqid']]
+        if not meta.empty:
+            for _, info in meta.iterrows():
                 data.append({
-                    'sseqid': hit['sseqid'],
+                    'qseqid': hit['qseqid'],
                     'pident': hit['pident'],
-                    'genus': centroid['genus'] or 'NA',
-                    'species': centroid['species'] or 'NA',
+                    'latitude': info['latitude'] or 'NA',
+                    'longitude': info['longitude'] or 'NA',
                 })
 
     df = pd.DataFrame.from_records(data=data)
