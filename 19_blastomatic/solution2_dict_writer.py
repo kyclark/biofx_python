@@ -78,7 +78,7 @@ def main():
 
     writer = csv.DictWriter(
         args.outfile,
-        fieldnames=['qseqid', 'pident', 'genus', 'species'],
+        fieldnames=['qseqid', 'pident', 'depth', 'lat_lon'],
         delimiter=args.delimiter)
     writer.writeheader()
 
@@ -101,8 +101,8 @@ def main():
                 writer.writerow({
                     'qseqid': seq_id,
                     'pident': hit.get('pident', 'NA'),
-                    'genus': info.get('genus') or 'NA',
-                    'species': info.get('species') or 'NA',
+                    'depth': info.get('depth') or 'NA',
+                    'lat_lon': info.get('lat_lon') or 'NA',
                 })
 
     print(f'Exported {num_written:,} to "{args.outfile.name}".')

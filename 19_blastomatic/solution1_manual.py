@@ -6,6 +6,8 @@ import csv
 import os
 from typing import NamedTuple, TextIO
 
+from pprint import pprint
+
 
 class Args(NamedTuple):
     """ Command-line arguments """
@@ -73,14 +75,14 @@ def main():
     """ Make a jazz noise here """
 
     args = get_args()
-
     annots_reader = csv.DictReader(args.annotations, delimiter=',')
     annots = {}
     for row in annots_reader:
         if acc := row.get('seq_id'):
             annots[acc] = row
+        break
 
-    headers = ['qseqid', 'pident', 'latitude', 'longitude']
+    headers = ['qseqid', 'pident', 'depth', 'lat_lon']
     args.outfile.write(args.delimiter.join(headers) + '\n')
     # print(args.delimiter.join(headers), file=args.outfile)
 
@@ -104,8 +106,8 @@ def main():
                     args.delimiter.join([
                         seq_id,
                         hit.get('pident'),
-                        info.get('latitude'),
-                        info.get('longitude'),
+                        info.get('depth'),
+                        info.get('lat_lon'),
                     ]) + '\n')
 
                 # print(args.delimiter.join([

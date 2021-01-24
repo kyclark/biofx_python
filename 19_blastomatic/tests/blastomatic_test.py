@@ -70,6 +70,8 @@ def test_good_input() -> None:
         assert os.path.isfile(outfile)
 
         reader = csv.DictReader(open(outfile), delimiter=',')
+        assert set(reader.fieldnames
+                   or '') == set(['qseqid', 'pident', 'depth', 'lat_lon'])
         records = list(reader)
         assert len(records) == 500
         assert records[0]['qseqid'] == 'CAM_READ_0234442157'
@@ -96,6 +98,8 @@ def test_delimiter() -> None:
         assert os.path.isfile(outfile)
 
         reader = csv.DictReader(open(outfile), delimiter=delim)
+        assert set(reader.fieldnames
+                   or '') == set(['qseqid', 'pident', 'depth', 'lat_lon'])
         records = list(reader)
         assert len(records) == 500
         assert records[0]['qseqid'] == 'CAM_READ_0234442157'
@@ -124,6 +128,8 @@ def test_guess_delimiter() -> None:
         assert os.path.isfile(outfile)
 
         reader = csv.DictReader(open(outfile), delimiter=delim)
+        assert set(reader.fieldnames
+                   or '') == set(['qseqid', 'pident', 'depth', 'lat_lon'])
         records = list(reader)
         assert len(records) == 252
         assert records[-1]['qseqid'] == 'JCVI_READ_1100018174123'
@@ -148,9 +154,12 @@ def test_pctid() -> None:
         assert os.path.isfile(outfile)
 
         reader = csv.DictReader(open(outfile), delimiter='\t')
+        assert set(reader.fieldnames
+                   or '') == set(['qseqid', 'pident', 'depth', 'lat_lon'])
         records = list(reader)
         assert len(records) == 101
         assert records[-1]['qseqid'] == 'JCVI_READ_1092343670678'
+        assert all(map(lambda r: float(r['pident']) >= 90, records))
     finally:
         if os.path.isfile(outfile):
             os.remove(outfile)

@@ -92,7 +92,7 @@ def main():
 
     joined.to_csv(args.outfile,
                   index=False,
-                  columns=['qseqid', 'pident', 'latitude', 'longitude'],
+                  columns=['qseqid', 'pident', 'depth', 'lat_lon'],
                   sep=args.delimiter)
 
     print(f'Exported {joined.shape[0]:,} to "{args.outfile.name}".')

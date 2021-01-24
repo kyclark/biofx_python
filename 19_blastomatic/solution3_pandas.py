@@ -90,8 +90,8 @@ def main():
                 data.append({
                     'qseqid': hit['qseqid'],
                     'pident': hit['pident'],
-                    'latitude': info['latitude'] or 'NA',
-                    'longitude': info['longitude'] or 'NA',
+                    'depth': info['depth'] or 'NA',
+                    'lat_lon': info['lat_lon'] or 'NA',
                 })
 
     df = pd.DataFrame.from_records(data=data)
