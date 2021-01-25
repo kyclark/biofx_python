@@ -100,9 +100,9 @@ def main():
                 num_written += 1
                 writer.writerow({
                     'qseqid': seq_id,
-                    'pident': hit.get('pident', 'NA'),
-                    'depth': info.get('depth') or 'NA',
-                    'lat_lon': info.get('lat_lon') or 'NA',
+                    'pident': hit.get('pident'),
+                    'depth': info.get('depth'),
+                    'lat_lon': info.get('lat_lon'),
                 })
 
     print(f'Exported {num_written:,} to "{args.outfile.name}".')

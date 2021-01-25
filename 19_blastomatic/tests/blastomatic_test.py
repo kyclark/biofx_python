@@ -10,9 +10,9 @@ from subprocess import getstatusoutput
 
 PRG = './blastomatic.py'
 RUN = f'python {PRG}' if platform.system() == 'Windows' else PRG
-HITS1 = './tests/inputs/gos_hits1.csv'
-HITS2 = './tests/inputs/gos_hits2.csv'
-META = './tests/inputs/gos_meta.csv'
+HITS1 = './tests/inputs/hits1.csv'
+HITS2 = './tests/inputs/hits2.csv'
+META = './tests/inputs/meta.csv'
 
 
 # --------------------------------------------------
@@ -75,7 +75,7 @@ def test_good_input() -> None:
         records = list(reader)
         assert len(records) == 500
         assert records[0]['qseqid'] == 'CAM_READ_0234442157'
-        assert records[-1]['qseqid'] == 'JCVI_READ_1095403503430'
+        assert records[-1]['lat_lon'] == '-1.2169445,-90.319725'
     finally:
         if os.path.isfile(outfile):
             os.remove(outfile)
