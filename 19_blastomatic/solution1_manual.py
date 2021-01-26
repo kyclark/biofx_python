@@ -96,12 +96,13 @@ def main():
             if info := annots.get(seq_id):
                 num_written += 1
                 args.outfile.write(
-                    args.delimiter.join([
-                        seq_id,
-                        hit.get('pident'),
-                        info.get('depth'),
-                        '"{}"'.format(info.get('lat_lon')),
-                    ]) + '\n')
+                    args.delimiter.join(
+                        map(lambda s: f'"{s}"', [
+                            seq_id,
+                            hit.get('pident'),
+                            info.get('depth'),
+                            info.get('lat_lon')
+                        ])) + '\n')
 
     args.outfile.close()
     print(f'Exported {num_written:,} to "{args.outfile.name}".')

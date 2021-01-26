@@ -73,7 +73,7 @@ def main():
     """ Make a jazz noise here """
 
     args = get_args()
-    annots = pd.read_csv(args.annotations)
+    annots = pd.read_csv(args.annotations, index_col='seq_id')
     hits = pd.read_csv(args.hits,
                        delimiter=',',
                        names=[
@@ -82,8 +82,9 @@ def main():
                            'evalue', 'bitscore'
                        ])
 
-    joined = hits[hits['pident'] >= args.pctid].join(
-        annots.set_index('seq_id'), on='qseqid', how='inner')
+    joined = hits[hits['pident'] >= args.pctid].join(annots,
+                                                     on='qseqid',
+                                                     how='inner')
 
     # joined = pd.merge(hits[hits['pident'] >= args.pctid],
     #                   annots,
