@@ -62,17 +62,6 @@ def main() -> None:
 def codons(seq: str, k: int) -> List[str]:
     """ Extract k-sized codons from a sequence """
 
-    # assert k > 0
-
-    # if k < 1:
-    #     return []
-
-    # ret = []
-    # for codon in [seq[i:i + k] for i in range(0, len(seq), k)]:
-    #     ret.append(codon)
-
-    # return ret
-
     return [] if k < 1 else [seq[i:i + k] for i in range(0, len(seq), k)]
 
 

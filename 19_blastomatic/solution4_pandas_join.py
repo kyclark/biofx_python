@@ -73,27 +73,22 @@ def main():
     """ Make a jazz noise here """
 
     args = get_args()
-    annots = pd.read_csv(args.annotations, index_col='seq_id')
+    annots = pd.read_csv(args.annotations, sep=',', index_col='seq_id')
     hits = pd.read_csv(args.hits,
-                       delimiter=',',
+                       sep=',',
+                       index_col='qseqid',
                        names=[
                            'qseqid', 'sseqid', 'pident', 'length', 'mismatch',
                            'gapopen', 'qstart', 'qend', 'sstart', 'send',
                            'evalue', 'bitscore'
                        ])
 
-    joined = hits[hits['pident'] >= args.pctid].join(annots,
-                                                     on='qseqid',
-                                                     how='inner')
-
-    # joined = pd.merge(hits[hits['pident'] >= args.pctid],
-    #                   annots,
-    #                   left_on='qseqid',
-    #                   right_on='seq_id')
+    joined = hits[hits['pident'] >= args.pctid].join(annots, how='inner')
 
     joined.to_csv(args.outfile,
-                  index=False,
-                  columns=['qseqid', 'pident', 'depth', 'lat_lon'],
+                  index=True,
+                  index_label='qseqid',
+                  columns=['pident', 'depth', 'lat_lon'],
                   sep=args.delimiter)
 
     print(f'Exported {joined.shape[0]:,} to "{args.outfile.name}".')

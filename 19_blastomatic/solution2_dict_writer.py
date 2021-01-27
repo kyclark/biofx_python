@@ -96,13 +96,13 @@ def main():
             continue
 
         if seq_id := hit.get('qseqid'):
-            if info := annots.get(seq_id):
+            if seq := annots.get(seq_id):
                 num_written += 1
                 writer.writerow({
                     'qseqid': seq_id,
                     'pident': hit.get('pident'),
-                    'depth': info.get('depth'),
-                    'lat_lon': info.get('lat_lon'),
+                    'depth': seq.get('depth'),
+                    'lat_lon': seq.get('lat_lon'),
                 })
 
     print(f'Exported {num_written:,} to "{args.outfile.name}".')

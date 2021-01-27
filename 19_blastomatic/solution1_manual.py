@@ -93,15 +93,15 @@ def main():
             continue
 
         if seq_id := hit.get('qseqid'):
-            if info := annots.get(seq_id):
+            if seq := annots.get(seq_id):
                 num_written += 1
                 args.outfile.write(
                     args.delimiter.join(
                         map(lambda s: f'"{s}"', [
                             seq_id,
                             hit.get('pident'),
-                            info.get('depth'),
-                            info.get('lat_lon')
+                            seq.get('depth'),
+                            seq.get('lat_lon')
                         ])) + '\n')
 
     args.outfile.close()

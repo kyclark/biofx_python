@@ -73,9 +73,9 @@ def main():
     """ Make a jazz noise here """
 
     args = get_args()
-    annots = pd.read_csv(args.annotations)
+    annots = pd.read_csv(args.annotations, sep=',')
     hits = pd.read_csv(args.hits,
-                       delimiter=',',
+                       sep=',',
                        names=[
                            'qseqid', 'sseqid', 'pident', 'length', 'mismatch',
                            'gapopen', 'qstart', 'qend', 'sstart', 'send',
@@ -86,12 +86,12 @@ def main():
     for _, hit in hits[hits['pident'] >= args.pctid].iterrows():
         meta = annots[annots['seq_id'] == hit['qseqid']]
         if not meta.empty:
-            for _, info in meta.iterrows():
+            for _, seq in meta.iterrows():
                 data.append({
                     'qseqid': hit['qseqid'],
                     'pident': hit['pident'],
-                    'depth': info['depth'],
-                    'lat_lon': info['lat_lon'],
+                    'depth': seq['depth'],
+                    'lat_lon': seq['lat_lon'],
                 })
 
     df = pd.DataFrame.from_records(data=data)
