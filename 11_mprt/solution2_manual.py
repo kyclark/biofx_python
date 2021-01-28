@@ -103,6 +103,7 @@ def test_find_motif() -> None:
     assert find_motif('ANXTX') == [1]
     assert find_motif('NNTSYS') == [0, 1]
     assert find_motif('XNNTSYS') == [1, 2]
+    assert find_motif('XNNTSYSXNNTSYS') == [1, 2, 8, 9]
 
 
 # --------------------------------------------------

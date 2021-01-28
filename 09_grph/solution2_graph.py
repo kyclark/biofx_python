@@ -79,6 +79,8 @@ def main() -> None:
         filemode='w',
         level=logging.DEBUG if args.debug else logging.CRITICAL)
 
+    logging.debug('input file = "%s"', args.file.name)
+
     start, end = defaultdict(list), defaultdict(list)
     for rec in SeqIO.parse(args.file, 'fasta'):
         if kmers := find_kmers(str(rec.seq), args.k):
