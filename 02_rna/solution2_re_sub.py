@@ -36,7 +36,7 @@ def get_args() -> Args:
 
     args = parser.parse_args()
 
-    return Args(file=args.file, out_dir=args.out_dir)
+    return Args(files=args.file, out_dir=args.out_dir)
 
 
 # --------------------------------------------------

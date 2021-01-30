@@ -6,12 +6,12 @@ import os
 import random
 import gzip
 from Bio import SeqIO
-from typing import List, NamedTuple, Optional, TextIO
+from typing import List, NamedTuple, Optional
 
 
 class Args(NamedTuple):
     """ Command-line arguments """
-    files: List[TextIO]
+    files: List[str]
     file_format: str
     percent: float
     max_reads: int
