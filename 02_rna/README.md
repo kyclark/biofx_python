@@ -2,10 +2,10 @@
 
 http://rosalind.info/problems/rna/
 
-Write a program called "rna.py" that will accepts one or more files, each containing a sequence of DNA on each line and the name of an output directory.
+Write a program called `rna.py` that will accepts one or more files, each containing a sequence of DNA on each line and the name of an output directory.
 The sequences in each file will be transcribed to RNA in output file located in the output directory.
 
-The program should print a "usage" statement for "-h" or "--help" flags:
+The program should print a "usage" statement for `-h` or `--help` flags:
 
 ```
 $ ./rna.py -h

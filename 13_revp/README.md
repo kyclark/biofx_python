@@ -2,9 +2,9 @@
 
 http://rosalind.info/problems/revp/
 
-Write a Python program called "revp.py" that will accept a FASTA-formatted file of a DNA sequence and will print the position and length of every reverse palindrome in the string having length between 4 and 12.
+Write a Python program called `revp.py` that will accept a FASTA-formatted file of a DNA sequence and will print the position and length of every reverse palindrome in the string having length between 4 and 12.
 
-The program should print a "usage" statement for "-h" or "--help" flags:
+The program should print a "usage" statement for `-h` or `--help` flags:
 
 ```
 $ ./revp.py -h
@@ -45,26 +45,27 @@ A passing test suite looks like this:
 
 ```
 $ make test
-python3 -m pytest -xv --disable-pytest-warnings --flake8 --pylint --mypy revp.py tests/revp_test.py
-============================ test session starts ============================
+python3 -m pytest -xv --disable-pytest-warnings --flake8 --pylint 
+--pylint-rcfile=../pylintrc --mypy revp.py tests/revp_test.py
+============================= test session starts ==============================
 ...
+collecting ... collected 10 items
 
-revp.py::FLAKE8 SKIPPED                                               [  8%]
-revp.py::mypy PASSED                                                  [ 16%]
-revp.py::test_fst PASSED                                              [ 25%]
-revp.py::test_snd PASSED                                              [ 33%]
-revp.py::test_find_kmers PASSED                                       [ 41%]
-tests/revp_test.py::FLAKE8 SKIPPED                                    [ 50%]
-tests/revp_test.py::mypy PASSED                                       [ 58%]
-tests/revp_test.py::test_exists PASSED                                [ 66%]
-tests/revp_test.py::test_usage PASSED                                 [ 75%]
-tests/revp_test.py::test_ok1 PASSED                                   [ 83%]
-tests/revp_test.py::test_ok2 PASSED                                   [ 91%]
-::mypy PASSED                                                         [100%]
-=================================== mypy ====================================
+revp.py::FLAKE8 PASSED                                                   [  9%]
+revp.py::mypy PASSED                                                     [ 18%]
+revp.py::test_revp PASSED                                                [ 27%]
+tests/revp_test.py::FLAKE8 SKIPPED                                       [ 36%]
+tests/revp_test.py::mypy PASSED                                          [ 45%]
+tests/revp_test.py::test_exists PASSED                                   [ 54%]
+tests/revp_test.py::test_usage PASSED                                    [ 63%]
+tests/revp_test.py::test_bad_file PASSED                                 [ 72%]
+tests/revp_test.py::test_ok1 PASSED                                      [ 81%]
+tests/revp_test.py::test_ok2 PASSED                                      [ 90%]
+::mypy PASSED                                                            [100%]
+===================================== mypy =====================================
 
 Success: no issues found in 2 source files
-======================= 10 passed, 2 skipped in 0.95s =======================
+======================== 10 passed, 1 skipped in 1.29s =========================
 ```
 
 ## Author

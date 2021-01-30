@@ -424,4 +424,4 @@ known-third-party=enchant
 # "Exception"
 overgeneral-exceptions=Exception
 
-disable=too-many-locals,invalid-name,too-many-statements,too-many-arguments,cell-var-from-loop
+disable=too-many-locals,invalid-name,too-many-statements,too-many-arguments,cell-var-from-loop,wrong-import-order

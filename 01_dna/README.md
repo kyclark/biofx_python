@@ -2,8 +2,8 @@
 
 http://rosalind.info/problems/dna/
 
-Create a program called "dna.py" that will accept a sequence of DNA as a single positional argument.
-The program should print a "usage" statement for "-h" or "--help" flags:
+Create a program called `dna.py` that will accept a sequence of DNA as a single positional argument.
+The program should print a "usage" statement for `-h` or `--help` flags:
 
 ```
 $ ./dna.py -h
@@ -25,7 +25,7 @@ $ ./dna.py AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAG
 20 12 17 21
 ```
 
-The "make test" target will run the complete test suite:
+The `make test` target will run the complete test suite:
 
 ```
 $ make test

@@ -2,9 +2,9 @@
 
 http://rosalind.info/problems/grph/
 
-Write a Python program called "grph.py" an input file of sequences and an optional overlap size and will print all the pairs of sequences which can be joined given the overlap size.
+Write a Python program called `grph.py` an input file of sequences and an optional overlap size and will print all the pairs of sequences which can be joined given the overlap size.
 
-The program should print a "usage" statement for "-h" or "--help" flags:
+The program should print a "usage" statement for `-h` or `--help` flags:
 
 ```
 $ ./grph.py -h

@@ -2,9 +2,9 @@
 
 http://rosalind.info/problems/mrna/
 
-Write a Python program called "mrna.py" that will accept a protein sequence as a positional argument or a file name along with an optional "modulo" argument that defaults to 1,000,000.
+Write a Python program called `mrna.py` that will accept a protein sequence as a positional argument or a file name along with an optional "modulo" argument that defaults to 1,000,000.
 
-The program should print a "usage" statement for "-h" or "--help" flags:
+The program should print a "usage" statement for `-h` or `--help` flags:
 
 ```
 $ ./mrna.py -h

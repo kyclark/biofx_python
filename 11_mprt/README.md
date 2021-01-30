@@ -2,9 +2,9 @@
 
 http://rosalind.info/problems/mprt/
 
-Write a Python program called "mprt.py" that will accept file of sequence IDs, will download the sequences from UniProt, and will print each protein containing the N-glycosylation motif and a list of the locations where the motif can be found.
+Write a Python program called `mprt.py` that will accept file of sequence IDs, will download the sequences from UniProt, and will print each protein containing the N-glycosylation motif and a list of the locations where the motif can be found.
 
-The program should print a "usage" statement for "-h" or "--help" flags:
+The program should print a "usage" statement for `-h` or `--help` flags:
 
 ```
 $ ./mprt.py -h
@@ -47,24 +47,28 @@ A passing test suite looks like this:
 
 ```
 $ make test
-python3 -m pytest -xv --disable-pytest-warnings --flake8 --pylint --mypy mprt.py tests/mprt_test.py
+python3 -m pytest -xv --disable-pytest-warnings --flake8 --pylint 
+--pylint-rcfile=../pylintrc --mypy mprt.py tests/mprt_test.py
 ============================= test session starts ==============================
 ...
+collected 11 items
 
-mprt.py::FLAKE8 PASSED                                                   [ 10%]
-mprt.py::mypy PASSED                                                     [ 20%]
-tests/mprt_test.py::FLAKE8 PASSED                                        [ 30%]
-tests/mprt_test.py::mypy PASSED                                          [ 40%]
-tests/mprt_test.py::test_exists PASSED                                   [ 50%]
-tests/mprt_test.py::test_usage PASSED                                    [ 60%]
-tests/mprt_test.py::test_bad_file PASSED                                 [ 70%]
-tests/mprt_test.py::test_1 PASSED                                        [ 80%]
-tests/mprt_test.py::test_2 PASSED                                        [ 90%]
+mprt.py::FLAKE8 SKIPPED                                                  [  8%]
+mprt.py::mypy PASSED                                                     [ 16%]
+mprt.py::test_find_motif PASSED                                          [ 25%]
+mprt.py::test_find_kmers PASSED                                          [ 33%]
+tests/mprt_test.py::FLAKE8 SKIPPED                                       [ 41%]
+tests/mprt_test.py::mypy PASSED                                          [ 50%]
+tests/mprt_test.py::test_exists PASSED                                   [ 58%]
+tests/mprt_test.py::test_usage PASSED                                    [ 66%]
+tests/mprt_test.py::test_bad_file PASSED                                 [ 75%]
+tests/mprt_test.py::test_1 PASSED                                        [ 83%]
+tests/mprt_test.py::test_2 PASSED                                        [ 91%]
 ::mypy PASSED                                                            [100%]
 ===================================== mypy =====================================
 
 Success: no issues found in 2 source files
-============================= 10 passed in 23.58s ==============================
+======================== 10 passed, 2 skipped in 1.41s =========================
 ```
 
 ## Author

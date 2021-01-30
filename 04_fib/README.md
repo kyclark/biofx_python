@@ -2,9 +2,9 @@
 
 http://rosalind.info/problems/fib/
 
-Write a program called "fib.py" that accepts two positional arguments which are positive integer values describing the number of generations (<= 40) and the size of each litter (<= 5).
+Write a program called `fib.py` that accepts two positional arguments which are positive integer values describing the number of generations (lte 40) and the size of each litter (gte 5).
 
-The program should print a "usage" statement for "-h" or "--help" flags:
+The program should print a "usage" statement for `-h` or `--help` flags:
 
 ```
 $ ./fib.py -h
@@ -31,26 +31,28 @@ A fully passing test suite looks like the following:
 
 ```
 $ make test
-python3 -m pytest -xv --flake8 --pylint --mypy fib.py tests/fib_test.py
-============================ test session starts ============================
+python3 -m pytest -xv --flake8 --pylint --pylint-rcfile=../pylintrc 
+--mypy fib.py tests/fib_test.py
+============================= test session starts ==============================
 ...
+collected 11 items
 
-fib.py::FLAKE8 SKIPPED                                                [  8%]
-fib.py::mypy PASSED                                                   [ 16%]
-tests/fib_test.py::FLAKE8 SKIPPED                                     [ 25%]
-tests/fib_test.py::mypy PASSED                                        [ 33%]
-tests/fib_test.py::test_exists PASSED                                 [ 41%]
-tests/fib_test.py::test_usage PASSED                                  [ 50%]
-tests/fib_test.py::test_bad_n PASSED                                  [ 58%]
-tests/fib_test.py::test_bad_k PASSED                                  [ 66%]
-tests/fib_test.py::test_1 PASSED                                      [ 75%]
-tests/fib_test.py::test_2 PASSED                                      [ 83%]
-tests/fib_test.py::test_3 PASSED                                      [ 91%]
-::mypy PASSED                                                         [100%]
-=================================== mypy ====================================
+fib.py::FLAKE8 PASSED                                                    [  8%]
+fib.py::mypy PASSED                                                      [ 16%]
+tests/fib_test.py::FLAKE8 SKIPPED                                        [ 25%]
+tests/fib_test.py::mypy PASSED                                           [ 33%]
+tests/fib_test.py::test_exists PASSED                                    [ 41%]
+tests/fib_test.py::test_usage PASSED                                     [ 50%]
+tests/fib_test.py::test_bad_generations PASSED                           [ 58%]
+tests/fib_test.py::test_bad_litter PASSED                                [ 66%]
+tests/fib_test.py::test_1 PASSED                                         [ 75%]
+tests/fib_test.py::test_2 PASSED                                         [ 83%]
+tests/fib_test.py::test_3 PASSED                                         [ 91%]
+::mypy PASSED                                                            [100%]
+===================================== mypy =====================================
 
 Success: no issues found in 2 source files
-======================= 10 passed, 2 skipped in 0.43s =======================
+======================== 11 passed, 1 skipped in 0.72s =========================
 ```
 
 ## Author

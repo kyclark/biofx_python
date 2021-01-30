@@ -2,9 +2,9 @@
 
 http://rosalind.info/problems/hamm/
 
-Write a Python program called "hamm.py" that takes a single position argument which is a readable file that will contain two lines of DNA sequences and will print the Hamming distance between them.
+Write a Python program called `hamm.py` that takes a single position argument which is a readable file that will contain two lines of DNA sequences and will print the Hamming distance between them.
 
-The program should print a "usage" statement for "-h" or "--help" flags:
+The program should print a "usage" statement for `-h` or `--help` flags:
 
 ```
 $ ./hamm.py -h
@@ -38,7 +38,8 @@ A passing test suite looks like this:
 
 ```
 $ make test
-python3 -m pytest -xv --disable-pytest-warnings --flake8 --pylint --mypy hamm.py tests/hamm_test.py
+python3 -m pytest -xv --disable-pytest-warnings --flake8 --pylint 
+--mypy hamm.py tests/hamm_test.py
 ============================ test session starts ============================
 ...
 

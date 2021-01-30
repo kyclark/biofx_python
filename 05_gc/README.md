@@ -2,9 +2,9 @@
 
 http://rosalind.info/problems/gc/
 
-Write a Python program called "cgc.py" that takes a single positional argument which should be a readable text file.
+Write a Python program called `cgc.py` that takes a single positional argument which should be a readable text file.
 
-The program should print a "usage" statement for "-h" or "--help" flags:
+The program should print a "usage" statement for `-h` or `--help` flags:
 
 ```
 $ ./cgc.py -h
@@ -45,7 +45,8 @@ A fully passing test suite looks like the following:
 
 ```
 $ make test
-python3 -m pytest -xv --disable-pytest-warnings --flake8 --pylint --mypy cgc.py tests/cgc_test.py
+python3 -m pytest -xv --disable-pytest-warnings --flake8 --pylint 
+--mypy cgc.py tests/cgc_test.py
 ============================ test session starts ============================
 ...
 

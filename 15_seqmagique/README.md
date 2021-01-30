@@ -1,76 +1,72 @@
-= FASTA Summary With Seqmagique
+# Seqmagique
 
-== Install Seqmagick
-
-Error: 
+Write a program called `seqmagique.py` that will accept FASTA input files and will print the minimum/maximum/average sequence lengths and the number of sequence in each file:
 
 ```
-ImportError: Bio.Alphabet has been removed from Biopython.
+$ ./seqmagique.py tests/inputs/*.fa
+name                     min_len    max_len    avg_len    num_seqs
+tests/inputs/1.fa             50         50      50.00           1
+tests/inputs/2.fa             49         79      64.00           5
+tests/inputs/empty.fa          0          0       0.00           0
 ```
 
-Per https://fhcrc.github.io/seqmagick/, https://github.com/fhcrc/seqmagick/pull/89:
+The program should print a usage:
 
 ```
-$ pip install git+https://github.com/fhcrc/seqmagick.git@master#egg-info=seqmagick
-$ pip install pygtrie
+$ ./seqmagique.py -h
+usage: seqmagique.py [-h] [-t table] FILE [FILE ...]
+
+Argparse Python script
+
+positional arguments:
+  FILE                  Input FASTA file(s)
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -t table, --tablefmt table
+                        Tabulate table style (default: plain)
 ```
 
-
-
-Now let's finally get into parsing good, old FASTA files.  We're going to need to install the BioPython (http://biopython.org/) module to get a FASTA parser.  This should work for you:
+The output table should be formatted with the `tabulate` module and so will accept all the valid table styles, e.g.:
 
 ```
-$ python3 -m pip install biopython
+$ ./seqmagique.py -t simple tests/inputs/*.fa
+name                     min_len    max_len    avg_len    num_seqs
+---------------------  ---------  ---------  ---------  ----------
+tests/inputs/1.fa             50         50      50.00           1
+tests/inputs/2.fa             49         79      64.00           5
+tests/inputs/empty.fa          0          0       0.00           0
 ```
 
-For this exercise, I'll use a few reads from the Global Ocean Sampling Expedition (https://imicrobe.us/#/samples/578). You can download the full file with this command:
+A passing test suite looks like this:
 
 ```
-$ iget /iplant/home/shared/imicrobe/projects/26/samples/578/CAM_SMPL_GS108.fa
+$ make test
+python3 -m pytest -xv --disable-pytest-warnings --flake8 --pylint 
+--pylint-rcfile=../pylintrc --mypy seqmagique.py tests/seqmagique_test.py
+============================= test session starts ==============================
+...
+collected 12 items
+
+seqmagique.py::FLAKE8 SKIPPED                                            [  7%]
+seqmagique.py::mypy PASSED                                               [ 15%]
+tests/seqmagique_test.py::FLAKE8 SKIPPED                                 [ 23%]
+tests/seqmagique_test.py::mypy PASSED                                    [ 30%]
+tests/seqmagique_test.py::test_exists PASSED                             [ 38%]
+tests/seqmagique_test.py::test_usage PASSED                              [ 46%]
+tests/seqmagique_test.py::test_bad_file PASSED                           [ 53%]
+tests/seqmagique_test.py::test_empty_file PASSED                         [ 61%]
+tests/seqmagique_test.py::test_input1 PASSED                             [ 69%]
+tests/seqmagique_test.py::test_input2 PASSED                             [ 76%]
+tests/seqmagique_test.py::test_input_all PASSED                          [ 84%]
+tests/seqmagique_test.py::test_styles PASSED                             [ 92%]
+::mypy PASSED                                                            [100%]
+===================================== mypy =====================================
+
+Success: no issues found in 2 source files
+======================== 11 passed, 2 skipped in 6.33s =========================
 ```
 
-Since that file is 725M, I've added a sample to the repo in the `examples` directory.
+## Author
 
-```
-$ head -5 CAM_SMPL_GS108.fa
->CAM_READ_0231669761 /library_id="CAM_LIB_GOS108XLRVAL-4F-1-400" /sample_id="CAM_SMPL_GS108" raw_id=SRA_ID=SRR066139.70645 raw_id=FG67BMZ02PUFIF
-ATTTACAATAATTTAATAAAATTAACTAGAAATAAAATATTGTATGAAAATATGTTAAAT
-AATGAAAGTTTTTCAGATCGTTTAATAATATTTTTCTTCCATTTTGCTTTTTTCTAAAAT
-TGTTCAAAAACAAACTTCAAAGGAAAATCTTCAAAATTTACATGATTTTATATTTAAACA
-AATAGAGTTAAGTATAAGAGAAATTGGATATGGTGATGCTTCAATAAATAAAAAAATGAA
-```
-
-The format of a FASTA file is:
-
-* A record starts with a header row which has `>` as the first character on a line
-* The string following the `>` up until the first whitespace is the record ID
-* Anything following the ID up to the newline can be the "description," but here we see this space has been set up as key/value pairs of metadata
-* Any line after a header that does not start with `>` is the sequence. The sequence may be one long line or many shorter lines.
-
-We **could** write our own FASTA parser, and we would definitely learn much along the way, but let's not and instead use the BioPython `SeqIO` (sequence input-output) module to read and write all the different formats. FASTA is one of the most common, but other formats may include FASTQ (FASTA but with "Quality" scores for the base calls), GenBank, EMBL, and more. See https://biopython.org/wiki/SeqIO for an exhaustive list. 
-
-There is a useful program called `seqmagick` that will give you information like the following:
-
-```
-$ seqmagick info *.fa
-name              alignment    min_len   max_len   avg_len  num_seqs
-CAM_SMPL_GS108.fa FALSE             47       594    369.65       499
-CAM_SMPL_GS112.fa FALSE             50       624    383.50       500
-```
-
-You can install it like so:
-
-```
-$ python -m pip install seqmagick
-```
-
-Let's write a toy program to mimic part of the output. We'll skip the "alignment" and just do min/max/avg lengths, and the number of sequences.  You can pretty much copy and paste the example code from http://biopython.org/wiki/SeqIO. Here is the output from our script, `seqmagique.py`:
-
-```
-$ ./seqmagique.py *.fa
-name              min_len    max_len    avg_len    num_seqs
-CAM_SMPL_GS108.fa         47        594 369.45            500
-CAM_SMPL_GS112.fa         50        624 383.50            500
-```
-
-The code to produce this builds on our earlier skills of lists and dictionaries as we will parse each file and save a dictionary of stats into a list, then we will iterate over that list at the end to show the output.
+Ken Youens-Clark <kyclark@gmail.com>

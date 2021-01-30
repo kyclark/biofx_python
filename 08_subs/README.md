@@ -2,7 +2,7 @@
 
 http://rosalind.info/problems/subs/
 
-Write a Python program called "subs.py" that accepts two positional arguments, a sequence and a possible subsequence.
+Write a Python program called `subs.py` that accepts two positional arguments, a sequence and a possible subsequence.
 The output should be all the start positions where the subsequence can be found in the sequence:
 
 ```
@@ -10,7 +10,7 @@ $ ./subs.py GATATATGCATATACTT ATAT
 2 4 10
 ```
 
-The program should print a "usage" statement for "-h" or "--help" flags:
+The program should print a "usage" statement for `-h` or `--help` flags:
 
 ```
 $ ./subs.py -h
@@ -30,7 +30,8 @@ A passing test suite looks like this:
 
 ```
 $ make test
-python3 -m pytest -xv --disable-pytest-warnings --flake8 --pylint --mypy subs.py tests/subs_test.py
+python3 -m pytest -xv --disable-pytest-warnings --flake8 --pylint 
+--mypy subs.py tests/subs_test.py
 ============================ test session starts ============================
 ...
 

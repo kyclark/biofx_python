@@ -1,1 +1,7 @@
-./tests/inputs/2.fa
+\begin{tabular}{lrrrr}
+\hline
+ name                &   min_len &   max_len &   avg_len &   num_seqs \\
+\hline
+ ./tests/inputs/2.fa &        49 &        79 &     64.00 &          5 \\
+\hline
+\end{tabular}
