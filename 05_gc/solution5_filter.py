@@ -2,6 +2,7 @@
 """ Compute GC content """
 
 import argparse
+import sys
 from typing import NamedTuple, TextIO
 from Bio import SeqIO
 
@@ -28,6 +29,8 @@ def get_args() -> Args:
     parser.add_argument('file',
                         metavar='FILE',
                         type=argparse.FileType('rt'),
+                        nargs='?',
+                        default=sys.stdin,
                         help='Input sequence file')
 
     args = parser.parse_args()

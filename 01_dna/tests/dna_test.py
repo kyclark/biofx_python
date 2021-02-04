@@ -2,7 +2,7 @@
 
 import os
 import platform
-from subprocess import getstatusoutput, getoutput
+from subprocess import getstatusoutput
 
 PRG = './dna.py'
 RUN = f'python {PRG}' if platform.system() == 'Windows' else PRG
@@ -20,11 +20,21 @@ def test_exists() -> None:
 
 # --------------------------------------------------
 def test_usage() -> None:
-    """ Prints usage with no args or for help """
+    """ Prints usage """
 
-    for arg in ['', '-h', '--help']:
-        out = getoutput(f'{RUN} {arg}')
+    for arg in ['-h', '--help']:
+        rv, out = getstatusoutput(f'{RUN} {arg}')
+        assert rv == 0
         assert out.lower().startswith('usage:')
+
+
+# --------------------------------------------------
+def test_dies_no_args() -> None:
+    """ Dies with no arguments """
+
+    rv, out = getstatusoutput(RUN)
+    assert rv != 0
+    assert out.lower().startswith('usage:')
 
 
 # --------------------------------------------------

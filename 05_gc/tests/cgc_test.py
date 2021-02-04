@@ -60,6 +60,15 @@ def test_good_input2() -> None:
 
 
 # --------------------------------------------------
+def test_stdin() -> None:
+    """ Works on STDIN """
+
+    rv, out = getstatusoutput(f'cat {SAMPLE1} | {RUN}')
+    assert rv == 0
+    assert out == 'Rosalind_0808 60.919540'
+
+
+# --------------------------------------------------
 def random_string() -> str:
     """ Generate a random string """
 

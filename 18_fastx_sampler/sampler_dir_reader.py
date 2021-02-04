@@ -5,6 +5,7 @@ import argparse
 import os
 import random
 import gzip
+from pathlib import Path
 from Bio import SeqIO
 from typing import List, NamedTuple, Optional
 
@@ -27,7 +28,8 @@ def get_args() -> Args:
         description='Probabalistically subset FASTA files',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    parser.add_argument('dir',
+    parser.add_argument('-d',
+                        '--dir',
                         metavar='DIR',
                         type=str,
                         nargs='+',
@@ -80,7 +82,7 @@ def get_args() -> Args:
     files = []
     for dirname in args.dir:
         if os.path.isdir(dirname):
-            filenames.extend(list(Path(dirname).rglob('*')))
+            files.extend(list(Path(dirname).rglob('*')))
 
     if not files:
         parser.error('Found no files')
