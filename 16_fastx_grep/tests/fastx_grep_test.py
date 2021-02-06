@@ -141,7 +141,7 @@ def test_outfile_verbose() -> None:
         assert rv == 0
         assert out.splitlines() == [
             '  1: ./tests/inputs/lsu.fq',
-            f'Done, checked 4, wrote 2 to "{outfile}".'
+            f'Checked 4, wrote 2 to "{outfile}".'
         ]
         assert os.path.isfile(outfile)
         expected = open(LSU + '.upper.out').read().rstrip()

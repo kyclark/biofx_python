@@ -112,7 +112,7 @@ def main() -> None:
                 SeqIO.write(rec, args.outfile, output_format)
 
     outfile = 'STDOUT' if args.outfile == sys.stdout else args.outfile.name
-    progress(f'Done, checked {num_checked}, wrote {num_took} to "{outfile}".')
+    progress(f'Checked {num_checked:,}, wrote {num_took:,} to "{outfile}".')
 
 
 # --------------------------------------------------

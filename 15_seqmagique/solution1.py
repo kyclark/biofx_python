@@ -10,7 +10,7 @@ from Bio import SeqIO
 
 class Args(NamedTuple):
     """ Command-line arguments """
-    file: List[TextIO]
+    files: List[TextIO]
     tablefmt: str
 
 
@@ -58,7 +58,7 @@ def main() -> None:
     """ Make a jazz noise here """
 
     args = get_args()
-    data = [process(fh) for fh in args.file]
+    data = [process(fh) for fh in args.files]
     hdr = ['name', 'min_len', 'max_len', 'avg_len', 'num_seqs']
     print(tabulate(data, tablefmt=args.tablefmt, headers=hdr, floatfmt='.2f'))
 
