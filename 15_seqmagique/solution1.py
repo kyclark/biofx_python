@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Mimic seqmagick, print stats on FASTA sequences """
+""" Mimic seqmagick """
 
 import argparse
 from typing import List, NamedTuple, TextIO
@@ -28,7 +28,7 @@ def get_args() -> Args:
     """Get command-line arguments"""
 
     parser = argparse.ArgumentParser(
-        description='Argparse Python script',
+        description='Mimic seqmagick',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     parser.add_argument('file',

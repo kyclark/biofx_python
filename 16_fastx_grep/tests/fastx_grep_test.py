@@ -52,7 +52,28 @@ def test_cannot_guess() -> None:
     pattern = random_string()
     rv, out = getstatusoutput(f'{RUN} {pattern} {BAD_EXT}')
     assert rv != 0
-    assert out == f'Please specify file format for "{BAD_EXT}"'
+    assert re.search(f'Please specify file format for "{BAD_EXT}"', out)
+
+
+# --------------------------------------------------
+def test_out_file() -> None:
+    """ out_file """
+
+    out_file = random_string()
+    if os.path.isfile(out_file):
+        os.remove(out_file)
+
+    try:
+        flag = '-o' if random.choice([0, 1]) else '--outfile'
+        rv, out = getstatusoutput(f'{RUN} {flag} {out_file} LSU {LSU}')
+        assert rv == 0
+        assert os.path.isfile(out_file)
+        expected = open(LSU + '.upper.out').read().rstrip()
+        assert open(out_file).read().rstrip() == expected
+
+    finally:
+        if os.path.isfile(out_file):
+            os.remove(out_file)
 
 
 # --------------------------------------------------
@@ -62,11 +83,23 @@ def run(pattern: str,
         opts: List[str] = []) -> None:
     """ Runs on command-line input """
 
+    assert os.path.isfile(expected_file)
     expected = open(expected_file).read().rstrip()
-    cmd = f"{RUN} {' '.join(opts)} {pattern} {input_file}"
-    rv, out = getstatusoutput(cmd)
-    assert rv == 0
-    assert out == expected
+
+    out_file = random_string()
+    if os.path.isfile(out_file):
+        os.remove(out_file)
+
+    try:
+        cmd = f"{RUN} {' '.join(opts)} {pattern} -o {out_file} {input_file}"
+        rv, out = getstatusoutput(cmd)
+
+        assert os.path.isfile(out_file)
+        assert rv == 0
+        assert open(out_file).read().rstrip() == expected
+    finally:
+        if os.path.isfile(out_file):
+            os.remove(out_file)
 
 
 # --------------------------------------------------
@@ -103,53 +136,6 @@ def test_lsu_lowercase_insensitive() -> None:
     """ -i lsu """
 
     run('lsu', LSU, LSU + '.i.lower.out', ['--insensitive'])
-
-
-# --------------------------------------------------
-def test_outfile() -> None:
-    """ outfile """
-
-    outfile = random_string()
-    if os.path.isfile(outfile):
-        os.remove(outfile)
-
-    try:
-        flag = '-o' if random.choice([0, 1]) else '--outfile'
-        rv, out = getstatusoutput(f'{RUN} {flag} {outfile} LSU {LSU}')
-        assert rv == 0
-        assert out == ''
-        assert os.path.isfile(outfile)
-        expected = open(LSU + '.upper.out').read().rstrip()
-        assert open(outfile).read().rstrip() == expected
-
-    finally:
-        if os.path.isfile(outfile):
-            os.remove(outfile)
-
-
-# --------------------------------------------------
-def test_outfile_verbose() -> None:
-    """ outfile + verbose """
-
-    outfile = random_string()
-    if os.path.isfile(outfile):
-        os.remove(outfile)
-
-    try:
-        flag = '-v' if random.choice([0, 1]) else '--verbose'
-        rv, out = getstatusoutput(f'{RUN} {flag} -o {outfile} LSU {LSU}')
-        assert rv == 0
-        assert out.splitlines() == [
-            '  1: ./tests/inputs/lsu.fq',
-            f'Checked 4, wrote 2 to "{outfile}".'
-        ]
-        assert os.path.isfile(outfile)
-        expected = open(LSU + '.upper.out').read().rstrip()
-        assert open(outfile).read().rstrip() == expected
-
-    finally:
-        if os.path.isfile(outfile):
-            os.remove(outfile)
 
 
 # --------------------------------------------------

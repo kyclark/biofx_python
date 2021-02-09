@@ -6,7 +6,7 @@ import os
 import re
 import sys
 from Bio import SeqIO
-from typing import List, Match, NamedTuple, TextIO, Optional
+from typing import List, NamedTuple, TextIO
 
 
 class Args(NamedTuple):
@@ -17,7 +17,6 @@ class Args(NamedTuple):
     output_format: str
     outfile: TextIO
     insensitive: bool
-    verbose: bool
 
 
 # --------------------------------------------------
@@ -65,11 +64,6 @@ def get_args() -> Args:
                         help='Case-insensitive search',
                         action='store_true')
 
-    parser.add_argument('-v',
-                        '--verbose',
-                        help='Be chatty',
-                        action='store_true')
-
     args = parser.parse_args()
 
     return Args(pattern=args.pattern,
@@ -77,7 +71,6 @@ def get_args() -> Args:
                 input_format=args.format,
                 output_format=args.outfmt,
                 outfile=args.outfile,
-                verbose=args.verbose,
                 insensitive=args.insensitive)
 
 
@@ -86,18 +79,9 @@ def main() -> None:
     """ Make a jazz noise here """
 
     args = get_args()
+    regex = re.compile(args.pattern, re.IGNORECASE if args.insensitive else 0)
 
-    def progress(msg: str) -> None:
-        if args.verbose:
-            print(msg, file=sys.stderr)
-
-    def search(text: str) -> Optional[Match[str]]:
-        flag = re.IGNORECASE if args.insensitive else 0
-        return re.search(args.pattern, text, flag)
-
-    num_checked, num_took = 0, 0
-    for i, fh in enumerate(args.files, start=1):
-        progress(f'{i:3}: {fh.name}')
+    for fh in args.files:
         input_format = args.input_format or guess_format(fh.name)
 
         if not input_format:
@@ -106,13 +90,8 @@ def main() -> None:
         output_format = args.output_format or input_format
 
         for rec in SeqIO.parse(fh, input_format):
-            num_checked += 1
-            if any(map(search, [rec.id, rec.description])):
-                num_took += 1
+            if any(map(regex.search, [rec.id, rec.description])):
                 SeqIO.write(rec, args.outfile, output_format)
-
-    outfile = 'STDOUT' if args.outfile == sys.stdout else args.outfile.name
-    progress(f'Checked {num_checked:,}, wrote {num_took:,} to "{outfile}".')
 
 
 # --------------------------------------------------

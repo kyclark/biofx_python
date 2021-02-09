@@ -2,11 +2,8 @@
 """ Mimic seqmagick, print stats on FASTA sequences """
 
 import argparse
-import os
-import sys
 import numpy as np
 from typing import List, NamedTuple, TextIO
-from rich import box
 from rich.console import Console
 from rich.progress import track
 from rich.table import Table, Column
@@ -58,11 +55,13 @@ def main() -> None:
                   Column(header='Num. Seqs', justify='right'),
                   header_style="bold black")
 
-    for file in track([process(fh) for fh in args.file]):
+    for fh in track(args.file):
+        file = process(fh)
         table.add_row(file.filename, str(file.min_len), str(file.max_len),
                       str(file.avg_len), str(file.num_seqs))
 
-    Console().print(table)
+    console = Console()
+    console.print(table)
 
 
 # --------------------------------------------------

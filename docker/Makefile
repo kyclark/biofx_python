@@ -4,16 +4,18 @@ TAG38 = kyclark/biofx_python_3.8:0.1.0
 TAG310 = kyclark/biofx_python_3.10:0.1.0
 DOCKER = sudo docker
 
-391:
+imgs: docker38 docker390 docker391 docker310
+
+docker391:
 	$(DOCKER) build --tag=$(TAG39) -f Dockerfile391 .
 
-390:
+docker390:
 	$(DOCKER) build --tag=$(TAG39) -f Dockerfile390 .
 
-38:
+docker38:
 	$(DOCKER) build --tag=$(TAG38) -f Dockerfile38 .
 
-310:
+docker310:
 	$(DOCKER) build --tag=$(TAG310) -f Dockerfile310
 
 test: test38 test39 test310
