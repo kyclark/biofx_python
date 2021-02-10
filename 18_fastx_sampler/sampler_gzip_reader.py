@@ -24,7 +24,7 @@ def get_args() -> Args:
     """ Get command-line arguments """
 
     parser = argparse.ArgumentParser(
-        description='Probabalistically subset FASTA files',
+        description='Probabilistically subset FASTA files',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     parser.add_argument('file',
