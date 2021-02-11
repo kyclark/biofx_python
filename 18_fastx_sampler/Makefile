@@ -2,7 +2,7 @@
 SYNTH = ../17_synth/synth.py
 TRAIN = ../17_synth/tests/inputs/*.fa
 
-test:
+test: fasta
 	python3 -m pytest -xv --disable-pytest-warnings --flake8 --pylint --pylint-rcfile=../pylintrc --mypy sampler.py tests/sampler_test.py
 
 all:
