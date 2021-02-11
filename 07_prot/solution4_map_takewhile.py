@@ -56,14 +56,15 @@ def translate(rna: str) -> str:
         'UUU': 'F', 'UAA': '*', 'UAG': '*', 'UGA': '*',
     }
 
-    aa = map(lambda codon: codon_to_aa.get(codon, '-'), codons(rna, 3))
+    aa = map(lambda codon: codon_to_aa.get(codon, '-'), codons(rna))
     return ''.join(takewhile(partial(operator.ne, '*'), aa))
 
 
 # --------------------------------------------------
-def codons(seq: str, k: int) -> List[str]:
-    """ Extract k-sized codons from a sequence """
+def codons(seq: str) -> List[str]:
+    """ Extract codons from a sequence """
 
+    k = 3
     return [] if k < 1 else [seq[i:i + k] for i in range(0, len(seq), k)]
 
 
@@ -71,13 +72,11 @@ def codons(seq: str, k: int) -> List[str]:
 def test_codons() -> None:
     """ Test codons """
 
-    assert codons('', 0) == []
-    assert codons('', 1) == []
-    assert codons('A', 1) == ['A']
-    assert codons('A', 2) == ['A']
-    assert codons('ABC', 3) == ['ABC']
-    assert codons('ABCDE', 3) == ['ABC', 'DE']
-    assert codons('ABCDEF', 3) == ['ABC', 'DEF']
+    assert codons('') == []
+    assert codons('A') == ['A']
+    assert codons('ABC') == ['ABC']
+    assert codons('ABCDE') == ['ABC', 'DE']
+    assert codons('ABCDEF') == ['ABC', 'DEF']
 
 
 # --------------------------------------------------

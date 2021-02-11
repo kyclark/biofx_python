@@ -3,14 +3,10 @@
 
 import os
 import platform
-import random
-import re
-import string
 from subprocess import getstatusoutput
 
 PRG = './hamm.py'
 RUN = f'python {PRG}' if platform.system() == 'Windows' else PRG
-EMPTY = './tests/inputs/empty.txt'
 INPUT1 = './tests/inputs/1.txt'
 INPUT2 = './tests/inputs/2.txt'
 
@@ -33,20 +29,13 @@ def test_usage() -> None:
 
 
 # --------------------------------------------------
-def test_bad_file() -> None:
-    """ Dies on bad file """
-
-    bad = random_string()
-    rv, out = getstatusoutput(f'{RUN} {bad}')
-    assert rv != 0
-    assert re.search(f"No such file or directory: '{bad}'", out)
-
-
-# --------------------------------------------------
-def run(file: str, expected: str) -> None:
+def run(file: str) -> None:
     """ Run with input """
 
-    rv, out = getstatusoutput(f'{RUN} {file}')
+    assert os.path.isfile(file)
+    seq1, seq2, expected = open(file).read().splitlines()
+
+    rv, out = getstatusoutput(f'{RUN} {seq1} {seq2}')
     assert rv == 0
     assert out.rstrip() == expected
 
@@ -55,28 +44,11 @@ def run(file: str, expected: str) -> None:
 def test_input1() -> None:
     """ Test with input1 """
 
-    run(INPUT1, '7')
+    run(INPUT1)
 
 
 # --------------------------------------------------
 def test_input2() -> None:
     """ Test with input2 """
 
-    run(INPUT2, '503')
-
-
-# --------------------------------------------------
-def test_empty_file() -> None:
-    """ Empty file """
-
-    rv, out = getstatusoutput(f'{RUN} {EMPTY}')
-    assert rv != 0
-    assert re.search(f'Input file "{EMPTY}" must have two lines.', out)
-
-
-# --------------------------------------------------
-def random_string() -> str:
-    """ Generate a random string """
-
-    k = random.randint(5, 10)
-    return ''.join(random.choices(string.ascii_letters + string.digits, k=k))
+    run(INPUT2)

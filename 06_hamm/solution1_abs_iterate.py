@@ -2,13 +2,13 @@
 """ Hamming distance """
 
 import argparse
-import sys
-from typing import NamedTuple, TextIO
+from typing import NamedTuple
 
 
 class Args(NamedTuple):
     """ Command-line arguments """
-    file: TextIO
+    seq1: str
+    seq2: str
 
 
 # --------------------------------------------------
@@ -19,14 +19,13 @@ def get_args():
         description='Hamming distance',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    parser.add_argument('file',
-                        metavar='FILE',
-                        type=argparse.FileType('rt'),
-                        help='File input')
+    parser.add_argument('seq1', metavar='str', help='Sequence 1')
+
+    parser.add_argument('seq2', metavar='str', help='Sequence 2')
 
     args = parser.parse_args()
 
-    return Args(args.file)
+    return Args(args.seq1, args.seq2)
 
 
 # --------------------------------------------------
@@ -34,12 +33,7 @@ def main():
     """ Make a jazz noise here """
 
     args = get_args()
-    lines = args.file.read().splitlines()
-
-    if len(lines) != 2:
-        sys.exit(f'Input file "{args.file.name}" must have two lines.')
-
-    seq1, seq2 = lines
+    seq1, seq2 = args.seq1, args.seq2
 
     # Method 1: The base distance is the difference in their lengths
     l1, l2 = len(seq1), len(seq2)

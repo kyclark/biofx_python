@@ -49,7 +49,7 @@ def main() -> None:
 
     # Method 1: for loop
     protein = ''
-    for codon in codons(rna, 3):
+    for codon in codons(rna):
         aa = codon_to_aa.get(codon, '-')
         if aa == '*':
             break
@@ -59,9 +59,10 @@ def main() -> None:
 
 
 # --------------------------------------------------
-def codons(seq: str, k: int) -> List[str]:
-    """ Extract k-sized codons from a sequence """
+def codons(seq: str) -> List[str]:
+    """ Extract codons from a sequence """
 
+    k = 3
     return [] if k < 1 else [seq[i:i + k] for i in range(0, len(seq), k)]
 
 
@@ -69,13 +70,11 @@ def codons(seq: str, k: int) -> List[str]:
 def test_codons() -> None:
     """ Test codons """
 
-    assert codons('', 0) == []
-    assert codons('', 1) == []
-    assert codons('A', 1) == ['A']
-    assert codons('A', 2) == ['A']
-    assert codons('ABC', 3) == ['ABC']
-    assert codons('ABCDE', 3) == ['ABC', 'DE']
-    assert codons('ABCDEF', 3) == ['ABC', 'DEF']
+    assert codons('') == []
+    assert codons('A') == ['A']
+    assert codons('ABC') == ['ABC']
+    assert codons('ABCDE') == ['ABC', 'DE']
+    assert codons('ABCDEF') == ['ABC', 'DEF']
 
 
 # --------------------------------------------------
