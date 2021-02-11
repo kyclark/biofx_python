@@ -54,7 +54,7 @@ def fib(n: int, litter: int) -> int:
     """ Find Fibonnaci """
 
     nums = [0, 1]
-    for i in range(n - 1):
+    for _ in range(n - 1):
         nums.append((nums[-2] * litter) + nums[-1])
 
     return nums[-1]

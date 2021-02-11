@@ -48,7 +48,7 @@ def main() -> None:
 
     def fib(n: int) -> int:
         nums = [0, 1]
-        for i in range(n - 1):
+        for _ in range(n - 1):
             nums.append((nums[-2] * args.litter) + nums[-1])
         return nums[-1]
 
