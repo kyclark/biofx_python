@@ -1,3 +1,5 @@
+""" Unit tests for blastomatic """
+
 from blastomatic import guess_delimiter
 
 
