@@ -65,7 +65,7 @@ def test_out_file() -> None:
 
     try:
         flag = '-o' if random.choice([0, 1]) else '--outfile'
-        rv, out = getstatusoutput(f'{RUN} {flag} {out_file} LSU {LSU}')
+        rv, _ = getstatusoutput(f'{RUN} {flag} {out_file} LSU {LSU}')
         assert rv == 0
         assert os.path.isfile(out_file)
         expected = open(LSU + '.upper.out').read().rstrip()
@@ -80,7 +80,7 @@ def test_out_file() -> None:
 def run(pattern: str,
         input_file: str,
         expected_file: str,
-        opts: List[str] = []) -> None:
+        opts: List[str] = None) -> None:
     """ Runs on command-line input """
 
     assert os.path.isfile(expected_file)
@@ -92,7 +92,7 @@ def run(pattern: str,
 
     try:
         cmd = f"{RUN} {' '.join(opts)} {pattern} -o {out_file} {input_file}"
-        rv, out = getstatusoutput(cmd)
+        rv, _ = getstatusoutput(cmd)
 
         assert os.path.isfile(out_file)
         assert rv == 0
