@@ -91,7 +91,8 @@ def run(pattern: str,
         os.remove(out_file)
 
     try:
-        cmd = f"{RUN} {' '.join(opts)} {pattern} -o {out_file} {input_file}"
+        options = ' '.join(opts) if opts else ''
+        cmd = f"{RUN} {options} {pattern} -o {out_file} {input_file}"
         rv, _ = getstatusoutput(cmd)
 
         assert os.path.isfile(out_file)
