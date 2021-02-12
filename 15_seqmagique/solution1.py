@@ -71,13 +71,13 @@ def process(fh: TextIO) -> FastaInfo:
         return FastaInfo(filename=fh.name,
                          min_len=min(lengths),
                          max_len=max(lengths),
-                         avg_len=round(np.mean(lengths), 2),
+                         avg_len=round(float(np.mean(lengths)), 2),
                          num_seqs=len(lengths))
 
     return FastaInfo(filename=fh.name,
                      min_len=0,
                      max_len=0,
-                     avg_len=0,
+                     avg_len=0.,
                      num_seqs=0)
 
 
