@@ -6,7 +6,7 @@ import random
 import string
 import re
 from subprocess import getstatusoutput
-from typing import List
+from typing import Optional, List
 
 PRG = './fastx_grep.py'
 RUN = f'python {PRG}' if platform.system() == 'Windows' else PRG
@@ -80,7 +80,7 @@ def test_out_file() -> None:
 def run(pattern: str,
         input_file: str,
         expected_file: str,
-        opts: List[str] = None) -> None:
+        opts: Optional[List[str]] = None) -> None:
     """ Runs on command-line input """
 
     assert os.path.isfile(expected_file)

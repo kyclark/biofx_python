@@ -6,7 +6,7 @@ import random
 import re
 import string
 from subprocess import getstatusoutput
-from typing import List
+from typing import Optional, List
 
 PRG = './synth.py'
 RUN = f'python {PRG}' if platform.system() == 'Windows' else PRG
@@ -68,7 +68,7 @@ def test_bad_format():
 def run(input_files: List[str],
         outfile: str,
         expected_file: str,
-        opts: List[str] = []) -> None:
+        opts: Optional[List[str]] = None) -> None:
     """ Runs on command-line input """
 
     assert all(map(os.path.isfile, input_files))
@@ -79,9 +79,9 @@ def run(input_files: List[str],
 
     try:
         expected = open(expected_file).read().rstrip()
-        cmd = f"{RUN} {' '.join(opts)} {' '.join(input_files)}"
-        print(cmd)
-        rv, out = getstatusoutput(cmd)
+        options = ' '.join(opts) if opts else ''
+        cmd = f"{RUN} {options} {' '.join(input_files)}"
+        rv, _ = getstatusoutput(cmd)
 
         assert rv == 0
         assert os.path.isfile(outfile)
