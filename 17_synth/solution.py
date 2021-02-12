@@ -11,6 +11,7 @@ from typing import NamedTuple, List, TextIO, Dict, Optional
 
 
 class Args(NamedTuple):
+    """ Command-line arguments """
     files: List[TextIO]
     outfile: TextIO
     file_format: str
