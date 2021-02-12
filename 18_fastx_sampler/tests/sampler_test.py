@@ -100,7 +100,7 @@ def test_defaults_one_file():
         files = os.listdir(out_dir)
         assert len(files) == 1
 
-        out_file = os.path.join(out_dir, 'N1K.fa')
+        out_file = os.path.join(out_dir, os.path.basename(N1K))
         assert os.path.isfile(out_file)
 
         # correct number of seqs
@@ -131,7 +131,7 @@ def test_fastq_input():
         files = os.listdir(out_dir)
         assert len(files) == 1
 
-        out_file = os.path.join(out_dir, 'lsu.fq')
+        out_file = os.path.join(out_dir, os.path.basename(FASTQ))
         assert os.path.isfile(out_file)
 
         # correct number of seqs in FASTA format
@@ -201,7 +201,7 @@ def test_max_reads():
         files = os.listdir(out_dir)
         assert len(files) == 1
 
-        out_file = os.path.join(out_dir, 'N1K.fa')
+        out_file = os.path.join(out_dir, os.path.basename(N1K))
         assert os.path.isfile(out_file)
 
         # correct number of seqs
