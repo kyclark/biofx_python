@@ -83,10 +83,28 @@ def fetch_fasta(fh: TextIO, fasta_dir: str) -> List[str]:
 
 
 # --------------------------------------------------
+def is_match(seq: str) -> bool:
+    """ Find the N-glycosylation """
+
+    return len(seq) == 4 and (seq[0] == 'N' and seq[1] != 'P'
+                              and seq[2] in 'ST' and seq[3] != 'P')
+
+
+# --------------------------------------------------
+def test_is_match() -> None:
+    """ Test is_match """
+
+    assert not is_match('')
+    assert is_match('NASA')
+    assert is_match('NATA')
+    assert not is_match('NATAN')
+    assert not is_match('NPTA')
+    assert not is_match('NASP')
+
+
+# --------------------------------------------------
 def find_motif(text: str) -> List[int]:
     """ Find a pattern in some text """
-    def is_match(s: str) -> bool:
-        return s[0] == 'N' and s[1] != 'P' and s[2] in 'ST' and s[3] != 'P'
 
     kmers = list(enumerate(find_kmers(text, 4)))
     return [i for i, kmer in kmers if is_match(kmer)]
