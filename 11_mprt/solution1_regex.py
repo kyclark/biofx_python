@@ -51,8 +51,9 @@ def main():
 
     for file in files:
         prot_id, _ = os.path.splitext(os.path.basename(file))
-        if recs := list(SeqIO.parse(file, 'fasta')):
-            if matches := list(regex.finditer(str(recs[0].seq))):
+        recs = SeqIO.parse(file, 'fasta')
+        if rec := next(recs):
+            if matches := list(regex.finditer(str(rec.seq))):
                 print(prot_id)
                 print(*[match.start() + 1 for match in matches])
 

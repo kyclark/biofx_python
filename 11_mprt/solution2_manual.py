@@ -49,8 +49,9 @@ def main() -> None:
 
     for file in files:
         prot_id, _ = os.path.splitext(os.path.basename(file))
-        if recs := list(SeqIO.parse(file, 'fasta')):
-            if matches := find_motif(str(recs[0].seq)):
+        recs = SeqIO.parse(file, 'fasta')
+        if rec := next(recs):
+            if matches := find_motif(str(rec.seq)):
                 pos = map(lambda p: p + 1, matches)
                 print('\n'.join([prot_id, ' '.join(map(str, pos))]))
 
