@@ -66,23 +66,55 @@ def main() -> None:
         len([c for c, res in codon_to_aa.items() if res == aa])
         for aa in args.protein + '*'
     ]
-    print(product(possible) % args.modulo)
+    print(modprod(possible, args.modulo))
 
 
 # --------------------------------------------------
-def product(xs: List[int]) -> int:
-    """ Return the product """
+def mulmod(a: int, b: int, mod: int) -> int:
+    """ Multiplication with modulo """
 
-    return reduce(lambda x, y: x * y, xs, 1)
+    # Cf. https://www.geeksforgeeks.org/
+    # how-to-avoid-overflow-in-modular-multiplication
+
+    def maybemod(x):
+        ret = (x % mod) if mod > 1 and x > mod else x
+        return ret or x  # avoid return 0
+
+    res = 0
+    a = maybemod(a)
+    while b > 0:
+        if b % 2 == 1:
+            res = maybemod(res + a)
+
+        a = maybemod(a * 2)
+        b //= 2
+
+    return res
 
 
 # --------------------------------------------------
-def test_product() -> None:
-    """ Test product """
+def test_mulmod() -> None:
+    """ Text mulmod """
 
-    assert product([]) == 1
-    assert product([4]) == 4
-    assert product([1, 2, 3, 4]) == 24
+    assert mulmod(2, 4, 3) == 2
+    assert mulmod(9223372036854775807, 9223372036854775807, 1000000) == 501249
+
+
+# --------------------------------------------------
+def modprod(xs: List[int], modulo: int) -> int:
+    """ Return the product modulo a value """
+
+    return reduce(lambda x, y: mulmod(x, y, modulo), xs, 1)
+
+
+# --------------------------------------------------
+def test_modprod() -> None:
+    """ Test modprod """
+
+    assert modprod([], 3) == 1
+    assert modprod([1, 4, 3], 1000000) == 12
+    n = 9223372036854775807
+    assert modprod([n, n], 1000000) == 501249
 
 
 # --------------------------------------------------

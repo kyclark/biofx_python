@@ -6,8 +6,10 @@ from subprocess import getstatusoutput
 
 PRG = './mrna.py'
 RUN = f'python {PRG}' if platform.system() == 'Windows' else PRG
-INPUT1 = './tests/inputs/1.txt'
-INPUT2 = './tests/inputs/2.txt'
+TEST1 = ('MA', '12')
+TEST2 = ('./tests/inputs/1.txt', '448832')
+TEST3 = ('./tests/inputs/2.txt', '415872')
+TEST4 = ('./tests/inputs/3.txt', '283264')
 
 
 # --------------------------------------------------
@@ -27,27 +29,37 @@ def test_usage() -> None:
 
 
 # --------------------------------------------------
-def test_ok1() -> None:
-    """ OK """
+def run(protein: str, expected: str) -> None:
+    """ Run test """
 
-    rv, out = getstatusoutput(f'{RUN} MA')
+    rv, out = getstatusoutput(f'{RUN} {protein}')
     assert rv == 0
-    assert out.rstrip() == '12'
+    assert out.rstrip() == expected
 
 
 # --------------------------------------------------
-def test_ok2() -> None:
+def test_01() -> None:
     """ OK """
 
-    rv, out = getstatusoutput(f'{RUN} {INPUT1}')
-    assert rv == 0
-    assert out.rstrip() == '448832'
+    run(*TEST1)
 
 
 # --------------------------------------------------
-def test_ok3() -> None:
+def test_02() -> None:
     """ OK """
 
-    rv, out = getstatusoutput(f'{RUN} {INPUT2}')
-    assert rv == 0
-    assert out.rstrip() == '415872'
+    run(*TEST2)
+
+
+# --------------------------------------------------
+def test_03() -> None:
+    """ OK """
+
+    run(*TEST3)
+
+
+# --------------------------------------------------
+def test_04() -> None:
+    """ OK """
+
+    run(*TEST4)

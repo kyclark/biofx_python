@@ -2,9 +2,9 @@
 """ Infer mRNA from Protein """
 
 import argparse
+import math
 import os
-from functools import reduce
-from typing import List, NamedTuple
+from typing import NamedTuple
 
 
 class Args(NamedTuple):
@@ -51,23 +51,8 @@ def main():
         'K': 2, 'L': 6, 'M': 1, 'N': 2, 'P': 4, 'Q': 2, 'R': 6, 'S': 6,
         'T': 4, 'V': 4, 'W': 1, 'Y': 2, '*': 3,
     }
-    print(product(map(codons.get, args.protein + '*')) % args.modulo)
-
-
-# --------------------------------------------------
-def product(xs: List[int]) -> int:
-    """ Return the product """
-
-    return reduce(lambda x, y: x * y, xs, 1)
-
-
-# --------------------------------------------------
-def test_product() -> None:
-    """ Test product """
-
-    assert product([]) == 1
-    assert product([4]) == 4
-    assert product([1, 2, 3, 4]) == 24
+    nums = [codons.get(aa, 1) for aa in args.protein + '*']
+    print(math.prod(nums) % args.modulo)
 
 
 # --------------------------------------------------

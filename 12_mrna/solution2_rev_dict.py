@@ -3,8 +3,8 @@
 
 import argparse
 import os
-from functools import reduce
-from typing import List, NamedTuple
+import math
+from typing import NamedTuple
 
 
 class Args(NamedTuple):
@@ -70,24 +70,8 @@ def main():
         '*': ['UAA', 'UAG', 'UGA'],
     }
 
-    possible = [len(aa_to_codon[aa]) for aa in args.protein + '*']
-    print(product(possible) % args.modulo)
-
-
-# --------------------------------------------------
-def product(xs: List[int]) -> int:
-    """ Return the product """
-
-    return reduce(lambda x, y: x * y, xs, 1)
-
-
-# --------------------------------------------------
-def test_product() -> None:
-    """ Test product """
-
-    assert product([]) == 1
-    assert product([4]) == 4
-    assert product([1, 2, 3, 4]) == 24
+    possible = [len(aa_to_codon.get(aa, 1)) for aa in args.protein + '*']
+    print(math.prod(possible) % args.modulo)
 
 
 # --------------------------------------------------
