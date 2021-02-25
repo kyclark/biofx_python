@@ -37,10 +37,10 @@ def main() -> None:
     """ Make a jazz noise here """
 
     args = get_args()
-    if seqs := [str(rec.seq) for rec in SeqIO.parse(args.file, 'fasta')]:
-        seq = seqs[0]
+    recs = SeqIO.parse(args.file, 'fasta')
+    if rec := next(recs):
         for k in range(4, 13):
-            for pos in revp(seq, k):
+            for pos in revp(str(rec.seq), k):
                 print(pos, k)
 
         # for k, pos in [(k, p) for k in range(4, 13) for p in revp(seq, k)]:

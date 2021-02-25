@@ -37,11 +37,10 @@ def main() -> None:
     """ Make a jazz noise here """
 
     args = get_args()
-    if seqs := [str(rec.seq) for rec in SeqIO.parse(args.file, 'fasta')]:
-        seq = seqs[0]
-
+    recs = SeqIO.parse(args.file, 'fasta')
+    if rec := next(recs):
         for k in range(4, 13):
-            kmers = find_kmers(seq, k)
+            kmers = find_kmers(str(rec.seq), k)
             revc = list(map(Seq.reverse_complement, kmers))
 
             for pos, pair in enumerate(zip(kmers, revc)):

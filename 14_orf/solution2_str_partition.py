@@ -2,7 +2,6 @@
 """ Open Reading Frames """
 
 import argparse
-import sys
 from typing import List, NamedTuple, TextIO
 from Bio import Seq, SeqIO
 
@@ -35,8 +34,8 @@ def main() -> None:
     """ Make a jazz noise here """
 
     args = get_args()
-    if seqs := [str(rec.seq) for rec in SeqIO.parse(args.file, 'fasta')]:
-        rna = seqs[0].replace('T', 'U')
+    for rec in SeqIO.parse(args.file, 'fasta'):
+        rna = str(rec.seq).replace('T', 'U')
         orfs = set()
 
         for seq in [rna, Seq.reverse_complement(rna)]:
@@ -46,8 +45,6 @@ def main() -> None:
                         orfs.add(orf)
 
         print('\n'.join(sorted(orfs)))
-    else:
-        sys.exit(f'"{args.file.name}" contains no sequences.')
 
 
 # --------------------------------------------------
