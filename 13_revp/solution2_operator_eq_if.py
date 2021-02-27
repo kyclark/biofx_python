@@ -3,7 +3,6 @@
 
 import argparse
 import operator
-import sys
 from typing import NamedTuple, TextIO
 from Bio import SeqIO, Seq
 from common import find_kmers
@@ -37,8 +36,7 @@ def main() -> None:
     """ Make a jazz noise here """
 
     args = get_args()
-    recs = SeqIO.parse(args.file, 'fasta')
-    if rec := next(recs):
+    for rec in SeqIO.parse(args.file, 'fasta'):
         for k in range(4, 13):
             kmers = find_kmers(str(rec.seq), k)
             revc = list(map(Seq.reverse_complement, kmers))
@@ -46,8 +44,6 @@ def main() -> None:
             for pos, pair in enumerate(zip(kmers, revc)):
                 if operator.eq(*pair):
                     print(pos + 1, k)
-    else:
-        sys.exit(f'"{args.file.name}" contains no sequences.')
 
 
 # --------------------------------------------------

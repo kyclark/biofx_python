@@ -87,9 +87,7 @@ def get_args() -> Args:
     if not files:
         parser.error('Found no files')
 
-    args.file = files
-
-    return Args(files=args.file,
+    return Args(files=files,
                 file_format=args.format,
                 percent=args.percent,
                 max_reads=args.max,

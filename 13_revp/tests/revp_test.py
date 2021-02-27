@@ -11,6 +11,7 @@ PRG = './revp.py'
 RUN = f'python {PRG}' if platform.system() == 'Windows' else PRG
 INPUT1 = './tests/inputs/1.fa'
 INPUT2 = './tests/inputs/2.fa'
+EMPTY = './tests/inputs/empty.fa'
 
 
 # --------------------------------------------------
@@ -66,6 +67,13 @@ def test_ok2() -> None:
     """ Runs ok """
 
     run(INPUT2)
+
+
+# --------------------------------------------------
+def test_mepty() -> None:
+    """ Runs ok """
+
+    run(EMPTY)
 
 
 # --------------------------------------------------

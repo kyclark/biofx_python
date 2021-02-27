@@ -2,7 +2,6 @@
 """ Locating Restriction Sites """
 
 import argparse
-import sys
 import operator
 from typing import List, NamedTuple, TextIO
 from Bio import SeqIO, Seq
@@ -37,16 +36,13 @@ def main() -> None:
     """ Make a jazz noise here """
 
     args = get_args()
-    recs = SeqIO.parse(args.file, 'fasta')
-    if rec := next(recs):
+    for rec in SeqIO.parse(args.file, 'fasta'):
         for k in range(4, 13):
             for pos in revp(str(rec.seq), k):
                 print(pos, k)
 
         # for k, pos in [(k, p) for k in range(4, 13) for p in revp(seq, k)]:
         #     print(pos, k)
-    else:
-        sys.exit(f'"{args.file.name}" contains no sequences.')
 
 
 # --------------------------------------------------

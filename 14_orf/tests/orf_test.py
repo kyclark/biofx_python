@@ -12,6 +12,7 @@ RUN = f'python {PRG}' if platform.system() == 'Windows' else PRG
 INPUT1 = './tests/inputs/1.fa'
 INPUT2 = './tests/inputs/2.fa'
 INPUT3 = './tests/inputs/3.fa'
+EMPTY = './tests/inputs/empty.fa'
 
 
 # --------------------------------------------------
@@ -39,6 +40,15 @@ def test_bad_file() -> None:
     assert rv != 0
     assert out.lower().startswith('usage:')
     assert re.search(f"No such file or directory: '{bad}'", out)
+
+
+# --------------------------------------------------
+def test_empty_file() -> None:
+    """ Prints nothing on empty file """
+
+    rv, out = getstatusoutput(f'{RUN} {EMPTY}')
+    assert rv == 0
+    assert out.strip() == ''
 
 
 # --------------------------------------------------
