@@ -65,7 +65,7 @@ def codons(seq: str) -> List[str]:
     """ Extract codons from a sequence """
 
     k = 3
-    return [] if k < 1 else [seq[i:i + k] for i in range(0, len(seq), k)]
+    return [seq[i:i + k] for i in range(0, len(seq), k)]
 
 
 # --------------------------------------------------

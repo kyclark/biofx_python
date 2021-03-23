@@ -77,7 +77,7 @@ def mulmod(a: int, b: int, mod: int) -> int:
     # how-to-avoid-overflow-in-modular-multiplication
 
     def maybemod(x):
-        ret = (x % mod) if mod > 1 and x > mod else x
+        ret = (x % mod) if (mod > 1 and x > mod) else x
         return ret or x  # avoid return 0
 
     res = 0

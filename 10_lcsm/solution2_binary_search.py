@@ -103,7 +103,7 @@ def common_kmers(seqs: List[str], k: int) -> List[str]:
     kmers = [set(find_kmers(seq, k)) for seq in seqs]
     counts = Counter(chain.from_iterable(kmers))
     n = len(seqs)
-    return [seq for seq, freq in counts.items() if freq == n]
+    return [kmer for kmer, freq in counts.items() if freq == n]
 
 
 # --------------------------------------------------
