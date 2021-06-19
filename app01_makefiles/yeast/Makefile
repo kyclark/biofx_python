@@ -1,6 +1,7 @@
 .PHONY: all fasta features test clean
 
-FEATURES = http://downloads.yeastgenome.org/curation/chromosomal_feature/SGD_features.tab
+FEATURES = http://downloads.yeastgenome.org/curation/$\
+	chromosomal_feature/SGD_features.tab
 
 all: fasta genome chr-count chr-size features gene-count verified-genes uncharacterized-genes gene-types terminated-genes test
 

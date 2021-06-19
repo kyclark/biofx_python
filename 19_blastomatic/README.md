@@ -1,4 +1,17 @@
-# BLASTOMATIC
+# Blastomatic: Parsing Delimited Text Files
+
+Delimited text files are a standard way to encode columnar data. You are likely familiar with spreadsheets like Microsoft Excel or Google Sheets where each worksheet may hold a data set with columns across the top and records running down. You can export this data to a text file where the columns of data are delimited, or separated by a character. 
+Quite often the delimiter is a comma, and the file will have an extension
+of .csv. 
+This format is called CSV for comma-separated values. 
+When the delimiter is a Tab, the extension may be .tab, .txt, or .tsv for tab-separated values. 
+The first line of the file usually will contain the names of the columns. Notably, this is not the case with the tabular output from BLAST (Basic Local Alignment Search Tool), one of the most popular tools in bioinformatics used to compare sequences. 
+In this chapter, I will show you how to parse this output and merge the BLAST results with metadata from another delimited text file using the csv and pandas modules.
+
+In this exercise, you will:
+
+* Learn how to use csvkit and csvchk to view delimited text files
+* Learn how to use the csv and pandas modules to parse delimited text files
 
 Write a program called `blastomatic.py` that will select BLAST hits above a given percent ID and will merge them with annotations and print the query sequence ID, the percent ID, the depth, and the lat/lon:
 

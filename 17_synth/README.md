@@ -1,4 +1,17 @@
-# DNA Synthesizer
+# DNA Synthesizer: Creating Synthetic Data with Markov Chains
+
+A Markov chain is a model for representing a sequence of possibilities found in a given data set. 
+It is a machine learning (ML) algorithm because it discovers or learns
+patterns from input data. 
+In this exercise, I’ll show how to use Markov chains trained on a set of DNA sequences to generate novel DNA sequences.
+In this exercise, you will:
+
+* Read some number of input sequence files to find all the unique k-mers for a
+given k.
+* Create a Markov chain using these k-mers to produce some number of novel
+sequences of lengths bounded by a minimum and maximum.
+* Learn about generators.
+* Use a random seed to replicate random selections.
 
 Write a program `synth.py` that uses Markov chains trained on input DNA files to create novel DNA sequences:
 

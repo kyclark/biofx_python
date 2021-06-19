@@ -66,7 +66,8 @@ def main():
 
     pool = map(aa_to_codon.get, args.protein + '*')
     for i, codons in enumerate(product(*pool), start=1):
-        print(f"{i:5}: {''.join(codons)}")
+        # print(f"{i:5}: {''.join(codons)}")
+        print(f"{''.join(codons)}")
 
 
 # --------------------------------------------------
