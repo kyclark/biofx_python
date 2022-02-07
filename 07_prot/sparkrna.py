@@ -6,13 +6,17 @@ Purpose: Translate RNA to proteins
 """
 
 import argparse
-from typing import NamedTuple, TextIO
+from typing import NamedTuple
 from pyspark import SparkContext
-import operator
-from itertools import takewhile
-from typing import NamedTuple, List
-from functools import partial
+from typing import NamedTuple
 
+__all__ = [
+    "Args",
+    "get_args",
+    "codon_dict",
+    "sublists",
+    "translate"
+]
 
 class Args(NamedTuple):
     """ Command-line arguments """
@@ -31,21 +35,10 @@ def get_args() -> Args:
 
     args = parser.parse_args()
 
-    return Args(args.rna)
+    return Args(args.rna).rna.upper()
 
-
-# --------------------------------------------------
-def main() -> None:
-    """ Make a jazz noise here """
-    
-    #get args
-    args = get_args()
-    rna = args.rna.upper()
-
-    #initialize spark instance
-    sc = SparkContext.getOrCreate()
-
-    codon_to_aa = {
+def codon_dict():
+    return ({
         'AAA': 'K', 'AAC': 'N', 'AAG': 'K', 'AAU': 'N', 'ACA': 'T',
         'ACC': 'T', 'ACG': 'T', 'ACU': 'T', 'AGA': 'R', 'AGC': 'S',
         'AGG': 'R', 'AGU': 'S', 'AUA': 'I', 'AUC': 'I', 'AUG': 'M',
@@ -59,28 +52,26 @@ def main() -> None:
         'UCA': 'S', 'UCC': 'S', 'UCG': 'S', 'UCU': 'S', 'UGC': 'C',
         'UGG': 'W', 'UGU': 'C', 'UUA': 'L', 'UUC': 'F', 'UUG': 'L',
         'UUU': 'F', 'UAA': '*', 'UAG': '*', 'UGA': '*',
-    }
+    })
 
-    k_mers = [rna[i:i + 3] for i in range(0, len(rna), 3)]
-    rna_par = sc.parallelize(k_mers)
-    trans = ''.join(rna_par.map(lambda codon: codon_to_aa.get(codon, '-')).collect())
-    print(trans.partition('*')[0])
+def sublists(l,k):
+    return ([l[i:i + 3] for i in range(0, len(l), k)])
 
 
-    '''
+def translate(l,dict):
+    #initialize spark instance
+    sc = SparkContext.getOrCreate()
+    rna_par = sc.parallelize(l)
+    trans = ''.join(rna_par.map(lambda codon: dict.get(codon, '-')).collect())
+    return (trans.partition('*')[0])
 
-    while (l>=0) and (r < len(rna)):
-            set = rna[l:r+3]
-            if len(set) == 3:
-                i = codon_to_aa[set]
-                if i == '*':
-                    break
-                protein+= i
-                l+=3
-                r+=3
-    '''
+
+
+
+    
+
+
+   
         
     
-# --------------------------------------------------
-if __name__ == '__main__':
-    main()
+

@@ -53,12 +53,40 @@ Success: no issues found in 2 source files
 ========================= 8 passed, 2 skipped in 1.72s =========================
 ```
 
+Approach using while loop:
+```
+while (l>=0) and (r < len(rna)):
+          set = rna[l:r+3]
+          if len(set) == 3:
+              i = codon_to_aa[set]
+              if i == '*':
+                  break
+              protein+= i
+              l+=3
+              r+=3
+```
+
 PySpark approach:
 ```
 - create a list of k-mers (3) codons using list comprehension
 - parallelize the input list
 - map the translations to each element from the dict
 - join the result and partition the set, grabbing the partial string before stop codon
+
+
+#get args
+rna = get_args()
+
+# get translation dict
+codon_to_aa = codon_dict()
+
+#create sublists for parallelization
+k_mers = sublists(rna,3)
+
+#translate
+protein = translate(k_mers,codon_to_aa)
+
+print(protein)
 ```
 
 ## Author
