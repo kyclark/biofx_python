@@ -1,4 +1,4 @@
-# Translating RNA into Protein
+# Translating RNA into Protein using PySpark
 
 http://rosalind.info/problems/prot/
 
