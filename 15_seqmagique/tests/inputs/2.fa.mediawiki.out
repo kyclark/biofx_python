@@ -1,7 +1,0 @@
-{| class="wikitable" style="text-align: left;"
-|+ <!-- caption -->
-|-
-! name                !! align="right"|   min_len !! align="right"|   max_len !! align="right"|   avg_len !! align="right"|   num_seqs
-|-
-| ./tests/inputs/2.fa || align="right"|        49 || align="right"|        79 || align="right"|     64.00 || align="right"|          5
-|}
