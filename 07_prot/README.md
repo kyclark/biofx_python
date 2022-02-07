@@ -53,6 +53,14 @@ Success: no issues found in 2 source files
 ========================= 8 passed, 2 skipped in 1.72s =========================
 ```
 
+PySpark approach:
+```
+- create a list of k-mers (3) codons using list comprehension
+- parallelize the input list
+- map the translations to each element from the dict
+- join the result and partition the set, grabbing the partial string before stop codon
+```
+
 ## Author
 
 Ken Youens-Clark <kyclark@gmail.com>
