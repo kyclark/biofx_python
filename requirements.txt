@@ -6,7 +6,7 @@ flake8
 graphviz
 iteration_utilities
 mypy
-new-py
+new-py>=0.1.4
 pandas
 pylint
 pytest
